@@ -210,6 +210,7 @@ public:
         vSeeds.push_back(CDNSSeedData("80.211.1.199", "80.211.1.199"));
         vSeeds.push_back(CDNSSeedData("89.46.65.250", "89.46.65.250"));
         vSeeds.push_back(CDNSSeedData("80.211.7.49", "80.211.7.49"));
+        vSeeds.push_back(CDNSSeedData("dnsseed.cadexcoin.tech", "dnsseed.cadexcoin.tech"));
 
 
         // Cadex addresses start with 'X'
