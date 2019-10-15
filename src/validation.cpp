@@ -1198,22 +1198,21 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 
     // proof of work
     CAmount nSubsidyBase
-   if (nPrevHeight < 1) {
+      if (nPrevHeight < 1) {
         nSubsidyBase = 1;
     } else if (nPrevHeight < 2) {
         nSubsidyBase = 175000000;
     } else if (nPrevHeight < 3) {
-	nSubsidyBase = 3000000;
+        nSubsidyBase = 3000000;
     } else {
-	nSubsidyBase = 25;
+        nSubsidyBase = 25;
     }
-     
+        CAmount nSubsidy = nSubsidyBase * COIN;
+    if (nSubsidy == 2500000000) {
+        nSubsidy = nSubsidy + 16000000;
+    }
 
     double dSubsidyMultiplier = GetSubsidyMultiplier(nPrevHeight, consensusParams.nSubsidyHalvingInterval);
-         CAmount nSubsidy = nSubsidyBase * COIN;
-    if (nSubsidy == 2500000000) {
-	nSubsidy = nSubsidy + 16000000;
-    }
     CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidy / 5 : 0;
     return fSuperblockPartOnly ? nSuperblockPart : nSubsidy - nSuperblockPart;
 }
