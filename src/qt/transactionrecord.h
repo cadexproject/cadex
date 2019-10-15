@@ -20,8 +20,9 @@ class TransactionStatus
 {
 public:
     TransactionStatus():
-        countsForBalance(false), sortKey(""),
-        matures_in(0), status(Offline), depth(0), open_for(0), cur_num_blocks(-1)
+        countsForBalance(false), lockedByInstaCADEX(false), sortKey(""),
+        matures_in(0), status(Offline), depth(0), open_for(0), cur_num_blocks(-1),
+        cachedNumISLocks(-1), cachedChainLockHeight(-1)
     { }
 
     enum Status {
@@ -42,6 +43,8 @@ public:
 
     /// Transaction counts towards available balance
     bool countsForBalance;
+    /// Transaction was locked via InstaCADEX
+    bool lockedByInstaCADEX;
     /// Sorting key based on status
     std::string sortKey;
 
@@ -62,8 +65,10 @@ public:
     /** Current number of blocks (to know whether cached status is still valid) */
     int cur_num_blocks;
 
-    //** Know when to update transaction for ix locks **/
-    int cur_num_ix_locks;
+    //** Know when to update transaction for IS-locks **/
+    int cachedNumISLocks;
+    //** Know when to update transaction for chainlocks **/
+    int cachedChainLockHeight;
 };
 
 /** UI model for a transaction. A core transaction can be represented by multiple UI transactions if it has
@@ -76,6 +81,7 @@ public:
     {
         Other,
         Generated,
+        StakeMint,
         SendToAddress,
         SendToOther,
         RecvWithAddress,
@@ -86,7 +92,8 @@ public:
         PrivateSendCollateralPayment,
         PrivateSendMakeCollaterals,
         PrivateSendCreateDenominations,
-        PrivateSend
+        PrivateSend,
+        MNReward
     };
 
     /** Number of confirmation recommended for accepting a transaction */
@@ -143,11 +150,11 @@ public:
 
     /** Update status from core wallet tx.
      */
-    void updateStatus(const CWalletTx &wtx);
+    void updateStatus(const CWalletTx &wtx, int numISLocks, int chainLockHeight);
 
     /** Return whether a status update is needed.
      */
-    bool statusUpdateNeeded();
+    bool statusUpdateNeeded(int numISLocks, int chainLockHeight);
 };
 
 #endif // BITCOIN_QT_TRANSACTIONRECORD_H

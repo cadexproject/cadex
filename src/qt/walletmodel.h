@@ -54,7 +54,7 @@ public:
 #ifdef ENABLE_WALLET
     AvailableCoinsType inputType;
 #endif // ENABLE_WALLET
-    bool fUseInstantSend;
+    bool fUseInstaCADEX;
     CAmount amount;
     // If from a payment request, this is used for storing the memo
     QString message;
@@ -121,7 +121,8 @@ public:
         TransactionCreationFailed, // Error returned when wallet is still locked
         TransactionCommitFailed,
         AbsurdFee,
-        PaymentRequestExpired
+        PaymentRequestExpired,
+        StakingOnlyUnlocked
     };
 
     enum EncryptionStatus
@@ -129,6 +130,7 @@ public:
         Unencrypted,            // !wallet->IsCrypted()
         Locked,                 // wallet->IsCrypted() && wallet->IsLocked(true)
         UnlockedForMixingOnly,  // wallet->IsCrypted() && !wallet->IsLocked(true) && wallet->IsLocked()
+        UnlockedForStakingOnly, // wallet->IsCrypted() && !wallet->IsLocked() && wallet->fWalletUnlockStakingOnly
         Unlocked,               // wallet->IsCrypted() && !wallet->IsLocked()
     };
 
@@ -174,6 +176,9 @@ public:
     bool setWalletLocked(bool locked, const SecureString &passPhrase=SecureString(), bool fMixing=false);
     bool changePassphrase(const SecureString &oldPass, const SecureString &newPass);
 
+    // Is wallet unlocked for staking only?
+    bool isStakingOnlyUnlocked();
+
     // Wallet backup
     bool backupWallet(const QString &filename);
 
@@ -202,6 +207,7 @@ public:
 
     bool getPubKey(const CKeyID &address, CPubKey& vchPubKeyOut) const;
     bool havePrivKey(const CKeyID &address) const;
+    bool havePrivKey(const CScript& script) const;
     bool getPrivKey(const CKeyID &address, CKey& vchPrivKeyOut) const;
     void getOutputs(const std::vector<COutPoint>& vOutpoints, std::vector<COutput>& vOutputs);
     bool isSpent(const COutPoint& outpoint) const;
@@ -211,6 +217,8 @@ public:
     void lockCoin(COutPoint& output);
     void unlockCoin(COutPoint& output);
     void listLockedCoins(std::vector<COutPoint>& vOutpts);
+
+    void listProTxCoins(std::vector<COutPoint>& vOutpts);
 
     void loadReceiveRequests(std::vector<std::string>& vReceiveRequests);
     bool saveReceiveRequest(const std::string &sAddress, const int64_t nId, const std::string &sRequest);
@@ -223,6 +231,9 @@ public:
     bool hdEnabled() const;
 
     int getDefaultConfirmTarget() const;
+    int getNumISLocks() const;
+
+    bool IsOldInstaCADEXEnabled() const;
 
 private:
     CWallet *wallet;
@@ -247,7 +258,7 @@ private:
     CAmount cachedWatchImmatureBalance;
     EncryptionStatus cachedEncryptionStatus;
     int cachedNumBlocks;
-    int cachedTxLocks;
+    int cachedNumISLocks;
     int cachedPrivateSendRounds;
 
     QTimer *pollTimer;
@@ -286,6 +297,10 @@ public Q_SLOTS:
     void updateStatus();
     /* New transaction, or transaction changed status */
     void updateTransaction();
+    /* IS-Lock received */
+    void updateNumISLocks();
+    /* ChainLock received */
+    void updateChainLockHeight(int chainLockHeight);
     /* New, updated or removed address book entry */
     void updateAddressBook(const QString &address, const QString &label, bool isMine, const QString &purpose, int status);
     /* Watch-only added */

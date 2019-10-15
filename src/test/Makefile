@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C .. cadex_test
+	$(MAKE) -C .. dash_test
 clean:
-	$(MAKE) -C .. cadex_test_clean
+	$(MAKE) -C .. dash_test_clean
 check:
-	$(MAKE) -C .. cadex_test_check
+	$(MAKE) -C .. dash_test_check

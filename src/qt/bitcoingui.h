@@ -17,7 +17,12 @@
 #include <QMenu>
 #include <QPoint>
 #include <QPushButton>
+#include <QToolButton>
 #include <QSystemTrayIcon>
+
+#ifdef Q_OS_MAC
+#include <qt/macos_appnap.h>
+#endif
 
 class ClientModel;
 class NetworkStyle;
@@ -31,7 +36,6 @@ class WalletFrame;
 class WalletModel;
 class HelpMessageDialog;
 class ModalOverlay;
-class MasternodeList;
 
 class CWallet;
 
@@ -85,6 +89,7 @@ private:
     WalletFrame *walletFrame;
 
     UnitDisplayStatusBarControl *unitDisplayControl;
+    QLabel* labelStakingIcon = nullptr;
     QLabel *labelWalletEncryptionIcon;
     QLabel *labelWalletHDStatusIcon;
     QLabel *labelConnectionsIcon;
@@ -121,7 +126,6 @@ private:
     QAction *openPeersAction;
     QAction *openRepairAction;
     QAction *openConfEditorAction;
-    QAction *openMNConfEditorAction;
     QAction *showBackupsAction;
     QAction *openAction;
     QAction *showHelpMessageAction;
@@ -134,6 +138,16 @@ private:
     RPCConsole *rpcConsole;
     HelpMessageDialog *helpMessageDialog;
     ModalOverlay *modalOverlay;
+
+    QFrame *headerFrame;
+    QPushButton *btnImg;
+    QToolButton *btnRefresh;
+    QToolButton *btnCopyNews;
+    QLabel *messageLabel;
+
+#ifdef Q_OS_MAC
+    CAppNapInhibitor* m_app_nap_inhibitor = nullptr;
+#endif
 
     /** Keep track of previous number of blocks, to detect progress */
     int prevBlocks;
@@ -193,6 +207,12 @@ public Q_SLOTS:
     void message(const QString &title, const QString &message, unsigned int style, bool *ret = NULL);
 
 #ifdef ENABLE_WALLET
+
+    /** Set the UI status indicators based on the currently selected wallet.
+    */
+    void setStakingStatus();
+
+private:
     /** Set the hd-enabled status as shown in the UI.
      @param[in] status            current hd enabled status
      @see WalletModel::EncryptionStatus
@@ -246,10 +266,8 @@ private Q_SLOTS:
     void showPeers();
     void showRepair();
 
-    /** Open external (default) editor with cadex.conf */
+    /** Open external (default) editor with dash.conf */
     void showConfEditor();
-    /** Open external (default) editor with masternode.conf */
-    void showMNConfEditor();
     /** Show folder with wallet backups in default file browser */
     void showBackups();
 

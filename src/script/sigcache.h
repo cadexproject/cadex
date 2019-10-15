@@ -19,6 +19,7 @@ static const int64_t MAX_MAX_SIG_CACHE_SIZE = 16384;
 
 class CPubKey;
 
+
 class CachingTransactionSignatureChecker : public TransactionSignatureChecker
 {
 private:

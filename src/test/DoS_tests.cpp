@@ -14,7 +14,7 @@
 #include "util.h"
 #include "validation.h"
 
-#include "test/test_cadex.h"
+#include "test/test_dash.h"
 
 #include <stdint.h>
 

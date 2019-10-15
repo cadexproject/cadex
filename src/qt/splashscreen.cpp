@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2014-2018 The Dash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -29,43 +29,35 @@
 SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) :
     QWidget(0, f), curAlignment(0)
 {
-
-    // transparent background
-    setAttribute(Qt::WA_TranslucentBackground);
-    setStyleSheet("background:transparent;");
-
-    // no window decorations
-    setWindowFlags(Qt::FramelessWindowHint);
+    setWindowFlags(Qt::FramelessWindowHint| Qt::WindowSystemMenuHint);
 
     // set reference point, paddings
-    int paddingLeft             = 14;
-    int paddingTop              = 470;
-    int titleVersionVSpace      = 17;
-    int titleCopyrightVSpace    = 22;
-
-    float fontFactor            = 1.0;
-
-    // define text to place
-    QString titleText       = tr(PACKAGE_NAME);
-    QString versionText     = QString(tr("Version %1")).arg(QString::fromStdString(FormatFullVersion()));
-    QString copyrightText   = QString::fromUtf8(CopyrightHolders("\xc2\xA9", 2014, COPYRIGHT_YEAR).c_str());
-    QString titleAddText    = networkStyle->getTitleAddText();
-    // networkstyle.cpp can't (yet) read themes, so we do it here to get the correct Splash-screen
-    QString splashScreenPath = ":/images/" + GUIUtil::getThemeName() + "/splash";
-    if(GetBoolArg("-regtest", false))
-        splashScreenPath = ":/images/" + GUIUtil::getThemeName() + "/splash_testnet";
-    if(GetBoolArg("-testnet", false))
-        splashScreenPath = ":/images/" + GUIUtil::getThemeName() + "/splash_testnet";
-    if(IsArgSet("-devnet"))
-        splashScreenPath = ":/images/" + GUIUtil::getThemeName() + "/splash_testnet";
-
+    int paddingLeft = 6;
+    float fontFactor = 1.0;
+    float devicePixelRatio = 1.0;
     QString font = QApplication::font().toString();
 
-    // load the bitmap for writing some text over it
-    pixmap = QPixmap(splashScreenPath);
+    // define text to place
+    QString titleText           = tr(PACKAGE_NAME);
+    QString versionText         = QString(tr("Version %1")).arg(QString::fromStdString(FormatFullVersion()));
+    QString copyrightTextDash   = QChar(0xA9) + QString("2014 ") + QString(tr("The Dash developers"));
+    QString copyrightTextPac    = QChar(0xA9) + QString("2018 ") + QString(tr("The Cadex developers"));
+    QString titleAddText        = networkStyle->getTitleAddText();
 
+    // networkstyle.cpp can't (yet) read themes, so we do it here to get the correct Splash-screen
+    QString splashScreenPath = ":/images/splash";
+    if(GetBoolArg("-regtest", false))
+        splashScreenPath = ":/images/splash_testnet";
+    if(GetBoolArg("-testnet", false))
+        splashScreenPath = ":/images/splash_testnet";
+    if(IsArgSet("-devnet"))
+        splashScreenPath = ":/images/splash_testnet";
+
+    // create a bitmap according to device pixelratio
+    QSize splashSize(680*devicePixelRatio,473*devicePixelRatio);
+    pixmap = QPixmap(splashScreenPath);
     QPainter pixPaint(&pixmap);
-    pixPaint.setPen(QColor(100,100,100));
+    pixPaint.setPen(QColor(20,20,20));
 
     // check font size and drawing with
     pixPaint.setFont(QFont(font, 28*fontFactor));
@@ -78,34 +70,27 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     pixPaint.setFont(QFont(font, 28*fontFactor));
     fm = pixPaint.fontMetrics();
     titleTextWidth  = fm.width(titleText);
-    pixPaint.drawText(paddingLeft,paddingTop,titleText);
+    // pixPaint.drawText(paddingLeft,paddingTop,titleText);
 
-    pixPaint.setFont(QFont(font, 15*fontFactor));
-    pixPaint.drawText(paddingLeft,paddingTop+titleVersionVSpace,versionText);
-
-    // draw copyright stuff
-    {
-        pixPaint.setFont(QFont(font, 10*fontFactor));
-        const int x = paddingLeft;
-        const int y = paddingTop+titleCopyrightVSpace;
-        QRect copyrightRect(x, y, pixmap.width() - x, pixmap.height() - y);
-        pixPaint.drawText(copyrightRect, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, copyrightText);
-    }
+    // copyright information
+    pixPaint.setFont(QFont(font, 10 * fontFactor));
+    pixPaint.drawText(paddingLeft, 453, copyrightTextDash);
+    pixPaint.drawText(paddingLeft, 465, copyrightTextPac);
 
     // draw additional text if special network
-    if(!titleAddText.isEmpty()) {
-        QFont boldFont = QFont(font, 10*fontFactor);
+    if (!titleAddText.isEmpty()) {
+        QFont boldFont = QFont(font, 10 * fontFactor);
         boldFont.setWeight(QFont::Bold);
         pixPaint.setFont(boldFont);
-        fm = pixPaint.fontMetrics();
-        int titleAddTextWidth  = fm.width(titleAddText);
-        pixPaint.drawText(pixmap.width()-titleAddTextWidth-10,pixmap.height()-25,titleAddText);
+        QFontMetrics fm = pixPaint.fontMetrics();
+        int titleAddTextWidth = fm.width(titleAddText);
+        pixPaint.drawText(pixmap.width() - titleAddTextWidth - 10, pixmap.height() - 25, titleAddText);
     }
 
     pixPaint.end();
 
     // Resize window and move to center of desktop, disallow resizing
-    QRect r(QPoint(), pixmap.size());
+    QRect r(QPoint(), QSize(pixmap.size().width()/devicePixelRatio,pixmap.size().height()/devicePixelRatio));
     resize(r.size());
     setFixedSize(r.size());
     move(QApplication::desktop()->screenGeometry().center() - r.center());

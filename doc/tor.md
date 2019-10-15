@@ -1,4 +1,4 @@
-TOR SUPPORT IN CADEX CORE
+TOR SUPPORT IN DASH CORE
 =======================
 
 It is possible to run Dash Core as a Tor hidden service, and connect to such services.

@@ -7,6 +7,7 @@
 
 #include "policy/policy.h"
 
+#include "feerates.h"
 #include "validation.h"
 #include "tinyformat.h"
 #include "util.h"
@@ -102,7 +103,7 @@ bool IsStandardTx(const CTransaction& tx, std::string& reason)
         else if ((whichType == TX_MULTISIG) && (!fIsBareMultisigStd)) {
             reason = "bare-multisig";
             return false;
-        } else if (txout.IsDust(dustRelayFee)) {
+        } else if (txout.IsDust(MinRelayFee())) {
             reason = "dust";
             return false;
         }
@@ -153,3 +154,4 @@ bool AreInputsStandard(const CTransaction& tx, const CCoinsViewCache& mapInputs)
 
 CFeeRate incrementalRelayFee = CFeeRate(DEFAULT_INCREMENTAL_RELAY_FEE);
 CFeeRate dustRelayFee = CFeeRate(DUST_RELAY_TX_FEE);
+

@@ -3,10 +3,10 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-TESTS += test/test_cadex
-bin_PROGRAMS += test/test_cadex
+TESTS += test/test_dash
+bin_PROGRAMS += test/test_dash
 TEST_SRCDIR = test
-TEST_BINARY=test/test_cadex$(EXEEXT)
+TEST_BINARY=test/test_dash$(EXEEXT)
 
 
 EXTRA_DIST += \
@@ -80,6 +80,7 @@ BITCOIN_TESTS =\
   test/bip39_tests.cpp \
   test/blockencodings_tests.cpp \
   test/bloom_tests.cpp \
+  test/bls_tests.cpp \
   test/bswap_tests.cpp \
   test/checkqueue_tests.cpp \
   test/cachemap_tests.cpp \
@@ -89,6 +90,8 @@ BITCOIN_TESTS =\
   test/crypto_tests.cpp \
   test/cuckoocache_tests.cpp \
   test/DoS_tests.cpp \
+  test/evo_deterministicmns_tests.cpp \
+  test/evo_simplifiedmns_tests.cpp \
   test/getarg_tests.cpp \
   test/governance_validators_tests.cpp \
   test/hash_tests.cpp \
@@ -106,6 +109,7 @@ BITCOIN_TESTS =\
   test/policyestimator_tests.cpp \
   test/pow_tests.cpp \
   test/prevector_tests.cpp \
+  test/random_tests.cpp \
   test/raii_event_tests.cpp \
   test/ratecheck_tests.cpp \
   test/reverselock_tests.cpp \
@@ -123,8 +127,8 @@ BITCOIN_TESTS =\
   test/skiplist_tests.cpp \
   test/streams_tests.cpp \
   test/subsidy_tests.cpp \
-  test/test_cadex.cpp \
-  test/test_cadex.h \
+  test/test_dash.cpp \
+  test/test_dash.h \
   test/test_random.h \
   test/testutil.cpp \
   test/testutil.h \
@@ -145,23 +149,23 @@ BITCOIN_TESTS += \
   wallet/test/crypto_tests.cpp
 endif
 
-test_test_cadex_SOURCES = $(BITCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
-test_test_cadex_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_CFLAGS)
-test_test_cadex_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CONSENSUS) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
-  $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB) $(LIBSECP256K1) $(EVENT_LIBS)
-test_test_cadex_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+test_test_dash_SOURCES = $(BITCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
+test_test_dash_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_CFLAGS)
+test_test_dash_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CONSENSUS) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+  $(BACKTRACE_LIB) $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB) $(LIBSECP256K1) $(EVENT_LIBS)
+test_test_dash_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 if ENABLE_WALLET
-test_test_cadex_LDADD += $(LIBBITCOIN_WALLET)
+test_test_dash_LDADD += $(LIBBITCOIN_WALLET)
 endif
 
-test_test_cadex_LDADD += $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-test_test_cadex_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
+test_test_dash_LDADD += $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(BLS_LIBS)
+test_test_dash_LDFLAGS = $(LDFLAGS_WRAP_EXCEPTIONS) $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
 
 if ENABLE_ZMQ
-test_test_cadex_LDADD += $(ZMQ_LIBS)
+test_test_dash_LDADD += $(ZMQ_LIBS)
 endif
 
-nodist_test_test_cadex_SOURCES = $(GENERATED_TEST_FILES)
+nodist_test_test_dash_SOURCES = $(GENERATED_TEST_FILES)
 
 $(BITCOIN_TESTS): $(GENERATED_TEST_FILES)
 
@@ -172,13 +176,13 @@ CLEANFILES += $(CLEAN_BITCOIN_TEST)
 # This file is problematic for out-of-tree builds if it exists.
 DISTCLEANFILES += test/buildenv.pyc
 
-cadex_test: $(TEST_BINARY)
+dash_test: $(TEST_BINARY)
 
-cadex_test_check: $(TEST_BINARY) FORCE
+dash_test_check: $(TEST_BINARY) FORCE
 	$(MAKE) check-TESTS TESTS=$^
 
-cadex_test_clean : FORCE
-	rm -f $(CLEAN_BITCOIN_TEST) $(test_test_cadex_OBJECTS) $(TEST_BINARY)
+dash_test_clean : FORCE
+	rm -f $(CLEAN_BITCOIN_TEST) $(test_test_dash_OBJECTS) $(TEST_BINARY)
 
 check-local:
 	@echo "Running test/bitcoin-util-test.py..."

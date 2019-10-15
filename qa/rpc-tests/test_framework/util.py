@@ -3,11 +3,7 @@
 # Copyright (c) 2014-2017 The Dash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
-
-#
-# Helpful routines for regression testing
-#
+"""Helpful routines for regression testing."""
 
 import os
 import sys
@@ -20,17 +16,21 @@ import http.client
 import random
 import shutil
 import subprocess
+import tempfile
 import time
 import re
 import errno
+import logging
 
 from . import coverage
 from .authproxy import AuthServiceProxy, JSONRPCException
 
 COVERAGE_DIR = None
 
+logger = logging.getLogger("TestFramework.utils")
+
 # The maximum number of nodes a single test can spawn
-MAX_NODES = 8
+MAX_NODES = 15
 # Don't assign rpc or p2p ports lower than this
 PORT_MIN = 11000
 # The number of ports to "reserve" for p2p and rpc, each
@@ -105,11 +105,15 @@ def get_mnsync_status(node):
     result = node.mnsync("status")
     return result['IsSynced']
 
-def wait_to_sync(node):
-    synced = False
-    while not synced:
+def wait_to_sync(node, fast_mnsync=False):
+    while True:
         synced = get_mnsync_status(node)
-        time.sleep(0.5)
+        if synced:
+            break
+        time.sleep(0.2)
+        if fast_mnsync:
+            # skip mnsync states
+            node.mnsync("next")
 
 def p2p_port(n):
     assert(n <= MAX_NODES)
@@ -191,9 +195,9 @@ def sync_mempools(rpc_connections, *, wait=1, timeout=60):
         timeout -= wait
     raise AssertionError("Mempool sync failed")
 
-def sync_masternodes(rpc_connections):
+def sync_masternodes(rpc_connections, fast_mnsync=False):
     for node in rpc_connections:
-        wait_to_sync(node)
+        wait_to_sync(node, fast_mnsync)
 
 bitcoind_processes = {}
 
@@ -202,7 +206,7 @@ def initialize_datadir(dirname, n):
     if not os.path.isdir(datadir):
         os.makedirs(datadir)
     rpc_u, rpc_p = rpc_auth_pair(n)
-    with open(os.path.join(datadir, "cadex.conf"), 'w', encoding='utf8') as f:
+    with open(os.path.join(datadir, "dash.conf"), 'w', encoding='utf8') as f:
         f.write("regtest=1\n")
         f.write("rpcuser=" + rpc_u + "\n")
         f.write("rpcpassword=" + rpc_p + "\n")
@@ -228,12 +232,12 @@ def rpc_url(i, rpchost=None):
 
 def wait_for_bitcoind_start(process, url, i):
     '''
-    Wait for cadexd to start. This means that RPC is accessible and fully initialized.
-    Raise an exception if cadexd exits during initialization.
+    Wait for dashd to start. This means that RPC is accessible and fully initialized.
+    Raise an exception if dashd exits during initialization.
     '''
     while True:
         if process.poll() is not None:
-            raise Exception('cadexd exited with status %i during initialization' % process.returncode)
+            raise Exception('dashd exited with status %i during initialization' % process.returncode)
         try:
             rpc = get_rpc_proxy(url, i)
             blocks = rpc.getblockcount()
@@ -260,6 +264,7 @@ def initialize_chain(test_dir, num_nodes, cachedir, extra_args=None, redirect_st
             break
 
     if create_cache:
+        logger.debug("Creating data directories from cached datadir")
 
         #find and delete old cache directories if any exist
         for i in range(MAX_NODES):
@@ -267,10 +272,10 @@ def initialize_chain(test_dir, num_nodes, cachedir, extra_args=None, redirect_st
                 shutil.rmtree(os.path.join(cachedir,"node"+str(i)))
 
         set_genesis_mocktime()
-        # Create cache directories, run cadexds:
+        # Create cache directories, run dashds:
         for i in range(MAX_NODES):
             datadir=initialize_datadir(cachedir, i)
-            args = [ os.getenv("CADEXD", "cadexd"), "-server", "-keypool=1", "-datadir="+datadir, "-discover=0", "-mocktime="+str(GENESISTIME) ]
+            args = [ os.getenv("BITCOIND", "dashd"), "-server", "-keypool=1", "-datadir="+datadir, "-discover=0", "-mocktime="+str(GENESISTIME) ]
             if i > 0:
                 args.append("-connect=127.0.0.1:"+str(p2p_port(0)))
             if extra_args is not None:
@@ -279,11 +284,9 @@ def initialize_chain(test_dir, num_nodes, cachedir, extra_args=None, redirect_st
             if redirect_stderr:
                 stderr = sys.stdout
             bitcoind_processes[i] = subprocess.Popen(args, stderr=stderr)
-            if os.getenv("PYTHON_DEBUG", ""):
-                print("initialize_chain: cadexd started, waiting for RPC to come up")
+            logger.debug("initialize_chain: dashd started, waiting for RPC to come up")
             wait_for_bitcoind_start(bitcoind_processes[i], rpc_url(i), i)
-            if os.getenv("PYTHON_DEBUG", ""):
-                print("initialize_chain: RPC successfully started")
+            logger.debug("initialize_chain: RPC successfully started")
 
         rpcs = []
         for i in range(MAX_NODES):
@@ -322,7 +325,7 @@ def initialize_chain(test_dir, num_nodes, cachedir, extra_args=None, redirect_st
         from_dir = os.path.join(cachedir, "node"+str(i))
         to_dir = os.path.join(test_dir,  "node"+str(i))
         shutil.copytree(from_dir, to_dir)
-        initialize_datadir(test_dir, i) # Overwrite port/rpcport in cadex.conf
+        initialize_datadir(test_dir, i) # Overwrite port/rpcport in dash.conf
 
 def initialize_chain_clean(test_dir, num_nodes):
     """
@@ -332,52 +335,29 @@ def initialize_chain_clean(test_dir, num_nodes):
     for i in range(num_nodes):
         datadir=initialize_datadir(test_dir, i)
 
-def _rpchost_to_args(rpchost):
-    '''Convert optional IP:port spec to rpcconnect/rpcport args'''
-    if rpchost is None:
-        return []
-
-    match = re.match('(\[[0-9a-fA-f:]+\]|[^:]+)(?::([0-9]+))?$', rpchost)
-    if not match:
-        raise ValueError('Invalid RPC host spec ' + rpchost)
-
-    rpcconnect = match.group(1)
-    rpcport = match.group(2)
-
-    if rpcconnect.startswith('['): # remove IPv6 [...] wrapping
-        rpcconnect = rpcconnect[1:-1]
-
-    rv = ['-rpcconnect=' + rpcconnect]
-    if rpcport:
-        rv += ['-rpcport=' + rpcport]
-    return rv
-
-def start_node(i, dirname, extra_args=None, rpchost=None, timewait=None, binary=None, redirect_stderr=False):
+def start_node(i, dirname, extra_args=None, rpchost=None, timewait=None, binary=None, redirect_stderr=False, stderr=None):
     """
-    Start a cadexd and return RPC connection to it
+    Start a dashd and return RPC connection to it
     """
     datadir = os.path.join(dirname, "node"+str(i))
     if binary is None:
-        binary = os.getenv("CADEXD", "cadexd")
+        binary = os.getenv("BITCOIND", "dashd")
     # RPC tests still depend on free transactions
-    args = [ binary, "-datadir="+datadir, "-server", "-keypool=1", "-discover=0", "-rest", "-blockprioritysize=50000", "-mocktime="+str(get_mocktime()) ]
+    args = [ binary, "-datadir="+datadir, "-server", "-keypool=1", "-discover=0", "-rest", "-blockprioritysize=50000", "-logtimemicros", "-debug", "-mocktime="+str(get_mocktime()) ]
     # Don't try auto backups (they fail a lot when running tests)
     args += [ "-createwalletbackups=0" ]
     if extra_args is not None: args.extend(extra_args)
 
     # Allow to redirect stderr to stdout in case we expect some non-critical warnings/errors printed to stderr
     # Otherwise the whole test would be considered to be failed in such cases
-    stderr = None
     if redirect_stderr:
         stderr = sys.stdout
 
     bitcoind_processes[i] = subprocess.Popen(args, stderr=stderr)
-    if os.getenv("PYTHON_DEBUG", ""):
-        print("start_node: cadexd started, waiting for RPC to come up")
+    logger.debug("initialize_chain: dashd started, waiting for RPC to come up")
     url = rpc_url(i, rpchost)
     wait_for_bitcoind_start(bitcoind_processes[i], url, i)
-    if os.getenv("PYTHON_DEBUG", ""):
-        print("start_node: RPC successfully started")
+    logger.debug("initialize_chain: RPC successfully started")
     proxy = get_rpc_proxy(url, i, timeout=timewait)
 
     if COVERAGE_DIR:
@@ -385,9 +365,28 @@ def start_node(i, dirname, extra_args=None, rpchost=None, timewait=None, binary=
 
     return proxy
 
+def assert_start_raises_init_error(i, dirname, extra_args=None, expected_msg=None):
+    with tempfile.SpooledTemporaryFile(max_size=2**16) as log_stderr:
+        try:
+            node = start_node(i, dirname, extra_args, stderr=log_stderr)
+            stop_node(node, i)
+        except Exception as e:
+            assert 'dashd exited' in str(e) #node must have shutdown
+            if expected_msg is not None:
+                log_stderr.seek(0)
+                stderr = log_stderr.read().decode('utf-8')
+                if expected_msg not in stderr:
+                    raise AssertionError("Expected error \"" + expected_msg + "\" not found in:\n" + stderr)
+        else:
+            if expected_msg is None:
+                assert_msg = "dashd should have exited with an error"
+            else:
+                assert_msg = "dashd should have exited with expected error " + expected_msg
+            raise AssertionError(assert_msg)
+
 def start_nodes(num_nodes, dirname, extra_args=None, rpchost=None, timewait=None, binary=None, redirect_stderr=False):
     """
-    Start multiple cadexds, return RPC connections to them
+    Start multiple dashds, return RPC connections to them
     """
     if extra_args is None: extra_args = [ None for _ in range(num_nodes) ]
     if binary is None: binary = [ None for _ in range(num_nodes) ]
@@ -400,21 +399,44 @@ def start_nodes(num_nodes, dirname, extra_args=None, rpchost=None, timewait=None
         raise
     return rpcs
 
+
+def copy_datadir(from_node, to_node, dirname):
+    from_datadir = os.path.join(dirname, "node"+str(from_node), "regtest")
+    to_datadir = os.path.join(dirname, "node"+str(to_node), "regtest")
+
+    dirs = ["blocks", "chainstate", "evodb", "llmq"]
+    for d in dirs:
+        try:
+            src = os.path.join(from_datadir, d)
+            dst = os.path.join(to_datadir, d)
+            shutil.copytree(src, dst)
+        except:
+            pass
+
+
 def log_filename(dirname, n_node, logname):
     return os.path.join(dirname, "node"+str(n_node), "regtest", logname)
 
-def stop_node(node, i):
-    try:
-        node.stop()
-    except http.client.CannotSendRequest as e:
-        print("WARN: Unable to stop node: " + repr(e))
+def wait_node(i):
     return_code = bitcoind_processes[i].wait(timeout=BITCOIND_PROC_WAIT_TIMEOUT)
     assert_equal(return_code, 0)
     del bitcoind_processes[i]
 
-def stop_nodes(nodes):
+def stop_node(node, i, wait=True):
+    logger.debug("Stopping node %d" % i)
+    try:
+        node.stop()
+    except http.client.CannotSendRequest as e:
+        logger.exception("Unable to stop node")
+    if wait:
+        wait_node(i)
+
+def stop_nodes(nodes, fast=True):
     for i, node in enumerate(nodes):
-        stop_node(node, i)
+        stop_node(node, i, not fast)
+    if fast:
+        for i, node in enumerate(nodes):
+            wait_node(i)
     assert not bitcoind_processes.values() # All connections must be gone now
 
 def set_node_times(nodes, t):
@@ -432,6 +454,19 @@ def connect_nodes(from_connection, node_num):
 def connect_nodes_bi(nodes, a, b):
     connect_nodes(nodes[a], b)
     connect_nodes(nodes[b], a)
+
+def isolate_node(node, timeout=5):
+    node.setnetworkactive(False)
+    st = time.time()
+    while time.time() < st + timeout:
+        if node.getconnectioncount() == 0:
+            return
+        time.sleep(0.5)
+    raise AssertionError("disconnect_node timed out")
+
+def reconnect_isolated_node(node, node_num):
+    node.setnetworkactive(True)
+    connect_nodes(node, node_num)
 
 def find_output(node, txid, amount):
     """
@@ -479,47 +514,6 @@ def make_change(from_node, amount_in, amount_out, fee):
         outputs[from_node.getnewaddress()] = change
     return outputs
 
-def send_zeropri_transaction(from_node, to_node, amount, fee):
-    """
-    Create&broadcast a zero-priority transaction.
-    Returns (txid, hex-encoded-txdata)
-    Ensures transaction is zero-priority by first creating a send-to-self,
-    then using its output
-    """
-
-    # Create a send-to-self with confirmed inputs:
-    self_address = from_node.getnewaddress()
-    (total_in, inputs) = gather_inputs(from_node, amount+fee*2)
-    outputs = make_change(from_node, total_in, amount+fee, fee)
-    outputs[self_address] = float(amount+fee)
-
-    self_rawtx = from_node.createrawtransaction(inputs, outputs)
-    self_signresult = from_node.signrawtransaction(self_rawtx)
-    self_txid = from_node.sendrawtransaction(self_signresult["hex"], True)
-
-    vout = find_output(from_node, self_txid, amount+fee)
-    # Now immediately spend the output to create a 1-input, 1-output
-    # zero-priority transaction:
-    inputs = [ { "txid" : self_txid, "vout" : vout } ]
-    outputs = { to_node.getnewaddress() : float(amount) }
-
-    rawtx = from_node.createrawtransaction(inputs, outputs)
-    signresult = from_node.signrawtransaction(rawtx)
-    txid = from_node.sendrawtransaction(signresult["hex"], True)
-
-    return (txid, signresult["hex"])
-
-def random_zeropri_transaction(nodes, amount, min_fee, fee_increment, fee_variants):
-    """
-    Create a random zero-priority transaction.
-    Returns (txid, hex-encoded-transaction-data, fee)
-    """
-    from_node = random.choice(nodes)
-    to_node = random.choice(nodes)
-    fee = min_fee + fee_increment*random.randint(0,fee_variants)
-    (txid, txhex) = send_zeropri_transaction(from_node, to_node, amount, fee)
-    return (txid, txhex, fee)
-
 def random_transaction(nodes, amount, min_fee, fee_increment, fee_variants):
     """
     Create a random transaction.
@@ -543,10 +537,10 @@ def assert_fee_amount(fee, tx_size, fee_per_kB):
     """Assert the fee was in range"""
     target_fee = tx_size * fee_per_kB / 1000
     if fee < target_fee:
-        raise AssertionError("Fee of %s CADEX too low! (Should be %s CADEX)"%(str(fee), str(target_fee)))
+        raise AssertionError("Fee of %s DASH too low! (Should be %s DASH)"%(str(fee), str(target_fee)))
     # allow the wallet's estimation to be at most 2 bytes off
     if fee > (tx_size + 2) * fee_per_kB / 1000:
-        raise AssertionError("Fee of %s CADEX too high! (Should be %s CADEX)"%(str(fee), str(target_fee)))
+        raise AssertionError("Fee of %s DASH too high! (Should be %s DASH)"%(str(fee), str(target_fee)))
 
 def assert_equal(thing1, thing2, *args):
     if thing1 != thing2 or any(thing1 != arg for arg in args):

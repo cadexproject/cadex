@@ -7,7 +7,7 @@
 #include "pow.h"
 #include "random.h"
 #include "util.h"
-#include "test/test_cadex.h"
+#include "test/test_dash.h"
 
 #include <boost/test/unit_test.hpp>
 
@@ -195,7 +195,7 @@ BOOST_AUTO_TEST_CASE(GetBlockProofEquivalentTime_test)
         blocks[i].nHeight = i;
         blocks[i].nTime = 1269211443 + i * params.nPowTargetSpacing;
         blocks[i].nBits = 0x207fffff; /* target 0x7fffff000... */
-        blocks[i].nChainWork = i ? blocks[i - 1].nChainWork + GetBlockProof(blocks[i - 1]) : arith_uint256(0);
+        blocks[i].nChainTrust = i ? blocks[i - 1].nChainTrust + GetBlockProof(blocks[i - 1]) : arith_uint256(0);
     }
 
     for (int j = 0; j < 1000; j++) {

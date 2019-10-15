@@ -38,7 +38,7 @@ struct ChainTxData {
 
 /**
  * CChainParams defines various tweakable parameters of a given instance of the
- * Dash system. There are three: the main network on which people trade goods
+ * Cadex system. There are three: the main network on which people trade goods
  * and services, the public test network which gets reset from time to time and
  * a regression test mode which is intended for private networks only. It has
  * minimal difficulty to ensure that blocks can be found instantly.
@@ -60,6 +60,7 @@ public:
     const CMessageHeader::MessageStartChars& MessageStart() const { return pchMessageStart; }
     const std::vector<unsigned char>& AlertKey() const { return vAlertPubKey; }
     int GetDefaultPort() const { return nDefaultPort; }
+    int MaxReorganizationDepth() const { return nMaxReorganizationDepth; }
 
     const CBlock& GenesisBlock() const { return genesis; }
     const CBlock& DevNetGenesisBlock() const { return devnetGenesis; }
@@ -69,6 +70,8 @@ public:
     bool DefaultConsistencyChecks() const { return fDefaultConsistencyChecks; }
     /** Policy: Filter transactions that do not match well-defined patterns */
     bool RequireStandard() const { return fRequireStandard; }
+    /** Require addresses specified with "-externalip" parameter to be routable */
+    bool RequireRoutableExternalIP() const { return fRequireRoutableExternalIP; }
     uint64_t PruneAfterHeight() const { return nPruneAfterHeight; }
     /** Make miner stop after a block is found. In RPC, don't return until nGenProcLimit blocks are generated */
     bool MineBlocksOnDemand() const { return fMineBlocksOnDemand; }
@@ -84,9 +87,12 @@ public:
     const std::vector<SeedSpec6>& FixedSeeds() const { return vFixedSeeds; }
     const CCheckpointData& Checkpoints() const { return checkpointData; }
     const ChainTxData& TxData() const { return chainTxData; }
-    int PoolMaxTransactions() const { return nPoolMaxTransactions; }
+    int PoolMinParticipants() const { return nPoolMinParticipants; }
+    int PoolMaxParticipants() const { return nPoolMaxParticipants; }
     int FulfilledRequestExpireTime() const { return nFulfilledRequestExpireTime; }
-    const std::string& SporkAddress() const { return strSporkAddress; }
+    const std::vector<std::string>& SporkAddresses() const { return vSporkAddresses; }
+    int MinSporkKeys() const { return nMinSporkKeys; }
+    bool BIP9CheckMasternodesUpgraded() const { return fBIP9CheckMasternodesUpgraded; }
 protected:
     CChainParams() {}
 
@@ -106,15 +112,19 @@ protected:
     bool fMiningRequiresPeers;
     bool fDefaultConsistencyChecks;
     bool fRequireStandard;
+    bool fRequireRoutableExternalIP;
     bool fMineBlocksOnDemand;
     bool fAllowMultipleAddressesFromGroup;
     bool fAllowMultiplePorts;
-  bool startNewChain;   
- CCheckpointData checkpointData;
+    CCheckpointData checkpointData;
     ChainTxData chainTxData;
-    int nPoolMaxTransactions;
+    int nPoolMinParticipants;
+    int nPoolMaxParticipants;
     int nFulfilledRequestExpireTime;
-    std::string strSporkAddress;
+    std::vector<std::string> vSporkAddresses;
+    int nMinSporkKeys;
+    int nMaxReorganizationDepth;
+    bool fBIP9CheckMasternodesUpgraded;
 };
 
 /**
@@ -137,6 +147,26 @@ void SelectParams(const std::string& chain);
 /**
  * Allows modifying the BIP9 regtest parameters.
  */
-void UpdateRegtestBIP9Parameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout);
+void UpdateRegtestBIP9Parameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout, int64_t nWindowSize, int64_t nThreshold);
+
+/**
+ * Allows modifying the DIP3 activation and enforcement height
+ */
+void UpdateRegtestDIP3Parameters(int nActivationHeight, int nEnforcementHeight);
+
+/**
+ * Allows modifying the budget regtest parameters.
+ */
+void UpdateRegtestBudgetParameters(int nMasternodePaymentsStartBlock, int nBudgetPaymentsStartBlock, int nSuperblockStartBlock);
+
+/**
+ * Allows modifying the subsidy and difficulty devnet parameters.
+ */
+void UpdateDevnetSubsidyAndDiffParams(int nMinimumDifficultyBlocks, int nHighSubsidyBlocks, int nHighSubsidyFactor);
+
+/**
+ * Allows modifying the LLMQ type for ChainLocks.
+ */
+void UpdateDevnetLLMQChainLocks(Consensus::LLMQType llmqType);
 
 #endif // BITCOIN_CHAINPARAMS_H

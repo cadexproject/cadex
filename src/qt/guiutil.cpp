@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2014-2019 The Dash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,6 +7,7 @@
 
 #include "bitcoinaddressvalidator.h"
 #include "bitcoinunits.h"
+#include "feerates.h"
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 
@@ -38,9 +39,7 @@
 
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
-#if BOOST_FILESYSTEM_VERSION >= 3
 #include <boost/filesystem/detail/utf8_codecvt_facet.hpp>
-#endif
 #include <boost/scoped_array.hpp>
 
 #include <QAbstractItemView>
@@ -68,9 +67,7 @@
 #include <QFontDatabase>
 #endif
 
-#if BOOST_FILESYSTEM_VERSION >= 3
 static boost::filesystem::detail::utf8_codecvt_facet utf8;
-#endif
 
 #if defined(Q_OS_MAC)
 extern double NSAppKitVersionNumber;
@@ -134,7 +131,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a cadex address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a Cadex address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
@@ -152,8 +149,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no cadex: URI
-    if(!uri.isValid() || uri.scheme() != QString("cadex"))
+    // return if URI is not valid or is no KDX: URI
+    if(!uri.isValid() || uri.scheme() != QString("dash"))
         return false;
 
     SendCoinsRecipient rv;
@@ -171,7 +168,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
     QList<QPair<QString, QString> > items = uriQuery.queryItems();
 #endif
     
-    rv.fUseInstantSend = false;
+    rv.fUseInstaCADEX = false;
     for (QList<QPair<QString, QString> >::iterator i = items.begin(); i != items.end(); i++)
     {
         bool fShouldReturnFalse = false;
@@ -189,7 +186,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         if (i->first == "IS")
         {
             if(i->second.compare(QString("1")) == 0)
-                rv.fUseInstantSend = true;
+                rv.fUseInstaCADEX = true;
 
             fShouldReturnFalse = false;
         }
@@ -202,7 +199,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!BitcoinUnits::parse(BitcoinUnits::CADEX, i->second, &rv.amount))
+                if(!BitcoinUnits::parse(BitcoinUnits::KDX, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -222,13 +219,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert cadex:// to cadex:
+    // Convert dash:// to KDX:
     //
-    //    Cannot handle this later, because cadex:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because dash:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("cadex://", Qt::CaseInsensitive))
+    if(uri.startsWith("dash://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 7, "cadex:");
+        uri.replace(0, 7, "dash:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -236,12 +233,12 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("cadex:%1").arg(info.address);
+    QString ret = QString("dash:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::CADEX, info.amount, false, BitcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::KDX, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -259,7 +256,7 @@ QString formatBitcoinURI(const SendCoinsRecipient &info)
         paramCount++;
     }
     
-    if(info.fUseInstantSend)
+    if(info.fUseInstaCADEX)
     {
         ret += QString("%1IS=1").arg(paramCount == 0 ? "?" : "&");
         paramCount++;
@@ -273,7 +270,7 @@ bool isDust(const QString& address, const CAmount& amount)
     CTxDestination dest = CBitcoinAddress(address.toStdString()).Get();
     CScript script = GetScriptForDestination(dest);
     CTxOut txOut(amount, script);
-    return txOut.IsDust(dustRelayFee);
+    return txOut.IsDust(MinRelayFee());
 }
 
 QString HtmlEscape(const QString& str, bool fMultiLine)
@@ -442,16 +439,7 @@ void openConfigfile()
 {
     boost::filesystem::path pathConfig = GetConfigFile(GetArg("-conf", BITCOIN_CONF_FILENAME));
 
-    /* Open cadex.conf with the associated application */
-    if (boost::filesystem::exists(pathConfig))
-        QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
-}
-
-void openMNConfigfile()
-{
-    boost::filesystem::path pathConfig = GetMasternodeConfigFile();
-
-    /* Open masternode.conf with the associated application */
+    /* Open dash.conf with the associated application */
     if (boost::filesystem::exists(pathConfig))
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
@@ -752,8 +740,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "cadex.desktop";
-    return GetAutostartDir() / strprintf("cadex-%s.lnk", chain);
+        return GetAutostartDir() / "dashcore.desktop";
+    return GetAutostartDir() / strprintf("dashcore-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -792,7 +780,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a cadex.desktop file to the autostart directory:
+        // Write a dashcore.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
@@ -935,18 +923,7 @@ QString getThemeName()
 QString loadStyleSheet()
 {
     QString styleSheet;
-    QSettings settings;
-    QString cssName;
-    QString theme = settings.value("theme", "").toString();
-
-    if(!theme.isEmpty()){
-        cssName = QString(":/css/") + theme; 
-    }
-    else {
-        cssName = QString(":/css/light");  
-        settings.setValue("theme", "light");
-    }
-    
+    QString cssName = QString(":/css/standard");
     QFile qFile(cssName);      
     if (qFile.open(QFile::ReadOnly)) {
         styleSheet = QLatin1String(qFile.readAll());
@@ -961,7 +938,6 @@ void setClipboard(const QString& str)
     QApplication::clipboard()->setText(str, QClipboard::Selection);
 }
 
-#if BOOST_FILESYSTEM_VERSION >= 3
 boost::filesystem::path qstringToBoostPath(const QString &path)
 {
     return boost::filesystem::path(path.toStdString(), utf8);
@@ -971,18 +947,6 @@ QString boostPathToQString(const boost::filesystem::path &path)
 {
     return QString::fromStdString(path.string(utf8));
 }
-#else
-#warning Conversion between boost path and QString can use invalid character encoding with boost_filesystem v2 and older
-boost::filesystem::path qstringToBoostPath(const QString &path)
-{
-    return boost::filesystem::path(path.toStdString());
-}
-
-QString boostPathToQString(const boost::filesystem::path &path)
-{
-    return QString::fromStdString(path.string());
-}
-#endif
 
 QString formatDurationStr(int secs)
 {

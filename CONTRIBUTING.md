@@ -1,7 +1,7 @@
-Contributing to Cadexcoin
+Contributing to Dash Core
 ============================
 
-The adexcoin project operates an open contributor model where anyone is
+The Dash Core project operates an open contributor model where anyone is
 welcome to contribute towards development in the form of peer review, testing
 and patches. This document explains the practical process and guidelines for
 contributing.
@@ -157,11 +157,11 @@ where possible keep them short, uncomplex and easy to verify.
 "Decision Making" Process
 -------------------------
 
-The following applies to code changes to the Cadexcoin project (and related
-projects such as libsecp256k1), and is not to be confused with overall Cadexcoin
+The following applies to code changes to the Dash Core project (and related
+projects such as libsecp256k1), and is not to be confused with overall Dash
 Network Protocol consensus changes.
 
-Whether a pull request is merged into Cadexcoin rests with the project merge
+Whether a pull request is merged into Dash Core rests with the project merge
 maintainers and ultimately the project lead.
 
 Maintainers will take into consideration if a patch is in line with the general
@@ -174,12 +174,12 @@ In general, all pull requests must:
     the project (for example refactoring for modularisation);
   - be well peer reviewed;
   - have unit tests and functional tests where appropriate;
-  - follow code style guidelines;
+  - follow [code style guidelines](/doc/developer-notes.md);
   - not break the existing test suite;
   - where bugs are fixed, where possible, there should be unit tests
     demonstrating the bug and also proving the fix. This helps prevent regression.
 
-Patches that change Cadexcoin consensus rules are considerably more involved than
+Patches that change Dash consensus rules are considerably more involved than
 normal because they affect the entire ecosystem and so must be preceded by
 extensive mailing list discussions and have a numbered BIP. While each case will
 be different, one should be prepared to expend more time and effort than for
@@ -220,7 +220,7 @@ higher in terms of discussion and peer review requirements, keeping in mind that
 mistakes could be very costly to the wider community. This includes refactoring
 of consensus critical code.
 
-Where a patch set proposes to change the Cadexcoin consensus, it must have been
+Where a patch set proposes to change the Dash consensus, it must have been
 discussed extensively on the mailing list and IRC, be accompanied by a widely
 discussed BIP and have a generally widely perceived technical consensus of being
 a worthwhile change based on the judgement of the maintainers.
@@ -229,7 +229,7 @@ a worthwhile change based on the judgement of the maintainers.
 Release Policy
 --------------
 
-The project leader is the release manager for each Cadexcoin release.
+The project leader is the release manager for each Dash Core release.
 
 Copyright
 ---------

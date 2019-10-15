@@ -308,7 +308,7 @@ static void http_reject_request_cb(struct evhttp_request* req, void*)
 /** Event dispatcher thread */
 static bool ThreadHTTP(struct event_base* base, struct evhttp* http)
 {
-    RenameThread("cadex-http");
+    RenameThread("dash-http");
     LogPrint("http", "Entering http event loop\n");
     event_base_dispatch(base);
     // Event loop will be interrupted by InterruptHTTPServer()
@@ -358,7 +358,7 @@ static bool HTTPBindAddresses(struct evhttp* http)
 /** Simple wrapper to set thread name and run work queue */
 static void HTTPWorkQueueRun(WorkQueue<HTTPClosure>* queue)
 {
-    RenameThread("cadex-httpworker");
+    RenameThread("dash-httpworker");
     queue->Run();
 }
 
@@ -371,8 +371,9 @@ static void libevent_log_cb(int severity, const char *msg)
 #endif
     if (severity >= EVENT_LOG_WARN) // Log warn messages and higher without debug category
         LogPrintf("libevent: %s\n", msg);
-    else
-        LogPrint("libevent", "libevent: %s\n", msg);
+    // The below code causes log spam on Travis and the output of these logs has never been of any use so far
+    //else
+    //    LogPrint("libevent", "libevent: %s\n", msg);
 }
 
 bool InitHTTPServer()

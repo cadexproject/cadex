@@ -13,9 +13,11 @@ class CCoinControl
 public:
     CTxDestination destChange;
     bool fUsePrivateSend;
-    bool fUseInstantSend;
-    //! If false, allows unselected inputs, but requires all selected inputs be used
+    bool fUseInstaCADEX;
+    //! If false, allows unselected inputs, but requires all selected inputs be used if fAllowOtherInputs is true (default)
     bool fAllowOtherInputs;
+    //! If false, only include as many inputs as necessary to fulfill a coin selection request. Only usable together with fAllowOtherInputs
+    bool fRequireAllInputs;
     //! Includes watch only addresses which match the ISMINE_WATCH_SOLVABLE criteria
     bool fAllowWatchOnly;
     //! Minimum absolute fee (not per kilobyte)
@@ -36,9 +38,10 @@ public:
     {
         destChange = CNoDestination();
         fAllowOtherInputs = false;
+        fRequireAllInputs = true;
         fAllowWatchOnly = false;
         setSelected.clear();
-        fUseInstantSend = false;
+        fUseInstaCADEX = false;
         fUsePrivateSend = true;
         nMinimumTotalFee = 0;
         nFeeRate = CFeeRate(0);

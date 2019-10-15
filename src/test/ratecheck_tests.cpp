@@ -1,8 +1,8 @@
-// Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2014-2018 The Dash Core developers
 
 #include "governance.h"
 
-#include "test/test_cadex.h"
+#include "test/test_dash.h"
 
 #include <boost/test/unit_test.hpp>
 
