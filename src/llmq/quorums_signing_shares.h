@@ -97,7 +97,7 @@ public:
         uint64_t invSize = inv.size();
 
         READWRITE(VARINT(sessionId));
-        READWRITE(COMCADEXTSIZE(invSize));
+        READWRITE(COMPACTSIZE(invSize));
         READWRITE(AUTOBITSET(inv, (size_t)invSize));
     }
 
