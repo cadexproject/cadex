@@ -68,4 +68,4 @@ extern CQuorumBlockProcessor* quorumBlockProcessor;
 
 }
 
-#endif//PAC_QUORUMS_BLOCKPROCESSOR_H
+#endif//KDX_QUORUMS_BLOCKPROCESSOR_H

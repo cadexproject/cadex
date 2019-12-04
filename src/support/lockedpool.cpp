@@ -6,7 +6,7 @@
 #include "support/cleanse.h"
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pacglobal-config.h"
+#include "config/cadex-config.h"
 #endif
 
 #ifdef WIN32

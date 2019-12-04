@@ -46,7 +46,7 @@
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// PACGlobalMiner
+// CadexMiner
 //
 
 //
@@ -568,7 +568,7 @@ static bool ProcessBlockFound(const std::shared_ptr<const CBlock> &pblock, const
 
 void static BitcoinMiner(const CChainParams& chainparams, CConnman& connman, CWallet* pwallet, bool fProofOfStake)
 {
-    LogPrintf("PACminer -- started\n");
+    LogPrintf("KDXminer -- started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
     RenameThread("bitcoin-miner");
 
@@ -624,7 +624,7 @@ void static BitcoinMiner(const CChainParams& chainparams, CConnman& connman, CWa
             auto pblock = std::make_shared<CBlock>(pblocktemplate->block);
             IncrementExtraNonce(pblock.get(), pindexPrev, nExtraNonce);
 
-            LogPrintf("PACminer -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+            LogPrintf("KDXminer -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
                       ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
             //Sign block
@@ -669,7 +669,7 @@ void static BitcoinMiner(const CChainParams& chainparams, CConnman& connman, CWa
                     {
                         // Found a solution
                         SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                        LogPrintf("PACminer:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
+                        LogPrintf("KDXminer:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
                         ProcessBlockFound(pblock, chainparams);
                         SetThreadPriority(THREAD_PRIORITY_LOWEST);
                         coinbaseScript->KeepScript();
@@ -700,12 +700,12 @@ void static BitcoinMiner(const CChainParams& chainparams, CConnman& connman, CWa
         }
         catch (const boost::thread_interrupted&)
         {
-            LogPrintf("PACminer -- terminated\n");
+            LogPrintf("KDXminer -- terminated\n");
             throw;
         }
         catch (const std::runtime_error &e)
         {
-            LogPrintf("PACminer -- runtime error: %s\n", e.what());
+            LogPrintf("KDXminer -- runtime error: %s\n", e.what());
         }
     }
 }

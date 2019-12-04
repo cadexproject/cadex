@@ -540,7 +540,7 @@ UniValue createrawtransaction(const JSONRPCRequest& request)
         } else {
             CBitcoinAddress address(name_);
             if (!address.IsValid())
-                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid PACGlobal address: ")+name_);
+                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid Cadex address: ")+name_);
 
             if (setAddress.count(address))
                 throw JSONRPCError(RPC_INVALID_PARAMETER, std::string("Invalid parameter, duplicated address: ")+name_);
@@ -596,7 +596,7 @@ UniValue decoderawtransaction(const JSONRPCRequest& request)
             "         \"reqSigs\" : n,            (numeric) The required sigs\n"
             "         \"type\" : \"pubkeyhash\",  (string) The type, eg 'pubkeyhash'\n"
             "         \"addresses\" : [           (json array of string)\n"
-            "           \"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwG\"   (string) PACGlobal address\n"
+            "           \"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwG\"   (string) Cadex address\n"
             "           ,...\n"
             "         ]\n"
             "       }\n"
@@ -961,7 +961,7 @@ UniValue sendrawtransaction(const JSONRPCRequest& request)
             "\nArguments:\n"
             "1. \"hexstring\"    (string, required) The hex string of the raw transaction)\n"
             "2. allowhighfees  (boolean, optional, default=false) Allow high fees\n"
-            "3. instantsend    (boolean, optional, default=false) Use InstaPAC to send this transaction\n"
+            "3. instantsend    (boolean, optional, default=false) Use InstaKDX to send this transaction\n"
             "4. bypasslimits   (boolean, optional, default=false) Bypass transaction policy limits\n"
             "\nResult:\n"
             "\"hex\"             (string) The transaction hash in hex\n"
@@ -991,9 +991,9 @@ UniValue sendrawtransaction(const JSONRPCRequest& request)
     if (request.params.size() > 1 && request.params[1].get_bool())
         nMaxRawTxFee = 0;
 
-    bool fInstaPAC = false;
+    bool fInstaKDX = false;
     if (request.params.size() > 2)
-        fInstaPAC = request.params[2].get_bool();
+        fInstaKDX = request.params[2].get_bool();
 
     bool fBypassLimits = false;
     if (request.params.size() > 3)
@@ -1008,8 +1008,8 @@ UniValue sendrawtransaction(const JSONRPCRequest& request)
     bool fHaveMempool = mempool.exists(hashTx);
     if (!fHaveMempool && !fHaveChain) {
         // push to local node and sync with wallets
-        if (fInstaPAC && !instantsend.ProcessTxLockRequest(*tx, *g_connman)) {
-            throw JSONRPCError(RPC_TRANSACTION_ERROR, "Not a valid InstaPAC transaction, see debug.log for more info");
+        if (fInstaKDX && !instantsend.ProcessTxLockRequest(*tx, *g_connman)) {
+            throw JSONRPCError(RPC_TRANSACTION_ERROR, "Not a valid InstaKDX transaction, see debug.log for more info");
         }
         CValidationState state;
         bool fMissingInputs;

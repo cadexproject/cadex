@@ -66,7 +66,7 @@
 #include <boost/thread.hpp>
 
 #if defined(NDEBUG)
-# error "PACGlobal Core cannot be compiled without assertions."
+# error "Cadex Core cannot be compiled without assertions."
 #endif
 
 static std::map<uint256, uint256> mapProofOfStake;
@@ -747,7 +747,7 @@ bool AcceptToMemoryPoolWorker(CTxMemPool& pool, CValidationState& state, const C
                                         hash.ToString(), ptxConflicting->GetHash().ToString()),
                                 REJECT_INVALID, "txlockreq-tx-mempool-conflict");
             }
-            // Transaction conflicts with mempool and RBF doesn't exist in PACGlobal
+            // Transaction conflicts with mempool and RBF doesn't exist in Cadex
             return state.Invalid(false, REJECT_CONFLICT, "txn-mempool-conflict");
         }
     }
@@ -1186,8 +1186,8 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
         Params().NetworkIDString() == CBaseChainParams::TESTNET)
     {
         if (fSuperblockPartOnly) {
-            if (nPrevHeight < 1471680)      return 10119 * COIN;
-            else if (nPrevHeight < 3994560) return 12649 * COIN;
+            if (nPrevHeight < 1471680)      return 1011 * COIN;
+            else if (nPrevHeight < 3994560) return 1264 * COIN;
             else if (nPrevHeight < 4204800) return 9486 * COIN;
             else if (nPrevHeight < 4414050) return 7589 * COIN;
             else if (nPrevHeight < 4835520) return 5059 * COIN;
@@ -1208,8 +1208,14 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 
     // proof of work
     CAmount nSubsidyBase;
-    if (nPrevHeight < 100) nSubsidyBase = 35500000;
-    else                   nSubsidyBase = 23000;
+    if (nPrevHeight < 1) { nSubsidyBase = 1;}
+    else if (nPrevHeight < 2) {nSubsidyBase = 175000000;}
+    else if (nPrevHeight < 3) {nSubsidyBase = 175000000;}
+    else    { nSubsidyBase = 25;}
+        CAmount nSubsidy = nSubsidyBase * COIN;
+    if (nSubsidy == 2500000000) {
+        nSubsidy = nSubsidy + 16000000;
+    }
 
     double dSubsidyMultiplier = GetSubsidyMultiplier(nPrevHeight, consensusParams.nSubsidyHalvingInterval);
     CAmount nSubsidy = nSubsidyBase * COIN * dSubsidyMultiplier;
@@ -1223,12 +1229,14 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
     if (nHeight > Params().GetConsensus().nLastPoWBlock ||
         Params().NetworkIDString() == CBaseChainParams::TESTNET)
     {
-        if (nHeight < 1471681)      return 8280 * COIN;
-        else if (nHeight < 3994561) return 10350 * COIN;
-        else if (nHeight < 4204801) return 7762 * COIN;
-        else if (nHeight < 4414051) return 6210 * COIN;
-        else if (nHeight < 4835521) return 4140 * COIN;
-        else                        return 2070 * COIN;
+ 
+        if (nHeight = 73590)      return 828 * COIN;
+        else if (nHeight < 1471681)      return 828 * COIN;
+        else if (nHeight < 3994561) return 500 * COIN;
+        else if (nHeight < 4204801) return 776 * COIN;
+        else if (nHeight < 4414051) return 621 * COIN;
+        else if (nHeight < 4835521) return 414 * COIN;
+        else                        return 207 * COIN;
     }
 
     // proof of work
@@ -1855,7 +1863,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("pacglobal-scriptch");
+    RenameThread("cadex-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -1927,7 +1935,7 @@ static int64_t nTimeSubsidy = 0;
 static int64_t nTimeValueValid = 0;
 static int64_t nTimePayeeValid = 0;
 static int64_t nTimeProcessSpecial = 0;
-static int64_t nTimePACGlobalSpecific = 0;
+static int64_t nTimeCadexSpecific = 0;
 static int64_t nTimeConnect = 0;
 static int64_t nTimeIndex = 0;
 static int64_t nTimeCallbacks = 0;
@@ -2045,7 +2053,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
         }
     }
 
-    /// PAC: Check superblock start
+    /// KDX: Check superblock start
 
     // make sure old budget is the real one
     if (pindex->nHeight == chainparams.GetConsensus().nSuperblockStartBlock &&
@@ -2054,7 +2062,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
             return state.DoS(100, error("ConnectBlock(): invalid superblock start"),
                              REJECT_INVALID, "bad-sb-start");
 
-    /// END PAC
+    /// END KDX
 
     // BIP16 didn't become active until Apr 1 2012
     int64_t nBIP16SwitchTime = 1333238400;
@@ -2267,7 +2275,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
     LogPrint("bench", "    - Verify %u txins: %.2fms (%.3fms/txin) [%.2fs]\n", nInputs - 1, 0.001 * (nTime4 - nTime2), nInputs <= 1 ? 0 : 0.001 * (nTime4 - nTime2) / (nInputs-1), nTimeVerify * 0.000001);
 
 
-    // PAC
+    // KDX
 
     // It's possible that we simply don't have enough data and this could fail
     // (i.e. block itself could be a correct one and we need to store it),
@@ -2275,7 +2283,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
     // the peer who sent us this block is missing some data and wasn't able
     // to recognize that block is actually invalid.
 
-    // PAC : CHECK TRANSACTIONS FOR INSTANTSEND
+    // KDX : CHECK TRANSACTIONS FOR INSTANTSEND
 
     if (sporkManager.IsSporkActive(SPORK_3_INSTANTSEND_BLOCK_FILTERING)) {
         // Require other nodes to comply, send them some data in case they are missing it.
@@ -2290,7 +2298,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
                     // TODO: relay instantsend data/proof.
                     LOCK(cs_main);
                     mapRejectedBlocks.insert(std::make_pair(block.GetHash(), GetTime()));
-                    return state.DoS(10, error("ConnectBlock(PAC): transaction %s conflicts with transaction lock %s", tx->GetHash().ToString(), hashLocked.ToString()),
+                    return state.DoS(10, error("ConnectBlock(KDX): transaction %s conflicts with transaction lock %s", tx->GetHash().ToString(), hashLocked.ToString()),
                                      REJECT_INVALID, "conflict-tx-lock");
                 }
             }
@@ -2306,18 +2314,18 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
                 // TODO: relay instantsend data/proof.
                 LOCK(cs_main);
                 mapRejectedBlocks.insert(std::make_pair(block.GetHash(), GetTime()));
-                return state.DoS(10, error("ConnectBlock(PAC): transaction %s conflicts with transaction lock %s", tx->GetHash().ToString(), conflictLock->txid.ToString()),
+                return state.DoS(10, error("ConnectBlock(KDX): transaction %s conflicts with transaction lock %s", tx->GetHash().ToString(), conflictLock->txid.ToString()),
                                  REJECT_INVALID, "conflict-tx-lock");
             }
         }
     } else {
-        LogPrintf("ConnectBlock(PAC): spork is off, skipping transaction locking checks\n");
+        LogPrintf("ConnectBlock(KDX): spork is off, skipping transaction locking checks\n");
     }
 
     int64_t nTime5_1 = GetTimeMicros(); nTimeISFilter += nTime5_1 - nTime4;
     LogPrint("bench", "      - IS filter: %.2fms [%.2fs]\n", 0.001 * (nTime5_1 - nTime4), nTimeISFilter * 0.000001);
 
-    // PAC : MODIFIED TO CHECK MASTERNODE PAYMENTS AND SUPERBLOCKS
+    // KDX : MODIFIED TO CHECK MASTERNODE PAYMENTS AND SUPERBLOCKS
 
     // TODO: resync data (both ways?) and try to reprocess this block later.
     CAmount blockReward = nFees + GetBlockSubsidy(pindex->pprev->nBits, pindex->pprev->nHeight, chainparams.GetConsensus());
@@ -2327,7 +2335,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
     LogPrint("bench", "      - GetBlockSubsidy: %.2fms [%.2fs]\n", 0.001 * (nTime5_2 - nTime5_1), nTimeSubsidy * 0.000001);
 
     if (!IsBlockValueValid(block, pindex->nHeight, blockReward, strError)) {
-        return state.DoS(0, error("ConnectBlock(PAC): %s", strError), REJECT_INVALID, "bad-cb-amount");
+        return state.DoS(0, error("ConnectBlock(KDX): %s", strError), REJECT_INVALID, "bad-cb-amount");
     }
 
     int64_t nTime5_3 = GetTimeMicros(); nTimeValueValid += nTime5_3 - nTime5_2;
@@ -2338,7 +2346,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
     if (FullDIP0003Mode() || pindex->nHeight == Params().GetConsensus().nGenerationHeight) {
        if (!IsBlockPayeeValid(*block.vtx[isProofOfStake], pindex->nHeight, blockReward)) {
            mapRejectedBlocks.insert(std::make_pair(block.GetHash(), GetTime()));
-           return state.DoS(0, error("ConnectBlock(PAC): couldn't find masternode or superblock payments"), REJECT_INVALID, "bad-cb-payee");
+           return state.DoS(0, error("ConnectBlock(KDX): couldn't find masternode or superblock payments"), REJECT_INVALID, "bad-cb-payee");
        }
     }
 
@@ -2346,16 +2354,16 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
     LogPrint("bench", "      - IsBlockPayeeValid: %.2fms [%.2fs]\n", 0.001 * (nTime5_4 - nTime5_3), nTimePayeeValid * 0.000001);
 
     if (!ProcessSpecialTxsInBlock(block, pindex, state, fJustCheck, fScriptChecks)) {
-        return error("ConnectBlock(PAC): ProcessSpecialTxsInBlock for block failed with %s", FormatStateMessage(state));
+        return error("ConnectBlock(KDX): ProcessSpecialTxsInBlock for block failed with %s", FormatStateMessage(state));
     }
 
     int64_t nTime5_5 = GetTimeMicros(); nTimeProcessSpecial += nTime5_5 - nTime5_4;
     LogPrint("bench", "      - ProcessSpecialTxsInBlock: %.2fms [%.2fs]\n", 0.001 * (nTime5_5 - nTime5_4), nTimeProcessSpecial * 0.000001);
 
-    int64_t nTime5 = GetTimeMicros(); nTimePACGlobalSpecific += nTime5 - nTime4;
-    LogPrint("bench", "    - PACGlobal specific: %.2fms [%.2fs]\n", 0.001 * (nTime5 - nTime4), nTimePACGlobalSpecific * 0.000001);
+    int64_t nTime5 = GetTimeMicros(); nTimeCadexSpecific += nTime5 - nTime4;
+    LogPrint("bench", "    - Cadex specific: %.2fms [%.2fs]\n", 0.001 * (nTime5 - nTime4), nTimeCadexSpecific * 0.000001);
 
-    // END PAC
+    // END KDX
 
     if (fJustCheck)
         return true;

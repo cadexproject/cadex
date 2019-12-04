@@ -92,7 +92,7 @@ void CMasternodeUtils::ProcessMasternodeConnections(CConnman& connman)
 
 void CMasternodeUtils::DoMaintenance(CConnman& connman)
 {
-    if(fLiteMode) return; // disable all PACGlobal specific functionality
+    if(fLiteMode) return; // disable all Cadex specific functionality
 
     if(!masternodeSync.IsBlockchainSynced() || ShutdownRequested())
         return;

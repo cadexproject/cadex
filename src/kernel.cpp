@@ -144,8 +144,8 @@ bool ComputeNextStakeModifier(const CBlockIndex* pindexCurrent, uint64_t &nStake
 {
     const Consensus::Params& params = Params().GetConsensus();
     const CBlockIndex* pindexPrev = pindexCurrent->pprev;
-    nStakeModifier = 0;
-    fGeneratedStakeModifier = false;
+   // nStakeModifier = 0;
+   // fGeneratedStakeModifier = false;
     if (!pindexPrev)
     {
         fGeneratedStakeModifier = true;
@@ -288,7 +288,7 @@ bool CheckStakeKernelHash(unsigned int nBits, const CBlock& blockFrom, unsigned 
     bnTargetPerCoinDay.SetCompact(nBits);
     CAmount nValueIn = txPrev->vout[prevout.n].nValue;
 
-    // discard stakes generated from inputs of less than 10000 PAC
+    // discard stakes generated from inputs of less than 10000 KDX
     if (nValueIn < Params().GetConsensus().nMinimumStakeValue)
         return error("CheckStakeKernelHash() : min amount violation");
 

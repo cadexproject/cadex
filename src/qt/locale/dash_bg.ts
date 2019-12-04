@@ -70,12 +70,12 @@
         <translation>Адреси за получаване</translation>
     </message>
     <message>
-        <source>These are your PACGlobal addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Това са вашите PACGlobal адреси за изпращане на плащания. Преди изпращане винаги проверявайте количеството и адреса за получаване на монетите.</translation>
+        <source>These are your Cadex addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Това са вашите Cadex адреси за изпращане на плащания. Преди изпращане винаги проверявайте количеството и адреса за получаване на монетите.</translation>
     </message>
     <message>
-        <source>These are your PACGlobal addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Това са вашите PACGlobal адреси за получаване на плащания. Препоръчително е да използвате нов адрес за всяка нова транзакция. </translation>
+        <source>These are your Cadex addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Това са вашите Cadex адреси за получаване на плащания. Препоръчително е да използвате нов адрес за всяка нова транзакция. </translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -188,8 +188,8 @@
         <translation>Потвърдете на шифрирането на портфейла</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PAC&lt;/b&gt;!</source>
-        <translation>Внимание: Ако шифрирате вашия портфейл и загубите паролата си,  &lt;b&gt;ЩЕ ЗАГУБИТЕ ВСИЧКИ PAC МОНЕТИ!&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR KDX&lt;/b&gt;!</source>
+        <translation>Внимание: Ако шифрирате вашия портфейл и загубите паролата си,  &lt;b&gt;ЩЕ ЗАГУБИТЕ ВСИЧКИ KDX МОНЕТИ!&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -258,12 +258,12 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>A fatal error occurred. PACGlobal Core can no longer continue safely and will quit.</source>
-        <translation>Възникна фатална грешка. PACGlobal Core не може да продължи безопасно и ще се изключи.</translation>
+        <source>A fatal error occurred. Cadex Core can no longer continue safely and will quit.</source>
+        <translation>Възникна фатална грешка. Cadex Core не може да продължи безопасно и ще се изключи.</translation>
     </message>
     <message>
-        <source>PACGlobal Core</source>
-        <translation>PACGlobal Ядро</translation>
+        <source>Cadex Core</source>
+        <translation>Cadex Ядро</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -286,8 +286,8 @@
         <translation>&amp;Изпращане</translation>
     </message>
     <message>
-        <source>Send coins to a PACGlobal address</source>
-        <translation>Изпращане на монети към PACGlobal адрес</translation>
+        <source>Send coins to a Cadex address</source>
+        <translation>Изпращане на монети към Cadex адрес</translation>
     </message>
     <message>
         <source>&amp;Receive</source>
@@ -295,7 +295,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and pac: URIs)</source>
-        <translation>Заявка за плащане (генерира QR кодове и PACGlobal: URI)</translation>
+        <translation>Заявка за плащане (генерира QR кодове и Cadex: URI)</translation>
     </message>
     <message>
         <source>&amp;Transactions</source>
@@ -322,8 +322,8 @@
         <translation>Изход от приложението</translation>
     </message>
     <message>
-        <source>Show information about PACGlobal Core</source>
-        <translation>Покаци информация за PACGlobal Core</translation>
+        <source>Show information about Cadex Core</source>
+        <translation>Покаци информация за Cadex Core</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -394,16 +394,16 @@
         <translation>Подписване на &amp;съобщение...</translation>
     </message>
     <message>
-        <source>Sign messages with your PACGlobal addresses to prove you own them</source>
-        <translation>Подпиши съобщения с твоите PACGlobal адреси за да докажеш че ги притежаваш</translation>
+        <source>Sign messages with your Cadex addresses to prove you own them</source>
+        <translation>Подпиши съобщения с твоите Cadex адреси за да докажеш че ги притежаваш</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
         <translation>&amp;Проверка на съобщение...</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified PACGlobal addresses</source>
-        <translation>Проверете съобщенията, за да сте сигурни че са подписани с определен PACGlobal адрес</translation>
+        <source>Verify messages to ensure they were signed with specified Cadex addresses</source>
+        <translation>Проверете съобщенията, за да сте сигурни че са подписани с определен Cadex адрес</translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -483,15 +483,15 @@
     </message>
     <message>
         <source>Open a pac: URI or payment request</source>
-        <translation>Отвори PACGlobal: URI или заявка за плащане</translation>
+        <translation>Отвори Cadex: URI или заявка за плащане</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Опции на командния ред</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible PACGlobal command-line options</source>
-        <translation>Покажи %1 помощното съобщение за да получите списък с възможни PACGlobal команди</translation>
+        <source>Show the %1 help message to get a list with possible Cadex command-line options</source>
+        <translation>Покажи %1 помощното съобщение за да получите списък с възможни Cadex команди</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -526,8 +526,8 @@
         <translation>Лента с инструменти</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to PACGlobal network</source>
-        <translation><numerusform>%n активни връзки към PACGlobal мрежата</numerusform><numerusform>%n активни връзки към PACGlobal мрежата</numerusform></translation>
+        <source>%n active connection(s) to Cadex network</source>
+        <translation><numerusform>%n активни връзки към Cadex мрежата</numerusform><numerusform>%n активни връзки към Cadex мрежата</numerusform></translation>
     </message>
     <message>
         <source>Network activity disabled</source>
@@ -877,8 +877,8 @@
         <translation>Редактиране на адрес за изпращане</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid PACGlobal address.</source>
-        <translation>Въведеният адрес "%1" не е валиден PACGlobal адрес.</translation>
+        <source>The entered address "%1" is not a valid Cadex address.</source>
+        <translation>Въведеният адрес "%1" не е валиден Cadex адрес.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -975,8 +975,8 @@
         <translation>PrivateSend информация</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the PACGlobal in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PAC, 0.01 PAC, 0.1 PAC, 1 PAC and 10 PAC -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.dash.org/en/latest/wallets/dashcore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;PrivateSend основни понятия&lt;/h3&gt; PrivateSend ви дава истинска финансова независимост чрез скриване произхода на средствата ви. Всички PACGlobal монети в портфейла ви са съставени от различни "входове" които можете да приемете като отделни дискретни монети&lt;br&gt; PrivateSend използва иновативен процес като смесва вашите входове с входовете на други двама души без монетите да напускат изобщо портфейла ви. Имате пълен контрол върху парите си през цялото време. &lt;hr&gt; &lt;b&gt; PrivateSend процесът работи по следния начин:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend започва чрез разделяне на транзакцията ви до стандартни деноминации. Тези деноминации са 0.001 PAC, 0.01 PAC, 0.1 PAC, 1 PAC и 10 PAC --подобно на стандартните пари, които ползваме ежедневно.&lt;/li&gt; &lt;li&gt;Вашия портфейл изпраща запитване към специално конфигурираните софтуерни възли в мрежата, наречени "masternodes." Тези masternodes са информирани, че се интересувате от смесване на определена деноминация. Никаква идентификационна информация не се изпраща към   masternodes, така, че те никога не знаят "кой" сте.&lt;/li&gt; &lt;li&gt;Когато други двама души изпратят подобни съобщения, обозначаващи, че искат да смесят същата деноминация, смесващата сесия започва. Masternode смесват входовете и инструктират портфейлите на тримата потребители да платят новотрансформираните входове обратно към притежателите им. Вашият портфейл плаща деноминацията директно на себе си, но с различен адрес (наричан сменен адрес).  &lt;/li&gt; &lt;li&gt;С цел напълно скриване на доходите ви, вашият портфейл трябва да повтори този процес няколко пъти във всяка деноминация.  Всеки път завършеният процес се нарича "цикъл." Всеки цикъл на PrivateSend прави откриването на първоначалния източник на вашите средства напълно непроследим.&lt;/li&gt; &lt;li&gt;Този смесващ процес се случва като процес на заден фон без никаква намеса от ваша страна. Когато искате да направите транзакция, вашите средства са винаги анонимни. Не е необходимо допълнително изчакване. &lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;ВАЖНО:&lt;/b&gt; Вашият портфейл съдържа само 1000 от тези "сменяеми адреси". Всеки път когато се случва смесването до 9 от вашите адреси се ползват.  Това означава, че тези 1000 адреси се миксират в около 100 смесващи събития. Когато 900 се използват, вашия портфейл трябва да създаде повече адреси. Това може да стане само ако имате автоматично архивиране.&lt;br&gt; Следователно, потребителите, на които е изключено автоматичното архивиране, нямат и  PrivateSend включено. &lt;hr&gt;За повече информация вижте &lt;a href="https://docs.dash.org/en/latest/wallets/dashcore/privatesend-instantsend.html"&gt;документацията за PrivateSend&lt;/a&gt;.</translation>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Cadex in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 KDX, 0.01 KDX, 0.1 KDX, 1 KDX and 10 KDX -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.dash.org/en/latest/wallets/dashcore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;PrivateSend основни понятия&lt;/h3&gt; PrivateSend ви дава истинска финансова независимост чрез скриване произхода на средствата ви. Всички Cadex монети в портфейла ви са съставени от различни "входове" които можете да приемете като отделни дискретни монети&lt;br&gt; PrivateSend използва иновативен процес като смесва вашите входове с входовете на други двама души без монетите да напускат изобщо портфейла ви. Имате пълен контрол върху парите си през цялото време. &lt;hr&gt; &lt;b&gt; PrivateSend процесът работи по следния начин:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend започва чрез разделяне на транзакцията ви до стандартни деноминации. Тези деноминации са 0.001 KDX, 0.01 KDX, 0.1 KDX, 1 KDX и 10 KDX --подобно на стандартните пари, които ползваме ежедневно.&lt;/li&gt; &lt;li&gt;Вашия портфейл изпраща запитване към специално конфигурираните софтуерни възли в мрежата, наречени "masternodes." Тези masternodes са информирани, че се интересувате от смесване на определена деноминация. Никаква идентификационна информация не се изпраща към   masternodes, така, че те никога не знаят "кой" сте.&lt;/li&gt; &lt;li&gt;Когато други двама души изпратят подобни съобщения, обозначаващи, че искат да смесят същата деноминация, смесващата сесия започва. Masternode смесват входовете и инструктират портфейлите на тримата потребители да платят новотрансформираните входове обратно към притежателите им. Вашият портфейл плаща деноминацията директно на себе си, но с различен адрес (наричан сменен адрес).  &lt;/li&gt; &lt;li&gt;С цел напълно скриване на доходите ви, вашият портфейл трябва да повтори този процес няколко пъти във всяка деноминация.  Всеки път завършеният процес се нарича "цикъл." Всеки цикъл на PrivateSend прави откриването на първоначалния източник на вашите средства напълно непроследим.&lt;/li&gt; &lt;li&gt;Този смесващ процес се случва като процес на заден фон без никаква намеса от ваша страна. Когато искате да направите транзакция, вашите средства са винаги анонимни. Не е необходимо допълнително изчакване. &lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;ВАЖНО:&lt;/b&gt; Вашият портфейл съдържа само 1000 от тези "сменяеми адреси". Всеки път когато се случва смесването до 9 от вашите адреси се ползват.  Това означава, че тези 1000 адреси се миксират в около 100 смесващи събития. Когато 900 се използват, вашия портфейл трябва да създаде повече адреси. Това може да стане само ако имате автоматично архивиране.&lt;br&gt; Следователно, потребителите, на които е изключено автоматичното архивиране, нямат и  PrivateSend включено. &lt;hr&gt;За повече информация вижте &lt;a href="https://docs.dash.org/en/latest/wallets/dashcore/privatesend-instantsend.html"&gt;документацията за PrivateSend&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1022,8 +1022,8 @@
         <translation>Около %1 GB данни ще бъдат запаметени в тази директория.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the PACGlobal block chain.</source>
-        <translation>%1 ще изтегли и съхрани копие на  PACGlobal блок веригата.</translation>
+        <source>%1 will download and store a copy of the Cadex block chain.</source>
+        <translation>%1 ще изтегли и съхрани копие на  Cadex блок веригата.</translation>
     </message>
     <message>
         <source>The wallet will also be stored in this directory.</source>
@@ -1160,12 +1160,12 @@
         <translation>Форма</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the PACGlobal network, as detailed below.</source>
-        <translation>Скорошните транзакции може да не са видими, поради което салдото на портфейла Ви може да е неправилно. Тази информация ще бъде правилна, след като портфейлът ви е завършил синхронизиране с PACGlobal мрежата, както е описано по-долу.</translation>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Cadex network, as detailed below.</source>
+        <translation>Скорошните транзакции може да не са видими, поради което салдото на портфейла Ви може да е неправилно. Тази информация ще бъде правилна, след като портфейлът ви е завършил синхронизиране с Cadex мрежата, както е описано по-долу.</translation>
     </message>
     <message>
-        <source>Attempting to spend PACGlobal that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Опита да похарчите PACGlobal, които са  от не визуализирани транзакции няма да бъде приет от мрежата.</translation>
+        <source>Attempting to spend Cadex that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>Опита да похарчите Cadex, които са  от не визуализирани транзакции няма да бъде приет от мрежата.</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1254,8 +1254,8 @@
         <translation>(0 = автоматично, &lt;0 = оставете толкова неизползвани ядра)</translation>
     </message>
     <message>
-        <source>Amount of PACGlobal to keep anonymized</source>
-        <translation>Постоянно поддържано количество анонимни PACGlobal монети </translation>
+        <source>Amount of Cadex to keep anonymized</source>
+        <translation>Постоянно поддържано количество анонимни Cadex монети </translation>
     </message>
     <message>
         <source>W&amp;allet</source>
@@ -1306,8 +1306,8 @@
         <translation>Тази сума действа като лимит, за да се изключи PrivateSend, когато веднъж бъде достигнат.</translation>
     </message>
     <message>
-        <source>Automatically open the PACGlobal Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Автоматично отваря порта за PACGlobal Core клиента в маршрутизатора. Това работи само когато вашият маршрутизатор поддържа UPnP и той е разрешен.</translation>
+        <source>Automatically open the Cadex Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Автоматично отваря порта за Cadex Core клиента в маршрутизатора. Това работи само когато вашият маршрутизатор поддържа UPnP и той е разрешен.</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
@@ -1318,8 +1318,8 @@
         <translation>Разрешени входящи връзки</translation>
     </message>
     <message>
-        <source>Connect to the PACGlobal network through a SOCKS5 proxy.</source>
-        <translation>Свързване с мрежата на PACGlobal чрез SOCKS5 прокси.</translation>
+        <source>Connect to the Cadex network through a SOCKS5 proxy.</source>
+        <translation>Свързване с мрежата на Cadex чрез SOCKS5 прокси.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1414,8 +1414,8 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the PACGlobal network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Свързване с мрежата на PACGlobal чрез SOCKS5 прокси за Tor скрити услуги.</translation>
+        <source>Connect to the Cadex network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Свързване с мрежата на Cadex чрез SOCKS5 прокси за Tor скрити услуги.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -1459,9 +1459,9 @@
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/pacglobal/</source>
+https://www.transifex.com/projects/p/cadex/</source>
         <translation>Липсва език или превода е непълен? Можете да помогнете с превода тук:
-https://www.transifex.com/projects/p/pacglobal/</translation>
+https://www.transifex.com/projects/p/cadex/</translation>
     </message>
     <message>
         <source>User Interface Theme:</source>
@@ -1539,8 +1539,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Формуляр</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the PACGlobal network after a connection is established, but this process has not completed yet.</source>
-        <translation>Показаната информация може да е остаряла. Вашият портфейл се синхронизира автоматично след изграждането на връзка с PACGlobal мрежата, но този процес все още не е завършен.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Cadex network after a connection is established, but this process has not completed yet.</source>
+        <translation>Показаната информация може да е остаряла. Вашият портфейл се синхронизира автоматично след изграждането на връзка с Cadex мрежата, но този процес все още не е завършен.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1639,8 +1639,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Количество и цикли:</translation>
     </message>
     <message>
-        <source>0 PAC / 0 Rounds</source>
-        <translation>0 PAC / 0 Цикъла</translation>
+        <source>0 KDX / 0 Rounds</source>
+        <translation>0 KDX / 0 Цикъла</translation>
     </message>
     <message>
         <source>Submitted Denom:</source>
@@ -1820,8 +1820,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Невалиден адрес за плащане %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid PACGlobal address or malformed URI parameters.</source>
-        <translation>Грешка при анализ на URI! Това може да е следствие от неправилен PACGlobal адрес или неправилно зададени URI параметри.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Cadex address or malformed URI parameters.</source>
+        <translation>Грешка при анализ на URI! Това може да е следствие от неправилен Cadex адрес или неправилно зададени URI параметри.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1918,8 +1918,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Сума</translation>
     </message>
     <message>
-        <source>Enter a PACGlobal address (e.g. %1)</source>
-        <translation>Въведете PACGlobal адрес (напр.%1)</translation>
+        <source>Enter a Cadex address (e.g. %1)</source>
+        <translation>Въведете Cadex адрес (напр.%1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2440,8 +2440,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>П&amp;овторно използване на съществуващ адрес за получаване (не се препоръчва)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the PACGlobal network.</source>
-        <translation>Възможност  да се прикрепи съобщение към заявката за плащане, което да бъде показано при отваряне на заявката. Забележка: съобщението няма да бъде изпратено с плащането по мрежата на PACGlobal.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Cadex network.</source>
+        <translation>Възможност  да се прикрепи съобщение към заявката за плащане, което да бъде показано при отваряне на заявката. Забележка: съобщението няма да бъде изпратено с плащането по мрежата на Cadex.</translation>
     </message>
     <message>
         <source>&amp;Message:</source>
@@ -2452,8 +2452,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Възможност да се прикрепи наименование към новия адрес за получаване.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the PACGlobal network.</source>
-        <translation>Възможност  да се прикрепи съобщение към заявката за плащане, което да бъде показано при отваряне на заявката. &lt;br&gt;Забележка: съобщението няма да бъде изпратено с плащането по мрежата на PACGlobal.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Cadex network.</source>
+        <translation>Възможност  да се прикрепи съобщение към заявката за плащане, което да бъде показано при отваряне на заявката. &lt;br&gt;Забележка: съобщението няма да бъде изпратено с плащането по мрежата на Cadex.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -2484,8 +2484,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Изчистване</translation>
     </message>
     <message>
-        <source>Request InstaPAC</source>
-        <translation>Заявка за InstaPAC</translation>
+        <source>Request InstaKDX</source>
+        <translation>Заявка за InstaKDX</translation>
     </message>
     <message>
         <source>Requested payments history</source>
@@ -2571,8 +2571,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Съобщение</translation>
     </message>
     <message>
-        <source>InstaPAC</source>
-        <translation>InstaPAC</translation>
+        <source>InstaKDX</source>
+        <translation>InstaKDX</translation>
     </message>
     <message>
         <source>Yes</source>
@@ -2709,8 +2709,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>PrivateSend</translation>
     </message>
     <message>
-        <source>InstaPAC</source>
-        <translation>InstaPAC</translation>
+        <source>InstaKDX</source>
+        <translation>InstaKDX</translation>
     </message>
     <message>
         <source>If the custom fee is set to 1000 duffs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 duffs in fee,&lt;br /&gt;while "at least" pays 1000 duffs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
@@ -2833,8 +2833,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>всякакви налични средства (не анонимизирани)</translation>
     </message>
     <message>
-        <source>and InstaPAC</source>
-        <translation>и InstaPAC</translation>
+        <source>and InstaKDX</source>
+        <translation>и InstaKDX</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -2909,8 +2909,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation><numerusform>Очаква се да започне потвърждение в %n блока.</numerusform><numerusform>Очаква се да започне потвърждение в %n блока.</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Invalid PACGlobal address</source>
-        <translation>Внимание: Невалиден PACGlobal адрес</translation>
+        <source>Warning: Invalid Cadex address</source>
+        <translation>Внимание: Невалиден Cadex адрес</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2940,8 +2940,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Плати &amp;На:</translation>
     </message>
     <message>
-        <source>The PACGlobal address to send the payment to</source>
-        <translation>PACGlobal адресът да изпрати плащането към </translation>
+        <source>The Cadex address to send the payment to</source>
+        <translation>Cadex адресът да изпрати плащането към </translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2976,8 +2976,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>С&amp;ума:</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of PACGlobal than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>Таксата ще бъде приспадната от количеството за изпращане. Получателят ще получи по-малко количество PACGlobal от това, което сте въвели в полето. Ако са избрани няколко получателя, таксата ще бъде разделена  по равно.</translation>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Cadex than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>Таксата ще бъде приспадната от количеството за изпращане. Получателят ще получи по-малко количество Cadex от това, което сте въвели в полето. Ако са избрани няколко получателя, таксата ще бъде разделена  по равно.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2988,8 +2988,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Съобщение:</translation>
     </message>
     <message>
-        <source>A message that was attached to the pac: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the PACGlobal network.</source>
-        <translation>Съобщението което беше прикрепено към pac: URI ще бъде запазено с транзакцията за ваше сведение. Забележка: Това съобщение няма да бъде изпратено през PACGlobal мрежата.</translation>
+        <source>A message that was attached to the pac: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Cadex network.</source>
+        <translation>Съобщението което беше прикрепено към pac: URI ще бъде запазено с транзакцията за ваше сведение. Забележка: Това съобщение няма да бъде изпратено през Cadex мрежата.</translation>
     </message>
     <message>
         <source>This is an unauthenticated payment request.</source>
@@ -3041,12 +3041,12 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>&amp;Подпиши</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive PACGlobal sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Може да подпишете съобщенията/потвържденията с вашите адреси като доказателство, че сте получили PACGlobal. Бъдете внимателни, не подписвайте съобщения, които биха разкрили лична информация без ваше съгласие.</translation>
+        <source>You can sign messages/agreements with your addresses to prove you can receive Cadex sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>Може да подпишете съобщенията/потвържденията с вашите адреси като доказателство, че сте получили Cadex. Бъдете внимателни, не подписвайте съобщения, които биха разкрили лична информация без ваше съгласие.</translation>
     </message>
     <message>
-        <source>The PACGlobal address to sign the message with</source>
-        <translation>PACGlobal адресът да подпише съобщението</translation>
+        <source>The Cadex address to sign the message with</source>
+        <translation>Cadex адресът да подпише съобщението</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3077,8 +3077,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Копиране на текущия подпис в системния клипборд</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this PACGlobal address</source>
-        <translation>Подпиши съобщението за да докажеш че притежаваш този PACGlobal адрес</translation>
+        <source>Sign the message to prove you own this Cadex address</source>
+        <translation>Подпиши съобщението за да докажеш че притежаваш този Cadex адрес</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -3101,12 +3101,12 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Въведете адреса на получателя, съобщението (уверете се, че сте копирали редовете, спациите, табовете и другите точно) и подпишете отдолу, за да удостоверите съобщението. Внимавайте да не вмъкнете излишни символи в подписа от това, което е в самото съобщение, за избегнете риска от злонамерена външна намеса. Имайте предвид, че това само доказва, че подписа е получен с адреса, но не доказва изпращането на всяка транзакция!</translation>
     </message>
     <message>
-        <source>The PACGlobal address the message was signed with</source>
-        <translation>PACGlobal адресът ,с който е подписано съобщението</translation>
+        <source>The Cadex address the message was signed with</source>
+        <translation>Cadex адресът ,с който е подписано съобщението</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified PACGlobal address</source>
-        <translation>Проверете съобщението, за да сте сигурни че е подписано с определен PACGlobal адрес</translation>
+        <source>Verify the message to ensure it was signed with the specified Cadex address</source>
+        <translation>Проверете съобщението, за да сте сигурни че е подписано с определен Cadex адрес</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -3234,20 +3234,20 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>заключена чрез LLMQ базирани ChainLocks</translation>
     </message>
     <message>
-        <source>verified via LLMQ based InstaPAC</source>
-        <translation>потвърдена чрез LLMQ базиран InstaPAC</translation>
+        <source>verified via LLMQ based InstaKDX</source>
+        <translation>потвърдена чрез LLMQ базиран InstaKDX</translation>
     </message>
     <message>
-        <source>verified via InstaPAC</source>
-        <translation>потвърдено чрез InstaPAC</translation>
+        <source>verified via InstaKDX</source>
+        <translation>потвърдено чрез InstaKDX</translation>
     </message>
     <message>
-        <source>InstaPAC verification in progress - %1 of %2 signatures</source>
-        <translation>InstaPAC потвърждение в процес - %1 от %2 подписани</translation>
+        <source>InstaKDX verification in progress - %1 of %2 signatures</source>
+        <translation>InstaKDX потвърждение в процес - %1 от %2 подписани</translation>
     </message>
     <message>
-        <source>InstaPAC verification failed</source>
-        <translation>InstaPAC потвърждение неуспешно</translation>
+        <source>InstaKDX verification failed</source>
+        <translation>InstaKDX потвърждение неуспешно</translation>
     </message>
     <message>
         <source>Status</source>
@@ -3524,8 +3524,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Дали има или не наблюдаван/watch-only адрес участващ в тази транзакция.</translation>
     </message>
     <message>
-        <source>Whether or not this transaction was locked by InstaPAC.</source>
-        <translation>Дали тази транзакция е била заключена чрез InstaPAC.</translation>
+        <source>Whether or not this transaction was locked by InstaKDX.</source>
+        <translation>Дали тази транзакция е била заключена чрез InstaKDX.</translation>
     </message>
     <message>
         <source>User-defined intent/purpose of the transaction.</source>
@@ -3543,12 +3543,12 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Всички</translation>
     </message>
     <message>
-        <source>Locked by InstaPAC</source>
-        <translation>Заключена чрез InstaPAC</translation>
+        <source>Locked by InstaKDX</source>
+        <translation>Заключена чрез InstaKDX</translation>
     </message>
     <message>
-        <source>Not locked by InstaPAC</source>
-        <translation>Не е заключена чрез InstaPAC</translation>
+        <source>Not locked by InstaKDX</source>
+        <translation>Не е заключена чрез InstaKDX</translation>
     </message>
     <message>
         <source>Today</source>
@@ -3752,12 +3752,12 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Изпращане</translation>
     </message>
     <message>
-        <source>InstaPAC doesn't support sending values that high yet. Transactions are currently limited to %1 PAC.</source>
-        <translation>InstaPAC не поддържа толкова високи стойности за изпращане все още. Транзакциите в момента са ограничени до %1 PAC.</translation>
+        <source>InstaKDX doesn't support sending values that high yet. Transactions are currently limited to %1 KDX.</source>
+        <translation>InstaKDX не поддържа толкова високи стойности за изпращане все още. Транзакциите в момента са ограничени до %1 KDX.</translation>
     </message>
     <message>
-        <source>Used way too many inputs (&gt;%1) for this InstaPAC transaction, fees could be huge.</source>
-        <translation>Използвани са твърде много входове  (&gt;%1) за тази InstaPAC транзакция, таксите могат да бъдат огромни.</translation>
+        <source>Used way too many inputs (&gt;%1) for this InstaKDX transaction, fees could be huge.</source>
+        <translation>Използвани са твърде много входове  (&gt;%1) за тази InstaKDX транзакция, таксите могат да бъдат огромни.</translation>
     </message>
 </context>
 <context>
@@ -3974,12 +3974,12 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Изтриване на всички транзакции на портфейла и  възстановява само тези части на блок веригата чрез -rescan при стартиране</translation>
     </message>
     <message>
-        <source>Enable publish raw transactions of attempted InstaPAC double spend in &lt;address&gt;</source>
-        <translation>Включване публикуване на сурови транзакции при опит за двойно похарчване с InstaPAC в &lt;address&gt;</translation>
+        <source>Enable publish raw transactions of attempted InstaKDX double spend in &lt;address&gt;</source>
+        <translation>Включване публикуване на сурови транзакции при опит за двойно похарчване с InstaKDX в &lt;address&gt;</translation>
     </message>
     <message>
-        <source>Enable publish transaction hashes of attempted InstaPAC double spend in &lt;address&gt;</source>
-        <translation>Включване публикуването хеша на транзакция при опит за двойно похарчване с InstaPAC в &lt;address&gt;</translation>
+        <source>Enable publish transaction hashes of attempted InstaKDX double spend in &lt;address&gt;</source>
+        <translation>Включване публикуването хеша на транзакция при опит за двойно похарчване с InstaKDX в &lt;address&gt;</translation>
     </message>
     <message>
         <source>Error loading %s: You can't enable HD on a already existing non-HD wallet</source>
@@ -4390,8 +4390,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Пази поне &lt;n&gt; неосъществени транзакции в паметта (по подразбиране: %u)</translation>
     </message>
     <message>
-        <source>Disable all PACGlobal specific functionality (Masternodes, PrivateSend, InstaPAC, Governance) (0-1, default: %u)</source>
-        <translation>Изключване на всички специфични PACGlobal функции (PrivateSend, InstaPAC, Governance) (0-1, по подразбиране: %u)</translation>
+        <source>Disable all Cadex specific functionality (Masternodes, PrivateSend, InstaKDX, Governance) (0-1, default: %u)</source>
+        <translation>Изключване на всички специфични Cadex функции (PrivateSend, InstaKDX, Governance) (0-1, по подразбиране: %u)</translation>
     </message>
     <message>
         <source>%s file contains all private keys from this wallet. Do not share it with anyone!</source>
@@ -4410,8 +4410,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Не дръжте в мемпула транзакции повече от &lt;n&gt; часа (по подразбиране: %u)</translation>
     </message>
     <message>
-        <source>Enable InstaPAC, show confirmations for locked transactions (0-1, default: %u)</source>
-        <translation>Активиране на InstaPAC, показва потвържденията за заключени транзакции (0-1, по подразбиране: %u)</translation>
+        <source>Enable InstaKDX, show confirmations for locked transactions (0-1, default: %u)</source>
+        <translation>Активиране на InstaKDX, показва потвържденията за заключени транзакции (0-1, по подразбиране: %u)</translation>
     </message>
     <message>
         <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
@@ -4422,8 +4422,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Активиране на автоматизирано използване на PrivateSend за средствата съхранявани в този портфейл(0-1, по подразбиране: %u)</translation>
     </message>
     <message>
-        <source>Execute command when a wallet InstaPAC transaction is successfully locked (%s in cmd is replaced by TxID)</source>
-        <translation>Изпълнена команда когато транзакцията в  InstaPAC портфейла е успешно заключена (%s в cmd е заместен от TxID)</translation>
+        <source>Execute command when a wallet InstaKDX transaction is successfully locked (%s in cmd is replaced by TxID)</source>
+        <translation>Изпълнена команда когато транзакцията в  InstaKDX портфейла е успешно заключена (%s в cmd е заместен от TxID)</translation>
     </message>
     <message>
         <source>Extra transactions to keep in memory for compact block reconstructions (default: %u)</source>
@@ -4446,11 +4446,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Ако &lt;category&gt; не е предоставена или ако &lt;category&gt; = 1, изведи цялата информация за отстраняване на грешки.</translation>
     </message>
     <message>
-        <source>InstaPAC doesn't support sending values that high yet. Transactions are currently limited to %1 PAC.</source>
-        <translation>InstaPAC не поддържа толкова високи стойности за изпращане все още. Транзакциите в момента са ограничени до %1 PAC.</translation>
+        <source>InstaKDX doesn't support sending values that high yet. Transactions are currently limited to %1 KDX.</source>
+        <translation>InstaKDX не поддържа толкова високи стойности за изпращане все още. Транзакциите в момента са ограничени до %1 KDX.</translation>
     </message>
     <message>
-        <source>InstaPAC requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
+        <source>InstaKDX requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
         <translation>InstantX изисква средства с поне %d потвърждения, може да се наложи да почакате няколко минути и да опитате отново.</translation>
     </message>
     <message>
@@ -4546,8 +4546,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>ВНИМАНИЕ: Непозната версия на блока!Възможно е да са активирани неизвестни правила</translation>
     </message>
     <message>
-        <source>You are starting in lite mode, all PACGlobal-specific functionality is disabled.</source>
-        <translation>Стартирали сте в олекотен режим, всички PACGlobal- специфични функционалности са изключени.</translation>
+        <source>You are starting in lite mode, all Cadex-specific functionality is disabled.</source>
+        <translation>Стартирали сте в олекотен режим, всички Cadex- специфични функционалности са изключени.</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
@@ -4594,8 +4594,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Активиране публикуването на хеш от управляващите гласове в &lt;address&gt;</translation>
     </message>
     <message>
-        <source>Enable publish hash transaction (locked via InstaPAC) in &lt;address&gt;</source>
-        <translation>Включва публикуване хеша на транзакцията  (заключен чрез InstaPAC) в &lt;address&gt;</translation>
+        <source>Enable publish hash transaction (locked via InstaKDX) in &lt;address&gt;</source>
+        <translation>Включва публикуване хеша на транзакцията  (заключен чрез InstaKDX) в &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable publish hash transaction in &lt;address&gt;</source>
@@ -4606,8 +4606,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Включва публикуване необработеният блок в &lt;address&gt;</translation>
     </message>
     <message>
-        <source>Enable publish raw transaction (locked via InstaPAC) in &lt;address&gt;</source>
-        <translation>Включва публикуване на необранотена транзакция (заключена чрез InstaPAC) в &lt;address&gt;</translation>
+        <source>Enable publish raw transaction (locked via InstaKDX) in &lt;address&gt;</source>
+        <translation>Включва публикуване на необранотена транзакция (заключена чрез InstaKDX) в &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable publish raw transaction in &lt;address&gt;</source>
@@ -4630,8 +4630,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Неуспешно изтриване на архив, грешка: %s</translation>
     </message>
     <message>
-        <source>Failed to load InstaPAC data cache from</source>
-        <translation>Неуспешно зареждане на  InstaPAC кеша за данни от</translation>
+        <source>Failed to load InstaKDX data cache from</source>
+        <translation>Неуспешно зареждане на  InstaKDX кеша за данни от</translation>
     </message>
     <message>
         <source>Failed to load sporks cache from</source>
@@ -4646,8 +4646,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Внасяне на блокове от външен blk000??.dat  файл при стартиране</translation>
     </message>
     <message>
-        <source>InstaPAC options:</source>
-        <translation>InstaPAC опции:</translation>
+        <source>InstaKDX options:</source>
+        <translation>InstaKDX опции:</translation>
     </message>
     <message>
         <source>Invalid amount for -fallbackfee=&lt;amount&gt;: '%s'</source>
@@ -4666,8 +4666,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Последното успешно PrivateSend действие бе твърде скоро.</translation>
     </message>
     <message>
-        <source>Loading InstaPAC data cache...</source>
-        <translation>Зареждане на InstaPAC кеш данни...</translation>
+        <source>Loading InstaKDX data cache...</source>
+        <translation>Зареждане на InstaKDX кеш данни...</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -4894,8 +4894,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Опции на RPC сървъра:</translation>
     </message>
     <message>
-        <source>PACGlobal Core</source>
-        <translation>PACGlobal Core</translation>
+        <source>Cadex Core</source>
+        <translation>Cadex Core</translation>
     </message>
     <message>
         <source>The %s developers</source>
@@ -5102,8 +5102,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>Невалиден спорк адрес посочен с -sporkaddr</translation>
     </message>
     <message>
-        <source>Keep N PAC anonymized (%u-%u, default: %u)</source>
-        <translation>Поддържай N PAC анонимизирани (%u-%u, по подразбиране: %u)</translation>
+        <source>Keep N KDX anonymized (%u-%u, default: %u)</source>
+        <translation>Поддържай N KDX анонимизирани (%u-%u, по подразбиране: %u)</translation>
     </message>
     <message>
         <source>Loading P2P addresses...</source>

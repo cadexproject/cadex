@@ -118,4 +118,4 @@ extern CChainLocksHandler* chainLocksHandler;
 
 }
 
-#endif //PAC_QUORUMS_CHAINLOCKS_H
+#endif //KDX_QUORUMS_CHAINLOCKS_H

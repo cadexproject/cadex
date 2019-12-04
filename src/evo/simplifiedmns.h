@@ -147,4 +147,4 @@ public:
 
 bool BuildSimplifiedMNListDiff(const uint256& baseBlockHash, const uint256& blockHash, CSimplifiedMNListDiff& mnListDiffRet, std::string& errorRet);
 
-#endif //PAC_SIMPLIFIEDMNS_H
+#endif //KDX_SIMPLIFIEDMNS_H

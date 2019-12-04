@@ -564,9 +564,9 @@ QVariant TransactionTableModel::txWatchonlyDecoration(const TransactionRecord *w
         return QVariant();
 }
 
-QVariant TransactionTableModel::txInstaPACDecoration(const TransactionRecord *wtx) const
+QVariant TransactionTableModel::txInstaKDXDecoration(const TransactionRecord *wtx) const
 {
-    if (wtx->status.lockedByInstaPAC) {
+    if (wtx->status.lockedByInstaKDX) {
         QString theme = GUIUtil::getThemeName();
         return QIcon(":/icons/verify");
     }
@@ -599,8 +599,8 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
             return txStatusDecoration(rec);
         case Watchonly:
             return txWatchonlyDecoration(rec);
-        case InstaPAC:
-            return txInstaPACDecoration(rec);
+        case InstaKDX:
+            return txInstaKDXDecoration(rec);
         case ToAddress:
             return txAddressDecoration(rec);
         }
@@ -634,8 +634,8 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
             return formatTxType(rec);
         case Watchonly:
             return (rec->involvesWatchAddress ? 1 : 0);
-        case InstaPAC:
-            return (rec->status.lockedByInstaPAC ? 1 : 0);
+        case InstaKDX:
+            return (rec->status.lockedByInstaKDX ? 1 : 0);
         case ToAddress:
             return formatTxToAddress(rec, true);
         case Amount:
@@ -652,7 +652,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         {
             return COLOR_TX_STATUS_DANGER;
         }
-        if(rec->status.lockedByInstaPAC)
+        if(rec->status.lockedByInstaKDX)
         {
             return COLOR_TX_STATUS_LOCKED;
         }
@@ -678,10 +678,10 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         return rec->involvesWatchAddress;
     case WatchonlyDecorationRole:
         return txWatchonlyDecoration(rec);
-    case InstaPACRole:
-        return rec->status.lockedByInstaPAC;
-    case InstaPACDecorationRole:
-        return txInstaPACDecoration(rec);
+    case InstaKDXRole:
+        return rec->status.lockedByInstaKDX;
+    case InstaKDXDecorationRole:
+        return txInstaKDXDecoration(rec);
     case LongDescriptionRole:
         return priv->describe(rec, walletModel->getOptionsModel()->getDisplayUnit());
     case AddressRole:
@@ -757,8 +757,8 @@ QVariant TransactionTableModel::headerData(int section, Qt::Orientation orientat
                 return tr("Type of transaction.");
             case Watchonly:
                 return tr("Whether or not a watch-only address is involved in this transaction.");
-            case InstaPAC:
-                return tr("Whether or not this transaction was locked by InstaPAC.");
+            case InstaKDX:
+                return tr("Whether or not this transaction was locked by InstaKDX.");
             case ToAddress:
                 return tr("User-defined intent/purpose of the transaction.");
             case Amount:

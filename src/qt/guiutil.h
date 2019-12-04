@@ -30,7 +30,7 @@ class QUrl;
 class QWidget;
 QT_END_NAMESPACE
 
-/** Utility functions used by the PACGlobal Qt UI.
+/** Utility functions used by the Cadex Qt UI.
  */
 namespace GUIUtil
 {

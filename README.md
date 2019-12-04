@@ -1,20 +1,20 @@
-PACGlobal staging tree 0.14.0
+Cadex staging tree 0.14.0
 =============================
 
-https://www.pacglobal.io/
+https://www.cadexcoin.tech/
 
 
-What is PACGlobal?
+What is Cadex?
 ----------------
 
-PACGlobal is an experimental digital currency that enables anonymous, instant
-payments to anyone, anywhere in the world. PACGlobal uses peer-to-peer technology
+Cadex is an experimental digital currency that enables anonymous, instant
+payments to anyone, anywhere in the world. Cadex uses peer-to-peer technology
 to operate with no central authority: managing transactions and issuing money
-are carried out collectively by the network. PACGlobal is the name of the open
+are carried out collectively by the network. Cadex is the name of the open
 source software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the PACGlobal software, see https://www.pacglobal.io/
+the Cadex software, see https://www.cadexcoin.tech/
 
 
 How do I build the software?
@@ -25,8 +25,8 @@ The examples below presume you have a basic build environment installed:
 
 ### Static compile
 
-    git clone https://github.com/PACGlobalOfficial/PAC
-    cd PAC/depends
+    git clone https://github.com/cadexproject/cadex
+    cd cadex/depends
     make HOST=x86_64-linux-gnu
     cd ..
     ./autogen.sh
@@ -46,8 +46,8 @@ The examples below presume you have a basic build environment installed:
     (if you receive an error here, you need to run as the root user; as the system is trying to install a library)
 
     cd ../..
-    git clone https://github.com/PACGlobalOfficial/PAC
-    cd PAC
+    git clone https://github.com/cadexproject/cadex
+    cd cadex
     ./autogen.sh
     ./configure
     make
@@ -59,15 +59,15 @@ The examples below presume you have a basic build environment installed:
 License
 -------
 
-PACGlobal is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Cadex is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Development Process
 -------------------
 
 The `master` branch is meant to be stable. Development is normally done in separate branches.
-[Tags](https://github.com/PACGlobalOfficial/PAC/tags) are created to indicate new official,
-stable release versions of PACGlobal.
+[Tags](https://github.com/cadexproject/cadex/tags) are created to indicate new official,
+stable release versions of Cadex.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -82,4 +82,4 @@ lots of money.
 Credits
 -------
 
-PACGlobal uses the Dash Core platform; building upon it to provide extra functionality.
+Cadex uses the Dash Core platform; building upon it to provide extra functionality.

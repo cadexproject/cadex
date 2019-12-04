@@ -108,4 +108,4 @@ extern CDKGDebugManager* quorumDKGDebugManager;
 
 }
 
-#endif //PAC_QUORUMS_DEBUG_H
+#endif //KDX_QUORUMS_DEBUG_H

@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pacglobal-config.h"
+#include "config/cadex-config.h"
 #endif
 
 #include "bitcoingui.h"
@@ -168,7 +168,7 @@ void DebugMessageHandler(QtMsgType type, const QMessageLogContext& context, cons
 }
 #endif
 
-/** Class encapsulating PACGlobal Core startup and shutdown.
+/** Class encapsulating Cadex Core startup and shutdown.
  * Allows running startup and shutdown in a different thread from the UI thread.
  */
 class BitcoinCore: public QObject
@@ -195,7 +195,7 @@ private:
     void handleRunawayException(const std::exception_ptr e);
 };
 
-/** Main PACGlobal application object */
+/** Main Cadex application object */
 class BitcoinApplication: public QApplication
 {
     Q_OBJECT
@@ -548,7 +548,7 @@ void BitcoinApplication::shutdownResult()
 
 void BitcoinApplication::handleRunawayException(const QString &message)
 {
-    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. PACGlobal Core can no longer continue safely and will quit.") + QString("\n\n") + message);
+    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. Cadex Core can no longer continue safely and will quit.") + QString("\n\n") + message);
     ::exit(EXIT_FAILURE);
 }
 

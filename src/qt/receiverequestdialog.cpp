@@ -22,7 +22,7 @@
 #endif
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pacglobal-config.h" /* for USE_QRCODE */
+#include "config/cadex-config.h" /* for USE_QRCODE */
 #endif
 
 #ifdef USE_QRCODE
@@ -149,7 +149,7 @@ void ReceiveRequestDialog::update()
         html += "<b>"+tr("Label")+"</b>: " + GUIUtil::HtmlEscape(info.label) + "<br>";
     if(!info.message.isEmpty())
         html += "<b>"+tr("Message")+"</b>: " + GUIUtil::HtmlEscape(info.message) + "<br>";
-    html += "<b>"+tr("InstaPAC")+"</b>: " + (info.fUseInstantSend ? tr("Yes") : tr("No")) + "<br>";
+    html += "<b>"+tr("InstaKDX")+"</b>: " + (info.fUseInstantSend ? tr("Yes") : tr("No")) + "<br>";
     ui->outUri->setText(html);
 
 #ifdef USE_QRCODE

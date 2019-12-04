@@ -118,4 +118,4 @@ extern CQuorumManager* quorumManager;
 
 }
 
-#endif //PAC_QUORUMS_H
+#endif //KDX_QUORUMS_H

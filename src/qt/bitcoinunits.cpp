@@ -19,9 +19,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(PAC);
-    unitlist.append(mPAC);
-    unitlist.append(uPAC);
+    unitlist.append(KDX);
+    unitlist.append(mKDX);
+    unitlist.append(uKDX);
     unitlist.append(duffs);
     return unitlist;
 }
@@ -30,9 +30,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case PAC:
-    case mPAC:
-    case uPAC:
+    case KDX:
+    case mKDX:
+    case uKDX:
     case duffs:
         return true;
     default:
@@ -46,9 +46,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case PAC: return QString("PAC");
-            case mPAC: return QString("mPAC");
-            case uPAC: return QString::fromUtf8("μPAC");
+            case KDX: return QString("KDX");
+            case mKDX: return QString("mKDX");
+            case uKDX: return QString::fromUtf8("μKDX");
             case duffs: return QString("duffs");
             default: return QString("???");
         }
@@ -57,9 +57,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case PAC: return QString("tPAC");
-            case mPAC: return QString("mtPAC");
-            case uPAC: return QString::fromUtf8("μtPAC");
+            case KDX: return QString("tKDX");
+            case mKDX: return QString("mtKDX");
+            case uKDX: return QString::fromUtf8("μtKDX");
             case duffs: return QString("tduffs");
             default: return QString("???");
         }
@@ -72,10 +72,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case PAC: return QString("PACGlobal");
-            case mPAC: return QString("Milli-PACGlobal (1 / 1" THIN_SP_UTF8 "000)");
-            case uPAC: return QString("Micro-PACGlobal (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-PACGlobal (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case KDX: return QString("Cadex");
+            case mKDX: return QString("Milli-Cadex (1 / 1" THIN_SP_UTF8 "000)");
+            case uKDX: return QString("Micro-Cadex (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-Cadex (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -83,10 +83,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case PAC: return QString("TestPACGlobals");
-            case mPAC: return QString("Milli-TestPACGlobal (1 / 1" THIN_SP_UTF8 "000)");
-            case uPAC: return QString("Micro-TestPACGlobal (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-TestPACGlobal (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case KDX: return QString("TestCadexs");
+            case mKDX: return QString("Milli-TestCadex (1 / 1" THIN_SP_UTF8 "000)");
+            case uKDX: return QString("Micro-TestCadex (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-TestCadex (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -96,9 +96,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case PAC:  return 100000000;
-    case mPAC: return 100000;
-    case uPAC: return 100;
+    case KDX:  return 100000000;
+    case mKDX: return 100000;
+    case uKDX: return 100;
     case duffs: return 1;
     default:   return 100000000;
     }
@@ -108,9 +108,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case PAC: return 8;
-    case mPAC: return 5;
-    case uPAC: return 2;
+    case KDX: return 8;
+    case mKDX: return 5;
+    case uKDX: return 2;
     case duffs: return 0;
     default: return 0;
     }

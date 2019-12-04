@@ -69,4 +69,4 @@ public:
 
 }
 
-#endif//PAC_QUORUMS_UTILS_H
+#endif//KDX_QUORUMS_UTILS_H

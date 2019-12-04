@@ -127,7 +127,7 @@ void gobject_prepare_help(CWallet* const pwallet)
                 "2. revision      (numeric, required) object revision in the system\n"
                 "3. time          (numeric, required) time this object was created\n"
                 "4. data-hex      (string, required)  data in hex string form\n"
-                "5. use-IS        (boolean, optional, default=false) InstaPAC lock the collateral, only requiring one chain confirmation\n"
+                "5. use-IS        (boolean, optional, default=false) InstaKDX lock the collateral, only requiring one chain confirmation\n"
                 "6. outputHash    (string, optional) the single output to submit the proposal fee from\n"
                 "7. outputIndex   (numeric, optional) The output index.\n"
                 );
@@ -167,7 +167,7 @@ UniValue gobject_prepare(const JSONRPCRequest& request)
 
     CGovernanceObject govobj(hashParent, nRevision, nTime, uint256(), strDataHex);
 
-    // This command is dangerous because it consumes 5 PAC irreversibly.
+    // This command is dangerous because it consumes 5 KDX irreversibly.
     // If params are lost, it's very hard to bruteforce them and yet
     // users ignore all instructions on dashcentral etc. and do not save them...
     // Let's log them here and hope users do not mess with debug.log
@@ -1089,7 +1089,7 @@ UniValue getsuperblockbudget(const JSONRPCRequest& request)
 static const CRPCCommand commands[] =
 { //  category              name                      actor (function)         okSafe argNames
   //  --------------------- ------------------------  -----------------------  ------ ----------
-    /* PACGlobal features */
+    /* Cadex features */
     { "dash",               "getgovernanceinfo",      &getgovernanceinfo,      true,  {} },
     { "dash",               "getsuperblockbudget",    &getsuperblockbudget,    true,  {"index"} },
     { "dash",               "gobject",                &gobject,                true,  {} },

@@ -345,4 +345,4 @@ void SetSimulatedDKGErrorRate(const std::string& type, double rate);
 
 }
 
-#endif //PAC_QUORUMS_DKGSESSION_H
+#endif //KDX_QUORUMS_DKGSESSION_H

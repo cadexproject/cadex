@@ -540,7 +540,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
         }
         else nBytesInputs += 148;
 
-        // Add inputs to calculate InstaPAC Fee later
+        // Add inputs to calculate InstaKDX Fee later
         if(coinControl->fUseInstantSend)
             txDummy.vin.push_back(CTxIn());
     }
@@ -601,7 +601,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
     }
 
     // actually update labels
-    int nDisplayUnit = BitcoinUnits::PAC;
+    int nDisplayUnit = BitcoinUnits::KDX;
     if (model && model->getOptionsModel())
         nDisplayUnit = model->getOptionsModel()->getDisplayUnit();
 

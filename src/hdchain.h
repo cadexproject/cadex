@@ -147,4 +147,4 @@ public:
     std::string GetKeyPath() const;
 };
 
-#endif // PAC_HDCHAIN_H
+#endif // KDX_HDCHAIN_H

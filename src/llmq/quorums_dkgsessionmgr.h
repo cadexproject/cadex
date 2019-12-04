@@ -76,4 +76,4 @@ extern CDKGSessionManager* quorumDKGSessionManager;
 
 }
 
-#endif //PAC_QUORUMS_DKGSESSIONMGR_H
+#endif //KDX_QUORUMS_DKGSESSIONMGR_H

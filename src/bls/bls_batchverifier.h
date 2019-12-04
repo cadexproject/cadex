@@ -232,4 +232,4 @@ private:
     }
 };
 
-#endif //PAC_CRYPTO_BLS_BATCHVERIFIER_H
+#endif //KDX_CRYPTO_BLS_BATCHVERIFIER_H

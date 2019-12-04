@@ -9,7 +9,7 @@
 #define UNUSED
 #endif
 static const char UNUSED *dash_strings[] = {
-QT_TRANSLATE_NOOP("dash-core", "PACGlobal Core"),
+QT_TRANSLATE_NOOP("dash-core", "Cadex Core"),
 QT_TRANSLATE_NOOP("dash-core", "The %s developers"),
 QT_TRANSLATE_NOOP("dash-core", ""
 "%s file contains all private keys from this wallet. Do not share it with "
@@ -57,8 +57,8 @@ QT_TRANSLATE_NOOP("dash-core", ""
 "Delete all wallet transactions and only recover those parts of the "
 "blockchain through -rescan on startup"),
 QT_TRANSLATE_NOOP("dash-core", ""
-"Disable all PACGlobal specific functionality (Masternodes, PrivateSend, "
-"InstaPAC, Governance) (0-1, default: %u)"),
+"Disable all Cadex specific functionality (Masternodes, PrivateSend, "
+"InstaKDX, Governance) (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("dash-core", ""
 "Discover own IP addresses (default: 1 when listening and no -externalip or -"
 "proxy)"),
@@ -68,16 +68,16 @@ QT_TRANSLATE_NOOP("dash-core", ""
 QT_TRANSLATE_NOOP("dash-core", ""
 "Do not keep transactions in the mempool longer than <n> hours (default: %u)"),
 QT_TRANSLATE_NOOP("dash-core", ""
-"Enable InstaPAC, show confirmations for locked transactions (0-1, "
+"Enable InstaKDX, show confirmations for locked transactions (0-1, "
 "default: %u)"),
 QT_TRANSLATE_NOOP("dash-core", ""
 "Enable multiple PrivateSend mixing sessions per block, experimental (0-1, "
 "default: %u)"),
 QT_TRANSLATE_NOOP("dash-core", ""
-"Enable publish raw transactions of attempted InstaPAC double spend in "
+"Enable publish raw transactions of attempted InstaKDX double spend in "
 "<address>"),
 QT_TRANSLATE_NOOP("dash-core", ""
-"Enable publish transaction hashes of attempted InstaPAC double spend in "
+"Enable publish transaction hashes of attempted InstaKDX double spend in "
 "<address>"),
 QT_TRANSLATE_NOOP("dash-core", ""
 "Enable use of automated PrivateSend for funds stored in this wallet (0-1, "
@@ -93,7 +93,7 @@ QT_TRANSLATE_NOOP("dash-core", ""
 "Execute command when a relevant alert is received or we see a really long "
 "fork (%s in cmd is replaced by message)"),
 QT_TRANSLATE_NOOP("dash-core", ""
-"Execute command when a wallet InstaPAC transaction is successfully locked "
+"Execute command when a wallet InstaKDX transaction is successfully locked "
 "(%s in cmd is replaced by TxID)"),
 QT_TRANSLATE_NOOP("dash-core", ""
 "Execute command when a wallet transaction changes (%s in cmd is replaced by "
@@ -136,10 +136,10 @@ QT_TRANSLATE_NOOP("dash-core", ""
 "Incorrect or no devnet genesis block found. Wrong datadir for devnet "
 "specified?"),
 QT_TRANSLATE_NOOP("dash-core", ""
-"InstaPAC doesn't support sending values that high yet. Transactions are "
-"currently limited to %1 PAC."),
+"InstaKDX doesn't support sending values that high yet. Transactions are "
+"currently limited to %1 KDX."),
 QT_TRANSLATE_NOOP("dash-core", ""
-"InstaPAC requires inputs with at least %d confirmations, you might need "
+"InstaKDX requires inputs with at least %d confirmations, you might need "
 "to wait a few minutes and try again."),
 QT_TRANSLATE_NOOP("dash-core", ""
 "Invalid amount for -maxtxfee=<amount>: '%s' (must be at least the minrelay "
@@ -324,7 +324,7 @@ QT_TRANSLATE_NOOP("dash-core", ""
 "Whitelisted peers cannot be DoS banned and their transactions are always "
 "relayed, even if they are already in the mempool, useful e.g. for a gateway"),
 QT_TRANSLATE_NOOP("dash-core", ""
-"You are starting in lite mode, all PACGlobal-specific functionality is disabled."),
+"You are starting in lite mode, all Cadex-specific functionality is disabled."),
 QT_TRANSLATE_NOOP("dash-core", ""
 "You need to rebuild the database using -reindex to go back to unpruned "
 "mode.  This will redownload the entire blockchain"),
@@ -380,10 +380,10 @@ QT_TRANSLATE_NOOP("dash-core", "ERROR! Failed to create automatic backup"),
 QT_TRANSLATE_NOOP("dash-core", "Enable publish hash block in <address>"),
 QT_TRANSLATE_NOOP("dash-core", "Enable publish hash of governance objects (like proposals) in <address>"),
 QT_TRANSLATE_NOOP("dash-core", "Enable publish hash of governance votes in <address>"),
-QT_TRANSLATE_NOOP("dash-core", "Enable publish hash transaction (locked via InstaPAC) in <address>"),
+QT_TRANSLATE_NOOP("dash-core", "Enable publish hash transaction (locked via InstaKDX) in <address>"),
 QT_TRANSLATE_NOOP("dash-core", "Enable publish hash transaction in <address>"),
 QT_TRANSLATE_NOOP("dash-core", "Enable publish raw block in <address>"),
-QT_TRANSLATE_NOOP("dash-core", "Enable publish raw transaction (locked via InstaPAC) in <address>"),
+QT_TRANSLATE_NOOP("dash-core", "Enable publish raw transaction (locked via InstaKDX) in <address>"),
 QT_TRANSLATE_NOOP("dash-core", "Enable publish raw transaction in <address>"),
 QT_TRANSLATE_NOOP("dash-core", "Enable the client to act as a masternode (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("dash-core", "Entries are full."),
@@ -406,7 +406,7 @@ QT_TRANSLATE_NOOP("dash-core", "Failed to create backup, error: %s"),
 QT_TRANSLATE_NOOP("dash-core", "Failed to delete backup, error: %s"),
 QT_TRANSLATE_NOOP("dash-core", "Failed to find mixing queue to join"),
 QT_TRANSLATE_NOOP("dash-core", "Failed to listen on any port. Use -listen=0 if you want this."),
-QT_TRANSLATE_NOOP("dash-core", "Failed to load InstaPAC data cache from"),
+QT_TRANSLATE_NOOP("dash-core", "Failed to load InstaKDX data cache from"),
 QT_TRANSLATE_NOOP("dash-core", "Failed to load fulfilled requests cache from"),
 QT_TRANSLATE_NOOP("dash-core", "Failed to load governance cache from"),
 QT_TRANSLATE_NOOP("dash-core", "Failed to load masternode cache from"),
@@ -425,7 +425,7 @@ QT_TRANSLATE_NOOP("dash-core", "Incorrect or no genesis block found. Wrong datad
 QT_TRANSLATE_NOOP("dash-core", "Information"),
 QT_TRANSLATE_NOOP("dash-core", "Initialization sanity check failed. %s is shutting down."),
 QT_TRANSLATE_NOOP("dash-core", "Input is not valid."),
-QT_TRANSLATE_NOOP("dash-core", "InstaPAC options:"),
+QT_TRANSLATE_NOOP("dash-core", "InstaKDX options:"),
 QT_TRANSLATE_NOOP("dash-core", "Insufficient funds."),
 QT_TRANSLATE_NOOP("dash-core", "Invalid -onion address or hostname: '%s'"),
 QT_TRANSLATE_NOOP("dash-core", "Invalid -proxy address or hostname: '%s'"),
@@ -440,7 +440,7 @@ QT_TRANSLATE_NOOP("dash-core", "Invalid script detected."),
 QT_TRANSLATE_NOOP("dash-core", "Invalid spork address specified with -sporkaddr"),
 QT_TRANSLATE_NOOP("dash-core", "KeePassHttp id for the established association"),
 QT_TRANSLATE_NOOP("dash-core", "KeePassHttp key for AES encrypted communication with KeePass"),
-QT_TRANSLATE_NOOP("dash-core", "Keep N PAC anonymized (%u-%u, default: %u)"),
+QT_TRANSLATE_NOOP("dash-core", "Keep N KDX anonymized (%u-%u, default: %u)"),
 QT_TRANSLATE_NOOP("dash-core", "Keep at most <n> unconnectable transactions in memory (default: %u)"),
 QT_TRANSLATE_NOOP("dash-core", "Keep the transaction memory pool below <n> megabytes (default: %u)"),
 QT_TRANSLATE_NOOP("dash-core", "Keypool ran out, please call keypoolrefill first"),
@@ -448,7 +448,7 @@ QT_TRANSLATE_NOOP("dash-core", "Last PrivateSend was too recent."),
 QT_TRANSLATE_NOOP("dash-core", "Last successful PrivateSend action was too recent."),
 QT_TRANSLATE_NOOP("dash-core", "Listen for JSON-RPC connections on <port> (default: %u or testnet: %u)"),
 QT_TRANSLATE_NOOP("dash-core", "Listen for connections on <port> (default: %u or testnet: %u)"),
-QT_TRANSLATE_NOOP("dash-core", "Loading InstaPAC data cache..."),
+QT_TRANSLATE_NOOP("dash-core", "Loading InstaKDX data cache..."),
 QT_TRANSLATE_NOOP("dash-core", "Loading P2P addresses..."),
 QT_TRANSLATE_NOOP("dash-core", "Loading banlist..."),
 QT_TRANSLATE_NOOP("dash-core", "Loading block index..."),

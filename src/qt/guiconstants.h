@@ -12,7 +12,7 @@ static const int MODEL_UPDATE_DELAY = 250;
 /* AskPassphraseDialog -- Maximum passphrase length */
 static const int MAX_PASSPHRASE_SIZE = 1024;
 
-/* PACGlobalGUI -- Size of icons in status bar */
+/* CadexGUI -- Size of icons in status bar */
 static const int STATUSBAR_ICONSIZE = 16;
 
 static const bool DEFAULT_SPLASHSCREEN = true;
@@ -34,7 +34,7 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 #define COLOR_TX_STATUS_DANGER QColor(200, 100, 100)
 /* Transaction list -- TX status decoration - default color */
 #define COLOR_BLACK QColor(0, 0, 0)
-/* Transaction list -- TX status decoration - LockedByInstaPAC color */
+/* Transaction list -- TX status decoration - LockedByInstaKDX color */
 #define COLOR_TX_STATUS_LOCKED QColor(0, 128, 255)
 
 /* Tooltips longer than this (in characters) are converted into rich text,
@@ -51,10 +51,10 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 36
 
-#define QAPP_ORG_NAME "PACGlobal"
-#define QAPP_ORG_DOMAIN "pacglobal.io"
-#define QAPP_APP_NAME_DEFAULT "PACGlobal-Qt"
-#define QAPP_APP_NAME_TESTNET "PACGlobal-Qt-testnet"
-#define QAPP_APP_NAME_DEVNET "PACGlobal-Qt-%s"
+#define QAPP_ORG_NAME "Cadex"
+#define QAPP_ORG_DOMAIN "cadexcoin.tech"
+#define QAPP_APP_NAME_DEFAULT "Cadex-Qt"
+#define QAPP_APP_NAME_TESTNET "Cadex-Qt-testnet"
+#define QAPP_APP_NAME_DEVNET "Cadex-Qt-%s"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H

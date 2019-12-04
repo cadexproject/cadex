@@ -25,4 +25,4 @@ void StopLLMQSystem();
 void InterruptLLMQSystem();
 }
 
-#endif //PAC_QUORUMS_INIT_H
+#endif //KDX_QUORUMS_INIT_H

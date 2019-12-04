@@ -86,4 +86,4 @@ public:
 
 extern CEvoDB* evoDb;
 
-#endif //PAC_EVODB_H
+#endif //KDX_EVODB_H

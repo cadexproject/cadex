@@ -143,7 +143,7 @@ public:
 };
 
 /**
- * PACGlobal RPC command dispatcher.
+ * Cadex RPC command dispatcher.
  */
 class CRPCTable
 {

@@ -62,11 +62,11 @@
         <translation>عناوين الاستقبال </translation>
     </message>
     <message>
-        <source>These are your PACGlobal addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Cadex addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>هذه هي عناوين داش التابعة لك من أجل إرسال الدفعات. تحقق دائما من المبلغ و عنوان المرسل المستقبل قبل إرسال العملات </translation>
     </message>
     <message>
-        <source>These are your PACGlobal addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Cadex addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>هذه هي عناوين داش التابعة لك من أجل إستقبال الدفعات. ينصح استخدام عنوان جديد من أجل كل صفقة </translation>
     </message>
     <message>
@@ -172,7 +172,7 @@
         <translation>تأكيد تشفير المحفظة</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PAC&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR KDX&lt;/b&gt;!</source>
         <translation>تحذير: إذا قمت بتشفير محفظتك وفقدت كلمة المرور الخاص بك, ستفقد كل عملات داش الخاصة بك</translation>
     </message>
     <message>
@@ -242,11 +242,11 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>A fatal error occurred. PACGlobal Core can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. Cadex Core can no longer continue safely and will quit.</source>
         <translation>خطأ فادح حدث . لا يمكن اتمام داش بامان سيتم الخروج</translation>
     </message>
     <message>
-        <source>PACGlobal Core</source>
+        <source>Cadex Core</source>
         <translation>جوهر الداش</translation>
     </message>
     <message>
@@ -270,7 +270,7 @@
         <translation>إرسال</translation>
     </message>
     <message>
-        <source>Send coins to a PACGlobal address</source>
+        <source>Send coins to a Cadex address</source>
         <translation>إرسال عملات الى عنوان داش</translation>
     </message>
     <message>
@@ -306,7 +306,7 @@
         <translation>الخروج من التطبيق</translation>
     </message>
     <message>
-        <source>Show information about PACGlobal Core</source>
+        <source>Show information about Cadex Core</source>
         <translation>أظهر المعلومات حولة داش الأساسية</translation>
     </message>
     <message>
@@ -378,7 +378,7 @@
         <translation>توقيع الرسالة</translation>
     </message>
     <message>
-        <source>Sign messages with your PACGlobal addresses to prove you own them</source>
+        <source>Sign messages with your Cadex addresses to prove you own them</source>
         <translation>وقَع الرسائل بواسطة اداش الخاص بك لإثبات امتلاكك لهم</translation>
     </message>
     <message>
@@ -386,7 +386,7 @@
         <translation>التحقق من الرسالة</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified PACGlobal addresses</source>
+        <source>Verify messages to ensure they were signed with specified Cadex addresses</source>
         <translation>تحقق من الرسائل للتأكد من أنَها وُقعت برسائل داش محدَدة</translation>
     </message>
     <message>
@@ -474,7 +474,7 @@
         <translation>خيارات سطر الأوامر</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible PACGlobal command-line options</source>
+        <source>Show the %1 help message to get a list with possible Cadex command-line options</source>
         <translation>عرض رسالة مساعدة%1 للحصول على قائمة مع خيارات سطر أوامر داش المحتملة</translation>
     </message>
     <message>
@@ -510,7 +510,7 @@
         <translation>شريط أدوات علامات التبويب</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to PACGlobal network</source>
+        <source>%n active connection(s) to Cadex network</source>
         <translation><numerusform>%n اتصالات نشطة بشبكة داش</numerusform><numerusform>%n اتصالات نشطة بشبكة داش</numerusform><numerusform>%n اتصالات نشطة بشبكة داش</numerusform><numerusform>%n اتصالات نشطة بشبكة داش</numerusform><numerusform>%n اتصالات نشطة بشبكة داش</numerusform><numerusform>%n اتصالات نشطة بشبكة داش</numerusform></translation>
     </message>
     <message>
@@ -861,7 +861,7 @@
         <translation>تعديل عنوان الارسال</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid PACGlobal address.</source>
+        <source>The entered address "%1" is not a valid Cadex address.</source>
         <translation>العنوان الذي تم إدخاله "%1" ليس عنوانًا صالحًا لداش.</translation>
     </message>
     <message>
@@ -959,7 +959,7 @@
         <translation>معلومات الإرسال المخفي</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the PACGlobal in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PAC, 0.01 PAC, 0.1 PAC, 1 PAC and 10 PAC -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.dash.org/en/latest/wallets/dashcore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Cadex in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 KDX, 0.01 KDX, 0.1 KDX, 1 KDX and 10 KDX -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.dash.org/en/latest/wallets/dashcore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
         <translation>&lt;h3&gt;أساسيات الإرسال المخفي &lt;/h3&gt; يمنحك الإرسال المخفي الخصوصية المالية الحقيقية عن طريق حجب أصول أموالك. تتألف جميع داش في محفظتك من "مدخلات" مختلفة يمكنك التفكير فيها على أنها عملات معدنية منفصلة ومنفصلة. &lt;br&gt;يستخدم الإرسال المخفي عملية مبتكرة لخلط مدخلات الخاصة بك مع مدخلات شخصين آخرين ، دون أن تترك العملات المعدنية الخاصة بك من أي وقت مضى محفظتك. أنت تحتفظ بالسيطرة على أموالك في جميع الأوقات.&lt;hr&gt;  &lt;b&gt; تعمل عملية الإرسال المخفي على النحو التالي: &lt;/b&gt;&lt;ol type="1"&gt;&lt;li&gt;يبدأ الإرسال المخفي عن طريق كسر مدخلات الخاصة بالمعاملات إلى فئات قياسية. هذه الفئات هي 0.001 داش ، 0.01 داش ، 0.1 داش ، 1 داش و 10 داش - نوع من مثل النقود الورقية التي تستخدمها كل يوم. &lt;/li&gt;  عندئذٍ ترسل محفظتك طلبات إلى عقد برامج تم تكوينها خصيصًا على الشبكة ، تُسمى "ماسترنود". يتم إخبار هذه الألفاظ بأنك مهتم بخلط فئة معينة. يتم إرسال أي معلومات يمكن تحديدها إلى جميع ماسترنود ، لذلك لا يعرفون أبدا "من" أنت&lt;li&gt;  &lt;li&gt;  عندما يرسل شخصان آخران رسائل مشابهة ، تشير إلى أنهما يرغبان في خلط نفس المذهب ، تبدأ جلسة الخلط. يمزج متاسترنود يصل مدخلات ويكلف محافظ المستخدمين الثلاثة لدفع مدخلات تحولت الآن إلى أنفسهم. تدفع محفظتك تلك التسمية مباشرة لنفسها ، ولكن في عنوان مختلف (يسمى عنوان التغيير). &lt;li&gt;&lt;/li&gt;  من أجل حجب أموالك بشكل كامل ، يجب أن تكرر محفظتك هذه العملية عدة مرات مع كل فئة. في كل مرة يتم الانتهاء من العملية ، يطلق عليها "جولة". كل جولة من الإرسال المخفي تجعل من الصعب بشكل كبير تحديد المكان الذي نشأت فيه أموالك.&lt;/li&gt;  &lt;li&gt; تحدث عملية الاختلاط هذه في الخلفية دون أي تدخل من جانبك. عندما ترغب في إجراء معاملة ، ستكون أموالك مجهولة المصدر بالفعل. مطلوب أي انتظار إضافي. &lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;&lt;b&gt;مهم &lt;/b&gt; تحتوي محفظتك فقط على 1000 من "عناوين التغيير" هذه. في كل مرة يحدث فيها حدث خلط ، يتم استخدام ما يصل إلى 9 عناوين من عناوينك. هذا يعني أن 1000 عنوان تدوم لحوالي 100 حدث خلط. عند استخدام 900 منهم ، يجب أن تنشئ محفظتك المزيد من العناوين. يمكن فقط القيام بذلك ، ومع ذلك ، إذا قمت بتمكين النسخ الاحتياطي التلقائي.&lt;br&gt; وبالتالي ، سيتم تعطيل الإرسال المخفي أيضًا للمستخدمين الذين لديهم نسخ احتياطية معطلة.&lt;hr&gt; لمزيد من المعلومات ، راجع&lt;a href="https://docs.dash.org/en/latest/wallets/dashcore/privatesend-instantsend.html"&gt; وثائق الإرسال المخفي &lt;/a&gt;</translation>
     </message>
 </context>
@@ -1006,7 +1006,7 @@
         <translation>سيتم تخزين %1 جيجابايت تقريباً من البيانات في هذا الدليل.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the PACGlobal block chain.</source>
+        <source>%1 will download and store a copy of the Cadex block chain.</source>
         <translation>سيقوم %1 بتنزيل نسخة من سلسلة كتل بتكوين وتخزينها.</translation>
     </message>
     <message>
@@ -1136,11 +1136,11 @@
         <translation>نمودج</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the PACGlobal network, as detailed below.</source>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Cadex network, as detailed below.</source>
         <translation>قد لا تكون المعاملات الأخيرة مرئية بعد ، وبالتالي قد يكون رصيد محفظتك غير صحيح. ستكون هذه المعلومات صحيحة بمجرد انتهاء محفظتك من المزامنة مع شبكة داش ، كما هو مفصل أدناه.</translation>
     </message>
     <message>
-        <source>Attempting to spend PACGlobal that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <source>Attempting to spend Cadex that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>لن تقبل الشبكة محاولة إنفاق داش المتأثرة بالمعاملات التي لم يتم عرضها بعد.</translation>
     </message>
     <message>
@@ -1230,7 +1230,7 @@
         <translation>(0 = تلقائي، &lt;0 = اترك ذلك العديد من النوى مجانا )</translation>
     </message>
     <message>
-        <source>Amount of PACGlobal to keep anonymized</source>
+        <source>Amount of Cadex to keep anonymized</source>
         <translation>مبلغ من داش للحفاظ على مجهولة المصدر</translation>
     </message>
     <message>
@@ -1282,7 +1282,7 @@
         <translation>يعمل هذا المقدار كعتبة لإيقاف تشغيل الإرسال المخفي بمجرد الوصول إليه.</translation>
     </message>
     <message>
-        <source>Automatically open the PACGlobal Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Cadex Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>فتح منفذ عميل داش كور تلقائيًا على جهاز التوجيه. هذا يعمل فقط عندما يدعم جهاز التوجيه الخاص بك UPnP وتمكينه.</translation>
     </message>
     <message>
@@ -1294,7 +1294,7 @@
         <translation>السماح بالاتصالات الواردة</translation>
     </message>
     <message>
-        <source>Connect to the PACGlobal network through a SOCKS5 proxy.</source>
+        <source>Connect to the Cadex network through a SOCKS5 proxy.</source>
         <translation>الاتصال بشبكة داش من خلال وكيل SOCKS5.</translation>
     </message>
     <message>
@@ -1390,7 +1390,7 @@
         <translation>تور</translation>
     </message>
     <message>
-        <source>Connect to the PACGlobal network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <source>Connect to the Cadex network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation>اتصل بشبكة داش من خلال وكيل SOCKS5 منفصل لخدمات المخفية.</translation>
     </message>
     <message>
@@ -1435,9 +1435,9 @@
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/pacglobal/</source>
+https://www.transifex.com/projects/p/cadex/</source>
         <translation>لغة مفقودة أو ترجمة غير مكتملة؟ مساعدة في المساهمة بالترجمات هنا:
-https://www.transifex.com/projects/p/pacglobal/</translation>
+https://www.transifex.com/projects/p/cadex/</translation>
     </message>
     <message>
         <source>User Interface Theme:</source>
@@ -1515,7 +1515,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>نمودج</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the PACGlobal network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Cadex network after a connection is established, but this process has not completed yet.</source>
         <translation>قد تكون المعلومات المعروضة قديمة. تتزامن محفظتك تلقائيًا مع شبكة داش بعد إنشاء الاتصال ، ولكن هذه العملية لم تكتمل بعد.</translation>
     </message>
     <message>
@@ -1615,7 +1615,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>الكمية و الجولات</translation>
     </message>
     <message>
-        <source>0 PAC / 0 Rounds</source>
+        <source>0 KDX / 0 Rounds</source>
         <translation>0 داش / 0 جولات</translation>
     </message>
     <message>
@@ -1796,7 +1796,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>عنوان الدفع غير صالح %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid PACGlobal address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Cadex address or malformed URI parameters.</source>
         <translation>لا يمكن تحليل العنوان! يمكن أن يكون ذلك بسبب عنوان داش غير صالح أو معلمات العنوان غير صحيحة.</translation>
     </message>
     <message>
@@ -1894,7 +1894,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>مبلغ</translation>
     </message>
     <message>
-        <source>Enter a PACGlobal address (e.g. %1)</source>
+        <source>Enter a Cadex address (e.g. %1)</source>
         <translation>أدخل عنوان داش (على سبيل المثال%1)</translation>
     </message>
     <message>
@@ -2412,7 +2412,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>إعادة استخدام عنوان استلام موجود (غير مستحسن)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the PACGlobal network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Cadex network.</source>
         <translation>رسالة اختيارية لإرفاقها بطلب الدفع ، والتي سيتم عرضها عند فتح الطلب. ملاحظة: لن يتم إرسال الرسالة مع الدفع عبر شبكة داش.</translation>
     </message>
     <message>
@@ -2424,7 +2424,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>تسمية اختيارية لربطها بعنوان المستلم الجديد.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the PACGlobal network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Cadex network.</source>
         <translation>رسالة اختيارية لإرفاقها بطلب الدفع ، والتي سيتم عرضها عند فتح الطلب.&lt;br&gt; ملاحظة: لن يتم إرسال الرسالة مع الدفع عبر شبكة داش.</translation>
     </message>
     <message>
@@ -2456,7 +2456,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>مسح</translation>
     </message>
     <message>
-        <source>Request InstaPAC</source>
+        <source>Request InstaKDX</source>
         <translation>طلب الإرسال الفوري</translation>
     </message>
     <message>
@@ -2543,7 +2543,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>رسالة </translation>
     </message>
     <message>
-        <source>InstaPAC</source>
+        <source>InstaKDX</source>
         <translation>الإرسال الفوري</translation>
     </message>
     <message>
@@ -2681,7 +2681,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>الإرسال المخفي</translation>
     </message>
     <message>
-        <source>InstaPAC</source>
+        <source>InstaKDX</source>
         <translation>الإسال الفوري</translation>
     </message>
     <message>
@@ -2805,7 +2805,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>أي أموال متاح (غير مجهولة)</translation>
     </message>
     <message>
-        <source>and InstaPAC</source>
+        <source>and InstaKDX</source>
         <translation>و الإرسال الفوري</translation>
     </message>
     <message>
@@ -2881,7 +2881,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation><numerusform>يقدر أن يبدأ التأكيد ضمن %n من الكتل.</numerusform><numerusform>يقدر أن يبدأ التأكيد ضمن %n من الكتل.</numerusform><numerusform>يقدر أن يبدأ التأكيد ضمن %n من الكتل.</numerusform><numerusform>يقدر أن يبدأ التأكيد ضمن %n من الكتل.</numerusform><numerusform>يقدر أن يبدأ التأكيد ضمن %n من الكتل.</numerusform><numerusform>يقدر أن يبدأ التأكيد ضمن %n من الكتل.</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Invalid PACGlobal address</source>
+        <source>Warning: Invalid Cadex address</source>
         <translation>تحذير: عنوان داش غير صالح</translation>
     </message>
     <message>
@@ -2912,7 +2912,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>ادفع &amp;الى :</translation>
     </message>
     <message>
-        <source>The PACGlobal address to send the payment to</source>
+        <source>The Cadex address to send the payment to</source>
         <translation>عنوان داش لإرسال الدفعة إلى</translation>
     </message>
     <message>
@@ -2948,7 +2948,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>&amp;القيمة</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of PACGlobal than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Cadex than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>سيتم خصم الرسوم من المبلغ الذي يتم إرساله. سوف يتلقى المستلم كمية أقل من الشرطة من إدخالها في حقل المبلغ. في حالة تحديد عدة مستلمين ، يتم تقسيم الرسوم بالتساوي.</translation>
     </message>
     <message>
@@ -2960,7 +2960,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>الرسائل</translation>
     </message>
     <message>
-        <source>A message that was attached to the pac: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the PACGlobal network.</source>
+        <source>A message that was attached to the pac: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Cadex network.</source>
         <translation>رسالة تم إرفاقها بخط العطف: عنوان الذي سيتم تخزينه مع المعاملة كمرجع لك. ملاحظة: لن يتم إرسال هذه الرسالة عبر شبكة داش.</translation>
     </message>
     <message>
@@ -3013,11 +3013,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>&amp;توقيع الرسالة</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive PACGlobal sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <source>You can sign messages/agreements with your addresses to prove you can receive Cadex sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>يمكنك توقيع الرسائل / الاتفاقيات مع العناوين الخاصة بك لإثبات أنك يمكن أن تتلقى داش المرسلة إليهم. احرص على عدم التوقيع على أي شيء غامض أو عشوائي ، حيث إن هجمات التصيد الاحتيالي قد تحاول خداعك لتوقيع هويتك عليها. توقيع فقط عبارات تفصيلية كاملة توافق على.</translation>
     </message>
     <message>
-        <source>The PACGlobal address to sign the message with</source>
+        <source>The Cadex address to sign the message with</source>
         <translation>عنوان داش للتوقيع على الرسالة</translation>
     </message>
     <message>
@@ -3049,7 +3049,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>نسخ التوقيع الحالي إلى حافظة النظام</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this PACGlobal address</source>
+        <source>Sign the message to prove you own this Cadex address</source>
         <translation>وقع على الرسالة لإثبات أنك تملك عنوان داش هذا</translation>
     </message>
     <message>
@@ -3073,11 +3073,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>أدخل عنوان المتلقي ، رسالة (تأكد من نسخ فواصل الأسطر والمسافات وعلامات التبويب وما إلى ذلك تمامًا) والتوقيع أدناه للتحقق من الرسالة. يجب الحرص على عدم قراءة المزيد في التوقيع أكثر مما هو موجود في الرسالة الموقّعة نفسها ، لتجنب التعرض للخداع من خلال هجوم رجل في الوسط. لاحظ أن هذا يثبت فقط أن الطرف المتلقي يتلقى العنوان ، فلا يمكنه إثبات إرسال أي معاملة!</translation>
     </message>
     <message>
-        <source>The PACGlobal address the message was signed with</source>
+        <source>The Cadex address the message was signed with</source>
         <translation>عنوان داش الذي تم توقيع الرسالة به</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified PACGlobal address</source>
+        <source>Verify the message to ensure it was signed with the specified Cadex address</source>
         <translation>تحقق من الرسالة للتأكد من توقيعها باستخدام عنوان داش المحدد</translation>
     </message>
     <message>
@@ -3202,15 +3202,15 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>تأكيد %1</translation>
     </message>
     <message>
-        <source>verified via InstaPAC</source>
+        <source>verified via InstaKDX</source>
         <translation>محقق من فبل الإرسال الفوري</translation>
     </message>
     <message>
-        <source>InstaPAC verification in progress - %1 of %2 signatures</source>
+        <source>InstaKDX verification in progress - %1 of %2 signatures</source>
         <translation>الإرسال الغوري التحقق قيد التقدم - %1 على %2 إمضاءات</translation>
     </message>
     <message>
-        <source>InstaPAC verification failed</source>
+        <source>InstaKDX verification failed</source>
         <translation>فشل التحقق من الإرسال الفوري</translation>
     </message>
     <message>
@@ -3488,7 +3488,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>ما إذا كان العنوان المشاهدة فقط متضمنًا في هذه المعاملة أم لا.</translation>
     </message>
     <message>
-        <source>Whether or not this transaction was locked by InstaPAC.</source>
+        <source>Whether or not this transaction was locked by InstaKDX.</source>
         <translation>ما إذا كانت هذه المعاملة مقفلة بواسطة الإرسال الفوري أم لا.</translation>
     </message>
     <message>
@@ -3507,11 +3507,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>الكل</translation>
     </message>
     <message>
-        <source>Locked by InstaPAC</source>
+        <source>Locked by InstaKDX</source>
         <translation>مغلق من الإرسال الفوري</translation>
     </message>
     <message>
-        <source>Not locked by InstaPAC</source>
+        <source>Not locked by InstaKDX</source>
         <translation>غير مغلق من الإرسال الفوري</translation>
     </message>
     <message>
@@ -3708,11 +3708,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>إرسال Coins</translation>
     </message>
     <message>
-        <source>InstaPAC doesn't support sending values that high yet. Transactions are currently limited to %1 PAC.</source>
+        <source>InstaKDX doesn't support sending values that high yet. Transactions are currently limited to %1 KDX.</source>
         <translation>لا يدعم الإرسال الفوري  إرسال قيم عالية حتى الآن. تقتصر المعاملات حاليًا على%1 داش .</translation>
     </message>
     <message>
-        <source>Used way too many inputs (&gt;%1) for this InstaPAC transaction, fees could be huge.</source>
+        <source>Used way too many inputs (&gt;%1) for this InstaKDX transaction, fees could be huge.</source>
         <translation>تستخدم طريقة إدخال مدخلات (&gt;%1) لهذه المعاملة الإرسال الفوري ، قد تكون الرسوم كبيرة</translation>
     </message>
 </context>
@@ -3930,11 +3930,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>حذف جميع معاملات المحفظة واسترداد فقط تلك الأجزاء من سلسلة الكتل عبر -escan عند بدء التشغيل</translation>
     </message>
     <message>
-        <source>Enable publish raw transactions of attempted InstaPAC double spend in &lt;address&gt;</source>
+        <source>Enable publish raw transactions of attempted InstaKDX double spend in &lt;address&gt;</source>
         <translation>تمكين نشر المعاملات الأولية لمحاولات الإرسال الفوري للإنفاق الفوري في &lt;address&gt;</translation>
     </message>
     <message>
-        <source>Enable publish transaction hashes of attempted InstaPAC double spend in &lt;address&gt;</source>
+        <source>Enable publish transaction hashes of attempted InstaKDX double spend in &lt;address&gt;</source>
         <translation>تمكين تجزئات عمليات النشر لمحاولة الإرسال الفوري ومضاعفة إنفاق فيها &lt;address&gt;</translation>
     </message>
     <message>
@@ -4338,7 +4338,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>ابقى على اقصى حد &lt;n&gt; معاملات غير قابلة للاتصال في الذاكرة (القيمة الافتراضية: %u)</translation>
     </message>
     <message>
-        <source>Disable all PACGlobal specific functionality (Masternodes, PrivateSend, InstaPAC, Governance) (0-1, default: %u)</source>
+        <source>Disable all Cadex specific functionality (Masternodes, PrivateSend, InstaKDX, Governance) (0-1, default: %u)</source>
         <translation>تعطيل جميع وظائف داش المحددة (ماسترنود ، الإرسال المخفي  ، الإرسال الفوري ، الحوكمة) (0-1 ، القيمة الافتراضية: %u)</translation>
     </message>
     <message>
@@ -4354,7 +4354,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>لا تحتفظ بالمعاملات في الذاكرة أكثر من &lt;n&gt; ساعات (الافتراضي: %u)</translation>
     </message>
     <message>
-        <source>Enable InstaPAC, show confirmations for locked transactions (0-1, default: %u)</source>
+        <source>Enable InstaKDX, show confirmations for locked transactions (0-1, default: %u)</source>
         <translation>تمكين الإرسال الفوري ، عرض التأكيدات للمعاملات المقفلة (0-1 ، القيمة الافتراضية: %u)</translation>
     </message>
     <message>
@@ -4366,7 +4366,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>تمكين استخدام الإرسال المخفي التلقائي للأموال المخزنة في هذه المحفظة (0-1 ، القيمة الافتراضية: %u)</translation>
     </message>
     <message>
-        <source>Execute command when a wallet InstaPAC transaction is successfully locked (%s in cmd is replaced by TxID)</source>
+        <source>Execute command when a wallet InstaKDX transaction is successfully locked (%s in cmd is replaced by TxID)</source>
         <translation>تنفيذ الأمر عند قفل معاملة الإرسال الفوري في المحفظة بنجاح (يتم استبدال %s في cmd بـ TxID)</translation>
     </message>
     <message>
@@ -4390,11 +4390,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>إذا &lt;category&gt; لا يتم توفير أو إذا &lt;category&gt; = 1 ، إخراج كافة معلومات التصحيح</translation>
     </message>
     <message>
-        <source>InstaPAC doesn't support sending values that high yet. Transactions are currently limited to %1 PAC.</source>
+        <source>InstaKDX doesn't support sending values that high yet. Transactions are currently limited to %1 KDX.</source>
         <translation>لا يدعم الإرسال الغوري إرسال قيم عالية حتى الآن. تقتصر المعاملات حاليًا على%1 داش.</translation>
     </message>
     <message>
-        <source>InstaPAC requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
+        <source>InstaKDX requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
         <translation>يتطلب الإرسال الفوري مدخلات مع %d تأكيدات على الأقل ، قد تحتاج إلى الانتظار بضع دقائق وإعادة المحاولة.</translation>
     </message>
     <message>
@@ -4490,7 +4490,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>تحذير: يتم نسخ إصدارات الحظر غير المعروفة! من المحتمل أن تكون قواعد غير معروفة سارية المفعول</translation>
     </message>
     <message>
-        <source>You are starting in lite mode, all PACGlobal-specific functionality is disabled.</source>
+        <source>You are starting in lite mode, all Cadex-specific functionality is disabled.</source>
         <translation>أنت تبدأ في الوضع البسيط ، يتم تعطيل جميع وظائف داش المحددة.</translation>
     </message>
     <message>
@@ -4538,7 +4538,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>تمكين نشر التجزئة من أصوات الحكم في &lt;address&gt;</translation>
     </message>
     <message>
-        <source>Enable publish hash transaction (locked via InstaPAC) in &lt;address&gt;</source>
+        <source>Enable publish hash transaction (locked via InstaKDX) in &lt;address&gt;</source>
         <translation>تمكين عملية التجزئة المنشورة (مؤمنة عبر الإرسال الفوري) في &lt;address&gt;</translation>
     </message>
     <message>
@@ -4550,8 +4550,8 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>تمكين نشر كتلة الخام في &lt;address&gt;</translation>
     </message>
     <message>
-        <source>Enable publish raw transaction (locked via InstaPAC) in &lt;address&gt;</source>
-        <translation>تمكين نشر المعاملة الأولية (مؤمّنة عبر InstaPAC) في &lt;address&gt;</translation>
+        <source>Enable publish raw transaction (locked via InstaKDX) in &lt;address&gt;</source>
+        <translation>تمكين نشر المعاملة الأولية (مؤمّنة عبر InstaKDX) في &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable publish raw transaction in &lt;address&gt;</source>
@@ -4574,7 +4574,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>أخفق حذف النسخة الاحتياطية ، الخطأ: %s</translation>
     </message>
     <message>
-        <source>Failed to load InstaPAC data cache from</source>
+        <source>Failed to load InstaKDX data cache from</source>
         <translation>أخفق تحميل ذاكرة التخزين المؤقت لبيانات الإرسال الفوري</translation>
     </message>
     <message>
@@ -4590,7 +4590,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>استيراد كتل من ملف blk000??.dat الخارجي عند بدء التشغيل</translation>
     </message>
     <message>
-        <source>InstaPAC options:</source>
+        <source>InstaKDX options:</source>
         <translation>خيارات الإرسال الفوري:</translation>
     </message>
     <message>
@@ -4610,7 +4610,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>آخر إجراء الإرسال المخفي ناجح كان حديث للغاية.</translation>
     </message>
     <message>
-        <source>Loading InstaPAC data cache...</source>
+        <source>Loading InstaKDX data cache...</source>
         <translation>جارٍ تحميل ذاكرة التخزين المؤقت لبيانات الإرسال الفوري ...</translation>
     </message>
     <message>
@@ -4826,7 +4826,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>خيارات خادم RPC:</translation>
     </message>
     <message>
-        <source>PACGlobal Core</source>
+        <source>Cadex Core</source>
         <translation>جوهر الداش</translation>
     </message>
     <message>
@@ -5022,7 +5022,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>عنوان spork غير صالح محدد بـ -sporkaddr</translation>
     </message>
     <message>
-        <source>Keep N PAC anonymized (%u-%u, default: %u)</source>
+        <source>Keep N KDX anonymized (%u-%u, default: %u)</source>
         <translation>الاحتفاظ بـ N داش مجهولة المصدر (%u-%u ، القيمة الافتراضية: %u)</translation>
     </message>
     <message>

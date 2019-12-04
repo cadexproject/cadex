@@ -4,13 +4,13 @@ set -e
 
 export LC_ALL="en_US.UTF-8"
 
-binary_url="https://github.com/PACGlobalOfficial/PAC/releases/download/8f4ed61d4/pacglobal-v0.14.0.4-8f4ed61d4-lin64.tgz"
-file_name="pacglobal-v0.14.0.4-8f4ed61d4-lin64"
+binary_url="https://github.com/cadexproject/cadex/releases/download/8f4ed61d4/cadex-v0.14.0.4-8f4ed61d4-lin64.tgz"
+file_name="cadex-v0.14.0.4-8f4ed61d4-lin64"
 extension=".tgz"
 
 echo ""
 echo "#################################################"
-echo "#   Welcome to the PACGlobal Masternode Setup   #"
+echo "#   Welcome to the CADEXCOIN Masternode Setup   #"
 echo "#################################################"
 echo ""
 
@@ -48,7 +48,7 @@ sudo ufw allow 7112/tcp
 sudo ufw logging on
 sudo ufw --force enable
 sudo ufw status
-sudo iptables -A INPUT -p tcp --dport 7112 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 27270 -j ACCEPT
 
 echo ""
 echo "###########################"
@@ -68,14 +68,14 @@ echo "###############################"
 echo ""
 wget $binary_url
 if test -e "$file_name$extension"; then
-echo "Unpacking PACGlobal distribution"
+echo "Unpacking Cadexcoin distribution"
 	tar -xzvf $file_name$extension
 	rm -r $file_name$extension
-	mv -v $file_name PACGlobal
-	cd PACGlobal
-	chmod +x pacglobald
-	chmod +x pacglobal-cli
-	echo "Binaries were saved to: /root/PACGlobal"
+	mv -v $file_name  cadex
+	cd cadex
+	chmod +x cadexd
+	chmod +x cadex-cli
+	echo "Binaries were saved to: /root/cadex"
 else
 	echo "There was a problem downloading the binaries, please try running the script again."
 	exit -1
@@ -86,39 +86,39 @@ echo "###############################"
 echo "#     Configure the wallet    #"
 echo "###############################"
 echo ""
-echo "A .PACGlobal folder will be created, if folder already exists, it will be replaced"
-if [ -d ~/.PACGlobal ]; then
-	if [ -e ~/.PACGlobal/pacglobal.conf ]; then
-		read -p "The file pacglobal.conf already exists and will be replaced. do you agree [y/n]:" cont
+echo "A .CADEXCOIN folder will be created, if folder already exists, it will be replaced"
+if [ -d ~/.CADEXCOIN ]; then
+	if [ -e ~/.CADEXCOIN/cadex.conf ]; then
+		read -p "The file cadex.conf already exists and will be replaced. do you agree [y/n]:" cont
 		if [ $cont = 'y' ] || [ $cont = 'yes' ] || [ $cont = 'Y' ] || [ $cont = 'Yes' ]; then
-			sudo rm ~/.PACGlobal/pacglobal.conf
-			touch ~/.PACGlobal/pacglobal.conf
-			cd ~/.PACGlobal
+			sudo rm ~/.CADEXCOIN/cadex.conf
+			touch ~/.CADEXCOIN/cadex.conf
+			cd ~/.CADEXCOIN
 		fi
 	fi
 else
-	echo "Creating .PACGlobal dir"
-	mkdir -p ~/.PACGlobal
-	cd ~/.PACGlobal
-	touch pacglobal.conf
+	echo "Creating .CADEXCOIN dir"
+	mkdir -p ~/.CADEXCOIN
+	cd ~/.CADEXCOIN
+	touch cadex.conf
 fi
 
-echo "Configuring the pacglobal.conf"
-echo "#----" > pacglobal.conf
-echo "rpcuser=$(pwgen -s 16 1)" >> pacglobal.conf
-echo "rpcpassword=$(pwgen -s 64 1)" >> pacglobal.conf
-echo "rpcallowip=127.0.0.1" >> pacglobal.conf
-echo "rpcport=7111" >> pacglobal.conf
-echo "#----" >> pacglobal.conf
-echo "listen=1" >> pacglobal.conf
-echo "server=1" >> pacglobal.conf
-echo "daemon=1" >> pacglobal.conf
-echo "maxconnections=64" >> pacglobal.conf
-echo "#----" >> pacglobal.conf
-echo "masternode=1" >> pacglobal.conf
-echo "masternodeblsprivkey=$mnkey" >> pacglobal.conf
-echo "externalip=$ipaddr" >> pacglobal.conf
-echo "#----" >> pacglobal.conf
+echo "Configuring the cadex.conf"
+echo "#----" > cadex.conf
+echo "rpcuser=$(pwgen -s 16 1)" >> cadex.conf
+echo "rpcpassword=$(pwgen -s 64 1)" >> cadex.conf
+echo "rpcallowip=127.0.0.1" >>cadex.conf
+echo "rpcport=7111" >>cadex.conf
+echo "#----" >>cadex.conf
+echo "listen=1" >>cadex.conf
+echo "server=1" >>cadex.conf
+echo "daemon=1" >>cadex.conf
+echo "maxconnections=64" >>cadex.conf
+echo "#----" >>cadex.conf
+echo "masternode=1" >>cadex.conf
+echo "masternodeblsprivkey=$mnkey" >>cadex.conf
+echo "externalip=$ipaddr" >>cadex.conf
+echo "#----" >>cadex.conf
 
 
 
@@ -130,17 +130,17 @@ echo ""
 
 cat <<EOF > /etc/systemd/system/pacg.service
 [Unit]
-Description=PAC Global daemon
+Description=Cadexcoin Global daemon
 After=network.target
 [Service]
 User=root
 Group=root
 Type=forking
-PIDFile=/root/.PACGlobal/pacglobal.pid
-ExecStart=/root/PACGlobal/pacglobald -daemon -pid=/root/.PACGlobal/pacglobal.pid \
-          -conf=/root/.PACGlobal/pacglobal.conf -datadir=/root/.PACGlobal/
-ExecStop=-/root/PACGlobal/pacglobal-cli -conf=/root/.PACGlobal/pacglobal.conf \
-          -datadir=/root/.PACGlobal/ stop
+PIDFile=/root/.CADEXCOIN/cadex.pid
+ExecStart=/root/cadex/cadexd -daemon -pid=/root/.CADEXCOIN/cadex.pid \
+          -conf=/root/.CADEXCOIN/cadex.conf -datadir=/root/.CADEXCOIN/
+ExecStop=-/root/cadex/cadex-cli -conf=/root/.CADEXCOIN/cadex.conf \
+          -datadir=/root/.CADEXCOIN/ stop
 Restart=always
 PrivateTmp=true
 TimeoutStopSec=60s
@@ -165,17 +165,17 @@ echo "###############################"
 echo "#      Running the wallet     #"
 echo "###############################"
 echo ""
-cd ~/PACGlobal
+cd ~/cadex
 sleep 60
 
-is_pac_running=`ps ax | grep -v grep | grep pacglobald | wc -l`
+is_pac_running=`ps ax | grep -v grep | grepcadexd | wc -l`
 if [ $is_pac_running -eq 0 ]; then
 	echo "The daemon is not running or there is an issue, please restart the daemon!"
 	exit
 fi
 
-cd ~/PACGlobal
-./pacglobal-cli getinfo
+cd ~/cadex
+./cadex-cli getinfo
 
 echo ""
 echo "Your masternode server is ready!"

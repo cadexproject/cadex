@@ -49,4 +49,4 @@ void SetTxPayload(CMutableTransaction& tx, const T& payload)
 
 uint256 CalcTxInputsHash(const CTransaction& tx);
 
-#endif //PAC_SPECIALTX_H
+#endif //KDX_SPECIALTX_H

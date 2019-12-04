@@ -70,11 +70,11 @@
         <translation>正在接收地址</translation>
     </message>
     <message>
-        <source>These are your PACGlobal addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Cadex addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>这些是你要付款过去的达世币地址。在付款之前，务必要检查金额和收款地址是否正确。</translation>
     </message>
     <message>
-        <source>These are your PACGlobal addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Cadex addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>这些是你用来收款的达世币地址。建议在每次交易时，都使用一个新的收款地址。</translation>
     </message>
     <message>
@@ -188,7 +188,7 @@
         <translation>确认加密钱包</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PAC&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR KDX&lt;/b&gt;!</source>
         <translation>警告:如果把钱包加​​密后又忘记密码，您就会从此&lt;b&gt;失去所有的达世币了&lt;/b&gt;！</translation>
     </message>
     <message>
@@ -258,11 +258,11 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>A fatal error occurred. PACGlobal Core can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. Cadex Core can no longer continue safely and will quit.</source>
         <translation>发生致命错误。达世币核心钱包不再能安全地运行下去，程序将会关闭。</translation>
     </message>
     <message>
-        <source>PACGlobal Core</source>
+        <source>Cadex Core</source>
         <translation>达世币核心</translation>
     </message>
     <message>
@@ -286,7 +286,7 @@
         <translation>发送(&amp;S)</translation>
     </message>
     <message>
-        <source>Send coins to a PACGlobal address</source>
+        <source>Send coins to a Cadex address</source>
         <translation>发送币至达世币地址</translation>
     </message>
     <message>
@@ -322,7 +322,7 @@
         <translation>退出程序</translation>
     </message>
     <message>
-        <source>Show information about PACGlobal Core</source>
+        <source>Show information about Cadex Core</source>
         <translation>显示关于达世币核心信息</translation>
     </message>
     <message>
@@ -394,7 +394,7 @@
         <translation>消息签名(&amp;M)...</translation>
     </message>
     <message>
-        <source>Sign messages with your PACGlobal addresses to prove you own them</source>
+        <source>Sign messages with your Cadex addresses to prove you own them</source>
         <translation>使用您的达市币地址进行消息签名以证明对此地址的所有权</translation>
     </message>
     <message>
@@ -402,7 +402,7 @@
         <translation>验证消息(&amp;V)...</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified PACGlobal addresses</source>
+        <source>Verify messages to ensure they were signed with specified Cadex addresses</source>
         <translation>验证消息是用来确定此消息是用指定的达世币地址签发的</translation>
     </message>
     <message>
@@ -490,7 +490,7 @@
         <translation>命令行选项(&amp;C)</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible PACGlobal command-line options</source>
+        <source>Show the %1 help message to get a list with possible Cadex command-line options</source>
         <translation>显示 %1 帮助信息，获取可用命令行选项列表</translation>
     </message>
     <message>
@@ -526,7 +526,7 @@
         <translation>分页工具栏</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to PACGlobal network</source>
+        <source>%n active connection(s) to Cadex network</source>
         <translation><numerusform>%n个有效的达世币网络连接</numerusform></translation>
     </message>
     <message>
@@ -877,7 +877,7 @@
         <translation>编辑发送地址</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid PACGlobal address.</source>
+        <source>The entered address "%1" is not a valid Cadex address.</source>
         <translation>输入的地址“%1”不是有效的达世币地址。</translation>
     </message>
     <message>
@@ -975,8 +975,8 @@
         <translation>匿名发送信息</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the PACGlobal in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PAC, 0.01 PAC, 0.1 PAC, 1 PAC and 10 PAC -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.dash.org/en/latest/wallets/dashcore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;匿名发送基础知识&lt;/h3&gt;匿名发送通过隐藏您的资金来源为您提供真正的财务隐私。您的钱包中所有的达世币都由不同的“输入”组成，您可以将其视为分开的离散硬币。&lt;br&gt;匿名发送使用创新的方法将您的输入与其他两个人的输入相结合，而过程中不会让您的达世币离开您的钱包。每时每刻，您仍然控制着您的钱。&lt;hr&gt;&lt;b&gt;匿名发送的运作原理如下：&lt;/b&gt;&lt;ol type="1"&gt;&lt;li&gt;匿名发送首先将您的交易分柝成多个标准面额的交易。这些标准面额分别为0.001 PAC，0.01 PAC，0.1 PAC，1 PAC和10 PAC --有点像您每天使用的纸币。&lt;/li&gt;&lt;li&gt;您的钱包然后发送请求到网络上有专门配置的软件节点，称为“主节点”。这些主节点会收到您希望混合一些资金的通知。没有可识别的信息发送到主节点，所以他们永远不会知道你是“谁”。&lt;li&gt;当另外两个人发送类似的消息时，表示希望混合相同的面额的话，混合会话就会开始。相关的主节点会混合这些输入，并指示所有三个用户的钱包将已经转换了输入的交易支付给自己。您的钱包直接支付给自己，但是付给不同的位址（称之为找零地址）。&lt;/li&gt;&lt;li&gt;为了完全掩盖您的资金来源，您的钱包必须以每个面额来重复此过程数次。每次这个过程完成后，都称之为一个“循环”。每个循环的匿名发送都会令确定您的资金来源的工作倍加困难。&lt;/li&gt;&lt;li&gt;这种混合过程发生在后台，而不需要您进行任何操作。当您想进行交易时，您的资金将已被匿名处理。不需再花额外的时间等待。&lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;重要：&lt;b&gt;您的钱包只能拥有1000个“找零地址”。每次混合事件发生时，最多会使用9个找零地址。这意味着这1000个地址可以容许100次的混合事件。当其的中900个已经被使用后，您的钱包必须创建更多的地址。如果您启用了自动备份，则只能够这样做。&lt;br&gt;因此，禁用备份的用户也将禁用匿名发送。&lt;hr&gt;如欲了解更多信息请参阅&lt;a href="https://docs.dash.org/en/latest/wallets/dashcore/privatesend-instantsend.html"&gt;匿名发送文档&lt;/a&gt;。</translation>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Cadex in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 KDX, 0.01 KDX, 0.1 KDX, 1 KDX and 10 KDX -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.dash.org/en/latest/wallets/dashcore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;匿名发送基础知识&lt;/h3&gt;匿名发送通过隐藏您的资金来源为您提供真正的财务隐私。您的钱包中所有的达世币都由不同的“输入”组成，您可以将其视为分开的离散硬币。&lt;br&gt;匿名发送使用创新的方法将您的输入与其他两个人的输入相结合，而过程中不会让您的达世币离开您的钱包。每时每刻，您仍然控制着您的钱。&lt;hr&gt;&lt;b&gt;匿名发送的运作原理如下：&lt;/b&gt;&lt;ol type="1"&gt;&lt;li&gt;匿名发送首先将您的交易分柝成多个标准面额的交易。这些标准面额分别为0.001 KDX，0.01 KDX，0.1 KDX，1 KDX和10 KDX --有点像您每天使用的纸币。&lt;/li&gt;&lt;li&gt;您的钱包然后发送请求到网络上有专门配置的软件节点，称为“主节点”。这些主节点会收到您希望混合一些资金的通知。没有可识别的信息发送到主节点，所以他们永远不会知道你是“谁”。&lt;li&gt;当另外两个人发送类似的消息时，表示希望混合相同的面额的话，混合会话就会开始。相关的主节点会混合这些输入，并指示所有三个用户的钱包将已经转换了输入的交易支付给自己。您的钱包直接支付给自己，但是付给不同的位址（称之为找零地址）。&lt;/li&gt;&lt;li&gt;为了完全掩盖您的资金来源，您的钱包必须以每个面额来重复此过程数次。每次这个过程完成后，都称之为一个“循环”。每个循环的匿名发送都会令确定您的资金来源的工作倍加困难。&lt;/li&gt;&lt;li&gt;这种混合过程发生在后台，而不需要您进行任何操作。当您想进行交易时，您的资金将已被匿名处理。不需再花额外的时间等待。&lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;重要：&lt;b&gt;您的钱包只能拥有1000个“找零地址”。每次混合事件发生时，最多会使用9个找零地址。这意味着这1000个地址可以容许100次的混合事件。当其的中900个已经被使用后，您的钱包必须创建更多的地址。如果您启用了自动备份，则只能够这样做。&lt;br&gt;因此，禁用备份的用户也将禁用匿名发送。&lt;hr&gt;如欲了解更多信息请参阅&lt;a href="https://docs.dash.org/en/latest/wallets/dashcore/privatesend-instantsend.html"&gt;匿名发送文档&lt;/a&gt;。</translation>
     </message>
 </context>
 <context>
@@ -1022,7 +1022,7 @@
         <translation>会在此目录中存储约 %1 GB 的数据。</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the PACGlobal block chain.</source>
+        <source>%1 will download and store a copy of the Cadex block chain.</source>
         <translation>%1 将会下载并存储比特币区块链。</translation>
     </message>
     <message>
@@ -1160,11 +1160,11 @@
         <translation>表单</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the PACGlobal network, as detailed below.</source>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Cadex network, as detailed below.</source>
         <translation>最近的交易可能尚未显示，因此您的钱包的余额可能不正确。一旦您的钱包完成与达世币网络的同步，这个信息将会修正，如下所述。</translation>
     </message>
     <message>
-        <source>Attempting to spend PACGlobal that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <source>Attempting to spend Cadex that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>假如您正在尝试花费尚未显示出来的达世币，这个交易将不会被网络所接受。</translation>
     </message>
     <message>
@@ -1254,7 +1254,7 @@
         <translation>(0 = 自动, &lt;0 = 保留处理器核心不用的数目)</translation>
     </message>
     <message>
-        <source>Amount of PACGlobal to keep anonymized</source>
+        <source>Amount of Cadex to keep anonymized</source>
         <translation>保持匿名化的达世币数</translation>
     </message>
     <message>
@@ -1306,7 +1306,7 @@
         <translation>此金额为关闭匿名发送的阈值。</translation>
     </message>
     <message>
-        <source>Automatically open the PACGlobal Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Cadex Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>自动在路由器打开达世币核心客户端端口。此项只在路由器支持UPnP且开启时有效。</translation>
     </message>
     <message>
@@ -1318,7 +1318,7 @@
         <translation>接受外来连接</translation>
     </message>
     <message>
-        <source>Connect to the PACGlobal network through a SOCKS5 proxy.</source>
+        <source>Connect to the Cadex network through a SOCKS5 proxy.</source>
         <translation>通过SOCKS5代理连接达世币网络。</translation>
     </message>
     <message>
@@ -1414,7 +1414,7 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the PACGlobal network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <source>Connect to the Cadex network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation>通过另一个SOCKS5代理服务器作为Tor隐藏服务来连接到达世币网络。</translation>
     </message>
     <message>
@@ -1459,9 +1459,9 @@
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/pacglobal/</source>
+https://www.transifex.com/projects/p/cadex/</source>
         <translation>缺少相关语言或翻译不完整？请到这里协助翻译：
-https://www.transifex.com/projects/p/pacglobal/</translation>
+https://www.transifex.com/projects/p/cadex/</translation>
     </message>
     <message>
         <source>User Interface Theme:</source>
@@ -1539,7 +1539,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>表单</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the PACGlobal network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Cadex network after a connection is established, but this process has not completed yet.</source>
         <translation>显示的信息也许已过期。当与达世币网络连接后钱包程序会自动同步，但现在还未完成。</translation>
     </message>
     <message>
@@ -1639,7 +1639,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>数量与循环次数：</translation>
     </message>
     <message>
-        <source>0 PAC / 0 Rounds</source>
+        <source>0 KDX / 0 Rounds</source>
         <translation>0 达世币 / 0 循环数</translation>
     </message>
     <message>
@@ -1820,7 +1820,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>无效的付款地址 %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid PACGlobal address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Cadex address or malformed URI parameters.</source>
         <translation>URI不能被解析! 原因可能是无效的达世币地址或URI参数格式错误。</translation>
     </message>
     <message>
@@ -1918,7 +1918,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>金额</translation>
     </message>
     <message>
-        <source>Enter a PACGlobal address (e.g. %1)</source>
+        <source>Enter a Cadex address (e.g. %1)</source>
         <translation>输入达世币地址(例如 %1)</translation>
     </message>
     <message>
@@ -2440,7 +2440,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>重用现有的接收地址（不推荐）</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the PACGlobal network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Cadex network.</source>
         <translation>附加在付款要求中的讯息，可以不填，打开要求内容时会显示。注意：这个讯息不会随着付款送到达世币网路上。</translation>
     </message>
     <message>
@@ -2452,7 +2452,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>可为新建的收款地址添加一个可选标签。</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the PACGlobal network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Cadex network.</source>
         <translation>附加在付款要求中的讯息，可以不填，打开要求内容时会显示。&lt;br&gt;注意：这个讯息不会随着付款送到达世币网路上。</translation>
     </message>
     <message>
@@ -2484,7 +2484,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>清除</translation>
     </message>
     <message>
-        <source>Request InstaPAC</source>
+        <source>Request InstaKDX</source>
         <translation>要求即时到帐付款</translation>
     </message>
     <message>
@@ -2571,7 +2571,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>消息</translation>
     </message>
     <message>
-        <source>InstaPAC</source>
+        <source>InstaKDX</source>
         <translation>即时到账</translation>
     </message>
     <message>
@@ -2709,7 +2709,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>匿名发送</translation>
     </message>
     <message>
-        <source>InstaPAC</source>
+        <source>InstaKDX</source>
         <translation>即时到账</translation>
     </message>
     <message>
@@ -2833,7 +2833,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>任何可用资金（非匿名的）</translation>
     </message>
     <message>
-        <source>and InstaPAC</source>
+        <source>and InstaKDX</source>
         <translation>和即时支付</translation>
     </message>
     <message>
@@ -2909,7 +2909,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation><numerusform>预计在%n 个区块内开始确认。</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Invalid PACGlobal address</source>
+        <source>Warning: Invalid Cadex address</source>
         <translation>警告：无效的达世币地址</translation>
     </message>
     <message>
@@ -2940,7 +2940,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>付给(&amp;T)：</translation>
     </message>
     <message>
-        <source>The PACGlobal address to send the payment to</source>
+        <source>The Cadex address to send the payment to</source>
         <translation>选择发款地址</translation>
     </message>
     <message>
@@ -2976,7 +2976,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>金额(&amp;M)</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of PACGlobal than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Cadex than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>手续费将从发送金额中扣除。接收者将收到的达世币金额将会比您在金额字段中输入的金额为少。如果选择了多个收款人，该费用将会被平均摊分。</translation>
     </message>
     <message>
@@ -2988,7 +2988,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>消息：</translation>
     </message>
     <message>
-        <source>A message that was attached to the pac: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the PACGlobal network.</source>
+        <source>A message that was attached to the pac: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Cadex network.</source>
         <translation>附加在达世币付款协议URI中的信息，会和交易内容一并存储，可供您参考。提示：此信息不会发送到达世币网络上。</translation>
     </message>
     <message>
@@ -3041,11 +3041,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>签名消息(&amp;S)</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive PACGlobal sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <source>You can sign messages/agreements with your addresses to prove you can receive Cadex sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>您可以用自己的地址签署信息/协议，来证明您对地址的所有权。但是请小心，不要签署语意含糊不清的内容，因为钓鱼式诈骗可能会用骗您签署的手法来冒充是您。只有在语句中的细节您都同意时才签署。</translation>
     </message>
     <message>
-        <source>The PACGlobal address to sign the message with</source>
+        <source>The Cadex address to sign the message with</source>
         <translation>对此地址进行签名</translation>
     </message>
     <message>
@@ -3077,7 +3077,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>复制当前签名至剪切板</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this PACGlobal address</source>
+        <source>Sign the message to prove you own this Cadex address</source>
         <translation>签署信息证明您拥有此达世币地址</translation>
     </message>
     <message>
@@ -3101,11 +3101,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>请在下面输入接收者地址、消息（确保换行符、空格符、制表符等完全相同）和签名以验证消息。请仔细核对签名信息，以提防中间人攻击。请注意，这只是证明接收方签名的地址，它不能证明任何交易！</translation>
     </message>
     <message>
-        <source>The PACGlobal address the message was signed with</source>
+        <source>The Cadex address the message was signed with</source>
         <translation>已签名的地址</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified PACGlobal address</source>
+        <source>Verify the message to ensure it was signed with the specified Cadex address</source>
         <translation>验证信息用来确保此被签署信息对应相对的达世币地址</translation>
     </message>
     <message>
@@ -3234,19 +3234,19 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>通过基于LLMQ的链锁功能锁定</translation>
     </message>
     <message>
-        <source>verified via LLMQ based InstaPAC</source>
+        <source>verified via LLMQ based InstaKDX</source>
         <translation>通过基于LLMQ的即时发送功能验证</translation>
     </message>
     <message>
-        <source>verified via InstaPAC</source>
+        <source>verified via InstaKDX</source>
         <translation>经即时发送系统核实</translation>
     </message>
     <message>
-        <source>InstaPAC verification in progress - %1 of %2 signatures</source>
+        <source>InstaKDX verification in progress - %1 of %2 signatures</source>
         <translation>即时发送验证正在进行 - %2个签署中的第%1个</translation>
     </message>
     <message>
-        <source>InstaPAC verification failed</source>
+        <source>InstaKDX verification failed</source>
         <translation>即时发送验证失败</translation>
     </message>
     <message>
@@ -3524,7 +3524,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>决定是否有一个仅限查看的地址参与这次交易.</translation>
     </message>
     <message>
-        <source>Whether or not this transaction was locked by InstaPAC.</source>
+        <source>Whether or not this transaction was locked by InstaKDX.</source>
         <translation>无论此交易是否被即时发送锁定。</translation>
     </message>
     <message>
@@ -3543,11 +3543,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>全部</translation>
     </message>
     <message>
-        <source>Locked by InstaPAC</source>
+        <source>Locked by InstaKDX</source>
         <translation>被即时发送锁定</translation>
     </message>
     <message>
-        <source>Not locked by InstaPAC</source>
+        <source>Not locked by InstaKDX</source>
         <translation>未被即时发送锁定</translation>
     </message>
     <message>
@@ -3752,11 +3752,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>发送达世币</translation>
     </message>
     <message>
-        <source>InstaPAC doesn't support sending values that high yet. Transactions are currently limited to %1 PAC.</source>
+        <source>InstaKDX doesn't support sending values that high yet. Transactions are currently limited to %1 KDX.</source>
         <translation>即时发送功能目前还不支持发送如此高的金额。目前限制在%1达世币。</translation>
     </message>
     <message>
-        <source>Used way too many inputs (&gt;%1) for this InstaPAC transaction, fees could be huge.</source>
+        <source>Used way too many inputs (&gt;%1) for this InstaKDX transaction, fees could be huge.</source>
         <translation>这个即时发送交易使用过多的输入（&gt;%1），费用可能很大。</translation>
     </message>
 </context>
@@ -3974,11 +3974,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>删除钱包里的所有交易信息, 并且在下次启动时, 使用 -rescan 来从区块链中恢复</translation>
     </message>
     <message>
-        <source>Enable publish raw transactions of attempted InstaPAC double spend in &lt;address&gt;</source>
+        <source>Enable publish raw transactions of attempted InstaKDX double spend in &lt;address&gt;</source>
         <translation>允许在 &lt;address&gt;中发布尝试即时支付双花的原始交易</translation>
     </message>
     <message>
-        <source>Enable publish transaction hashes of attempted InstaPAC double spend in &lt;address&gt;</source>
+        <source>Enable publish transaction hashes of attempted InstaKDX double spend in &lt;address&gt;</source>
         <translation>允许在 &lt;address&gt;中发布尝试即时支付双花的交易哈希值</translation>
     </message>
     <message>
@@ -4390,7 +4390,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>内存中最多保留 &lt;n&gt; 笔孤立的交易 (默认：%u) </translation>
     </message>
     <message>
-        <source>Disable all PACGlobal specific functionality (Masternodes, PrivateSend, InstaPAC, Governance) (0-1, default: %u)</source>
+        <source>Disable all Cadex specific functionality (Masternodes, PrivateSend, InstaKDX, Governance) (0-1, default: %u)</source>
         <translation>禁止所有达世币的附加功能（主节点，匿名发送，即时发送，预算案）（0-1，默认：%u）</translation>
     </message>
     <message>
@@ -4410,7 +4410,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>不要让交易留在内存池中超过 &lt;n&gt; 个小时 (默认：%u)</translation>
     </message>
     <message>
-        <source>Enable InstaPAC, show confirmations for locked transactions (0-1, default: %u)</source>
+        <source>Enable InstaKDX, show confirmations for locked transactions (0-1, default: %u)</source>
         <translation>启用即时发送，显示锁定交易的确认次数（0-1，默认：%u）</translation>
     </message>
     <message>
@@ -4422,7 +4422,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>允许存储在这个钱包内的资金自动使用匿名发送（0-1，默认：%u）</translation>
     </message>
     <message>
-        <source>Execute command when a wallet InstaPAC transaction is successfully locked (%s in cmd is replaced by TxID)</source>
+        <source>Execute command when a wallet InstaKDX transaction is successfully locked (%s in cmd is replaced by TxID)</source>
         <translation>当钱包有交易改变时要执行的指令（命令中的%s会被取代成交易识别码）</translation>
     </message>
     <message>
@@ -4446,11 +4446,11 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>如果&lt;category&gt;未提供或&lt;category&gt; = 1，输出所有调试信息。</translation>
     </message>
     <message>
-        <source>InstaPAC doesn't support sending values that high yet. Transactions are currently limited to %1 PAC.</source>
+        <source>InstaKDX doesn't support sending values that high yet. Transactions are currently limited to %1 KDX.</source>
         <translation>即时发送系统暂时并不支持这么高的交易金额。目前的金额仅限于%1达世币。</translation>
     </message>
     <message>
-        <source>InstaPAC requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
+        <source>InstaKDX requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
         <translation>即时发送系统要求输入的资金最少要有%d个确认，您可能需要等待数分钟然后再重试。</translation>
     </message>
     <message>
@@ -4546,7 +4546,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>警告：未知的区块版本被挖出！未知规则可能已生效</translation>
     </message>
     <message>
-        <source>You are starting in lite mode, all PACGlobal-specific functionality is disabled.</source>
+        <source>You are starting in lite mode, all Cadex-specific functionality is disabled.</source>
         <translation>您启动了简化模式，所有达世币特有的功能已禁用。</translation>
     </message>
     <message>
@@ -4594,7 +4594,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>允许在 &lt;address&gt;中发布管理投票哈希值</translation>
     </message>
     <message>
-        <source>Enable publish hash transaction (locked via InstaPAC) in &lt;address&gt;</source>
+        <source>Enable publish hash transaction (locked via InstaKDX) in &lt;address&gt;</source>
         <translation>允许在&lt;address&gt;中发布哈希交易（通过即时发送来锁定）</translation>
     </message>
     <message>
@@ -4606,7 +4606,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>允许在&lt;address&gt;中发布原始区块</translation>
     </message>
     <message>
-        <source>Enable publish raw transaction (locked via InstaPAC) in &lt;address&gt;</source>
+        <source>Enable publish raw transaction (locked via InstaKDX) in &lt;address&gt;</source>
         <translation>允许在&lt;address&gt;中发布原始交易（通过即时发送来锁定）</translation>
     </message>
     <message>
@@ -4630,7 +4630,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>无法删除备份，错误：%s</translation>
     </message>
     <message>
-        <source>Failed to load InstaPAC data cache from</source>
+        <source>Failed to load InstaKDX data cache from</source>
         <translation>从... 读取即时发送数据缓存失败</translation>
     </message>
     <message>
@@ -4646,7 +4646,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>启动时从其他来源的  blk000??.dat 文件导入区块</translation>
     </message>
     <message>
-        <source>InstaPAC options:</source>
+        <source>InstaKDX options:</source>
         <translation>即时发送选项：</translation>
     </message>
     <message>
@@ -4666,7 +4666,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>距离上一次成功送出匿名发送的时间过短。</translation>
     </message>
     <message>
-        <source>Loading InstaPAC data cache...</source>
+        <source>Loading InstaKDX data cache...</source>
         <translation>正在读取即时支付数据缓存...</translation>
     </message>
     <message>
@@ -4894,7 +4894,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>RPC服务器选项：</translation>
     </message>
     <message>
-        <source>PACGlobal Core</source>
+        <source>Cadex Core</source>
         <translation>达世币核心</translation>
     </message>
     <message>
@@ -5102,7 +5102,7 @@ https://www.transifex.com/projects/p/pacglobal/</translation>
         <translation>使用 -sporkaddr 指定的spork地址无效</translation>
     </message>
     <message>
-        <source>Keep N PAC anonymized (%u-%u, default: %u)</source>
+        <source>Keep N KDX anonymized (%u-%u, default: %u)</source>
         <translation>保持 N 个匿名处理的达世币 (%u-%u, default: %u)</translation>
     </message>
     <message>

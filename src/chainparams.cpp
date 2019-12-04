@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
 // Copyright (c) 2014-2019 The Dash Core developers
-// Copyright (c) 2018-2019 The PACGlobal developers
+// Copyright (c) 2018-2019 The Cadex developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -82,11 +82,11 @@ static CBlock CreateDevNetGenesisBlock(const uint256 &prevBlockHash, const std::
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward, bool fTestnet)
 {
     const char* pszTimestamp = fTestnet ?
-                               "Wired 09/Jan/2014 The Grand Experiment Goes Live: Overstock.com Is Now Accepting Bitcoins" :
-                               "Bitcoin Block #507202: 0000000000000000002dcf88ad7fece8694caf75124ba181e29ce38c76b7c378";
+                               "Cadex coin is live 2" :
+                               "Cadex coin is live 2";
     const CScript genesisOutputScript = fTestnet ?
-                               CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG :
-                               CScript() << ParseHex("0411345e927d2d3abb85541e23b211f5b9019f2b240fb9bd4b1c44234993639293846cfc74154d293a3bf7ba74592f5f358127c0062a621d3b153089d0f5bb84e5") << OP_CHECKSIG;
+                               CScript() << ParseHex("04e60ea9519f2be2ea861c158d46065969bea7482aec8868b252788bceaaed6ddd79f681ddba7739085620dd01647174ba701d33248bb8298395d2e0d491c06904") << OP_CHECKSIG :
+                               CScript() << ParseHex("04e60ea9519f2be2ea861c158d46065969bea7482aec8868b252788bceaaed6ddd79f681ddba7739085620dd01647174ba701d33248bb8298395d2e0d491c06904") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -206,33 +206,33 @@ public:
     CMainParams() {
         strNetworkID = "main";
         consensus.nSubsidyHalvingInterval = 210240;
-        consensus.nMasternodePaymentsStartBlock = 200;
-        consensus.nMasternodePaymentsIncreaseBlock = 217736;
-        consensus.nMasternodePaymentsIncreasePeriod = 576*30;
+        consensus.nMasternodePaymentsStartBlock = 1;
+        consensus.nMasternodePaymentsIncreaseBlock = 0;
+        consensus.nMasternodePaymentsIncreasePeriod = 0;
         consensus.nInstantSendConfirmationsRequired = 6;
         consensus.nInstantSendKeepLock = 24;
         consensus.nInstantSendSigsRequired = 6;
         consensus.nInstantSendSigsTotal = 10;
-        consensus.nBudgetPaymentsStartBlock = 200;
-        consensus.nBudgetPaymentsCycleBlocks = 16616;
+        consensus.nBudgetPaymentsStartBlock = 1;
+        consensus.nBudgetPaymentsCycleBlocks = 10;
         consensus.nBudgetPaymentsWindowBlocks = 100;
-        consensus.nSuperblockStartBlock = 576;
-        consensus.nSuperblockStartHash = uint256S("000004735d4f32dbcf251a2c55739a420699c57fa3d3505fc7bbb86b48947170");
-        consensus.nSuperblockCycle = 16616;
+        consensus.nSuperblockStartBlock = 1;
+        consensus.nSuperblockStartHash = uint256S("000006e68b5209b41117de33d2684e66a6f8fd8e42c6d19dd7102791b1b7c09a");
+        consensus.nSuperblockCycle = 1;
         consensus.nGovernanceMinQuorum = 10;
         consensus.nGovernanceFilterElements = 20000;
         ///////////////////////////////////////////////
         consensus.nGenerationAmount = 700000000 * COIN;
-        consensus.nGenerationHeight = 362250;
+        consensus.nGenerationHeight = 73589;
         ///////////////////////////////////////////////
         consensus.nMasternodeMinimumConfirmations = 15;
-        consensus.nMasternodeCollateral = 500000 * COIN;
-        consensus.BIP34Height = 951;
-        consensus.BIP34Hash = uint256S("0x000001f35e70f7c5705f64c6c5cc3dea9449e74d5b5c7cf74dad1bcca14a8012");
-        consensus.BIP65Height = 619382;
-        consensus.BIP66Height = 245817;
-        consensus.DIP0001Height = 12096;
-        consensus.DIP0003Height = 330000;
+        consensus.nMasternodeCollateral = 100000 * COIN;
+        consensus.BIP34Height = 1;
+        consensus.BIP34Hash = uint256S("0x000006e68b5209b41117de33d2684e66a6f8fd8e42c6d19dd7102791b1b7c09a");
+        consensus.BIP65Height = 300;
+        consensus.BIP66Height = 200;
+        consensus.DIP0001Height = 73590;
+        consensus.DIP0003Height = 73590;
         consensus.DIP0003EnforcementHeight = consensus.nGenerationHeight + 50;
         consensus.DIP0003EnforcementHash = uint256();
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
@@ -242,14 +242,14 @@ public:
         consensus.nPowTargetSpacing = 2.5 * 60;
         consensus.nPosTargetSpacing = consensus.nPowTargetSpacing;
         consensus.nPosTargetTimespan = consensus.nPowTargetTimespan;
-        consensus.nMinimumStakeValue = 10000 * COIN;
+        consensus.nMinimumStakeValue = 50000 * COIN;
         consensus.nStakeMinAge = 10 * 60;
         consensus.nStakeMaxAge = 60 * 60 * 24 * 30;
         consensus.nModifierInterval = 60 * 20;
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nPowKGWHeight = 15200;
-        consensus.nPowDGWHeight = 34140;
+        consensus.nPowKGWHeight = 260;
+        consensus.nPowDGWHeight = 398;
         consensus.nRuleChangeActivationThreshold = 1916;
         consensus.nMinerConfirmationWindow = 2016;
 
@@ -301,41 +301,39 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xc8;
-        pchMessageStart[1] = 0xe5;
-        pchMessageStart[2] = 0x61;
-        pchMessageStart[3] = 0x2c;
-        vAlertPubKey = ParseHex("048403ac4a7059cfca5700f8f11c6790880f0ea482c9419e5d0c3fcd9ec186a295502acd665709f8aad00963667317ba5b6dd47f16a507011649922d99af5647eb");
-        nDefaultPort = 7112;
+        pchMessageStart[0] = 0xee;
+        pchMessageStart[1] = 0x92;
+        pchMessageStart[2] = 0xec;
+        pchMessageStart[3] = 0xb3;
+        vAlertPubKey = ParseHex("04c3b213d0a75f32352f0efaf6c72264b855ae4d09acb5452ae8ed28218fcd73cfb572567780a4588062b6cc93588ff634d4eba06784addc7fe1c78c0ef683c2d7");
+        nDefaultPort = 27270;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1517541873, 340503, 0x1e0ffff0, 1, 50 * COIN, false);
+        genesis = CreateGenesisBlock(1544267173, 75570, 0x1e0ffff0, 1, 50 * COIN, false);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x00000354655ff039a51273fe61d3b493bd2897fe6c16f732dbc4ae19f04b789e"));
-        assert(genesis.hashMerkleRoot == uint256S("0xf3939e4de05e537431ef32bbebd9bc7c4e701f7205d72016f04686557af58dbf"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000002dd36edb71433159b1de4553b4a81a9812ced68202c80a490cbeb9489a7"));
+        assert(genesis.hashMerkleRoot == uint256S("0x0f5fd5f0d3afd9624d349d8abfb40c1fe0c210c0232233ceeaf010af94a88ad2"));
 
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("pacglobal.io", "seed2.pacglobal.io"));
-        vSeeds.push_back(CDNSSeedData("pacglobal.io", "seed3.pacglobal.io"));
-        vSeeds.push_back(CDNSSeedData("pacnode.net", "seed0.pacnode.net"));
-        vSeeds.push_back(CDNSSeedData("pacnode.net", "seed1.pacnode.net"));
-        vSeeds.push_back(CDNSSeedData("pacglobal.io", "seed0.pacglobal.io"));
-        vSeeds.push_back(CDNSSeedData("pacglobal.io", "seed1.pacglobal.io"));
-        vSeeds.push_back(CDNSSeedData("pacnode.net", "seed2.pacnode.net"));
-        vSeeds.push_back(CDNSSeedData("pacnode.net", "seed3.pacnode.net"));
+        vSeeds.push_back(CDNSSeedData("cadex.xyz", "dnsseed.cadex.xyz"));
+        vSeeds.push_back(CDNSSeedData("cadexcoin.space", "dnsseed.cadexcoin.space"));
+        vSeeds.push_back(CDNSSeedData("goro.info", "dnsseed.goro.info"));
+        vSeeds.push_back(CDNSSeedData("93.186.254.229", "93.186.254.229"));
+        vSeeds.push_back(CDNSSeedData("80.211.1.199", "80.211.1.199"));
+        vSeeds.push_back(CDNSSeedData("89.46.65.250", "89.46.65.250"));
+        vSeeds.push_back(CDNSSeedData("80.211.7.49", "80.211.7.49"));
+        vSeeds.push_back(CDNSSeedData("dnsseed.cadexcoin.tech", "dnsseed.cadexcoin.tech"));
 
-        // PAC addresses start with 'P'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,55);
-        // PAC script addresses start with '5'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,10);
-        // PAC private keys start with '7' or 'X'
+
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,76);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,16);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,204);
-        // PAC BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
+        // KDX BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
-        // PAC BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
+        // KDX BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        // PAC BIP44 coin type is '5'
+        // KDX BIP44 coin type is '5'
         nExtCoinType = 5;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
@@ -345,7 +343,7 @@ public:
         consensus.llmqs[Consensus::LLMQ_400_60] = llmq400_60;
         consensus.llmqs[Consensus::LLMQ_400_85] = llmq400_85;
         consensus.llmqChainLocks = Consensus::LLMQ_400_60;
-        consensus.llmqForInstaPAC = Consensus::LLMQ_50_60;
+        consensus.llmqForInstaKDX = Consensus::LLMQ_50_60;
 
         fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
@@ -359,33 +357,26 @@ public:
         nPoolMaxParticipants = 5;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
 
-        vSporkAddresses = {"PGtvidAAsW6a9tMBKmdh2tZ1B3SxFDpdXP"};
+        vSporkAddresses = {"XviLeSquSH6gyEp2m8y9ABt9Y8Hv1jPoe2"};
         nMinSporkKeys = 1;
         fBIP9CheckMasternodesUpgraded = true;
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (  300000,  uint256S("0x0000000000001f4f2650510e1ad032f356d2fcb001aafcd5e13a87a259f8e15e"))
-            (  330000,  uint256S("0x816ef933e4ab900d99eecde8d6abb1d2f2b71c001d05f79f5d4b98a67facd143"))
-            (  331000,  uint256S("0xec03918f66618c53742a0638d976b2b56807d3e3ca7a7de2d72e920f02fe521e"))
-            (  332000,  uint256S("0xbee2c8b8c12ad020783e241e086440f92054c7ea557c7639c32bc7fa6430a0cd"))
-            (  333000,  uint256S("0xa214b0d4da47f41900e6a1c0f3821cdec90b8a58b404f4eea0e9442520676594"))
-            (  334000,  uint256S("0x1a8f4b80b5eb1200038ea80fac956546eb2d358c7c707af4de7eaff9ed48a4b5"))
-            (  335000,  uint256S("0x2e2c7740b1349cad05b87e8e99085fbb942cfc9d5659f0a69f5b15480245acaa"))
-            (  338000,  uint256S("0xfbbab860d2d5c18e5241b3c184c0ae6d38ddb8c3619ec86a6d67fb0b3f6e077f"))
-            (  340000,  uint256S("0x006d214eae0d741af1302096f9ebdccd7bcddbd97da7e574bda7d6423e995c93"))
-            (  344000,  uint256S("0xae6d411fca8ebda49838c6fead60d586b93742642ccdae6094f2d4c7a463f9d1"))
-            (  348000,  uint256S("0xef51329d54c7219a5462acce5f794c82887ca2326cd52748173c89b7bf10d031"))
-            (  352000,  uint256S("0xa4342f0a9ec9e46105bc8fd73aa46a4b931b2ec536bab36cc8103d1f9ed0dad8"))
-            (  356000,  uint256S("0xbfd90a7cec6af4754fc7543bbcdfa2b9175b62235f9e93ab19d2b27935546d9e"))
-            (  358000,  uint256S("0xd404c8f00eef86c2f6af2bb2d7eb0bee1b21bd479a328eeb2432f6e1e2ddfabb"))
+            (  0, uint256S("0x000002dd36edb71433159b1de4553b4a81a9812ced68202c80a490cbeb9489a7"))
+            (  1, uint256S("0x000006e68b5209b41117de33d2684e66a6f8fd8e42c6d19dd7102791b1b7c09a"))
+            (  10, uint256S("0x0000057fad521679782324526939783d5576929674132ef868d1d84a61ef976f"))
+            (  50, uint256S("0x000002335d41ff326c2af6c826fbdad224bc164e3a639725921e7ea5325ab9dc"))
+            ( 100, uint256S("0x00000a0537a66b85402f4bc26018da95bd6a9a64e1c87238cf332c8a185459f0"))
+            ( 101, uint256S("0x0000076f9c61b6c7528c612a4811f1047e48327d32653b56626ad3f65e9dbadc"))
+            ( 72576, uint256S("0x00000000001386cdb3f78d26634c8c08eb281b279b91ba791512f6fee34256ad"))
         };
 
         chainTxData = ChainTxData{
-            1574166488, // * UNIX timestamp of last known number of transactions
-            1060113,    // * total number of transactions between genesis and that timestamp
+            1560357000, // * UNIX timestamp of last known number of transactions
+            76422,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
-            0.1         // * estimated number of transactions per second after that timestamp
+            0.95         // * estimated number of transactions per second after that timestamp
         };
     }
 };
@@ -489,15 +480,15 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
 
-        pchMessageStart[0] = 0x22;
-        pchMessageStart[1] = 0x44;
-        pchMessageStart[2] = 0x66;
-        pchMessageStart[3] = 0x88;
-        vAlertPubKey = ParseHex("04517d8a699cb43d3938d7b24faaff7cda448ca4ea267723ba614784de661949bf632d6304316b244646dea079735b9a6fc4af804efb4752075b9fe2245e14e412");
-        nDefaultPort = 29999;
+        pchMessageStart[0] = 0x9b;
+        pchMessageStart[1] = 0xdb;
+        pchMessageStart[2] = 0xc3;
+        pchMessageStart[3] = 0x8a;
+        vAlertPubKey = ParseHex("04e60ea9519f2be2ea861c158d46065969bea7482aec8868b252788bceaaed6ddd79f681ddba7739085620dd01647174ba701d33248bb8298395d2e0d491c06904");
+        nDefaultPort = 27271;
         nPruneAfterHeight = 1000;
 
-        uint32_t nTime = 1573325000;
+        uint32_t nTime = 1571083196;
         uint32_t nNonce = 0;
 
         if (nNonce == 0) {
@@ -518,24 +509,24 @@ public:
 
         vSeeds.clear();
 
-        // Testnet PACGlobal addresses start with 'y'
+        // Testnet Cadex addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
-        // Testnet PACGlobal script addresses start with '8' or '9'
+        // Testnet Cadex script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Testnet PACGlobal BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Testnet Cadex BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Testnet PACGlobal BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Testnet Cadex BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        // Testnet PACGlobal BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet Cadex BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
 
         // long living quorum params
         consensus.llmqs[Consensus::LLMQ_5_60] = llmq5_60;
         consensus.llmqChainLocks = Consensus::LLMQ_5_60;
-        consensus.llmqForInstaPAC = Consensus::LLMQ_5_60;
+        consensus.llmqForInstaKDX = Consensus::LLMQ_5_60;
 
         fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
@@ -559,10 +550,10 @@ public:
         };
 
         chainTxData = ChainTxData{
-            1567342000, // * UNIX timestamp of last known number of transactions
-            1,          // * total number of transactions between genesis and that timestamp
+            1571083196, // * UNIX timestamp of last known number of transactions
+            0,          // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
-            1.0         // * estimated number of transactions per second after that timestamp
+            0         // * estimated number of transactions per second after that timestamp
         };
 
     }
@@ -604,8 +595,8 @@ public:
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
         consensus.posLimit = uint256S("007ffff000000000000000000000000000000000000000000000000000000000");
         consensus.nLastPoWBlock = 100;
-        consensus.nPowTargetTimespan = 24 * 60 * 60; // PACGlobal: 1 day
-        consensus.nPowTargetSpacing = 2.5 * 60; // PACGlobal: 2.5 minutes
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // Cadex: 1 day
+        consensus.nPowTargetSpacing = 2.5 * 60; // Cadex: 2.5 minutes
         consensus.nPosTargetSpacing = consensus.nPowTargetSpacing;
         consensus.nPosTargetTimespan = consensus.nPowTargetTimespan;
         consensus.nMinimumStakeValue = 10000 * COIN;
@@ -665,14 +656,14 @@ public:
         pchMessageStart[1] = 0xca;
         pchMessageStart[2] = 0xff;
         pchMessageStart[3] = 0xce;
-        vAlertPubKey = ParseHex("04517d8a699cb43d3938d7b24faaff7cda448ca4ea267723ba614784de661949bf632d6304316b244646dea079735b9a6fc4af804efb4752075b9fe2245e14e412");
+        vAlertPubKey = ParseHex("04517d8a699cb43d3938d7b24faaff7cda448ca4ea267723ba614784de661949bf632d6304316b244646dea079735b9a6fc4af804efb4752075b9fe2245e14e414");
         nDefaultPort = 19999;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1417713337, 1096447, 0x207fffff, 1, 50 * COIN, false);
+        genesis = CreateGenesisBlock(1544267395, 816880, 0x207fffff, 1, 50 * COIN, false);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000008ca1832a4baf228eb1553c03d3a2c8e02399550dd6ea8d65cec3ef23d2e"));
-        assert(genesis.hashMerkleRoot == uint256S("0xe0028eb9648db56b1ac77cf090b99048a8007e2bb64b68f092c03c7f56a662c7"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000d3afc6c78f97bbff2b80a77c20533c2c37cbddea1300b7c34eae0c81beb"));
+        assert(genesis.hashMerkleRoot == uint256S("0x0f5fd5f0d3afd9624d349d8abfb40c1fe0c210c0232233ceeaf010af94a88ad2"));
 
         devnetGenesis = FindDevNetGenesisBlock(consensus, genesis, 50 * COIN);
         consensus.hashDevnetGenesisBlock = devnetGenesis.GetHash();
@@ -681,18 +672,18 @@ public:
         vSeeds.clear();
         //vSeeds.push_back(CDNSSeedData("dashevo.org",  "devnet-seed.dashevo.org"));
 
-        // Testnet PACGlobal addresses start with 'y'
+        // Testnet Cadex addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
-        // Testnet PACGlobal script addresses start with '8' or '9'
+        // Testnet Cadex script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Testnet PACGlobal BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Testnet Cadex BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Testnet PACGlobal BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Testnet Cadex BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        // Testnet PACGlobal BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet Cadex BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
 
         // long living quorum params
@@ -700,7 +691,7 @@ public:
         consensus.llmqs[Consensus::LLMQ_400_60] = llmq400_60;
         consensus.llmqs[Consensus::LLMQ_400_85] = llmq400_85;
         consensus.llmqChainLocks = Consensus::LLMQ_50_60;
-        consensus.llmqForInstaPAC = Consensus::LLMQ_50_60;
+        consensus.llmqForInstaKDX = Consensus::LLMQ_50_60;
 
         fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
@@ -720,7 +711,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (      0, uint256S("0x000008ca1832a4baf228eb1553c03d3a2c8e02399550dd6ea8d65cec3ef23d2e"))
+            (      0, uint256S("0x00000d3afc6c78f97bbff2b80a77c20533c2c37cbddea1300b7c34eae0c81beb"))
             (      1, devnetGenesis.GetHash())
         };
 
@@ -781,8 +772,8 @@ public:
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
         consensus.posLimit = uint256S("007ffff000000000000000000000000000000000000000000000000000000000");
         consensus.nLastPoWBlock = 100;
-        consensus.nPowTargetTimespan = 24 * 60 * 60; // PACGlobal: 1 day
-        consensus.nPowTargetSpacing = 2.5 * 60; // PACGlobal: 2.5 minutes
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // Cadex: 1 day
+        consensus.nPowTargetSpacing = 2.5 * 60; // Cadex: 2.5 minutes
         consensus.nPosTargetSpacing = consensus.nPowTargetSpacing;
         consensus.nPosTargetTimespan = consensus.nPowTargetTimespan;
         consensus.nStakeMinAge = 10 * 60;
@@ -826,7 +817,7 @@ public:
         nDefaultPort = 19994;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1417713337, 1096447, 0x207fffff, 1, 50 * COIN, false);
+        genesis = CreateGenesisBlock(1544267761, 2, 0x207fffff, 1, 50 * COIN, false);
         consensus.hashGenesisBlock = genesis.GetHash();
         // assert(consensus.hashGenesisBlock == uint256S("0x000008ca1832a4baf228eb1553c03d3a2c8e02399550dd6ea8d65cec3ef23d2e"));
         // assert(genesis.hashMerkleRoot == uint256S("0xe0028eb9648db56b1ac77cf090b99048a8007e2bb64b68f092c03c7f56a662c7"));
@@ -861,25 +852,25 @@ public:
             0
         };
 
-        // Regtest PACGlobal addresses start with 'y'
+        // Regtest Cadex addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
-        // Regtest PACGlobal script addresses start with '8' or '9'
+        // Regtest Cadex script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Regtest private keys start with '9' or 'c' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Regtest PACGlobal BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Regtest Cadex BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Regtest PACGlobal BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Regtest Cadex BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        // Regtest PACGlobal BIP44 coin type is '1' (All coin's testnet default)
+        // Regtest Cadex BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
 
         // long living quorum params
         consensus.llmqs[Consensus::LLMQ_5_60] = llmq5_60;
         consensus.llmqs[Consensus::LLMQ_50_60] = llmq50_60;
         consensus.llmqChainLocks = Consensus::LLMQ_5_60;
-        consensus.llmqForInstaPAC = Consensus::LLMQ_5_60;
+        consensus.llmqForInstaKDX = Consensus::LLMQ_5_60;
     }
 
     void UpdateBIP9Parameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout, int64_t nWindowSize, int64_t nThreshold)

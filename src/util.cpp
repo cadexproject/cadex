@@ -5,7 +5,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pacglobal-config.h"
+#include "config/cadex-config.h"
 #endif
 
 #include "util.h"
@@ -113,7 +113,7 @@ namespace boost {
 
 
 
-//PACGlobal only features
+//Cadex only features
 bool fMasternodeMode = false;
 bool fLiteMode = false;
 /**
@@ -125,8 +125,8 @@ bool fLiteMode = false;
 */
 int nWalletBackups = 10;
 
-const char * const BITCOIN_CONF_FILENAME = "pacglobal.conf";
-const char * const BITCOIN_PID_FILENAME = "pacglobal.pid";
+const char * const BITCOIN_CONF_FILENAME = "cadex.conf";
+const char * const BITCOIN_PID_FILENAME = "cadex.pid";
 
 CCriticalSection cs_args;
 std::unordered_map<std::string, std::string> mapArgs;
@@ -287,8 +287,8 @@ bool LogAcceptCategory(const char* category)
                 const std::vector<std::string>& categories = mapMultiArgs.at("-debug");
                 ptrCategory.reset(new std::set<std::string>(categories.begin(), categories.end()));
                 // thread_specific_ptr automatically deletes the set when the thread ends.
-                // "dash" is a composite category enabling all PACGlobal-related debug output
-                if(ptrCategory->count(std::string("pacglobal"))) {
+                // "dash" is a composite category enabling all Cadex-related debug output
+                if(ptrCategory->count(std::string("cadex"))) {
                     ptrCategory->insert(std::string("chainlocks"));
                     ptrCategory->insert(std::string("gobject"));
                     ptrCategory->insert(std::string("instantsend"));
@@ -568,13 +568,13 @@ void PrintExceptionContinue(const std::exception_ptr pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\PACGlobalCore
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\PACGlobalCore
-    // Mac: ~/Library/Application Support/PACGlobalCore
-    // Unix: ~/.dashcore
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Cadexcoin
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Cadexcoin
+    // Mac: ~/Library/Application Support/Cadexcoin
+    // Unix: ~/.CADEXCOIN
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "PACGlobal";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Cadexcoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -584,10 +584,10 @@ boost::filesystem::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/PACGlobal";
+    return pathRet / "Library/Application Support/Cadexcoin";
 #else
     // Unix
-    return pathRet / ".PACGlobal";
+    return pathRet / ".CADEXCOIN";
 #endif
 #endif
 }

@@ -55,4 +55,4 @@ public:
 };
 
 
-#endif //PAC_MNAUTH_H
+#endif //KDX_MNAUTH_H

@@ -116,4 +116,4 @@ bool CheckLLMQCommitment(const CTransaction& tx, const CBlockIndex* pindexPrev, 
 
 }
 
-#endif //PAC_QUORUMS_COMMITMENT_H
+#endif //KDX_QUORUMS_COMMITMENT_H

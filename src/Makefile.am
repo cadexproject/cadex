@@ -50,23 +50,23 @@ BITCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
 
 BLS_LIBS=-lchiabls -lgmp
 
-LIBBITCOIN_SERVER=libpacglobal_server.a
-LIBBITCOIN_COMMON=libpacglobal_common.a
-LIBBITCOIN_CONSENSUS=libpacglobal_consensus.a
-LIBBITCOIN_CLI=libpacglobal_cli.a
-LIBBITCOIN_UTIL=libpacglobal_util.a
-LIBBITCOIN_CRYPTO=crypto/libpacglobal_crypto.a
-LIBBITCOINQT=qt/libpacglobalqt.a
+LIBBITCOIN_SERVER=libcadex_server.a
+LIBBITCOIN_COMMON=libcadex_common.a
+LIBBITCOIN_CONSENSUS=libcadex_consensus.a
+LIBBITCOIN_CLI=libcadex_cli.a
+LIBBITCOIN_UTIL=libcadex_util.a
+LIBBITCOIN_CRYPTO=crypto/libcadex_crypto.a
+LIBBITCOINQT=qt/libcadexqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBBITCOIN_ZMQ=libpacglobal_zmq.a
+LIBBITCOIN_ZMQ=libcadex_zmq.a
 endif
 if BUILD_BITCOIN_LIBS
-LIBBITCOINCONSENSUS=libpacglobalconsensus.la
+LIBBITCOINCONSENSUS=libcadexconsensus.la
 endif
 if ENABLE_WALLET
-LIBBITCOIN_WALLET=libpacglobal_wallet.a
+LIBBITCOIN_WALLET=libcadex_wallet.a
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -91,15 +91,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += pacglobald
+  bin_PROGRAMS += cadexd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += pacglobal-cli pacglobal-tx
+  bin_PROGRAMS += cadex-cli cadex-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# pacglobal core #
+# cadex core #
 BITCOIN_CORE_H = \
   addrdb.h \
   activemasternode.h \
@@ -256,12 +256,12 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libpacglobal_util_a-clientversion.$(OBJEXT): obj/build.h
+libcadex_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between pacglobald and pacglobal-qt
-libpacglobal_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libpacglobal_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libpacglobal_server_a_SOURCES = \
+# server: shared between cadexd and cadex-qt
+libcadex_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libcadex_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcadex_server_a_SOURCES = \
   activemasternode.cpp \
   addrman.cpp \
   addrdb.cpp \
@@ -349,20 +349,20 @@ libpacglobal_server_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if ENABLE_ZMQ
-libpacglobal_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
-libpacglobal_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libpacglobal_zmq_a_SOURCES = \
+libcadex_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
+libcadex_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcadex_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
   zmq/zmqnotificationinterface.cpp \
   zmq/zmqpublishnotifier.cpp
 endif
 
 
-# wallet: shared between pacglobald and pacglobal-qt, but only linked
+# wallet: shared between cadexd and cadex-qt, but only linked
 # when wallet enabled
-libpacglobal_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libpacglobal_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libpacglobal_wallet_a_SOURCES = \
+libcadex_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libcadex_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcadex_wallet_a_SOURCES = \
   keepass.cpp \
   privatesend-client.cpp \
   privatesend-util.cpp \
@@ -375,9 +375,9 @@ libpacglobal_wallet_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 # crypto primitives library
-crypto_libpacglobal_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES) $(PIC_FLAGS)
-crypto_libpacglobal_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(PIC_FLAGS)
-crypto_libpacglobal_crypto_a_SOURCES = \
+crypto_libcadex_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES) $(PIC_FLAGS)
+crypto_libcadex_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(PIC_FLAGS)
+crypto_libcadex_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
   crypto/common.h \
@@ -397,7 +397,7 @@ crypto_libpacglobal_crypto_a_SOURCES = \
   crypto/sha512.h
 
 # x11
-crypto_libpacglobal_crypto_a_SOURCES += \
+crypto_libcadex_crypto_a_SOURCES += \
   crypto/blake.c \
   crypto/bmw.c \
   crypto/cubehash.c \
@@ -423,9 +423,9 @@ crypto_libpacglobal_crypto_a_SOURCES += \
   crypto/sph_types.h
 
 # consensus: shared between all executables that validate any consensus rules.
-libpacglobal_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libpacglobal_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libpacglobal_consensus_a_SOURCES = \
+libcadex_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libcadex_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcadex_consensus_a_SOURCES = \
   amount.h \
   arith_uint256.cpp \
   arith_uint256.h \
@@ -460,10 +460,10 @@ libpacglobal_consensus_a_SOURCES = \
   utilstrencodings.h \
   version.h
 
-# common: shared between pacglobald, and pacglobal-qt and non-server tools
-libpacglobal_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libpacglobal_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libpacglobal_common_a_SOURCES = \
+# common: shared between cadexd, and cadex-qt and non-server tools
+libcadex_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libcadex_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcadex_common_a_SOURCES = \
   amount.cpp \
   base58.cpp \
   bip39.cpp \
@@ -488,9 +488,9 @@ libpacglobal_common_a_SOURCES = \
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libpacglobal_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libpacglobal_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libpacglobal_util_a_SOURCES = \
+libcadex_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libcadex_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcadex_util_a_SOURCES = \
   bls/bls_batchverifier.h \
   bls/bls_ies.cpp \
   bls/bls_ies.h \
@@ -515,31 +515,31 @@ libpacglobal_util_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libpacglobal_util_a_SOURCES += compat/glibc_compat.cpp
+libcadex_util_a_SOURCES += compat/glibc_compat.cpp
 AM_LDFLAGS += -Wl,--wrap=log2f -Wl,--wrap=__divmoddi4
 endif
 
-# cli: shared between pacglobal-cli and pacglobal-qt
-libpacglobal_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libpacglobal_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libpacglobal_cli_a_SOURCES = \
+# cli: shared between cadex-cli and cadex-qt
+libcadex_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libcadex_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcadex_cli_a_SOURCES = \
   rpc/client.cpp \
   $(BITCOIN_CORE_H)
 
-nodist_libpacglobal_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libcadex_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# pacglobald binary #
-pacglobald_SOURCES = pacglobald.cpp
-pacglobald_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-pacglobald_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-pacglobald_LDFLAGS = $(LDFLAGS_WRAP_EXCEPTIONS) $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# cadexd binary #
+cadexd_SOURCES = cadexd.cpp
+cadexd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+cadexd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+cadexd_LDFLAGS = $(LDFLAGS_WRAP_EXCEPTIONS) $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-pacglobald_SOURCES += pacglobald-res.rc
+cadexd_SOURCES += cadexd-res.rc
 endif
 
-pacglobald_LDADD = \
+cadexd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -552,37 +552,37 @@ pacglobald_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-pacglobald_LDADD += $(BACKTRACE_LIB) $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(BLS_LIBS)
+cadexd_LDADD += $(BACKTRACE_LIB) $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(BLS_LIBS)
 
-# pacglobal-cli binary #
-pacglobal_cli_SOURCES = pacglobal-cli.cpp
-pacglobal_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-pacglobal_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-pacglobal_cli_LDFLAGS = $(LDFLAGS_WRAP_EXCEPTIONS) $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# cadex-cli binary #
+cadex_cli_SOURCES = cadex-cli.cpp
+cadex_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+cadex_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+cadex_cli_LDFLAGS = $(LDFLAGS_WRAP_EXCEPTIONS) $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-pacglobal_cli_SOURCES += pacglobal-cli-res.rc
+cadex_cli_SOURCES += cadex-cli-res.rc
 endif
 
-pacglobal_cli_LDADD = \
+cadex_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
-pacglobal_cli_LDADD += $(BACKTRACE_LIB) $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS) $(BLS_LIBS)
+cadex_cli_LDADD += $(BACKTRACE_LIB) $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS) $(BLS_LIBS)
 #
 
-# pacglobal-tx binary #
-pacglobal_tx_SOURCES = pacglobal-tx.cpp
-pacglobal_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-pacglobal_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-pacglobal_tx_LDFLAGS = $(LDFLAGS_WRAP_EXCEPTIONS) $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# cadex-tx binary #
+cadex_tx_SOURCES = cadex-tx.cpp
+cadex_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+cadex_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+cadex_tx_LDFLAGS = $(LDFLAGS_WRAP_EXCEPTIONS) $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-pacglobal_tx_SOURCES += pacglobal-tx-res.rc
+cadex_tx_SOURCES += cadex-tx-res.rc
 endif
 
-pacglobal_tx_LDADD = \
+cadex_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -590,22 +590,22 @@ pacglobal_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-pacglobal_tx_LDADD += $(BACKTRACE_LIB) $(BOOST_LIBS) $(CRYPTO_LIBS) $(BLS_LIBS)
+cadex_tx_LDADD += $(BACKTRACE_LIB) $(BOOST_LIBS) $(CRYPTO_LIBS) $(BLS_LIBS)
 #
 
-# pacglobalconsensus library #
+# cadexconsensus library #
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/dashconsensus.h
-libpacglobalconsensus_la_SOURCES = $(crypto_libpacglobal_crypto_a_SOURCES) $(libpacglobal_consensus_a_SOURCES)
+libcadexconsensus_la_SOURCES = $(crypto_libcadex_crypto_a_SOURCES) $(libcadex_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libpacglobalconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libcadexconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libpacglobalconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libpacglobalconsensus_la_LIBADD = $(LIBSECP256K1) $(BLS_LIBS)
-libpacglobalconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
-libpacglobalconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcadexconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libcadexconsensus_la_LIBADD = $(LIBSECP256K1) $(BLS_LIBS)
+libcadexconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
+libcadexconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #
@@ -639,12 +639,12 @@ EXTRA_DIST = $(CTAES_DIST)
 EXTRA_DIST += $(IMMER_DIST)
 
 
-config/pacglobal-config.h: config/stamp-h1
+config/cadex-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/pacglobal-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/cadex-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/pacglobal-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/pacglobal-config.h.in
+$(top_srcdir)/$(subdir)/config/cadex-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/cadex-config.h.in
 
 clean-local:
 	-$(MAKE) -C secp256k1 clean

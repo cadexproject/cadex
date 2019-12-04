@@ -425,4 +425,4 @@ extern CSigSharesManager* quorumSigSharesManager;
 
 }
 
-#endif //PAC_QUORUMS_SIGNING_SHARES_H
+#endif //KDX_QUORUMS_SIGNING_SHARES_H

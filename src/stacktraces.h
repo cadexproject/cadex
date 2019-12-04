@@ -41,4 +41,4 @@ inline std::string GetExceptionWhat(const T& e)
 void RegisterPrettyTerminateHander();
 void RegisterPrettySignalHandlers();
 
-#endif//PAC_STACKTRACES_H
+#endif//KDX_STACKTRACES_H

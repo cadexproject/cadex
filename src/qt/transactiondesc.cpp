@@ -58,8 +58,8 @@ QString TransactionDesc::FormatTxStatus(const CWalletTx& wtx)
             }
         }
 
-        if (wtx.IsLockedByLLMQInstaPAC()) {
-            strTxStatus += " (" + tr("verified via LLMQ based InstaPAC") + ")";
+        if (wtx.IsLockedByLLMQInstaKDX()) {
+            strTxStatus += " (" + tr("verified via LLMQ based InstaKDX") + ")";
             return strTxStatus;
         }
 
@@ -70,11 +70,11 @@ QString TransactionDesc::FormatTxStatus(const CWalletTx& wtx)
         // InstantSend
         strTxStatus += " (";
         if(instantsend.IsLockedInstantSendTransaction(wtx.GetHash())) {
-            strTxStatus += tr("verified via InstaPAC");
+            strTxStatus += tr("verified via InstaKDX");
         } else if(!instantsend.IsTxLockCandidateTimedOut(wtx.GetHash())) {
-            strTxStatus += tr("InstaPAC verification in progress - %1 of %2 signatures").arg(nSignatures).arg(nSignaturesMax);
+            strTxStatus += tr("InstaKDX verification in progress - %1 of %2 signatures").arg(nSignatures).arg(nSignaturesMax);
         } else {
-            strTxStatus += tr("InstaPAC verification failed");
+            strTxStatus += tr("InstaKDX verification failed");
         }
         strTxStatus += ")";
 

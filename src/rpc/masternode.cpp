@@ -142,13 +142,13 @@ void masternode_list_help()
             "  nextpaymentblock - Print the projected block height a node will likely be paid on the network\n"
             "                     (not guarenteed results as a POSE_BANNED state occuring later would prevent payment)\n"
             "  lastpaidtime     - Print the last time a node was paid on the network\n"
-            "  owneraddress     - Print the masternode owner PACGlobal address\n"
-            "  payee            - Print the masternode payout PACGlobal address (can be additionally filtered,\n"
+            "  owneraddress     - Print the masternode owner Cadex address\n"
+            "  payee            - Print the masternode payout Cadex address (can be additionally filtered,\n"
             "                     partial match)\n"
             "  pubKeyOperator   - Print the masternode operator public key\n"
             "  status           - Print masternode status: ENABLED / POSE_BANNED\n"
             "                     (can be additionally filtered, partial match)\n"
-            "  votingaddress    - Print the masternode voting PACGlobal address\n"
+            "  votingaddress    - Print the masternode voting Cadex address\n"
         );
 }
 

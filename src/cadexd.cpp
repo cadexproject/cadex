@@ -5,7 +5,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pacglobal-config.h"
+#include "config/cadex-config.h"
 #endif
 
 #include "chainparams.h"
@@ -33,8 +33,8 @@
  *
  * \section intro_sec Introduction
  *
- * This is the developer documentation of the reference client for an experimental new digital currency called PACGlobal (https://www.pacglobal.io/),
- * which enables instant payments to anyone, anywhere in the world. PACGlobal uses peer-to-peer technology to operate
+ * This is the developer documentation of the reference client for an experimental new digital currency called Cadex (https://www.cadexcoin.tech/),
+ * which enables instant payments to anyone, anywhere in the world. Cadex uses peer-to-peer technology to operate
  * with no central authority: managing transactions and issuing money are carried out collectively by the network.
  *
  * The software is a community-driven open source project, released under the MIT license.
@@ -159,7 +159,7 @@ bool AppInit(int argc, char* argv[])
         if (GetBoolArg("-daemon", false))
         {
 #if HAVE_DECL_DAEMON
-            fprintf(stdout, "PACGlobal Core server starting\n");
+            fprintf(stdout, "Cadex Core server starting\n");
 
             // Daemonize
             if (daemon(1, 0)) { // don't chdir (1), do close FDs (0)

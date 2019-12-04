@@ -11,9 +11,9 @@ To add more dashd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the `test/` directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the pacglobal-qt tests manually, launch `src/qt/test/test_dash-qt`
+To run the cadex-qt tests manually, launch `src/qt/test/test_dash-qt`
 
-To add more pacglobal-qt tests, add them to the `src/qt/test/` directory and
+To add more cadex-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.
 
 ### Running individual tests
@@ -32,7 +32,7 @@ Run `test_dash --help` for the full list.
 ### Note on adding test cases
 
 The sources in this directory are unit test cases.  Boost includes a
-unit testing framework, and since PACGlobal Core already uses boost, it makes
+unit testing framework, and since Cadex Core already uses boost, it makes
 sense to simply use this framework rather than require developers to
 configure some other framework (we want as few impediments to creating
 unit tests as possible).

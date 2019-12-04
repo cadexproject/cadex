@@ -372,8 +372,8 @@ std::string EntryDescriptionString()
            "    \"depends\" : [               (array) unconfirmed transactions used as inputs for this transaction\n"
            "        \"transactionid\",        (string) parent transaction id\n"
            "       ... ],\n"
-           "    \"instantsend\" : true|false, (boolean) True if this transaction was sent as an InstaPAC one\n"
-           "    \"instantlock\" : true|false  (boolean) True if this transaction was locked via InstaPAC\n";
+           "    \"instantsend\" : true|false, (boolean) True if this transaction was sent as an InstaKDX one\n"
+           "    \"instantlock\" : true|false  (boolean) True if this transaction was locked via InstaKDX\n";
 }
 
 void entryToJSON(UniValue &info, const CTxMemPoolEntry &e)

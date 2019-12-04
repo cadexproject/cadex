@@ -11,4 +11,4 @@ static SeedSpec6 pnSeed6_main[] = {
 };
 static SeedSpec6 pnSeed6_test[] = {
 };
-#endif // PAC_CHAINPARAMSSEEDS_H
+#endif // KDX_CHAINPARAMSSEEDS_H

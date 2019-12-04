@@ -515,4 +515,4 @@ private:
 
 extern CDeterministicMNManager* deterministicMNManager;
 
-#endif //PAC_DETERMINISTICMNS_H
+#endif //KDX_DETERMINISTICMNS_H

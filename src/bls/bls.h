@@ -475,4 +475,4 @@ typedef std::shared_ptr<BLSSignatureVector> BLSSignatureVectorPtr;
 
 bool BLSInit();
 
-#endif // PAC_CRYPTO_BLS_H
+#endif // KDX_CRYPTO_BLS_H
