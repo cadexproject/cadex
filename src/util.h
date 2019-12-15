@@ -36,8 +36,8 @@
 
 // Uncomment the following line to enable debugging messages
 // or enable on a per file basis prior to inclusion of util.h
-//#define ENABLE_KDX_DEBUG
-#ifdef ENABLE_KDX_DEBUG
+//#define ENABLE_CADEX_DEBUG
+#ifdef ENABLE_CADEX_DEBUG
 #define DBG( x ) x
 #else
 #define DBG( x ) 
@@ -48,9 +48,6 @@
 extern bool fMasternodeMode;
 extern bool fLiteMode;
 extern int nWalletBackups;
-
-// Application startup time (used for uptime calculation)
-int64_t GetStartupTime();
 
 static const bool DEFAULT_LOGTIMEMICROS  = false;
 static const bool DEFAULT_LOGIPS         = false;
@@ -154,7 +151,6 @@ boost::filesystem::path GetSpecialFolderPath(int nFolder, bool fCreate = true);
 void OpenDebugLog();
 void ShrinkDebugFile();
 void runCommand(const std::string& strCommand);
-void SetThreadPriority(int nPriority);
 
 inline bool IsSwitchChar(char c)
 {
@@ -260,7 +256,7 @@ void RenameThreadPool(ctpl::thread_pool& tp, const char* baseName);
  */
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
-    std::string s = strprintf("dash-%s", name);
+    std::string s = strprintf("cadex-%s", name);
     RenameThread(s.c_str());
     try
     {

@@ -48,11 +48,9 @@ static const unsigned int DEFAULT_KEYPOOL_SIZE = 1000;
 //! -paytxfee default
 static const CAmount DEFAULT_TRANSACTION_FEE = 0;
 //! -fallbackfee default
-static const CAmount DEFAULT_FALLBACK_FEELEGACY = 50 * COIN;
-static const CAmount DEFAULT_FALLBACK_FEE = 0.5 * COIN;
+static const CAmount DEFAULT_FALLBACK_FEE = 1000;
 //! -mintxfee default
-static const CAmount DEFAULT_TRANSACTION_MINFEELEGACY = 50 * COIN;
-static const CAmount DEFAULT_TRANSACTION_MINFEE = 0.5 * COIN;
+static const CAmount DEFAULT_TRANSACTION_MINFEE = 1000;
 //! minimum recommended increment for BIP 125 replacement txs
 static const CAmount WALLET_INCREMENTAL_RELAY_FEE = 5000;
 //! target minimum change amount
@@ -64,7 +62,7 @@ static const bool DEFAULT_SPEND_ZEROCONF_CHANGE = true;
 //! Default for -walletrejectlongchains
 static const bool DEFAULT_WALLET_REJECT_LONG_CHAINS = false;
 //! -txconfirmtarget default
-static const unsigned int DEFAULT_TX_CONFIRM_TARGET = 2;
+static const unsigned int DEFAULT_TX_CONFIRM_TARGET = 6;
 static const bool DEFAULT_WALLETBROADCAST = true;
 static const bool DEFAULT_DISABLE_WALLET = false;
 
@@ -102,7 +100,7 @@ enum AvailableCoinsType
     ALL_COINS,
     ONLY_DENOMINATED,
     ONLY_NONDENOMINATED,
-    ONLY_MASTERNODE_COLLATERAL,
+    ONLY_1000, // find masternode outputs including locked ones (use with caution)
     ONLY_PRIVATESEND_COLLATERAL
 };
 
@@ -271,8 +269,8 @@ public:
     int GetDepthInMainChain(const CBlockIndex* &pindexRet) const;
     int GetDepthInMainChain() const { const CBlockIndex *pindexRet; return GetDepthInMainChain(pindexRet); }
     bool IsInMainChain() const { const CBlockIndex *pindexRet; return GetDepthInMainChain(pindexRet) > 0; }
-    bool IsLockedByInstaKDX() const;
-    bool IsLockedByLLMQInstaKDX() const;
+    bool IsLockedByInstantSend() const;
+    bool IsLockedByLLMQInstantSend() const;
     bool IsChainLocked() const;
     int GetBlocksToMaturity() const;
     /** Pass this transaction to the mempool. Fails if absolute fee exceeds absurd fee. */
@@ -283,7 +281,6 @@ public:
 
     const uint256& GetHash() const { return tx->GetHash(); }
     bool IsCoinBase() const { return tx->IsCoinBase(); }
-    bool IsCoinStake() const { return tx->IsCoinStake(); }
 };
 
 /** 
@@ -695,11 +692,6 @@ private:
     int64_t nLastResend;
     bool fBroadcastTransactions;
 
-    // Stake Settings
-    unsigned int nHashDrift = 45;
-    unsigned int nHashInterval = 22;
-    int nStakeSetUpdateTime = 300; // 5 mins
-
     mutable bool fAnonymizableTallyCached;
     mutable std::vector<CompactTallyItem> vecAnonymizableTallyCached;
     mutable bool fAnonymizableTallyCachedNonDenom;
@@ -724,13 +716,6 @@ private:
 
     /* HD derive new child key (on internal or external chain) */
     void DeriveNewChildKey(const CKeyMetadata& metadata, CKey& secretRet, uint32_t nAccountIndex, bool fInternal /*= false*/);
-    bool CreateCoinStakeKernel(CScript &kernelScript, const CScript &stakeScript,
-                               unsigned int nBits, const CBlock& blockFrom,
-                               unsigned int nTxPrevOffset, const CTransactionRef &txPrev,
-                               const COutPoint& prevout, unsigned int &nTimeTx, bool fPrintProofOfStake) const;
-    void FillCoinStakePayments(CMutableTransaction &transaction,
-                               const CScript &kernelScript,
-                               const COutPoint &stakePrevout, CAmount blockReward) const;
 
     bool fFileBacked;
 
@@ -805,8 +790,6 @@ public:
         pwalletdbEncryption = NULL;
     }
 
-    uint64_t nStakeSplitThreshold = 2000;
-
     void SetNull()
     {
         nWalletVersion = FEATURE_BASE;
@@ -867,13 +850,10 @@ public:
     bool SelectPSInOutPairsByDenominations(int nDenom, CAmount nValueMin, CAmount nValueMax, std::vector< std::pair<CTxDSIn, CTxOut> >& vecPSInOutPairsRet);
     bool GetCollateralTxDSIn(CTxDSIn& txdsinRet, CAmount& nValueRet) const;
     bool SelectPrivateCoins(CAmount nValueMin, CAmount nValueMax, std::vector<CTxIn>& vecTxInRet, CAmount& nValueRet, int nPrivateSendRoundsMin, int nPrivateSendRoundsMax) const;
-    using StakeCoinsSet = std::set<std::pair<const CWalletTx*, unsigned int>>;
-    bool MintableCoins();
-    bool SelectStakeCoins(StakeCoinsSet &setCoins, CAmount nTargetAmount, const CScript &scriptFilterPubKey) const;
 
     bool SelectCoinsGroupedByAddresses(std::vector<CompactTallyItem>& vecTallyRet, bool fSkipDenominated = true, bool fAnonymizable = true, bool fSkipUnconfirmed = true, int nMaxOupointsPerAddress = -1) const;
 
-    /// Get 1000KDX output and keys which can be used for the Masternode
+    /// Get 1000CADEX output and keys which can be used for the Masternode
     bool GetMasternodeOutpointAndKeys(COutPoint& outpointRet, CPubKey& pubKeyRet, CKey& keyRet, const std::string& strTxHash = "", const std::string& strOutputIndex = "");
     /// Extract txin information and keys from output
     bool GetOutpointAndKeysFromOutput(const COutput& out, COutPoint& outpointRet, CPubKey& pubKeyRet, CKey& keyRet);
@@ -1001,9 +981,6 @@ public:
      */
     bool CreateTransaction(const std::vector<CRecipient>& vecSend, CWalletTx& wtxNew, CReserveKey& reservekey, CAmount& nFeeRet, int& nChangePosInOut,
                            std::string& strFailReason, const CCoinControl *coinControl = NULL, bool sign = true, AvailableCoinsType nCoinType=ALL_COINS, bool fUseInstantSend=false, int nExtraPayloadSize = 0);
-    bool CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, CAmount blockReward,
-                         CMutableTransaction& txNew, unsigned int& nTxNewTime,
-                         std::vector<const CWalletTx *> &vwtxPrev);
     bool CommitTransaction(CWalletTx& wtxNew, CReserveKey& reservekey, CConnman* connman, CValidationState& state, const std::string& strCommand="tx");
 
     bool CreateCollateralTransaction(CMutableTransaction& txCollateral, std::string& strReason);
@@ -1013,11 +990,8 @@ public:
     bool AddAccountingEntry(const CAccountingEntry&);
     bool AddAccountingEntry(const CAccountingEntry&, CWalletDB *pwalletdb);
 
-    static CFeeRate minTxFeeLegacy;
-    static CFeeRate minTxFeeCurrent;
-    static CFeeRate fallbackFeeLegacy;
-    static CFeeRate fallbackFeeCurrent;
-
+    static CFeeRate minTxFee;
+    static CFeeRate fallbackFee;
     /**
      * Estimate the minimum fee considering user set parameters
      * and the required fee
@@ -1093,7 +1067,7 @@ public:
         }
     }
 
-    void GetScriptForMining(std::shared_ptr<CReserveScript> &script);
+    void GetScriptForMining(boost::shared_ptr<CReserveScript> &script) override;
     void ResetRequestCount(const uint256 &hash) override
     {
         LOCK(cs_wallet);

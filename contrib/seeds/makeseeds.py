@@ -10,9 +10,9 @@ NSEEDS=512
 
 MAX_SEEDS_PER_ASN=4
 
-MIN_PROTOCOL_VERSION = 70213
-MAX_LAST_SEEN_DIFF = 60 * 60 * 24 * 1 # 1 day
-MAX_LAST_PAID_DIFF = 60 * 60 * 24 * 30 # 1 month
+MIN_PROTOCOL_VERSION = 70208
+MAX_LAST_SEEN_DIFF = 60 * 60 * 24 * 2 # 2 days
+MAX_LAST_PAID_DIFF = 60 * 60 * 24 * 60 #  2 month
 
 # These are hosts that have been observed to be behaving strangely (e.g.
 # aggressively connecting to every node).

@@ -72,10 +72,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case KDX: return QString("Cadex");
-            case mKDX: return QString("Milli-Cadex (1 / 1" THIN_SP_UTF8 "000)");
-            case uKDX: return QString("Micro-Cadex (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-Cadex (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case KDX: return QString("Kdx");
+            case mKDX: return QString("Milli-Kdx (1 / 1" THIN_SP_UTF8 "000)");
+            case uKDX: return QString("Micro-Kdx (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-Kdx (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -83,10 +83,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case KDX: return QString("TestCadexs");
-            case mKDX: return QString("Milli-TestCadex (1 / 1" THIN_SP_UTF8 "000)");
-            case uKDX: return QString("Micro-TestCadex (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-TestCadex (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case KDX: return QString("TestKdxs");
+            case mKDX: return QString("Milli-TestKdx (1 / 1" THIN_SP_UTF8 "000)");
+            case uKDX: return QString("Micro-TestKdx (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-TestKdx (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }

@@ -109,11 +109,9 @@ BITCOIN_CORE_H = \
   alert.h \
   base58.h \
   batchedlogger.h \
-  banned.h \
   bip39.h \
   bip39_english.h \
   blockencodings.h \
-  blocksigner.h \
   bloom.h \
   cachemap.h \
   cachemultimap.h \
@@ -148,7 +146,6 @@ BITCOIN_CORE_H = \
   privatesend-server.h \
   privatesend-util.h \
   dsnotificationinterface.h \
-  feerates.h \
   governance.h \
   governance-classes.h \
   governance-exceptions.h \
@@ -166,7 +163,6 @@ BITCOIN_CORE_H = \
   key.h \
   keepass.h \
   keystore.h \
-  kernel.h \
   dbwrapper.h \
   limitedmap.h \
   llmq/quorums.h \
@@ -267,10 +263,8 @@ libcadex_server_a_SOURCES = \
   addrdb.cpp \
   alert.cpp \
   batchedlogger.cpp \
-  banned.cpp \
   bloom.cpp \
   blockencodings.cpp \
-  blocksigner.cpp \
   chain.cpp \
   checkpoints.cpp \
   dsnotificationinterface.cpp \
@@ -281,12 +275,10 @@ libcadex_server_a_SOURCES = \
   evo/providertx.cpp \
   evo/simplifiedmns.cpp \
   evo/specialtx.cpp \
-  feerates.cpp \
   httprpc.cpp \
   httpserver.cpp \
   init.cpp \
   instantx.cpp \
-  kernel.cpp \
   dbwrapper.cpp \
   governance.cpp \
   governance-classes.cpp \
@@ -391,7 +383,6 @@ crypto_libcadex_crypto_a_SOURCES = \
   crypto/sha1.cpp \
   crypto/sha1.h \
   crypto/sha256.cpp \
-  crypto/sha256_sse4.cpp \
   crypto/sha256.h \
   crypto/sha512.cpp \
   crypto/sha512.h
@@ -444,7 +435,7 @@ libcadex_consensus_a_SOURCES = \
   primitives/transaction.h \
   pubkey.cpp \
   pubkey.h \
-  script/dashconsensus.cpp \
+  script/cadexconsensus.cpp \
   script/interpreter.cpp \
   script/interpreter.h \
   script/script.cpp \
@@ -595,7 +586,7 @@ cadex_tx_LDADD += $(BACKTRACE_LIB) $(BOOST_LIBS) $(CRYPTO_LIBS) $(BLS_LIBS)
 
 # cadexconsensus library #
 if BUILD_BITCOIN_LIBS
-include_HEADERS = script/dashconsensus.h
+include_HEADERS = script/cadexconsensus.h
 libcadexconsensus_la_SOURCES = $(crypto_libcadex_crypto_a_SOURCES) $(libcadex_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
@@ -682,9 +673,9 @@ if EMBEDDED_LEVELDB
 include Makefile.leveldb.include
 endif
 
-#if ENABLE_TESTS
-#include Makefile.test.include
-#endif
+if ENABLE_TESTS
+include Makefile.test.include
+endif
 
 if ENABLE_BENCH
 include Makefile.bench.include
@@ -694,6 +685,6 @@ if ENABLE_QT
 include Makefile.qt.include
 endif
 
-#if ENABLE_QT_TESTS
-#include Makefile.qttest.include
-#endif
+if ENABLE_QT_TESTS
+include Makefile.qttest.include
+endif

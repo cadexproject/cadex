@@ -17,7 +17,6 @@
 #include <QMenu>
 #include <QPoint>
 #include <QPushButton>
-#include <QToolButton>
 #include <QSystemTrayIcon>
 
 #ifdef Q_OS_MAC
@@ -89,7 +88,6 @@ private:
     WalletFrame *walletFrame;
 
     UnitDisplayStatusBarControl *unitDisplayControl;
-    QLabel* labelStakingIcon = nullptr;
     QLabel *labelWalletEncryptionIcon;
     QLabel *labelWalletHDStatusIcon;
     QLabel *labelConnectionsIcon;
@@ -102,7 +100,6 @@ private:
     QAction *overviewAction;
     QAction *historyAction;
     QAction *masternodeAction;
-    QAction *governanceAction;
     QAction *quitAction;
     QAction *sendCoinsAction;
     QAction *sendCoinsMenuAction;
@@ -139,12 +136,6 @@ private:
     RPCConsole *rpcConsole;
     HelpMessageDialog *helpMessageDialog;
     ModalOverlay *modalOverlay;
-
-    QFrame *headerFrame;
-    QPushButton *btnImg;
-    QToolButton *btnRefresh;
-    QToolButton *btnCopyNews;
-    QLabel *messageLabel;
 
 #ifdef Q_OS_MAC
     CAppNapInhibitor* m_app_nap_inhibitor = nullptr;
@@ -208,12 +199,6 @@ public Q_SLOTS:
     void message(const QString &title, const QString &message, unsigned int style, bool *ret = NULL);
 
 #ifdef ENABLE_WALLET
-
-    /** Set the UI status indicators based on the currently selected wallet.
-    */
-    void setStakingStatus();
-
-private:
     /** Set the hd-enabled status as shown in the UI.
      @param[in] status            current hd enabled status
      @see WalletModel::EncryptionStatus
@@ -240,8 +225,6 @@ private Q_SLOTS:
     void gotoHistoryPage();
     /** Switch to masternode page */
     void gotoMasternodePage();
-    /** Switch to governance page */
-    void gotoGovernancePage();
     /** Switch to receive coins page */
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
@@ -269,7 +252,7 @@ private Q_SLOTS:
     void showPeers();
     void showRepair();
 
-    /** Open external (default) editor with dash.conf */
+    /** Open external (default) editor with cadex.conf */
     void showConfEditor();
     /** Show folder with wallet backups in default file browser */
     void showBackups();

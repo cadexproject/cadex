@@ -516,7 +516,7 @@ CAmount CGovernanceObject::GetMinCollateralFee() const
     // Only 1 type has a fee for the moment but switch statement allows for future object types
     switch (nObjectType) {
     case GOVERNANCE_OBJECT_PROPOSAL:
-        return (IsPoS() ? GOVERNANCE_PROPOSAL_FEE_TX_NEW : GOVERNANCE_PROPOSAL_FEE_TX_OLD);
+        return GOVERNANCE_PROPOSAL_FEE_TX;
     case GOVERNANCE_OBJECT_TRIGGER:
         return 0;
     default:

@@ -4,7 +4,7 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 from test_framework.blocktools import get_masternode_payment, create_coinbase, create_block
 from test_framework.mininode import *
-from test_framework.test_framework import DashTestFramework
+from test_framework.test_framework import CadexTestFramework
 from test_framework.util import *
 from time import *
 
@@ -43,9 +43,9 @@ class TestNode(SingleNodeConnCB):
                 self.send_message(self.islocks[inv.hash])
 
 
-class LLMQ_IS_CL_Conflicts(DashTestFramework):
+class LLMQ_IS_CL_Conflicts(CadexTestFramework):
     def __init__(self):
-        super().__init__(6, 5, [], fast_dip3_enforcement=True)
+        super().__init__(6, 5, fast_dip3_enforcement=True)
         #disable_mocktime()
 
     def run_test(self):

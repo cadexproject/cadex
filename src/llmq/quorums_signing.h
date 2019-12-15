@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DASH_QUORUMS_SIGNING_H
-#define DASH_QUORUMS_SIGNING_H
+#ifndef CADEX_QUORUMS_SIGNING_H
+#define CADEX_QUORUMS_SIGNING_H
 
 #include "llmq/quorums.h"
 
@@ -143,11 +143,11 @@ public:
     void ProcessMessage(CNode* pnode, const std::string& strCommand, CDataStream& vRecv, CConnman& connman);
 
     // This is called when a recovered signature was was reconstructed from another P2P message and is known to be valid
-    // This is the case for example when a signature appears as part of InstaKDX or ChainLocks
+    // This is the case for example when a signature appears as part of InstantSend or ChainLocks
     void PushReconstructedRecoveredSig(const CRecoveredSig& recoveredSig, const CQuorumCPtr& quorum);
 
     // This is called when a recovered signature can be safely removed from the DB. This is only safe when some other
-    // mechanism prevents possible conflicts. As an example, ChainLocks prevent conflicts in confirmed TXs InstaKDX votes
+    // mechanism prevents possible conflicts. As an example, ChainLocks prevent conflicts in confirmed TXs InstantSend votes
     void RemoveRecoveredSig(Consensus::LLMQType llmqType, const uint256& id);
 
 private:
@@ -167,7 +167,7 @@ public:
     void RegisterRecoveredSigsListener(CRecoveredSigsListener* l);
     void UnregisterRecoveredSigsListener(CRecoveredSigsListener* l);
 
-    bool AsyncSignIfMember(Consensus::LLMQType llmqType, const uint256& id, const uint256& msgHash);
+    bool AsyncSignIfMember(Consensus::LLMQType llmqType, const uint256& id, const uint256& msgHash, bool allowReSign = false);
     bool HasRecoveredSig(Consensus::LLMQType llmqType, const uint256& id, const uint256& msgHash);
     bool HasRecoveredSigForId(Consensus::LLMQType llmqType, const uint256& id);
     bool HasRecoveredSigForSession(const uint256& signHash);
@@ -188,4 +188,4 @@ extern CSigningManager* quorumSigningManager;
 
 }
 
-#endif //KDX_QUORUMS_SIGNING_H
+#endif //CADEX_QUORUMS_SIGNING_H

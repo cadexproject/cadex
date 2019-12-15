@@ -50,7 +50,7 @@ protected:
     virtual void Inventory(const uint256 &hash) {}
     virtual void ResendWalletTransactions(int64_t nBestBlockTime, CConnman* connman) {}
     virtual void BlockChecked(const CBlock&, const CValidationState&) {}
-    virtual void GetScriptForMining(std::shared_ptr<CReserveScript>&) {}
+    virtual void GetScriptForMining(boost::shared_ptr<CReserveScript>&) {}
     virtual void ResetRequestCount(const uint256 &hash) {}
     virtual void NewPoWValidBlock(const CBlockIndex *pindex, const std::shared_ptr<const CBlock>& block) {}
     friend void ::RegisterValidationInterface(CValidationInterface*);
@@ -84,7 +84,7 @@ struct CMainSignals {
     boost::signals2::signal<void (const CGovernanceVote &)> NotifyGovernanceVote;
     /** Notifies listeners of a new governance object. */
     boost::signals2::signal<void (const CGovernanceObject &)> NotifyGovernanceObject;
-    /** Notifies listeners of a attempted InstaKDX double spend*/
+    /** Notifies listeners of a attempted InstantSend double spend*/
     boost::signals2::signal<void(const CTransaction &currentTx, const CTransaction &previousTx)> NotifyInstantSendDoubleSpendAttempt;
     /** Notifies listeners that the MN list changed */
     boost::signals2::signal<void(bool undo, const CDeterministicMNList& oldMNList, const CDeterministicMNListDiff& diff)> NotifyMasternodeListChanged;
@@ -99,7 +99,7 @@ struct CMainSignals {
     /** Notifies listeners of a block validation result */
     boost::signals2::signal<void (const CBlock&, const CValidationState&)> BlockChecked;
     /** Notifies listeners that a key for mining is required (coinbase) */
-    boost::signals2::signal<void (std::shared_ptr<CReserveScript>&)> ScriptForMining;
+    boost::signals2::signal<void (boost::shared_ptr<CReserveScript>&)> ScriptForMining;
     /** Notifies listeners that a block has been successfully mined */
     boost::signals2::signal<void (const uint256 &)> BlockFound;
     /**

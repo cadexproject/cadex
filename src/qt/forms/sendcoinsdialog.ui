@@ -897,7 +897,7 @@
                  <item>
                   <widget class="QCheckBox" name="checkBoxMinimumFee">
                    <property name="toolTip">
-                    <string>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for dash transactions than the network can process.</string>
+                    <string>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for cadex transactions than the network can process.</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -910,7 +910,7 @@
                     <bool>true</bool>
                    </property>
                    <property name="toolTip">
-                    <string>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for dash transactions than the network can process.</string>
+                    <string>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for cadex transactions than the network can process.</string>
                    </property>
                    <property name="text">
                     <string>(read the tooltip)</string>
@@ -1292,7 +1292,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkUseInstaKDX">
+        <widget class="QCheckBox" name="checkUseInstantSend">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -1303,7 +1303,7 @@
           </size>
          </property>
          <property name="text">
-          <string>InstaKDX</string>
+          <string>InstantSend</string>
          </property>
         </widget>
        </item>
@@ -1353,7 +1353,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../dash.qrc"/>
+  <include location="../cadex.qrc"/>
  </resources>
  <connections/>
  <buttongroups>

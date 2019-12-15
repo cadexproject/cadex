@@ -45,7 +45,7 @@ static void CoinSelection(benchmark::State& state)
 
         // Add coins.
         for (int i = 0; i < 1000; i++)
-            addCoin(Params().GetConsensus().nMasternodeCollateral, wallet, vCoins);
+            addCoin(1000 * COIN, wallet, vCoins);
         addCoin(3 * COIN, wallet, vCoins);
 
         std::set<std::pair<const CWalletTx*, unsigned int> > setCoinsRet;

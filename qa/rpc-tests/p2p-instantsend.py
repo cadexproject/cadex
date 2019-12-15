@@ -4,7 +4,7 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 from test_framework.mininode import *
-from test_framework.test_framework import DashTestFramework
+from test_framework.test_framework import CadexTestFramework
 from test_framework.util import *
 from time import *
 
@@ -12,9 +12,9 @@ from time import *
 InstantSendTest -- test InstantSend functionality (prevent doublespend for unconfirmed transactions)
 '''
 
-class InstantSendTest(DashTestFramework):
+class InstantSendTest(CadexTestFramework):
     def __init__(self):
-        super().__init__(9, 5, [], fast_dip3_enforcement=True)
+        super().__init__(9, 5, fast_dip3_enforcement=True)
         # set sender,  receiver,  isolated nodes
         self.isolated_idx = 1
         self.receiver_idx = 2

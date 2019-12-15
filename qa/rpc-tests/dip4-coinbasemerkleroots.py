@@ -5,7 +5,7 @@
 from collections import namedtuple
 
 from test_framework.mininode import *
-from test_framework.test_framework import DashTestFramework
+from test_framework.test_framework import CadexTestFramework
 from test_framework.util import *
 from time import *
 
@@ -37,9 +37,9 @@ class TestNode(SingleNodeConnCB):
         return self.last_mnlistdiff
 
 
-class LLMQCoinbaseCommitmentsTest(DashTestFramework):
+class LLMQCoinbaseCommitmentsTest(CadexTestFramework):
     def __init__(self):
-        super().__init__(6, 5, [], fast_dip3_enforcement=True)
+        super().__init__(6, 5, fast_dip3_enforcement=True)
 
     def run_test(self):
         self.test_node = TestNode()
@@ -56,7 +56,7 @@ class LLMQCoinbaseCommitmentsTest(DashTestFramework):
         mnList = self.test_getmnlistdiff(null_hash, self.nodes[0].getbestblockhash(), {}, [], expectedUpdated)
         expectedUpdated2 = expectedUpdated + []
 
-        # Register one more MN, but don't start it (that would fail as DashTestFramework doesn't support this atm)
+        # Register one more MN, but don't start it (that would fail as CadexTestFramework doesn't support this atm)
         baseBlockHash = self.nodes[0].getbestblockhash()
         self.prepare_masternode(self.mn_count)
         new_mn = self.mninfo[self.mn_count]

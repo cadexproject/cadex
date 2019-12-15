@@ -39,10 +39,10 @@ AddressBookPage::AddressBookPage(const PlatformStyle *platformStyle, Mode _mode,
         ui->deleteAddress->setIcon(QIcon());
         ui->exportButton->setIcon(QIcon());
     } else {
-        ui->newAddress->setIcon(QIcon(":/icons/add"));
-        ui->copyAddress->setIcon(QIcon(":/icons/editcopy"));
-        ui->deleteAddress->setIcon(QIcon(":/icons/remove"));
-        ui->exportButton->setIcon(QIcon(":/icons/export"));
+        ui->newAddress->setIcon(QIcon(":/icons/" + theme + "/add"));
+        ui->copyAddress->setIcon(QIcon(":/icons/" + theme + "/editcopy"));
+        ui->deleteAddress->setIcon(QIcon(":/icons/" + theme + "/remove"));
+        ui->exportButton->setIcon(QIcon(":/icons/" + theme + "/export"));
     }
     ui->showAddressQRCode->setIcon(QIcon());
 
@@ -232,7 +232,7 @@ void AddressBookPage::on_showAddressQRCode_clicked()
 
     dialog->setModel(model);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->setInfo(tr("QR code"), "dash:"+strAddress, "", strAddress);
+    dialog->setInfo(tr("QR code"), "cadex:"+strAddress, "", strAddress);
     dialog->show();
 }
 

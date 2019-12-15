@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DASH_QUORUMS_DKGSESSIONHANDLER_H
-#define DASH_QUORUMS_DKGSESSIONHANDLER_H
+#ifndef CADEX_QUORUMS_DKGSESSIONHANDLER_H
+#define CADEX_QUORUMS_DKGSESSIONHANDLER_H
 
 #include "llmq/quorums_dkgsession.h"
 
@@ -125,7 +125,7 @@ public:
     void ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv, CConnman& connman);
 
 private:
-    bool InitNewQuorum(int newQuorumHeight, const uint256& newQuorumHash);
+    bool InitNewQuorum(const CBlockIndex* pindexQuorum);
 
     std::pair<QuorumPhase, uint256> GetPhaseAndQuorumHash() const;
 
@@ -141,4 +141,4 @@ private:
 
 }
 
-#endif //KDX_QUORUMS_DKGSESSIONHANDLER_H
+#endif //CADEX_QUORUMS_DKGSESSIONHANDLER_H

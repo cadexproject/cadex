@@ -132,23 +132,21 @@ void masternode_list_help()
             "2. \"filter\"    (string, optional) Filter results. Partial match by outpoint by default in all modes,\n"
             "                                    additional matches in some modes are also available\n"
             "\nAvailable modes:\n"
-            "  addr             - Print ip address associated with a masternode (can be additionally filtered, partial match)\n"
-            "  full             - Print info in format 'status payee lastpaidtime lastpaidblock nextpaymentblock IP'\n"
-            "                     (can be additionally filtered, partial match)\n"
-            "  info             - Print info in format 'status payee IP'\n"
-            "                     (can be additionally filtered, partial match)\n"
-            "  json             - Print info in JSON format (can be additionally filtered, partial match)\n"
-            "  lastpaidblock    - Print the last block height a node was paid on the network\n"
-            "  nextpaymentblock - Print the projected block height a node will likely be paid on the network\n"
-            "                     (not guarenteed results as a POSE_BANNED state occuring later would prevent payment)\n"
-            "  lastpaidtime     - Print the last time a node was paid on the network\n"
-            "  owneraddress     - Print the masternode owner Cadex address\n"
-            "  payee            - Print the masternode payout Cadex address (can be additionally filtered,\n"
-            "                     partial match)\n"
-            "  pubKeyOperator   - Print the masternode operator public key\n"
-            "  status           - Print masternode status: ENABLED / POSE_BANNED\n"
-            "                     (can be additionally filtered, partial match)\n"
-            "  votingaddress    - Print the masternode voting Cadex address\n"
+            "  addr           - Print ip address associated with a masternode (can be additionally filtered, partial match)\n"
+            "  full           - Print info in format 'status payee lastpaidtime lastpaidblock IP'\n"
+            "                   (can be additionally filtered, partial match)\n"
+            "  info           - Print info in format 'status payee IP'\n"
+            "                   (can be additionally filtered, partial match)\n"
+            "  json           - Print info in JSON format (can be additionally filtered, partial match)\n"
+            "  lastpaidblock  - Print the last block height a node was paid on the network\n"
+            "  lastpaidtime   - Print the last time a node was paid on the network\n"
+            "  owneraddress   - Print the masternode owner Cadex address\n"
+            "  payee          - Print the masternode payout Cadex address (can be additionally filtered,\n"
+            "                   partial match)\n"
+            "  pubKeyOperator - Print the masternode operator public key\n"
+            "  status         - Print masternode status: ENABLED / POSE_BANNED\n"
+            "                   (can be additionally filtered, partial match)\n"
+            "  votingaddress  - Print the masternode voting Cadex address\n"
         );
 }
 
@@ -322,7 +320,7 @@ UniValue masternode_outputs(const JSONRPCRequest& request)
 
     // Find possible candidates
     std::vector<COutput> vPossibleCoins;
-    pwallet->AvailableCoins(vPossibleCoins, true, NULL, false, ONLY_MASTERNODE_COLLATERAL);
+    pwallet->AvailableCoins(vPossibleCoins, true, NULL, false, ONLY_1000);
 
     UniValue obj(UniValue::VOBJ);
     for (const auto& out : vPossibleCoins) {
@@ -491,7 +489,7 @@ UniValue masternodelist(const JSONRPCRequest& request)
     if (request.fHelp || (
                 strMode != "addr" && strMode != "full" && strMode != "info" && strMode != "json" &&
                 strMode != "owneraddress" && strMode != "votingaddress" &&
-                strMode != "lastpaidtime" && strMode != "lastpaidblock" && strMode != "nextpaymentblock" &&
+                strMode != "lastpaidtime" && strMode != "lastpaidblock" &&
                 strMode != "payee" && strMode != "pubkeyoperator" &&
                 strMode != "status"))
     {
@@ -519,13 +517,6 @@ UniValue masternodelist(const JSONRPCRequest& request)
         const CBlockIndex* pindex = chainActive[dmn->pdmnState->nLastPaidHeight];
         return (int)pindex->nTime;
     };
-
-    auto projectedPayees = mnList.GetProjectedMNPayees(mnList.GetValidMNsCount());
-    std::map<uint256, int> nextPayments;
-    for (size_t i = 0; i < projectedPayees.size(); i++) {
-        const auto& dmn = projectedPayees[i];
-        nextPayments.emplace(dmn->proTxHash, mnList.GetHeight() + (int)i + 1);
-    }
 
     mnList.ForEachMN(false, [&](const CDeterministicMNCPtr& dmn) {
         std::string strOutpoint = dmn->collateralOutpoint.ToStringShort();
@@ -557,7 +548,6 @@ UniValue masternodelist(const JSONRPCRequest& request)
                            payeeStr << " " << std::setw(10) <<
                            dmnToLastPaidTime(dmn) << " "  << std::setw(6) <<
                            dmn->pdmnState->nLastPaidHeight << " " <<
-                           (nextPayments.count(dmn->proTxHash) ? nextPayments[dmn->proTxHash] : -1) << " " <<
                            dmn->pdmnState->addr.ToString();
             std::string strFull = streamFull.str();
             if (strFilter !="" && strFull.find(strFilter) == std::string::npos &&
@@ -595,7 +585,6 @@ UniValue masternodelist(const JSONRPCRequest& request)
             objMN.push_back(Pair("status", dmnToStatus(dmn)));
             objMN.push_back(Pair("lastpaidtime", dmnToLastPaidTime(dmn)));
             objMN.push_back(Pair("lastpaidblock", dmn->pdmnState->nLastPaidHeight));
-            objMN.push_back(Pair("nextpaymentblock", nextPayments.count(dmn->proTxHash) ? nextPayments[dmn->proTxHash] : -1));
             objMN.push_back(Pair("owneraddress", CBitcoinAddress(dmn->pdmnState->keyIDOwner).ToString()));
             objMN.push_back(Pair("votingaddress", CBitcoinAddress(dmn->pdmnState->keyIDVoting).ToString()));
             objMN.push_back(Pair("collateraladdress", collateralAddressStr));
@@ -604,9 +593,6 @@ UniValue masternodelist(const JSONRPCRequest& request)
         } else if (strMode == "lastpaidblock") {
             if (strFilter !="" && strOutpoint.find(strFilter) == std::string::npos) return;
             obj.push_back(Pair(strOutpoint, dmn->pdmnState->nLastPaidHeight));
-        } else if (strMode == "nextpaymentblock") {
-            if (strFilter !="" && strOutpoint.find(strFilter) == std::string::npos) return;
-            obj.push_back(Pair(strOutpoint, nextPayments.count(dmn->proTxHash) ? nextPayments[dmn->proTxHash] : -1));
         } else if (strMode == "lastpaidtime") {
             if (strFilter !="" && strOutpoint.find(strFilter) == std::string::npos) return;
             obj.push_back(Pair(strOutpoint, dmnToLastPaidTime(dmn)));
@@ -637,11 +623,11 @@ UniValue masternodelist(const JSONRPCRequest& request)
 static const CRPCCommand commands[] =
 { //  category              name                      actor (function)         okSafe argNames
   //  --------------------- ------------------------  -----------------------  ------ ----------
-    { "dash",               "masternode",             &masternode,             true,  {} },
-    { "dash",               "masternodelist",         &masternodelist,         true,  {} },
-    { "dash",               "getpoolinfo",            &getpoolinfo,            true,  {} },
+    { "cadex",               "masternode",             &masternode,             true,  {} },
+    { "cadex",               "masternodelist",         &masternodelist,         true,  {} },
+    { "cadex",               "getpoolinfo",            &getpoolinfo,            true,  {} },
 #ifdef ENABLE_WALLET
-    { "dash",               "privatesend",            &privatesend,            false, {} },
+    { "cadex",               "privatesend",            &privatesend,            false, {} },
 #endif // ENABLE_WALLET
 };
 

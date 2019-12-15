@@ -23,7 +23,7 @@ class CGovernanceTriggerManager;
 class CGovernanceObject;
 class CGovernanceVote;
 
-static const int MIN_GOVERNANCE_PEER_PROTO_VERSION = 70216;
+static const int MIN_GOVERNANCE_PEER_PROTO_VERSION = 70213;
 static const int GOVERNANCE_FILTER_PROTO_VERSION = 70206;
 static const int GOVERNANCE_POSE_BANNED_VOTES_VERSION = 70215;
 
@@ -33,8 +33,7 @@ static const int GOVERNANCE_OBJECT_UNKNOWN = 0;
 static const int GOVERNANCE_OBJECT_PROPOSAL = 1;
 static const int GOVERNANCE_OBJECT_TRIGGER = 2;
 
-static const CAmount GOVERNANCE_PROPOSAL_FEE_TX_OLD = (5000.00 * COIN);
-static const CAmount GOVERNANCE_PROPOSAL_FEE_TX_NEW = (100000.00 * COIN);
+static const CAmount GOVERNANCE_PROPOSAL_FEE_TX = (5.0 * COIN);
 
 static const int64_t GOVERNANCE_FEE_CONFIRMATIONS = 6;
 static const int64_t GOVERNANCE_MIN_RELAY_FEE_CONFIRMATIONS = 1;

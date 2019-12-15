@@ -3,7 +3,7 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-from test_framework.test_framework import DashTestFramework
+from test_framework.test_framework import CadexTestFramework
 from test_framework.util import *
 
 '''
@@ -13,9 +13,9 @@ Simulate and check DKG errors
 
 '''
 
-class LLMQDKGErrors(DashTestFramework):
+class LLMQDKGErrors(CadexTestFramework):
     def __init__(self):
-        super().__init__(6, 5, [], fast_dip3_enforcement=True)
+        super().__init__(6, 5, fast_dip3_enforcement=True)
 
     def run_test(self):
 

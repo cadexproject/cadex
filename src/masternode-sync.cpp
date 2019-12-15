@@ -184,9 +184,7 @@ void CMasternodeSync::ProcessTick(CConnman& connman)
 
         // NORMAL NETWORK MODE - TESTNET/MAINNET
         {
-            if(netfulfilledman.HasFulfilledRequest(pnode->addr, "full-sync") &&
-               Params().NetworkIDString() == CBaseChainParams::MAIN)
-            {
+            if(netfulfilledman.HasFulfilledRequest(pnode->addr, "full-sync")) {
                 // We already fully synced from this node recently,
                 // disconnect to free this connection slot for another peer.
                 pnode->fDisconnect = true;

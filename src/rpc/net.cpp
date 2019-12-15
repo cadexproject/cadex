@@ -7,7 +7,6 @@
 
 #include "chainparams.h"
 #include "clientversion.h"
-#include "feerates.h"
 #include "validation.h"
 #include "net.h"
 #include "net_processing.h"
@@ -80,6 +79,9 @@ UniValue getpeerinfo(const JSONRPCRequest& request)
             "    \"addr\":\"host:port\",      (string) The ip address and port of the peer\n"
             "    \"addrlocal\":\"ip:port\",   (string) local address\n"
             "    \"services\":\"xxxxxxxxxxxxxxxx\",   (string) The services offered\n"
+            "    \"verified_proregtx_hash\": h, (hex) Only present when the peer is a masternode and succesfully\n"
+            "                               autheticated via MNAUTH. In this case, this field contains the\n"
+            "                               protx hash of the masternode\n"
             "    \"relaytxes\":true|false,    (boolean) Whether peer has asked us to relay transactions to it\n"
             "    \"lastsend\": ttt,           (numeric) The time in seconds since epoch (Jan 1 1970 GMT) of the last send\n"
             "    \"lastrecv\": ttt,           (numeric) The time in seconds since epoch (Jan 1 1970 GMT) of the last receive\n"
@@ -136,6 +138,9 @@ UniValue getpeerinfo(const JSONRPCRequest& request)
         if (!(stats.addrLocal.empty()))
             obj.push_back(Pair("addrlocal", stats.addrLocal));
         obj.push_back(Pair("services", strprintf("%016x", stats.nServices)));
+        if (!stats.verifiedProRegTxHash.IsNull()) {
+            obj.push_back(Pair("verified_proregtx_hash", stats.verifiedProRegTxHash.ToString()));
+        }
         obj.push_back(Pair("relaytxes", stats.fRelayTxes));
         obj.push_back(Pair("lastsend", stats.nLastSend));
         obj.push_back(Pair("lastrecv", stats.nLastRecv));
@@ -204,8 +209,8 @@ UniValue addnode(const JSONRPCRequest& request)
             "1. \"node\"     (string, required) The node (see getpeerinfo for nodes)\n"
             "2. \"command\"  (string, required) 'add' to add a node to the list, 'remove' to remove a node from the list, 'onetry' to try a connection to the node once\n"
             "\nExamples:\n"
-            + HelpExampleCli("addnode", "\"192.168.0.6:9999\" \"onetry\"")
-            + HelpExampleRpc("addnode", "\"192.168.0.6:9999\", \"onetry\"")
+            + HelpExampleCli("addnode", "\"192.168.0.6:27270\" \"onetry\"")
+            + HelpExampleRpc("addnode", "\"192.168.0.6:27270\", \"onetry\"")
         );
 
     if(!g_connman)
@@ -243,8 +248,8 @@ UniValue disconnectnode(const JSONRPCRequest& request)
             "\nArguments:\n"
             "1. \"address\"     (string, required) The IP address/port of the node\n"
             "\nExamples:\n"
-            + HelpExampleCli("disconnectnode", "\"192.168.0.6:9999\"")
-            + HelpExampleRpc("disconnectnode", "\"192.168.0.6:9999\"")
+            + HelpExampleCli("disconnectnode", "\"192.168.0.6:27270\"")
+            + HelpExampleRpc("disconnectnode", "\"192.168.0.6:27270\"")
         );
 
     if(!g_connman)
@@ -273,7 +278,7 @@ UniValue getaddednodeinfo(const JSONRPCRequest& request)
             "    \"connected\" : true|false,          (boolean) If connected\n"
             "    \"addresses\" : [                    (list of objects) Only when connected = true\n"
             "       {\n"
-            "         \"address\" : \"192.168.0.201:9999\",  (string) The dash server IP and port we're connected to\n"
+            "         \"address\" : \"192.168.0.201:27270\",  (string) The cadex server IP and port we're connected to\n"
             "         \"connected\" : \"outbound\"           (string) connection, inbound or outbound\n"
             "       }\n"
             "     ]\n"
@@ -448,7 +453,7 @@ UniValue getnetworkinfo(const JSONRPCRequest& request)
         obj.push_back(Pair("connections",   (int)g_connman->GetNodeCount(CConnman::CONNECTIONS_ALL)));
     }
     obj.push_back(Pair("networks",      GetNetworksInfo()));
-    obj.push_back(Pair("relayfee",      ValueFromAmount(MinRelayFee().GetFeePerK())));
+    obj.push_back(Pair("relayfee",      ValueFromAmount(::minRelayTxFee.GetFeePerK())));
     obj.push_back(Pair("incrementalfee", ValueFromAmount(::incrementalRelayFee.GetFeePerK())));
     UniValue localAddresses(UniValue::VARR);
     {

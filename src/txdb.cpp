@@ -362,31 +362,21 @@ bool CBlockTreeDB::LoadBlockIndexGuts(boost::function<CBlockIndex*(const uint256
             CDiskBlockIndex diskindex;
             if (pcursor->GetValue(diskindex)) {
                 // Construct block index object
-                CBlockIndex* pindexNew      = insertBlockIndex(diskindex.GetBlockHash());
-                pindexNew->pprev            = insertBlockIndex(diskindex.hashPrev);
-                pindexNew->nHeight          = diskindex.nHeight;
-                pindexNew->nFile            = diskindex.nFile;
-                pindexNew->nDataPos         = diskindex.nDataPos;
-                pindexNew->nUndoPos         = diskindex.nUndoPos;
-                pindexNew->nVersion         = diskindex.nVersion;
-                pindexNew->hashMerkleRoot   = diskindex.hashMerkleRoot;
-                pindexNew->nTime            = diskindex.nTime;
-                pindexNew->nBits            = diskindex.nBits;
-                pindexNew->nNonce           = diskindex.nNonce;
-                pindexNew->nStatus          = diskindex.nStatus;
-                pindexNew->nTx              = diskindex.nTx;
+                CBlockIndex* pindexNew = insertBlockIndex(diskindex.GetBlockHash());
+                pindexNew->pprev          = insertBlockIndex(diskindex.hashPrev);
+                pindexNew->nHeight        = diskindex.nHeight;
+                pindexNew->nFile          = diskindex.nFile;
+                pindexNew->nDataPos       = diskindex.nDataPos;
+                pindexNew->nUndoPos       = diskindex.nUndoPos;
+                pindexNew->nVersion       = diskindex.nVersion;
+                pindexNew->hashMerkleRoot = diskindex.hashMerkleRoot;
+                pindexNew->nTime          = diskindex.nTime;
+                pindexNew->nBits          = diskindex.nBits;
+                pindexNew->nNonce         = diskindex.nNonce;
+                pindexNew->nStatus        = diskindex.nStatus;
+                pindexNew->nTx            = diskindex.nTx;
 
-                //Proof Of Stake
-                pindexNew->nMint            = diskindex.nMint;
-                pindexNew->nMoneySupply     = diskindex.nMoneySupply;
-                pindexNew->nFlags           = diskindex.nFlags;
-                pindexNew->nStakeModifier   = diskindex.nStakeModifier;
-                pindexNew->prevoutStake     = diskindex.prevoutStake;
-                pindexNew->nStakeTime       = diskindex.nStakeTime;
-                pindexNew->hashProofOfStake = diskindex.hashProofOfStake;
-
-                if (pindexNew->nNonce != uint32_t(0) &&
-                    !CheckProofOfWork(pindexNew->GetBlockHash(), pindexNew->nBits, Params().GetConsensus()))
+                if (!CheckProofOfWork(pindexNew->GetBlockHash(), pindexNew->nBits, Params().GetConsensus()))
                     return error("%s: CheckProofOfWork failed: %s", __func__, pindexNew->ToString());
 
                 pcursor->Next();
@@ -499,7 +489,7 @@ bool CCoinsViewDB::Upgrade() {
             COutPoint outpoint(key.second, 0);
             for (size_t i = 0; i < old_coins.vout.size(); ++i) {
                 if (!old_coins.vout[i].IsNull() && !old_coins.vout[i].scriptPubKey.IsUnspendable()) {
-                    Coin newcoin(std::move(old_coins.vout[i]), old_coins.nHeight, old_coins.fCoinBase, false);
+                    Coin newcoin(std::move(old_coins.vout[i]), old_coins.nHeight, old_coins.fCoinBase);
                     outpoint.n = i;
                     CoinEntry entry(&outpoint);
                     batch.Write(entry, newcoin);

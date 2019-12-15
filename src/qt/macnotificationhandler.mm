@@ -13,7 +13,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.dash.Cadex-Qt";
+        return @"org.cadex.Cadex-Qt";
     } else {
         return [self __bundleIdentifier];
     }

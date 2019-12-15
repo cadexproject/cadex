@@ -11,7 +11,6 @@
 #include "timedata.h"
 #include "wallet/wallet.h"
 
-#include "instantx.h"
 #include "privatesend.h"
 
 #include <stdint.h>
@@ -45,42 +44,8 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
     CAmount nNet = nCredit - nDebit;
     uint256 hash = wtx.GetHash();
     std::map<std::string, std::string> mapValue = wtx.mapValue;
-    if(wtx.tx->IsCoinStake())
-    {
-        TransactionRecord sub(hash, nTime);
-        CTxDestination address;
-        if (!ExtractDestination(wtx.tx->vout[1].scriptPubKey, address))
-            return parts;
 
-        if (!IsMine(*wallet, address))
-        {
-                for (unsigned int i = 1; i < wtx.tx->vout.size(); i++) {
-                    CTxDestination outAddress;
-                    if (ExtractDestination(wtx.tx->vout[i].scriptPubKey, outAddress)) {
-                        isminetype mine = IsMine(*wallet, outAddress);
-                        if (mine) {
-                            //isminetype mine = wallet->IsMine(wtx.tx->vout[i]);
-                            sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
-                            sub.type = TransactionRecord::MNReward;
-                            sub.address = CBitcoinAddress(outAddress).ToString();
-                            sub.credit = wtx.tx->vout[i].nValue;
-                        }
-                    }
-            }
-        }
-        else
-        {
-            //stake reward
-            isminetype mine = IsMine(*wallet, address);
-            sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
-            sub.address = CBitcoinAddress(address).ToString();
-            sub.credit = nCredit - nDebit;
-            sub.type = TransactionRecord::StakeMint;
-
-        }
-        parts.append(sub);
-    }
-    else if (nNet > 0 || wtx.IsCoinBase())
+    if (nNet > 0 || wtx.IsCoinBase())
     {
         //
         // Credit
@@ -323,8 +288,7 @@ void TransactionRecord::updateStatus(const CWalletTx &wtx, int numISLocks, int c
         }
     }
     // For generated transactions, determine maturity
-    else if(type == TransactionRecord::Generated || type == TransactionRecord::StakeMint
-            || type == TransactionRecord::MNReward)
+    else if(type == TransactionRecord::Generated)
     {
         if (wtx.GetBlocksToMaturity() > 0)
         {
@@ -350,7 +314,7 @@ void TransactionRecord::updateStatus(const CWalletTx &wtx, int numISLocks, int c
     }
     else
     {
-        status.lockedByInstaKDX = wtx.IsLockedByInstaKDX();
+        status.lockedByInstantSend = wtx.IsLockedByInstantSend();
         if (status.depth < 0)
         {
             status.status = TransactionStatus::Conflicted;

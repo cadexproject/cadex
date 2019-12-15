@@ -20,7 +20,7 @@ class TransactionStatus
 {
 public:
     TransactionStatus():
-        countsForBalance(false), lockedByInstaKDX(false), sortKey(""),
+        countsForBalance(false), lockedByInstantSend(false), sortKey(""),
         matures_in(0), status(Offline), depth(0), open_for(0), cur_num_blocks(-1),
         cachedNumISLocks(-1), cachedChainLockHeight(-1)
     { }
@@ -43,8 +43,8 @@ public:
 
     /// Transaction counts towards available balance
     bool countsForBalance;
-    /// Transaction was locked via InstaKDX
-    bool lockedByInstaKDX;
+    /// Transaction was locked via InstantSend
+    bool lockedByInstantSend;
     /// Sorting key based on status
     std::string sortKey;
 
@@ -81,7 +81,6 @@ public:
     {
         Other,
         Generated,
-        StakeMint,
         SendToAddress,
         SendToOther,
         RecvWithAddress,
@@ -92,8 +91,7 @@ public:
         PrivateSendCollateralPayment,
         PrivateSendMakeCollaterals,
         PrivateSendCreateDenominations,
-        PrivateSend,
-        MNReward
+        PrivateSend
     };
 
     /** Number of confirmation recommended for accepting a transaction */

@@ -64,7 +64,8 @@ void CActiveMasternodeManager::Init()
     LOCK(cs_main);
 
     if (!fMasternodeMode) return;
-    if (!FullDIP0003Mode()) return;
+
+    if (!deterministicMNManager->IsDIP3Enforced()) return;
 
     // Check that our local network configuration is correct
     if (!fListen) {
@@ -131,11 +132,12 @@ void CActiveMasternodeManager::UpdatedBlockTip(const CBlockIndex* pindexNew, con
     LOCK(cs_main);
 
     if (!fMasternodeMode) return;
-    if (!FullDIP0003Mode()) return;
+
+    if (!deterministicMNManager->IsDIP3Enforced(pindexNew->nHeight)) return;
 
     if (state == MASTERNODE_READY) {
-        auto oldMNList = deterministicMNManager->GetListForBlock(pindexNew->pprev->GetBlockHash());
-        auto newMNList = deterministicMNManager->GetListForBlock(pindexNew->GetBlockHash());
+        auto oldMNList = deterministicMNManager->GetListForBlock(pindexNew->pprev);
+        auto newMNList = deterministicMNManager->GetListForBlock(pindexNew);
         if (!newMNList.IsMNValid(activeMasternodeInfo.proTxHash)) {
             // MN disappeared from MN list
             state = MASTERNODE_REMOVED;

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DASH_QUORUMS_INSTANTSEND_H
-#define DASH_QUORUMS_INSTANTSEND_H
+#ifndef CADEX_QUORUMS_INSTANTSEND_H
+#define CADEX_QUORUMS_INSTANTSEND_H
 
 #include "quorums_signing.h"
 
@@ -120,7 +120,7 @@ public:
     void InterruptWorkerThread();
 
 public:
-    bool ProcessTx(const CTransaction& tx, const Consensus::Params& params);
+    bool ProcessTx(const CTransaction& tx, bool allowReSigning, const Consensus::Params& params);
     bool CheckCanLock(const CTransaction& tx, bool printDebug, const Consensus::Params& params);
     bool CheckCanLock(const COutPoint& outpoint, bool printDebug, const uint256& txHash, CAmount* retValue, const Consensus::Params& params);
     bool IsLocked(const uint256& txHash);
@@ -168,7 +168,7 @@ public:
 extern CInstantSendManager* quorumInstantSendManager;
 
 // This involves 2 sporks: SPORK_2_INSTANTSEND_ENABLED and SPORK_20_INSTANTSEND_LLMQ_BASED
-// SPORK_2_INSTANTSEND_ENABLED generally enables/disables InstaKDX and SPORK_20_INSTANTSEND_LLMQ_BASED switches
+// SPORK_2_INSTANTSEND_ENABLED generally enables/disables InstantSend and SPORK_20_INSTANTSEND_LLMQ_BASED switches
 // between the old and the new (LLMQ based) system
 // TODO When the new system is fully deployed and enabled, we can remove this special handling in a future version
 // and revert to only using SPORK_2_INSTANTSEND_ENABLED.
@@ -178,4 +178,4 @@ bool IsInstantSendEnabled();
 
 }
 
-#endif//KDX_QUORUMS_INSTANTSEND_H
+#endif//CADEX_QUORUMS_INSTANTSEND_H

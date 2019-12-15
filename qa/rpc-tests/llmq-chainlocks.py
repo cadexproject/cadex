@@ -4,7 +4,7 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 from test_framework.mininode import *
-from test_framework.test_framework import DashTestFramework
+from test_framework.test_framework import CadexTestFramework
 from test_framework.util import *
 from time import *
 
@@ -15,9 +15,9 @@ Checks LLMQs based ChainLocks
 
 '''
 
-class LLMQChainLocksTest(DashTestFramework):
+class LLMQChainLocksTest(CadexTestFramework):
     def __init__(self):
-        super().__init__(6, 5, [], fast_dip3_enforcement=True)
+        super().__init__(6, 5, fast_dip3_enforcement=True)
 
     def run_test(self):
 
@@ -72,7 +72,7 @@ class LLMQChainLocksTest(DashTestFramework):
         good_tip = self.nodes[0].getbestblockhash()
         # Restart it so that it forgets all the chainlocks from the past
         stop_node(self.nodes[0], 0)
-        self.nodes[0] = start_node(0, self.options.tmpdir, self.extra_args)
+        self.nodes[0] = start_node(0, self.options.tmpdir, self.extra_args[0])
         connect_nodes(self.nodes[0], 1)
         self.nodes[0].invalidateblock(self.nodes[0].getbestblockhash())
         # Now try to reorg the chain
