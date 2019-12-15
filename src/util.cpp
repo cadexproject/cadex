@@ -584,6 +584,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "Library/Application Support/Cadexcoin";
 #else
     // Unix
+        return pathRet / ".CADEXCOIN";
 #endif
 #endif
 }
