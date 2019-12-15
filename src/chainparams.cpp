@@ -459,21 +459,10 @@ public:
         nDefaultPort = 27271;
         nPruneAfterHeight = 1000;
 
-        uint32_t nTime = 1571083196;
-        uint32_t nNonce = 0;
-
-        if (nNonce == 0) {
-            while (UintToArith256(genesis.GetHash()) >
-                   UintToArith256(consensus.powLimit))
-            {
-		nNonce++;
-                genesis = CreateGenesisBlock(nTime, nNonce, 0x1f00ffff, 1, 0 * COIN);
-                if (nNonce % 128 == 0) printf("\rgenesis %08x", nNonce);
-            }
-        }
-
-        genesis = CreateGenesisBlock(nTime, nNonce, 0x1f00ffff, 1, 0 * COIN);
+        genesis = CreateGenesisBlock(1571083196, 48338, 0x1f00ffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
+        assert(consensus.hashGenesisBlock == uint256S("0x0000aeeb87077da2302990b107824d8ba3b60284c0caa3da69108072c5da80d4"));
+        assert(genesis.hashMerkleRoot == uint256S("0x0f5fd5f0d3afd9624d349d8abfb40c1fe0c210c0232233ceeaf010af94a88ad2"));
 
         vFixedSeeds.clear();
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
