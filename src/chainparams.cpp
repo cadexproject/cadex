@@ -384,7 +384,7 @@ public:
         consensus.nBudgetPaymentsStartBlock = 4100;
         consensus.nBudgetPaymentsCycleBlocks = 50;
         consensus.nBudgetPaymentsWindowBlocks = 10;
-        consensus.nSuperblockStartBlock = 4200; /
+        consensus.nSuperblockStartBlock = 4200;
         consensus.nSuperblockStartHash = uint256(); 
         consensus.nSuperblockCycle = 24; 
         consensus.nGovernanceMinQuorum = 1;
@@ -467,12 +467,12 @@ public:
                    UintToArith256(consensus.powLimit))
             {
 		nNonce++;
-                genesis = CreateGenesisBlock(nTime, nNonce, 0x1f00ffff, 1, 0 * COIN, true);
+                genesis = CreateGenesisBlock(nTime, nNonce, 0x1f00ffff, 1, 0 * COIN);
                 if (nNonce % 128 == 0) printf("\rgenesis %08x", nNonce);
             }
         }
 
-        genesis = CreateGenesisBlock(nTime, nNonce, 0x1f00ffff, 1, 0 * COIN, true);
+        genesis = CreateGenesisBlock(nTime, nNonce, 0x1f00ffff, 1, 0 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
         vFixedSeeds.clear();
