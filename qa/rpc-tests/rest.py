@@ -2,7 +2,11 @@
 # Copyright (c) 2014-2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Test the REST API."""
+
+#
+# Test REST interface
+#
+
 
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import *
@@ -58,7 +62,7 @@ class RESTTest (BitcoinTestFramework):
 
     def run_test(self):
         url = urllib.parse.urlparse(self.nodes[0].url)
-        self.log.info("Mining blocks...")
+        print("Mining blocks...")
 
         self.nodes[0].generate(1)
         self.sync_all()

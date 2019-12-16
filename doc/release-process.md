@@ -1,9 +1,9 @@
 Release Process
 ====================
 
-* Update translations, see [translation_process.md](https://github.com/cadexproject/cadex/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations, see [translation_process.md](https://github.com/dashpay/dash/blob/master/doc/translation_process.md#synchronising-translations).
 
-* Update manpages, see [gen-manpages.sh](https://github.com/cadexproject/cadex/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update manpages, see [gen-manpages.sh](https://github.com/dashpay/dash/blob/master/contrib/devtools/README.md#gen-manpagessh).
 
 Before every minor and major release:
 
@@ -19,22 +19,22 @@ Before every minor and major release:
 
 Before every major release:
 
-* Update hardcoded [seeds](/contrib/seeds/README.md). TODO: Give example PR for Cadex
+* Update hardcoded [seeds](/contrib/seeds/README.md). TODO: Give example PR for Dash
 * Update [`BLOCK_CHAIN_SIZE`](/src/qt/intro.cpp) to the current size plus some overhead.
 
 ### First time / New builders
 
-If you're using the automated script (found in [contrib/gitian-build.py](/contrib/gitian-build.py)), then at this point you should run it with the "--setup" command. Otherwise ignore this.
+If you're using the automated script (found in [contrib/gitian-build.sh](/contrib/gitian-build.sh)), then at this point you should run it with the "--setup" command. Otherwise ignore this.
 
 Check out the source code in the following directory hierarchy.
 
 	cd /path/to/your/toplevel/build
-	git clone https://github.com/cadexproject/gitian.sigs.git
-	git clone https://github.com/cadexproject/cadex-detached-sigs.git
+	git clone https://github.com/dashpay/gitian.sigs.git
+	git clone https://github.com/dashpay/dash-detached-sigs.git
 	git clone https://github.com/devrandom/gitian-builder.git
-	git clone https://github.com/cadexproject/cadex.git
+	git clone https://github.com/dashpay/dash.git
 
-### Cadex Core maintainers/release engineers, update (commit) version in sources
+### Dash Core maintainers/release engineers, update (commit) version in sources
 
 - `configure.ac`:
     - `_CLIENT_VERSION_MAJOR`
@@ -64,11 +64,11 @@ Tag version (or release candidate) in git
 
 ### Setup and perform Gitian builds
 
-If you're using the automated script (found in [contrib/gitian-build.py](/contrib/gitian-build.py)), then at this point you should run it with the "--build" command. Otherwise ignore this.
+If you're using the automated script (found in [contrib/gitian-build.sh](/contrib/gitian-build.sh)), then at this point you should run it with the "--build" command. Otherwise ignore this.
 
 Setup Gitian descriptors:
 
-    pushd ./cadex
+    pushd ./dash
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.12.3)
     git fetch
@@ -103,7 +103,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../cadex/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../dash/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -111,50 +111,50 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url cadex=/path/to/cadex,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url dash=/path/to/dash,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign Cadex Core for Linux, Windows, and OS X:
+### Build and sign Dash Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --memory 3000 --commit cadex=v${VERSION} ../cadex/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../cadex/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/cadex-*.tar.gz build/out/src/cadex-*.tar.gz ../
+    ./bin/gbuild --memory 3000 --commit dash=v${VERSION} ../dash/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../dash/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/dash-*.tar.gz build/out/src/dash-*.tar.gz ../
 
-    ./bin/gbuild --memory 3000 --commit cadex=v${VERSION} ../cadex/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../cadex/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/cadex-*-win-unsigned.tar.gz inputs/cadex-win-unsigned.tar.gz
-    mv build/out/cadex-*.zip build/out/cadex-*.exe ../
+    ./bin/gbuild --memory 3000 --commit dash=v${VERSION} ../dash/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../dash/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/dash-*-win-unsigned.tar.gz inputs/dash-win-unsigned.tar.gz
+    mv build/out/dash-*.zip build/out/dash-*.exe ../
 
-    ./bin/gbuild --memory 3000 --commit cadex=v${VERSION} ../cadex/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../cadex/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/cadex-*-osx-unsigned.tar.gz inputs/cadex-osx-unsigned.tar.gz
-    mv build/out/cadex-*.tar.gz build/out/cadex-*.dmg ../
+    ./bin/gbuild --memory 3000 --commit dash=v${VERSION} ../dash/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../dash/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/dash-*-osx-unsigned.tar.gz inputs/dash-osx-unsigned.tar.gz
+    mv build/out/dash-*.tar.gz build/out/dash-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`cadex-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`cadex-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`cadex-${VERSION}-win[32|64]-setup-unsigned.exe`, `cadex-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`cadex-${VERSION}-osx-unsigned.dmg`, `cadex-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`dash-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`dash-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`dash-${VERSION}-win[32|64]-setup-unsigned.exe`, `dash-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`dash-${VERSION}-osx-unsigned.dmg`, `dash-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import cadex/contrib/gitian-keys/*.pgp
+    gpg --import dash/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../cadex/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../cadex/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../cadex/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../dash/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../dash/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../dash/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -169,59 +169,28 @@ Commit your signature to gitian.sigs:
     git push  # Assuming you can push to the gitian.sigs tree
     popd
 
-Codesigner only: Create Windows/OS X detached signatures:
-- Only one person handles codesigning. Everyone else should skip to the next step.
-- Only once the Windows/OS X builds each have 3 matching signatures may they be signed with their respective release keys.
-
-Codesigner only: Sign the osx binary:
-
-    transfer cadexcore-osx-unsigned.tar.gz to osx for signing
-    tar xf cadexcore-osx-unsigned.tar.gz
-    ./detached-sig-create.sh -s "Key ID"
-    Enter the keychain password and authorize the signature
-    Move signature-osx.tar.gz back to the gitian host
-
-Codesigner only: Sign the windows binaries:
-
-    tar xf cadexcore-win-unsigned.tar.gz
-    ./detached-sig-create.sh -key /path/to/codesign.key
-    Enter the passphrase for the key when prompted
-    signature-win.tar.gz will be created
-
-Codesigner only: Commit the detached codesign payloads:
-
-    cd ~/cadexcore-detached-sigs
-    checkout the appropriate branch for this release series
-    rm -rf *
-    tar xf signature-osx.tar.gz
-    tar xf signature-win.tar.gz
-    git add -a
-    git commit -m "point to ${VERSION}"
-    git tag -s v${VERSION} HEAD
-    git push the current branch and new tag
-
-Non-codesigners: wait for Windows/OS X detached signatures:
+Wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [cadex-detached-sigs](https://github.com/cadexproject/cadex-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [dash-detached-sigs](https://github.com/dashpay/dash-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../cadex/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../cadex/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../cadex/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/cadex-osx-signed.dmg ../cadex-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../dash/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../dash/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../dash/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/dash-osx-signed.dmg ../dash-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../cadex/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../cadex/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../cadex/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/cadex-*win64-setup.exe ../cadex-${VERSION}-win64-setup.exe
-    mv build/out/cadex-*win32-setup.exe ../cadex-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../dash/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../dash/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../dash/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/dash-*win64-setup.exe ../dash-${VERSION}-win64-setup.exe
+    mv build/out/dash-*win32-setup.exe ../dash-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -243,23 +212,23 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-cadex-${VERSION}-aarch64-linux-gnu.tar.gz
-cadex-${VERSION}-arm-linux-gnueabihf.tar.gz
-cadex-${VERSION}-i686-pc-linux-gnu.tar.gz
-cadex-${VERSION}-x86_64-linux-gnu.tar.gz
-cadex-${VERSION}-osx64.tar.gz
-cadex-${VERSION}-osx.dmg
-cadex-${VERSION}.tar.gz
-cadex-${VERSION}-win32-setup.exe
-cadex-${VERSION}-win32.zip
-cadex-${VERSION}-win64-setup.exe
-cadex-${VERSION}-win64.zip
+dash-${VERSION}-aarch64-linux-gnu.tar.gz
+dash-${VERSION}-arm-linux-gnueabihf.tar.gz
+dash-${VERSION}-i686-pc-linux-gnu.tar.gz
+dash-${VERSION}-x86_64-linux-gnu.tar.gz
+dash-${VERSION}-osx64.tar.gz
+dash-${VERSION}-osx.dmg
+dash-${VERSION}.tar.gz
+dash-${VERSION}-win32-setup.exe
+dash-${VERSION}-win32.zip
+dash-${VERSION}-win64-setup.exe
+dash-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the cadexcoin.tech server*.
+space *do not upload these to the dash.org server*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -269,20 +238,20 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the cadexcoin.tech server
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the dash.org server
 
-- Update cadexcoin.tech
+- Update dash.org
 
 - Announce the release:
 
-  - Release on Cadex forum: https://www.cadexcoin.tech/forum/topic/official-announcements.54/
+  - Release on Dash forum: https://www.dash.org/forum/topic/official-announcements.54/
 
-  - Optionally Discord, twitter, reddit /r/Cadexcoin, ... but this will usually sort out itself
+  - Optionally Discord, twitter, reddit /r/Dashpay, ... but this will usually sort out itself
 
-  - Notify flare so that he can start building [the PPAs](https://launchpad.net/~cadexcoin.tech/+archive/ubuntu/cadex)
+  - Notify flare so that he can start building [the PPAs](https://launchpad.net/~dash.org/+archive/ubuntu/dash)
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/cadexproject/cadex/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/dashpay/dash/releases/new) with a link to the archived release notes.
 
   - Celebrate

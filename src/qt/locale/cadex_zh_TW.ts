@@ -22,14 +22,6 @@
         <translation>複製(&amp;C)</translation>
     </message>
     <message>
-        <source>Show QR code for the currently selected address</source>
-        <translation>顯示當前所選地址的二維碼</translation>
-    </message>
-    <message>
-        <source>&amp;Show QR code</source>
-        <translation>顯示二維碼(&amp;S)</translation>
-    </message>
-    <message>
         <source>Delete the currently selected address from the list</source>
         <translation>把目前選擇的位址從列表中刪除</translation>
     </message>
@@ -70,11 +62,11 @@
         <translation>收款位址</translation>
     </message>
     <message>
-        <source>These are your Cadex addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Dash addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>這些是你要付款過去的達世幣位址。在付錢之前，務必要檢查金額和收款位址是否正確。</translation>
     </message>
     <message>
-        <source>These are your Cadex addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Dash addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>這些是你用來收款的達世幣位址。建議在每次交易時，都使用一個新的收款位址。</translation>
     </message>
     <message>
@@ -88,14 +80,6 @@
     <message>
         <source>&amp;Edit</source>
         <translation>編輯(&amp;E)</translation>
-    </message>
-    <message>
-        <source>&amp;Show address QR code</source>
-        <translation>顯示位址的二維碼(&amp;S)</translation>
-    </message>
-    <message>
-        <source>QR code</source>
-        <translation>二維碼</translation>
     </message>
     <message>
         <source>Export Address List</source>
@@ -188,7 +172,7 @@
         <translation>確認錢包加密</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR KDX&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR CADEX&lt;/b&gt;!</source>
         <translation>警告: 如果把錢包加密後又忘記密碼，你就會從此&lt;b&gt;失去其中所有的達世幣了&lt;/b&gt;！</translation>
     </message>
     <message>
@@ -258,11 +242,11 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>A fatal error occurred. Cadex Core can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. Dash Core can no longer continue safely and will quit.</source>
         <translation>發生致命錯誤。達世幣核心軟體不再能安全地繼續運行下去，程式將會關閉。</translation>
     </message>
     <message>
-        <source>Cadex Core</source>
+        <source>Dash Core</source>
         <translation>達世幣核心</translation>
     </message>
     <message>
@@ -286,7 +270,7 @@
         <translation>發送(&amp;S)</translation>
     </message>
     <message>
-        <source>Send coins to a Cadex address</source>
+        <source>Send coins to a Dash address</source>
         <translation>付錢給一個達世幣位址</translation>
     </message>
     <message>
@@ -322,7 +306,7 @@
         <translation>結束應用程式</translation>
     </message>
     <message>
-        <source>Show information about Cadex Core</source>
+        <source>Show information about Dash Core</source>
         <translation>顯示達世幣核心的相關資訊</translation>
     </message>
     <message>
@@ -394,7 +378,7 @@
         <translation>簽署訊息(&amp;M)...</translation>
     </message>
     <message>
-        <source>Sign messages with your Cadex addresses to prove you own them</source>
+        <source>Sign messages with your Dash addresses to prove you own them</source>
         <translation>用達世幣位址簽署訊息來證明位址是你的</translation>
     </message>
     <message>
@@ -402,7 +386,7 @@
         <translation>驗證訊息(&amp;V)...</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Cadex addresses</source>
+        <source>Verify messages to ensure they were signed with specified Dash addresses</source>
         <translation>驗證訊息是用來確定訊息是用指定的達世幣位址簽署的</translation>
     </message>
     <message>
@@ -454,6 +438,14 @@
         <translation>開啟配置文件</translation>
     </message>
     <message>
+        <source>Open &amp;Masternode Configuration File</source>
+        <translation>開啟主節點配置文件(&amp;C)</translation>
+    </message>
+    <message>
+        <source>Open Masternode configuration file</source>
+        <translation>開啟主節點配置文件</translation>
+    </message>
+    <message>
         <source>Show Automatic &amp;Backups</source>
         <translation>顯示自動備份(&amp;B)</translation>
     </message>
@@ -490,7 +482,7 @@
         <translation>命令列選項(&amp;C)</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Cadex command-line options</source>
+        <source>Show the %1 help message to get a list with possible Dash command-line options</source>
         <translation>顯示 %1 的說明訊息，來取得可用命令列選項的列表</translation>
     </message>
     <message>
@@ -526,7 +518,7 @@
         <translation>分頁工具列</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Cadex network</source>
+        <source>%n active connection(s) to Dash network</source>
         <translation><numerusform>%n 個運作中的達世幣網路連線</numerusform></translation>
     </message>
     <message>
@@ -658,6 +650,10 @@
 </context>
 <context>
     <name>ClientModel</name>
+    <message>
+        <source>Total: %1 (PS compatible: %2 / Enabled: %3)</source>
+        <translation>總量:  %1 (匿名發送兼容 : %2 / 可用 : %3)</translation>
+    </message>
     <message>
         <source>Network Alert</source>
         <translation>網路警報</translation>
@@ -798,8 +794,8 @@
         <translation>請切換到“列表模式”來使用此功能。</translation>
     </message>
     <message>
-        <source>Non-anonymized input selected. &lt;b&gt;PrivateSend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use PrivateSend, please deselect all non-anonymized inputs first and then check the PrivateSend checkbox again.</source>
-        <translation>選擇了非匿名的輸入。 &lt;b&gt;匿名發送將會被禁用。&lt;/b&gt;&lt;br&gt;&lt;br&gt;如果你仍然想用匿名發送，請先取消選取所有非匿名的輸入，然後再勾選匿名發送的核取方塊。</translation>
+        <source>Non-anonymized input selected. &lt;b&gt;PrivateSend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use PrivateSend, please deselect all non-nonymized inputs first and then check PrivateSend checkbox again.</source>
+        <translation>選擇了非匿名的輸入。 &lt;b&gt; 匿名發送將會被禁用。&lt;/ b&gt;&lt;br&gt; &lt;br&gt;如果你仍然想用匿名發送，請先取消選取所有非匿名的輸入，然後再勾選匿名發送的核取方塊</translation>
     </message>
     <message>
         <source>(%1 locked)</source>
@@ -836,6 +832,73 @@
     <message>
         <source>n/a</source>
         <translation>不適用</translation>
+    </message>
+</context>
+<context>
+    <name>DarksendConfig</name>
+    <message>
+        <source>Configure PrivateSend</source>
+        <translation>配置匿名發送</translation>
+    </message>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>基本隱私</translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>高度隱私</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>最大隱私</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>請選擇穩私級別。</translation>
+    </message>
+    <message>
+        <source>Use 2 separate masternodes to mix funds up to 1000 CADEX</source>
+        <translation>使用2個獨立的主節點來混合最高達1000達世幣的資金</translation>
+    </message>
+    <message>
+        <source>Use 8 separate masternodes to mix funds up to 1000 CADEX</source>
+        <translation>使用8個獨立的主節點來混合最高達1000達世幣的資金</translation>
+    </message>
+    <message>
+        <source>Use 16 separate masternodes</source>
+        <translation>使用16個獨立的主節點</translation>
+    </message>
+    <message>
+        <source>This option is the quickest and will cost about ~0.025 CADEX to anonymize 1000 CADEX</source>
+        <translation>這個是最快的選項，將耗費約~0.025達世幣作為匿名處理1000達世幣的費用</translation>
+    </message>
+    <message>
+        <source>This option is moderately fast and will cost about 0.05 CADEX to anonymize 1000 CADEX</source>
+        <translation>這個是一般的選項，將耗費約0.05達世幣作為匿名處理1000達世幣的費用</translation>
+    </message>
+    <message>
+        <source>0.1 CADEX per 1000 CADEX you anonymize.</source>
+        <translation>每1000達世幣耗費0.1達世幣作為匿名處理費用</translation>
+    </message>
+    <message>
+        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
+        <translation>這是最慢的和最安全的選頁。耗費最多的匿名處理費</translation>
+    </message>
+    <message>
+        <source>PrivateSend Configuration</source>
+        <translation>匿名發送配置</translation>
+    </message>
+    <message>
+        <source>PrivateSend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Dash's configuration screen.</source>
+        <translation>匿名發送已成功設置為一般(%1 到2次循環)。你可以隨時打開達世幣配置窗口來修改。</translation>
+    </message>
+    <message>
+        <source>PrivateSend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Dash's configuration screen.</source>
+        <translation>匿名發送已成功設置為高(%1 到8次循環)。你可以隨時打開達世幣配置窗口來修改。</translation>
+    </message>
+    <message>
+        <source>PrivateSend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Dash's configuration screen.</source>
+        <translation>匿名發送已成功設置為最高(%1 到16次循環)。你可以隨時打開達世幣配置窗口來修改。</translation>
     </message>
 </context>
 <context>
@@ -877,7 +940,7 @@
         <translation>編輯付款位址</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Cadex address.</source>
+        <source>The entered address "%1" is not a valid Dash address.</source>
         <translation>輸入的位址 %1 並不是有效的達世幣位址。</translation>
     </message>
     <message>
@@ -975,8 +1038,8 @@
         <translation>匿名發送資訊</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Cadex in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 KDX, 0.01 KDX, 0.1 KDX, 1 KDX and 10 KDX -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.cadexcoin.tech/en/latest/wallets/cadexcore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;匿名發送基礎知識&lt;/h3&gt; 匿名發送通過隱藏您的資金來源為您提供真正的財務隱私。您的錢包中所有的達世幣都由不同的“輸入”組成，您可以將其視為分開的離散硬幣。&lt;br&gt; 匿名發送使用創新的方法將您的輸入與其他兩個人的輸入相結合，而過程中不會讓您的達世幣離開您的錢包。每時每刻，您仍然控制著您的錢。&lt;hr&gt; &lt;b&gt;匿名發送的運作原理如下:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;匿名發送首先將您的交易分柝成多個標準面額的交易。這些標準面額分別為0.001 KDX, 0.01 KDX, 0.1 KDX, 1 KDX 和10 KDX --有點像您每天使用的紙幣。&lt;/li&gt; &lt;li&gt;您的錢包然後發送請求到網絡上有專門配置的軟件節點，稱為“主節點”。這些主節點會收到您希望混合一些資金的通知。沒有可識別的信息發送到主節點，所以他們永遠不會知道你是"誰"。&lt;/li&gt; &lt;li&gt;當另外兩個人發送類似的消息時，表示希望混合相同的面額的話，混合會話就會開始。相關的主節點會混合這些輸入，並指示所有三個用戶的錢包將已經轉換了輸入的交易支付給自己。你的錢包直接支付給自己，但是付給不同的位址 (稱之為找零位址)。&lt;/li&gt; &lt;li&gt;為了完全掩蓋您的資金來源，您的錢包必須以每個面額來重複此過程數次。每次這個過程完成後，都稱之為一個 "循環"。每個循環的匿名發送都會令確定您的資金來源的工作倍加困難。&lt;/li&gt; &lt;li&gt;這種混合過程發生在後台，而不需要您進行任何操作。當您想進行交易時，您的資金將已被匿名處理。不需再花額外的時間等待。&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;重要:&lt;/b&gt;您的錢包只能擁有1000個"找零位址。" 每次混合事件發生時，最多會使用9個找零位址。這意味著這1000個位址可以容許100次的混合事件。當其的中900個已經被使用後，您的錢包必須創建更多的位址。如果您啟用了自動備份，則只能夠這樣做。&lt;br&gt;因此，禁用備份的用戶也將禁用匿名發送。&lt;hr&gt;如欲了解更多信息請參閱&lt;a href="https://docs.cadexcoin.tech/en/latest/wallets/cadexcore/privatesend-instantsend.html"&gt;匿名發送文檔&lt;/a&gt;。</translation>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Dash in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.01 CADEX, 0.1 CADEX, 1 CADEX and 10 CADEX -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href="https://cadexpay.atlassian.net/wiki/display/DOC/PrivateSend"&gt;https://cadexpay.atlassian.net/wiki/display/DOC/PrivateSend&lt;/a&gt;         </source>
+        <translation>&lt;h3&gt;匿名發送基礎知識&lt;/h3&gt; 匿名發送通過隱藏您的資金來源為您提供真正的財務隱私。您的錢包中所有的達世幣都由不同的“輸入”組成，您可以將其視為分開的離散硬幣。&lt;br&gt; 匿名發送使用創新的方法將您的輸入與其他兩個人的輸入相結合，而過程中不會讓您的達世幣離開您的錢包。每時每刻，您仍然控制著您的錢。&lt;hr&gt; &lt;b&gt;匿名發送的運作原理如下:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;匿名發送首先將您的交易分柝成多個標準面額的交易。這些標準面額分別為0.01 CADEX, 0.1 CADEX, 1 CADEX 和10 CADEX --有點像您每天使用的紙幣。&lt;/li&gt; &lt;li&gt;您的錢包然後發送請求到網絡上有專門配置的軟件節點，稱為“主節點”。這些主節點會收到您希望混合一些資金的通知。沒有可識別的信息發送到主節點，所以他們永遠不會知道你是"誰"。&lt;/li&gt; &lt;li&gt;當另外兩個人發送類似的消息時，表示希望混合相同的面額的話，混合會話就會開始。相關的主節點會混合這些輸入，並指示所有三個用戶的錢包將已經轉換了輸入的交易支付給自己。你的錢包直接支付給自己，但是付給不同的位址 (稱之為找零位址)。&lt;/li&gt; &lt;li&gt;為了完全掩蓋您的資金來源，您的錢包必須以每個面額來重複此過程數次。每次這個過程完成後，都稱之為一個 "循環"。每個循環的匿名發送都會令確定您的資金來源的工作倍加困難。&lt;/li&gt; &lt;li&gt;這種混合過程發生在後台，而不需要您進行任何操作。當您想進行交易時，您的資金將已被匿名處理。不需再花額外的時間等待。&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;重要:&lt;/b&gt;您的錢包只能擁有1000個"找零位址。" 每次混合事件發生時，最多會使用9個找零位址。這意味著這1000個位址可以容許100次的混合事件。當其的中900個已經被使用後，您的錢包必須創建更多的位址。如果您啟用了自動備份，則只能夠這樣做。&lt;br&gt;因此，禁用備份的用戶也將禁用匿名發送。&lt;hr&gt;如欲了解更多信息請參閱&lt;a href="https://cadexpay.atlassian.net/wiki/display/DOC/PrivateSend"&gt;https://cadexpay.atlassian.net/wiki/display/DOC/PrivateSend&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
@@ -994,16 +1057,8 @@
         <translation>因為這是程式第一次啓動，你可以選擇 %1 儲存資料的地方。</translation>
     </message>
     <message>
-        <source>When you click OK, %1 will begin to download and process the full %4 block chain (%2GB) starting with the earliest transactions in %3 when %4 initially launched.</source>
-        <translation>在你按下「好」之後，%1 就會開始下載並處理整個 %4 區塊鏈(大小是  %2GB)，也就是從 %3 年 %4 剛剛起步時的最初交易開始。</translation>
-    </message>
-    <message>
-        <source>This initial synchronisation is very demanding, and may expose hardware problems with your computer that had previously gone unnoticed. Each time you run %1, it will continue downloading where it left off.</source>
-        <translation>一開始的同步作業非常的耗費資源，並且可能會暴露出之前沒被發現的電腦硬體問題。每次執行 %1 的時候都會繼續先前未完成的下載。</translation>
-    </message>
-    <message>
-        <source>If you have chosen to limit block chain storage (pruning), the historical data must still be downloaded and processed, but will be deleted afterward to keep your disk usage low.</source>
-        <translation>如果你選擇要限制區塊鏈儲存空間的大小(修剪模式)，還是需要下載和處理過去的歷史資料被，但是之後就會把它刪掉來節省磁碟使用量。</translation>
+        <source>%1 will download and store a copy of the Dash block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>%1 會下載並儲存一份達世幣區塊鏈的副本。至少有 %2GB 的資料會儲存到這個目錄中，並且還會持續增長。另外錢包資料也會儲存在這個目錄。</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1012,22 +1067,6 @@
     <message>
         <source>Use a custom data directory:</source>
         <translation>使用自定的資料目錄:</translation>
-    </message>
-    <message>
-        <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
-        <translation>在這個目錄中至少會存放 %1 GB 的資料，並且還會隨時間增加。</translation>
-    </message>
-    <message>
-        <source>Approximately %1 GB of data will be stored in this directory.</source>
-        <translation>在這個目錄中大約會存放 %1 GB 的資料。</translation>
-    </message>
-    <message>
-        <source>%1 will download and store a copy of the Cadex block chain.</source>
-        <translation>%1 會下載 Cadex 區塊鏈並且儲存一份副本。</translation>
-    </message>
-    <message>
-        <source>The wallet will also be stored in this directory.</source>
-        <translation>錢包檔也會存放在這個目錄中。</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1053,20 +1092,76 @@
         <translation>表單</translation>
     </message>
     <message>
+        <source>My Masternodes</source>
+        <translation>我的主節點</translation>
+    </message>
+    <message>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your masternode should be running but you still do not see "ENABLED" in "Status" field.</source>
+        <translation>注意: 本地錢包中的主節點狀態可能略有不正確。&lt;br /&gt;總是等待錢包同步額外的數據，然後再從另一個節點多檢查一次&lt;br /&gt;如果您的主節點應該已經運行，但您仍然在“狀態”欄看不到“ENABLED” 的字樣的話。</translation>
+    </message>
+    <message>
+        <source>Alias</source>
+        <translation>別名</translation>
+    </message>
+    <message>
         <source>Address</source>
         <translation>位址</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>協議</translation>
     </message>
     <message>
         <source>Status</source>
         <translation>狀態</translation>
     </message>
     <message>
+        <source>Active</source>
+        <translation>活躍</translation>
+    </message>
+    <message>
+        <source>Last Seen</source>
+        <translation>最後一次在線</translation>
+    </message>
+    <message>
         <source>Payee</source>
         <translation>收款人</translation>
     </message>
     <message>
+        <source>S&amp;tart alias</source>
+        <translation>啟動別名(&amp;t)</translation>
+    </message>
+    <message>
+        <source>Start &amp;all</source>
+        <translation>啟動所有(&amp;a)</translation>
+    </message>
+    <message>
+        <source>Start &amp;MISSING</source>
+        <translation>啟動遺漏(&amp;M)</translation>
+    </message>
+    <message>
+        <source>&amp;Update status</source>
+        <translation>更新狀態(&amp;U)</translation>
+    </message>
+    <message>
+        <source>Show additional Masternode information</source>
+        <translation>顯示額外的主節點信息</translation>
+    </message>
+    <message>
+        <source>Show &amp;Info...</source>
+        <translation>顯示 &amp;信息...</translation>
+    </message>
+    <message>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>狀態將在數 (秒) 內自動更新:</translation>
+    </message>
+    <message>
         <source>0</source>
         <translation>0</translation>
+    </message>
+    <message>
+        <source>All Masternodes</source>
+        <translation>所有主節點</translation>
     </message>
     <message>
         <source>Filter List:</source>
@@ -1081,76 +1176,72 @@
         <translation>節點數:</translation>
     </message>
     <message>
-        <source>DIP3 Masternodes</source>
-        <translation>DIP3 主節點</translation>
+        <source>Start alias</source>
+        <translation>啟動別名</translation>
     </message>
     <message>
-        <source>Show only masternodes this wallet has keys for.</source>
-        <translation>僅顯示此錢包中有密鑰的主節點。</translation>
+        <source>Confirm masternode start</source>
+        <translation>確認啟動主節點</translation>
     </message>
     <message>
-        <source>My masternodes only</source>
-        <translation>只顯示我的主節點</translation>
+        <source>Are you sure you want to start masternode %1?</source>
+        <translation>您確定要啟動主節點 %1嗎?</translation>
     </message>
     <message>
-        <source>PoSe Score</source>
-        <translation>PoSe 評分</translation>
+        <source>Confirm all masternodes start</source>
+        <translation>確認啟動所有的主節點</translation>
     </message>
     <message>
-        <source>Registered</source>
-        <translation>經己註冊</translation>
+        <source>Are you sure you want to start ALL masternodes?</source>
+        <translation>您確定要啟動所有的主節點嗎?</translation>
     </message>
     <message>
-        <source>Last Paid</source>
-        <translation>最後一次付款</translation>
+        <source>Command is not available right now</source>
+        <translation>命令目前不可使用</translation>
     </message>
     <message>
-        <source>Next Payment</source>
-        <translation>下一次付款</translation>
+        <source>You can't use this command until masternode list is synced</source>
+        <translation>在與主節點列表同步之前，您不能使用此命令</translation>
     </message>
     <message>
-        <source>Operator Reward</source>
-        <translation>運營者獎勵</translation>
+        <source>Confirm missing masternodes start</source>
+        <translation>確認啟動遺漏的主節點</translation>
     </message>
     <message>
-        <source>Copy ProTx Hash</source>
-        <translation>複製 ProTx 哈希</translation>
+        <source>Are you sure you want to start MISSING masternodes?</source>
+        <translation>您確定要啟動所有遺漏的主節點嗎?</translation>
     </message>
     <message>
-        <source>Copy Collateral Outpoint</source>
-        <translation>複製抵押品出點</translation>
+        <source>Additional information for Masternode %1</source>
+        <translation> 關於主節點%1 的附加信息</translation>
     </message>
     <message>
-        <source>ENABLED</source>
-        <translation>已啟用</translation>
+        <source>Masternode Private Key</source>
+        <translation>主節點私鑰</translation>
     </message>
     <message>
-        <source>POSE_BANNED</source>
-        <translation>POSE_BANNED</translation>
+        <source>Private Key</source>
+        <translation>私鑰</translation>
     </message>
     <message>
-        <source>UNKNOWN</source>
-        <translation>未知</translation>
+        <source>Collateral</source>
+        <translation>抵押品</translation>
     </message>
     <message>
-        <source>to %1</source>
-        <translation>到 %1</translation>
+        <source>IP</source>
+        <translation>IP</translation>
     </message>
     <message>
-        <source>to UNKNOWN</source>
-        <translation>到未知</translation>
+        <source>Version</source>
+        <translation>版本</translation>
     </message>
     <message>
-        <source>but not claimed</source>
-        <translation>但無被認領</translation>
+        <source>Unknown</source>
+        <translation>不明</translation>
     </message>
     <message>
-        <source>NONE</source>
-        <translation>沒有</translation>
-    </message>
-    <message>
-        <source>Additional information for DIP3 Masternode %1</source>
-        <translation>關於DIP3主節點%1 的附加信息</translation>
+        <source>Sentinel</source>
+        <translation>哨兵</translation>
     </message>
 </context>
 <context>
@@ -1160,11 +1251,11 @@
         <translation>表單</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Cadex network, as detailed below.</source>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Dash network, as detailed below.</source>
         <translation>最近的交易可能尚未顯示，因此您的錢包的餘額可能不正確。 一旦你的錢包完成與達世幣網絡的同步，這個信息將是正確的，如下所述。</translation>
     </message>
     <message>
-        <source>Attempting to spend Cadex that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <source>Attempting to spend Dash that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>假如您正在嘗試花費尚未顯示出來的結餘，這個交易將不會被網絡所接受。</translation>
     </message>
     <message>
@@ -1254,7 +1345,7 @@
         <translation>(0 表示程式自動決定，小於 0 表示保留處理器核心不用的數目)</translation>
     </message>
     <message>
-        <source>Amount of Cadex to keep anonymized</source>
+        <source>Amount of Dash to keep anonymized</source>
         <translation>保持匿名的達世幣數量</translation>
     </message>
     <message>
@@ -1306,7 +1397,7 @@
         <translation>此金額為關閉匿名發送的門檻。</translation>
     </message>
     <message>
-        <source>Automatically open the Cadex Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Dash Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>自動在路由器上開放達世幣核心客戶端的通訊埠。只有在你的路由器支援且開啓「通用即插即用」協定(UPnP)時才有作用。</translation>
     </message>
     <message>
@@ -1318,7 +1409,7 @@
         <translation>接受外來連線</translation>
     </message>
     <message>
-        <source>Connect to the Cadex network through a SOCKS5 proxy.</source>
+        <source>Connect to the Dash network through a SOCKS5 proxy.</source>
         <translation>透過 SOCKS5 代理伺服器來連線到達世幣網路。</translation>
     </message>
     <message>
@@ -1356,14 +1447,6 @@
     <message>
         <source>Enable coin &amp;control features</source>
         <translation>開啟錢幣控制功能(&amp;C)</translation>
-    </message>
-    <message>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
-        <translation>顯示匿名發送混合交易的系統彈出窗口 &lt;br/&gt;就像所有其他交易類型一樣。</translation>
-    </message>
-    <message>
-        <source>Show popups for PrivateSend transactions</source>
-        <translation>顯示匿名發送交易的彈出式窗口</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1414,7 +1497,7 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the Cadex network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <source>Connect to the Dash network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation>透過另一個SOCKS5 代理伺服器作為Tor隱藏服務來連線到達世幣網路。</translation>
     </message>
     <message>
@@ -1539,7 +1622,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>表單</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Cadex network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Dash network after a connection is established, but this process has not completed yet.</source>
         <translation>顯示的資訊可能是過期的。跟達世幣網路的連線建立後，你的錢包會自動和網路同步，但是這個步驟還沒完成。</translation>
     </message>
     <message>
@@ -1639,7 +1722,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>金額和循環次數:</translation>
     </message>
     <message>
-        <source>0 KDX / 0 Rounds</source>
+        <source>0 CADEX / 0 Rounds</source>
         <translation>0 達世幣 / 0 循環次數</translation>
     </message>
     <message>
@@ -1748,7 +1831,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
     </message>
     <message>
         <source>Note: You can turn this message off in options.</source>
-        <translation>注意 : 您可以在選項中關閉這項訊息。</translation>
+        <translation>注意 : 您在選項中關閉了這項訊息。</translation>
     </message>
     <message>
         <source>WARNING! Something went wrong on automatic backup</source>
@@ -1779,6 +1862,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
 </source>
         <translation>最近收到的匿名發送訊息:
 </translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>不適用</translation>
     </message>
     <message>
         <source>PrivateSend was successfully reset.</source>
@@ -1820,7 +1907,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>無效的付款位址 %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Cadex address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Dash address or malformed URI parameters.</source>
         <translation>沒辦法解析 URI 位址！可能是因為達世幣位址無效，或是 URI 參數格式錯誤。</translation>
     </message>
     <message>
@@ -1910,15 +1997,23 @@ https://www.transifex.com/projects/p/cadex/</translation>
 <context>
     <name>QObject</name>
     <message>
+        <source>Dash Core</source>
+        <translation>達世幣核心</translation>
+    </message>
+    <message>
         <source>%1 didn't yet exit safely...</source>
         <translation>%1 還沒有安全地結束...</translation>
+    </message>
+    <message>
+        <source>Error reading masternode configuration file: %1</source>
+        <translation>讀取主節點配置文件時出錯: %1</translation>
     </message>
     <message>
         <source>Amount</source>
         <translation>金額</translation>
     </message>
     <message>
-        <source>Enter a Cadex address (e.g. %1)</source>
+        <source>Enter a Dash address (e.g. %1)</source>
         <translation>輸入達世幣位址 (例如 %1)</translation>
     </message>
     <message>
@@ -2377,10 +2472,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>被禁用的網絡活動</translation>
     </message>
     <message>
-        <source>Total: %1 (Enabled: %2)</source>
-        <translation>總計: %1 (已啟用: %2)</translation>
-    </message>
-    <message>
         <source>%1 B</source>
         <translation>%1 B (位元組)</translation>
     </message>
@@ -2440,7 +2531,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>重複使用現有的收款位址(不建議)(&amp;e)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Cadex network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Dash network.</source>
         <translation>附加在付款要求中的訊息，可以不填，打開要求內容時會顯示。注意: 這個訊息不會隨著付款送到達世幣網路上。</translation>
     </message>
     <message>
@@ -2452,7 +2543,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>跟新收款位址關聯的標記，可以不填。</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Cadex network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Dash network.</source>
         <translation>附加在付款要求中的訊息，可以不填，打開要求內容時會顯示。&lt;br&gt;注意: 這個訊息不會隨著付款送到達世幣網路上。</translation>
     </message>
     <message>
@@ -2909,7 +3000,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation><numerusform>預計可在 %n 個區塊內開始確認。</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Invalid Cadex address</source>
+        <source>Warning: Invalid Dash address</source>
         <translation>警告: 無效的達世幣位址</translation>
     </message>
     <message>
@@ -2940,7 +3031,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>付給:(&amp;T)</translation>
     </message>
     <message>
-        <source>The Cadex address to send the payment to</source>
+        <source>The Dash address to send the payment to</source>
         <translation>接收付款的達世幣位址</translation>
     </message>
     <message>
@@ -2976,7 +3067,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>金額:(&amp;A)</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Cadex than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Dash than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>手續費將從發送金額中扣除。接收者將收到的達世幣金額將會比您在金額字段中輸入的金額為少。 如果選擇了多個收款人，該費用將會被平均攤分。</translation>
     </message>
     <message>
@@ -2988,7 +3079,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>訊息:</translation>
     </message>
     <message>
-        <source>A message that was attached to the cadex: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Cadex network.</source>
+        <source>A message that was attached to the cadex: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Dash network.</source>
         <translation>附加在達世幣付款協議 URI 中的訊息，會和交易內容一起存起來，給你自己做參考。注意: 這個訊息不會送到達世幣網路上。</translation>
     </message>
     <message>
@@ -3041,11 +3132,11 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>簽署訊息(&amp;S)</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive Cadex sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <source>You can sign messages/agreements with your addresses to prove you can receive Dash sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>你可以用自己的位址簽署訊息/協議，來證明你對位址的所有權。但是請小心，不要簽署語意含糊不清的內容，因為釣魚式詐騙可能會用騙你簽署的手法來冒充是你。只有在語句中的細節你都同意時才簽署。</translation>
     </message>
     <message>
-        <source>The Cadex address to sign the message with</source>
+        <source>The Dash address to sign the message with</source>
         <translation>用來簽署訊息的達世幣位址</translation>
     </message>
     <message>
@@ -3077,7 +3168,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>複製目前的簽章到系統剪貼簿</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Cadex address</source>
+        <source>Sign the message to prove you own this Dash address</source>
         <translation>簽署這個訊息來證明這個達世幣位址是你的</translation>
     </message>
     <message>
@@ -3101,11 +3192,11 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>請在下面輸入簽署的位址，訊息(請確定完整複製了所包含的換行，空格，跳位符號等等)，以及簽章，來驗證這個訊息。請小心，除了訊息內容以外，不要對簽章本身過度解讀，以避免被用「中間人攻擊法」詐騙。請注意，這僅僅是證明簽名方接收的地址，它不能證明任何交易的發送人！</translation>
     </message>
     <message>
-        <source>The Cadex address the message was signed with</source>
+        <source>The Dash address the message was signed with</source>
         <translation>簽署這個訊息的達世幣位址</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Cadex address</source>
+        <source>Verify the message to ensure it was signed with the specified Dash address</source>
         <translation>驗證這個訊息來確定是用指定的達世幣位址簽署的</translation>
     </message>
     <message>
@@ -3228,14 +3319,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>%1 confirmations</source>
         <translation>確認 %1 次</translation>
-    </message>
-    <message>
-        <source>locked via LLMQ based ChainLocks</source>
-        <translation>透過基於LLMQ 的 ChainLocks鎖定的</translation>
-    </message>
-    <message>
-        <source>verified via LLMQ based InstantSend</source>
-        <translation>經基於LLMQ 的 ChainLocks驗證的</translation>
     </message>
     <message>
         <source>verified via InstantSend</source>
@@ -3524,10 +3607,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>決定是否有一個僅限查看的位址參與這次的交易</translation>
     </message>
     <message>
-        <source>Whether or not this transaction was locked by InstantSend.</source>
-        <translation>這交易是否被即時到帳鎖定。</translation>
-    </message>
-    <message>
         <source>User-defined intent/purpose of the transaction.</source>
         <translation>用戶定義的意圖/交易的目的。</translation>
     </message>
@@ -3541,14 +3620,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>All</source>
         <translation>全部</translation>
-    </message>
-    <message>
-        <source>Locked by InstantSend</source>
-        <translation>被即時到帳鎖定</translation>
-    </message>
-    <message>
-        <source>Not locked by InstantSend</source>
-        <translation>沒有被即時到帳鎖定</translation>
     </message>
     <message>
         <source>Today</source>
@@ -3663,10 +3734,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>顯示交易明細</translation>
     </message>
     <message>
-        <source>Show address QR code</source>
-        <translation>顯示位址的二維碼</translation>
-    </message>
-    <message>
         <source>Export Transaction History</source>
         <translation>匯出交易記錄</translation>
     </message>
@@ -3719,10 +3786,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>交易記錄已經成功儲存到 %1 了。</translation>
     </message>
     <message>
-        <source>QR code</source>
-        <translation>二維碼</translation>
-    </message>
-    <message>
         <source>Range:</source>
         <translation>範圍:</translation>
     </message>
@@ -3752,8 +3815,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>付款</translation>
     </message>
     <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 KDX.</source>
-        <translation>即時到帳系統暫時並不支援這麼高的交易金額。目前的金額僅限於%1 KDX。</translation>
+        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 CADEX.</source>
+        <translation>即時到帳系統暫時並不支援這麼高的交易金額。目前的金額僅限於%1 CADEX。</translation>
     </message>
     <message>
         <source>Used way too many inputs (&gt;%1) for this InstantSend transaction, fees could be huge.</source>
@@ -3844,6 +3907,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
         <translation>警告: 我們和某些連線的節點對於區塊鏈結的決定不同！你可能需要升級，或是需要等其它的節點升級。</translation>
+    </message>
+    <message>
+        <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
+        <translation>您必須在配置文件中指定一個masternodeprivkey。請參閱文檔以獲得幫助。</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -3966,20 +4033,16 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>和指定的位址繫結，並且把連線過來的節點放進白名單。IPv6 請用 [主機]:通訊埠 這種格式</translation>
     </message>
     <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation>和指定的位址繫結以聽候 JSON-RPC 連線。IPv6 請用 [主機]:通訊埠 這種格式。這個選項可以設定多次。(預設值: 跟所有網路界面上的位址繫結)</translation>
+    </message>
+    <message>
         <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
         <translation>用系統預設權限來造出新的檔案，而不是用使用者權限罩遮(umask)值 077 (只有在關掉錢包功能時才有作用)。</translation>
     </message>
     <message>
         <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
         <translation>清掉錢包裡的所有交易資料，並且在下次啟動時，使用 -rescan 來從區塊鏈中復原回來。</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transactions of attempted InstantSend double spend in &lt;address&gt;</source>
-        <translation>在&lt;address&gt;中啟用嘗試發布雙重花費的即時到帳交易的原始交易</translation>
-    </message>
-    <message>
-        <source>Enable publish transaction hashes of attempted InstantSend double spend in &lt;address&gt;</source>
-        <translation>在&lt;address&gt;中啟用嘗試發布雙重花費的即時到帳交易的哈希值</translation>
     </message>
     <message>
         <source>Error loading %s: You can't enable HD on a already existing non-HD wallet</source>
@@ -4026,14 +4089,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>輸出除錯資訊(預設值: %u, 不一定要指定 &lt;category&gt;)</translation>
     </message>
     <message>
-        <source>Overrides minimum spork signers to change spork value. Only useful for regtest and devnet. Using this on mainnet or testnet will ban you.</source>
-        <translation>覆蓋最小叉勺簽名來改變叉勺值。只對regtest和devnet有用。在mainnet或testnet上使用它的話將封鎖你。</translation>
-    </message>
-    <message>
-        <source>Use N separate masternodes in parallel to mix funds (%u-%u, default: %u)</source>
-        <translation>使用 N 個單獨的主節點來進行並聯混合資金 (%u-%u, 預設值: %u)</translation>
-    </message>
-    <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
         <translation>使用另外的 SOCK5 代理伺服器，來透過 Tor 隱藏服務跟節點聯繫(預設值: %s)</translation>
     </message>
@@ -4054,16 +4109,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>改變 -txindex 參數後，必須要用 -reindex-chainstate 參數來重建資料庫</translation>
     </message>
     <message>
-        <source>You should specify a masternodeblsprivkey in the configuration. Please see documentation for help.</source>
-        <translation>您應該在配置文件中指定一個主節點私鑰。請參閱文檔以獲得幫助。</translation>
-    </message>
-    <message>
         <source>(default: %s)</source>
         <translation>(預設值: %s)</translation>
-    </message>
-    <message>
-        <source>-wallet parameter must only specify a filename (not a path)</source>
-        <translation>-wallet 參數必須只指定文件名 (不是路徑)</translation>
     </message>
     <message>
         <source>Accept public REST requests (default: %u)</source>
@@ -4114,6 +4161,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>無法載入主節點緩存</translation>
     </message>
     <message>
+        <source>Failed to load masternode payments cache from</source>
+        <translation>無法載入主節點付款緩存</translation>
+    </message>
+    <message>
         <source>Found enough users, signing ( waiting %s )</source>
         <translation>找到足夠多的用戶，簽署中 (等待  %s )</translation>
     </message>
@@ -4158,16 +4209,16 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>餘額不足。</translation>
     </message>
     <message>
+        <source>Invalid -onion address: '%s'</source>
+        <translation>無效的 -onion 位址: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid -proxy address: '%s'</source>
+        <translation>無效的 -proxy 位址: '%s'</translation>
+    </message>
+    <message>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
         <translation>設定 -paytxfee=&lt;金額&gt; 的金額無效: '%s' (至少要有 %s)</translation>
-    </message>
-    <message>
-        <source>Invalid masternodeblsprivkey. Please see documenation.</source>
-        <translation>無效的主節點私鑰。請參閱文檔。</translation>
-    </message>
-    <message>
-        <source>Invalid minimum number of spork signers specified with -minsporkkeys</source>
-        <translation>使用-minsporkkeys 指定的最低叉勺簽名者數目無效</translation>
     </message>
     <message>
         <source>Keypool ran out, please call keypoolrefill first</source>
@@ -4194,8 +4245,16 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>正在載入主節點緩存...</translation>
     </message>
     <message>
+        <source>Loading masternode payment cache...</source>
+        <translation>正在載入主節點付款緩存...</translation>
+    </message>
+    <message>
         <source>Lock is already in place.</source>
         <translation>已經鎖定。</translation>
+    </message>
+    <message>
+        <source>Lock masternodes from masternode configuration file (default: %u)</source>
+        <translation>根據主節點的配置文件鎖定主節點 (預設值: %u)</translation>
     </message>
     <message>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
@@ -4234,6 +4293,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>只會連接到網絡節點 &lt;net&gt;  (IPv4，IPv6或onion)</translation>
     </message>
     <message>
+        <source>Port: %d</source>
+        <translation>端口: %d</translation>
+    </message>
+    <message>
         <source>Prepend debug output with timestamp (default: %u)</source>
         <translation>在除錯輸出內容前附加時間(預設值: %u)</translation>
     </message>
@@ -4258,10 +4321,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>設定密鑰池大小為 &lt;n&gt; (預設值: %u)</translation>
     </message>
     <message>
-        <source>Set the masternode BLS private key</source>
-        <translation>設置主節點 BLS 私鑰</translation>
-    </message>
-    <message>
         <source>Set the number of threads to service RPC calls (default: %d)</source>
         <translation>設定處理 RPC 服務請求的執行緒數目(預設值: %d)</translation>
     </message>
@@ -4274,6 +4333,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>指定連線在幾毫秒後逾時 (最少值: 1, 預設值: %d)</translation>
     </message>
     <message>
+        <source>Specify masternode configuration file (default: %s)</source>
+        <translation>指定主節點配置文件(預設值: %s)</translation>
+    </message>
+    <message>
         <source>Specify pid file (default: %s)</source>
         <translation>指定行程識別碼檔案(預設值: %s)</translation>
     </message>
@@ -4282,8 +4345,20 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>傳送交易時可以花還沒確認的零錢(預設值: %u)</translation>
     </message>
     <message>
+        <source>Submitted following entries to masternode: %u / %d</source>
+        <translation>己經提交下列條目到主節點: %u / %d</translation>
+    </message>
+    <message>
+        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
+        <translation>己經提交到主節點，正在等候更多條目 ( %u / %d ) %s</translation>
+    </message>
+    <message>
         <source>Submitted to masternode, waiting in queue %s</source>
         <translation>己經提交到主節點，在隊列%s 中等待 </translation>
+    </message>
+    <message>
+        <source>Synchroning blockchain...</source>
+        <translation>正在同步區塊鏈...</translation>
     </message>
     <message>
         <source>Synchronization failed</source>
@@ -4292,6 +4367,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Synchronization finished</source>
         <translation>同步完成</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternodes...</source>
+        <translation>正在跟主節點網絡進行同步...</translation>
     </message>
     <message>
         <source>This is not a Masternode.</source>
@@ -4303,10 +4382,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
     </message>
     <message>
         <source>Too many %f denominations, removing.</source>
-        <translation>太多 %f 輸入金額，正在移除。</translation>
-    </message>
-    <message>
-        <source>Too many %f denominations, skipping.</source>
         <translation>太多 %f 輸入金額，正在移除。</translation>
     </message>
     <message>
@@ -4362,6 +4437,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>將重新嘗試...</translation>
     </message>
     <message>
+        <source>Invalid masternodeprivkey. Please see documenation.</source>
+        <translation>無效的主節點私鑰。請參閱文檔。</translation>
+    </message>
+    <message>
         <source>Can't find random Masternode.</source>
         <translation>找不到隨機主節點。</translation>
     </message>
@@ -4370,8 +4449,16 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>在同步進行中時不能進行混合。</translation>
     </message>
     <message>
+        <source>Could not parse masternode.conf</source>
+        <translation>無法解析 masternode.conf</translation>
+    </message>
+    <message>
         <source>Invalid netmask specified in -whitelist: '%s'</source>
         <translation>在 -whitelist 指定了無效的網絡掩碼: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid port detected in masternode.conf</source>
+        <translation>在 masternode.conf 檢測到無效的端口</translation>
     </message>
     <message>
         <source>Invalid script detected.</source>
@@ -4390,16 +4477,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>保留最多 &lt;n&gt; 個不可連接的交易於記憶體 (預設值: %u)</translation>
     </message>
     <message>
-        <source>Disable all Cadex specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
+        <source>Disable all Dash specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
         <translation>禁止所有達世幣的附加功能 (主節點，匿名發送，即時到帳，預算案) (0-1，預設值: %u)</translation>
-    </message>
-    <message>
-        <source>%s file contains all private keys from this wallet. Do not share it with anyone!</source>
-        <translation>%s 文件包含此錢包中的所有私鑰。 不要與任何人分享!</translation>
-    </message>
-    <message>
-        <source>Bind to given address to listen for JSON-RPC connections. This option is ignored unless -rpcallowip is also passed. Port is optional and overrides -rpcport. Use [host]:port notation for IPv6. This option can be specified multiple times (default: 127.0.0.1 and ::1 i.e., localhost, or if -rpcallowip has been specified, 0.0.0.0 and :: i.e., all addresses)</source>
-        <translation>和指定的位址繫結以聽候 JSON-RPC 連線。除非也傳遞了-rpcallowip，否則將忽略此選項。端口是可選的，並覆蓋-rpcport。IPv6 請用 [主機]:通訊埠 這種格式。這個選項可以設定多次。(預設值: 127.0.0.1 and ::1 i.e., localhost, 或 假如 -rpcallowip 已被指定, 0.0.0.0 and :: i.e., all addresses)</translation>
     </message>
     <message>
         <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
@@ -4426,10 +4505,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>當錢包有交易改變時要執行的指令(指令中的 %s 會被取代成交易識別碼)</translation>
     </message>
     <message>
-        <source>Extra transactions to keep in memory for compact block reconstructions (default: %u)</source>
-        <translation>為壓緊區塊重建而在內存中保留的額外交易 (預設值: %u)</translation>
-    </message>
-    <message>
         <source>Failed to create backup, file already exists! This could happen if you restarted wallet in less than 60 seconds. You can continue if you are ok with this.</source>
         <translation>無法創建備份，文件已經存在! 如果您在60秒內重新啟動錢包，則可能發生這種情況。 如果你覺得這樣沒問題的話，你可以繼續。</translation>
     </message>
@@ -4446,8 +4521,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>如果沒有提供  &lt;category&gt; 又或者 &lt;category&gt; = 1，就會輸出所有的除錯資訊。</translation>
     </message>
     <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 KDX.</source>
-        <translation>即時到帳系統暫時並不支援這麼高的交易金額。目前的金額僅限於%1 KDX。</translation>
+        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 CADEX.</source>
+        <translation>即時到帳系統暫時並不支援這麼高的交易金額。目前的金額僅限於%1 CADEX。</translation>
     </message>
     <message>
         <source>InstantSend requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
@@ -4510,10 +4585,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>網絡版本字符串的總長度  (%i) 超過最大長度 (%i)。減少uacomments參數的數量或大小。</translation>
     </message>
     <message>
-        <source>Transaction index can't be disabled in full mode. Either start with -litemode command line switch or enable transaction index.</source>
-        <translation>無法在完整模式下禁用事務索引。 要麼使用-litemode命令行選項，不然就啟用事務索引。</translation>
-    </message>
-    <message>
         <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
         <translation>嘗試保持指定目標下的出站流量 (以每24小時多少MB計算), 0 = 沒有限制 (預設值: %d)</translation>
     </message>
@@ -4546,16 +4617,20 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>警告 : 正在開採未知版本的區塊。未知的規則可能正在生效</translation>
     </message>
     <message>
-        <source>You are starting in lite mode, all Cadex-specific functionality is disabled.</source>
-        <translation>您正在使用精簡模式，故此所有與達世幣相關的特別功能已被禁用。</translation>
-    </message>
-    <message>
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
         <translation>您需要使用-reindex 來重建數據庫以回到未修剪模式。 這將重新下載整個區塊鏈</translation>
     </message>
     <message>
+        <source>(%d could be used only on mainnet)</source>
+        <translation>(%d 只可以在主網絡上使用)</translation>
+    </message>
+    <message>
         <source>(default: %u)</source>
         <translation>(預設值: %u)</translation>
+    </message>
+    <message>
+        <source>(must be %d for mainnet)</source>
+        <translation>(必須是 %d 用於主網)</translation>
     </message>
     <message>
         <source>-maxmempool must be at least %d MB</source>
@@ -4586,14 +4661,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>在&lt;address&gt;啟用發布哈希區塊</translation>
     </message>
     <message>
-        <source>Enable publish hash of governance objects (like proposals) in &lt;address&gt;</source>
-        <translation>在 &lt;address&gt;中啟用發布治理對象的哈希值(例如 提案)</translation>
-    </message>
-    <message>
-        <source>Enable publish hash of governance votes in &lt;address&gt;</source>
-        <translation>在 &lt;address&gt;啟用發布治理投票的哈希值</translation>
-    </message>
-    <message>
         <source>Enable publish hash transaction (locked via InstantSend) in &lt;address&gt;</source>
         <translation>在 &lt;address&gt; 中啟用發布哈希交易 (通過InstantSend來鎖定)</translation>
     </message>
@@ -4614,6 +4681,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>在 &lt;address&gt; 中啟用發布原始交易</translation>
     </message>
     <message>
+        <source>Enable transaction replacement in the memory pool (default: %u)</source>
+        <translation>在內存池中啟用交易替換功能 (預設值: %u)</translation>
+    </message>
+    <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation>錯誤:發生一個致命的內部錯誤，請到debug.log查看更多細節</translation>
     </message>
@@ -4630,12 +4701,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>無法刪除備份，錯誤: %s</translation>
     </message>
     <message>
-        <source>Failed to load InstantSend data cache from</source>
-        <translation>無法載入即時到帳數據緩存</translation>
-    </message>
-    <message>
-        <source>Failed to load sporks cache from</source>
-        <translation>無法載入勺叉緩存</translation>
+        <source>Failed to parse host:port string</source>
+        <translation>無法解析主機 : 端口串</translation>
     </message>
     <message>
         <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
@@ -4666,8 +4733,12 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>距離上一次成功送出匿名發送的時間過短。</translation>
     </message>
     <message>
-        <source>Loading InstantSend data cache...</source>
-        <translation>正在載入即時到帳數據緩存...</translation>
+        <source>Line: %d</source>
+        <translation>行: %d</translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation>正在載入位址資料...</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -4676,10 +4747,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Loading governance cache...</source>
         <translation>正在載入治理緩存...</translation>
-    </message>
-    <message>
-        <source>Loading sporks cache...</source>
-        <translation>正在載入勺叉緩存...</translation>
     </message>
     <message>
         <source>Loading wallet... (%3.2f %%)</source>
@@ -4696,6 +4763,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Make the wallet broadcast transactions</source>
         <translation>讓錢包廣播交易</translation>
+    </message>
+    <message>
+        <source>Masternode cache is empty, skipping payments and governance cache...</source>
+        <translation>主節點緩存為空，跳過付款和治理緩存...</translation>
     </message>
     <message>
         <source>Masternode options:</source>
@@ -4794,18 +4865,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>啟動時重新掃描區塊鏈，來尋找錢包可能漏掉的交易。</translation>
     </message>
     <message>
-        <source>Submitted following entries to masternode: %u</source>
-        <translation>己經提交下列條目到主節點: %u</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting for more entries ( %u ) %s</source>
-        <translation>己經提交到主節點，正在等候更多條目 ( %u ) %s</translation>
-    </message>
-    <message>
-        <source>Synchronizing blockchain...</source>
-        <translation>正在同步區塊鏈...</translation>
-    </message>
-    <message>
         <source>The wallet will avoid paying less than the minimum relay fee.</source>
         <translation>錢包軟體會付多於最小轉發費用的手續費。</translation>
     </message>
@@ -4830,10 +4889,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>交易必須至少要有一個收款人</translation>
     </message>
     <message>
-        <source>Transaction too large</source>
-        <translation>交易太大了</translation>
-    </message>
-    <message>
         <source>Trying to connect...</source>
         <translation>嘗試連接...</translation>
     </message>
@@ -4854,10 +4909,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>錢包除錯與測試選項:</translation>
     </message>
     <message>
-        <source>Wallet is not initialized</source>
-        <translation>錢包尚未初始化</translation>
-    </message>
-    <message>
         <source>Wallet needed to be rewritten: restart %s to complete</source>
         <translation>錢包需要重寫: 請重新啓動 %s 來完成</translation>
     </message>
@@ -4872,10 +4923,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Whether to operate in a blocks only mode (default: %u)</source>
         <translation>是否在區塊模式下操作 (預設值: %u)</translation>
-    </message>
-    <message>
-        <source>You can not start a masternode in lite mode.</source>
-        <translation>您無法在精簡模式下啟動主節點。</translation>
     </message>
     <message>
         <source>ZeroMQ notification options:</source>
@@ -4894,7 +4941,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>RPC 伺服器選項:</translation>
     </message>
     <message>
-        <source>Cadex Core</source>
+        <source>Dash Core</source>
         <translation>達世幣核心</translation>
     </message>
     <message>
@@ -4966,6 +5013,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>設定製造區塊時，所要包含交易每千位元組的最低手續費(單位是 %s)。(預設值: %s)</translation>
     </message>
     <message>
+        <source>Show N confirmations for a successfully locked transaction (%u-%u, default: %u)</source>
+        <translation>如果交易成功鎖定的話，則顯示N個確認信息 (%u-%u, 預設值: %u)</translation>
+    </message>
+    <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>
         <translation>這是當預估手續費還沒計算出來時，付款交易預設會付的手續費。</translation>
     </message>
@@ -4996,6 +5047,14 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Wallet will not create transactions that violate mempool chain limits (default: %u)</source>
         <translation>錢包軟體不會產生違反記憶池交易鏈限制的交易(預設值: %u)</translation>
+    </message>
+    <message>
+        <source>Warning: At least %d of %d masternodes are running on a newer software version. Please check latest releases, you might need to update too.</source>
+        <translation>警告: 至少有 %d 之 %d 的主節點正在運行新的軟件版本。請檢查最新版本，您可能也需要更新。</translation>
+    </message>
+    <message>
+        <source>Warning: Every masternode (out of %d known ones) is running on a newer software version. Please check latest releases, it's very likely that you missed a major/critical update.</source>
+        <translation>警告: 每個主節點 (共 %d 個已知的) 都運行在新版本的軟件。請檢查最新版本，很可能是您錯過了重大/關鍵更新。</translation>
     </message>
     <message>
         <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
@@ -5082,32 +5141,16 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>初始化時的基本檢查失敗了。%s 就要關閉了。</translation>
     </message>
     <message>
-        <source>Invalid -onion address or hostname: '%s'</source>
-        <translation>無效的 -onion 位址或主機名稱: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address or hostname: '%s'</source>
-        <translation>無效的 -proxy 位址或主機名稱: '%s'</translation>
-    </message>
-    <message>
         <source>Invalid amount for -%s=&lt;amount&gt;: '%s'</source>
         <translation>參數 -%s=&lt;金額&gt; 指定的金額無效: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid characters in -wallet filename</source>
-        <translation>在 -wallet 文件名中有的無效的字符</translation>
     </message>
     <message>
         <source>Invalid spork address specified with -sporkaddr</source>
         <translation>使用參數 -sporkaddr 時指定的spork地址無效</translation>
     </message>
     <message>
-        <source>Keep N KDX anonymized (%u-%u, default: %u)</source>
+        <source>Keep N CADEX anonymized (%u-%u, default: %u)</source>
         <translation>保留 N 個已經匿名處理的達世幣 (%u-%u, 預設值: %u)</translation>
-    </message>
-    <message>
-        <source>Loading P2P addresses...</source>
-        <translation>正在載入 P2P 位址資料...</translation>
     </message>
     <message>
         <source>Print this help message and exit</source>
@@ -5158,6 +5201,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>設置最大區塊的大小，以字節為單位 (預設: %d)</translation>
     </message>
     <message>
+        <source>Set the masternode private key</source>
+        <translation>設置主節點私鑰</translation>
+    </message>
+    <message>
         <source>Show all debugging options (usage: --help -help-debug)</source>
         <translation>顯示所有的除錯選項 (用法: --help --help-debug)</translation>
     </message>
@@ -5192,6 +5239,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Synchronizing governance objects...</source>
         <translation>正在同步治理對象...</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternode payments...</source>
+        <translation>正在同步主節點付款資訊...</translation>
     </message>
     <message>
         <source>The source code is available from %s.</source>

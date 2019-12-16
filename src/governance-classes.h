@@ -1,8 +1,10 @@
-// Copyright (c) 2014-2018 The Dash Core developers
+// Copyright (c) 2014-2017 The Dash Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef GOVERNANCE_CLASSES_H
 #define GOVERNANCE_CLASSES_H
+
+//#define ENABLE_CADEX_DEBUG
 
 #include "base58.h"
 #include "governance.h"
@@ -10,11 +12,17 @@
 #include "script/standard.h"
 #include "util.h"
 
+#include <boost/shared_ptr.hpp>
+
 class CSuperblock;
+class CGovernanceTrigger;
 class CGovernanceTriggerManager;
 class CSuperblockManager;
 
-typedef std::shared_ptr<CSuperblock> CSuperblock_sptr;
+static const int TRIGGER_UNKNOWN            = -1;
+static const int TRIGGER_SUPERBLOCK         = 1000;
+
+typedef boost::shared_ptr<CSuperblock> CSuperblock_sptr;
 
 // DECLARE GLOBAL VARIABLES FOR GOVERNANCE CLASSES
 extern CGovernanceTriggerManager triggerman;
@@ -34,6 +42,7 @@ class CGovernanceTriggerManager
 private:
     typedef std::map<uint256, CSuperblock_sptr> trigger_m_t;
     typedef trigger_m_t::iterator trigger_m_it;
+    typedef trigger_m_t::const_iterator trigger_m_cit;
 
     trigger_m_t mapTrigger;
 
@@ -42,8 +51,7 @@ private:
     void CleanAndRemove();
 
 public:
-    CGovernanceTriggerManager() :
-        mapTrigger() {}
+    CGovernanceTriggerManager() : mapTrigger() {}
 };
 
 /**
@@ -58,9 +66,10 @@ private:
     static bool GetBestSuperblock(CSuperblock_sptr& pSuperblockRet, int nBlockHeight);
 
 public:
+
     static bool IsSuperblockTriggered(int nBlockHeight);
 
-    static bool GetSuperblockPayments(int nBlockHeight, std::vector<CTxOut>& voutSuperblockRet);
+    static void CreateSuperblock(CMutableTransaction& txNewRet, int nBlockHeight, std::vector<CTxOut>& voutSuperblockRet);
     static void ExecuteBestSuperblock(int nBlockHeight);
 
     static std::string GetRequiredPaymentsString(int nBlockHeight);
@@ -81,29 +90,33 @@ public:
     CScript script;
     CAmount nAmount;
 
-    CGovernancePayment() :
-        fValid(false),
-        script(),
-        nAmount(0)
-    {
-    }
+    CGovernancePayment()
+        :fValid(false),
+         script(),
+         nAmount(0)
+    {}
 
-    CGovernancePayment(CBitcoinAddress addrIn, CAmount nAmountIn) :
-        fValid(false),
-        script(),
-        nAmount(0)
+    CGovernancePayment(CBitcoinAddress addrIn, CAmount nAmountIn)
+        :fValid(false),
+         script(),
+         nAmount(0)
     {
-        try {
+        try
+        {
             CTxDestination dest = addrIn.Get();
             script = GetScriptForDestination(dest);
             nAmount = nAmountIn;
             fValid = true;
-        } catch (std::exception& e) {
+        }
+        catch(std::exception& e)
+        {
             LogPrintf("CGovernancePayment Payment not valid: addrIn = %s, nAmountIn = %d, what = %s\n",
-                addrIn.ToString(), nAmountIn, e.what());
-        } catch (...) {
+                     addrIn.ToString(), nAmountIn, e.what());
+        }
+        catch(...)
+        {
             LogPrintf("CGovernancePayment Payment not valid: addrIn = %s, nAmountIn = %d\n",
-                addrIn.ToString(), nAmountIn);
+                      addrIn.ToString(), nAmountIn);
         }
     }
 
@@ -140,6 +153,7 @@ private:
     void ParsePaymentSchedule(const std::string& strPaymentAddresses, const std::string& strPaymentAmounts);
 
 public:
+
     CSuperblock();
     CSuperblock(uint256& nHash);
 

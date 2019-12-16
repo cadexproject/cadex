@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 #
+# bignum.py
+#
+# This file is copied from python-bitcoinlib.
+#
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Big number routines.
+#
 
-This file is copied from python-bitcoinlib.
-"""
+"""Bignum routines"""
+
 
 import struct
 

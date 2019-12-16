@@ -57,10 +57,10 @@ void ThreadSendAlert(CConnman& connman)
     //  Higher numbers mean higher priority
     alert.nPriority     = 5000;
     alert.strComment    = "";
-    alert.strStatusBar  = "URGENT: Upgrade required: see https://www.cadexcoin.tech";
+    alert.strStatusBar  = "URGENT: Upgrade required: see http://www.cadex.xyz";
 
     // Set specific client version/versions here. If setSubVer is empty, no filtering on subver is done:
-    // alert.setSubVer.insert(std::string("/Cadex Core:0.12.0.58/"));
+    // alert.setSubVer.insert(std::string("/cadex Core:0.12.0.58/"));
 
     // Sign
     if(!alert.Sign())

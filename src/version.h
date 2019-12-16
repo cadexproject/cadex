@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2018 The Dash Core developers
+// Copyright (c) 2014-2017 The Dash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,7 +11,7 @@
  */
 
 
-static const int PROTOCOL_VERSION = 70212;
+static const int PROTOCOL_VERSION = 70210;
 
 //! initial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 209;
@@ -43,15 +43,5 @@ static const int DIP0001_PROTOCOL_VERSION = 70208;
 
 //! short-id-based block download starts with this version
 static const int SHORT_IDS_BLOCKS_VERSION = 70209;
-
-//! introduction of DIP3/deterministic masternodes
-static const int DMN_PROTO_VERSION = 70213;
-
-//! introduction of LLMQs
-static const int LLMQS_PROTO_VERSION = 70212;
-
-//! introduction of SENDDSQUEUE
-//! TODO we can remove this in 0.15.0.0
-static const int SENDDSQUEUE_PROTO_VERSION = 70201;
 
 #endif // BITCOIN_VERSION_H

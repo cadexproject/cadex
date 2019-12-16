@@ -2,7 +2,10 @@
 # Copyright (c) 2015 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Test the preciousblock RPC."""
+
+#
+# Test PreciousBlock code
+#
 
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import (
@@ -39,12 +42,13 @@ class PreciousTest(BitcoinTestFramework):
         super().__init__()
         self.setup_clean_chain = True
         self.num_nodes = 3
+        self.extra_args = [["-debug"]] * self.num_nodes
 
     def setup_network(self):
         self.nodes = self.setup_nodes()
 
     def run_test(self):
-        self.log.info("Ensure submitblock can in principle reorg to a competing chain")
+        print("Ensure submitblock can in principle reorg to a competing chain")
         self.nodes[0].generate(1)
         assert_equal(self.nodes[0].getblockcount(), 1)
         (hashY, hashZ) = self.nodes[1].generate(2)
@@ -52,62 +56,62 @@ class PreciousTest(BitcoinTestFramework):
         node_sync_via_rpc(self.nodes[0:3])
         assert_equal(self.nodes[0].getbestblockhash(), hashZ)
 
-        self.log.info("Mine blocks A-B-C on Node 0")
+        print("Mine blocks A-B-C on Node 0")
         (hashA, hashB, hashC) = self.nodes[0].generate(3)
         assert_equal(self.nodes[0].getblockcount(), 5)
-        self.log.info("Mine competing blocks E-F-G on Node 1")
+        print("Mine competing blocks E-F-G on Node 1")
         (hashE, hashF, hashG) = self.nodes[1].generate(3)
         assert_equal(self.nodes[1].getblockcount(), 5)
         assert(hashC != hashG)
-        self.log.info("Connect nodes and check no reorg occurs")
+        print("Connect nodes and check no reorg occurs")
         # Submit competing blocks via RPC so any reorg should occur before we proceed (no way to wait on inaction for p2p sync)
         node_sync_via_rpc(self.nodes[0:2])
         connect_nodes_bi(self.nodes,0,1)
         assert_equal(self.nodes[0].getbestblockhash(), hashC)
         assert_equal(self.nodes[1].getbestblockhash(), hashG)
-        self.log.info("Make Node0 prefer block G")
+        print("Make Node0 prefer block G")
         self.nodes[0].preciousblock(hashG)
         assert_equal(self.nodes[0].getbestblockhash(), hashG)
-        self.log.info("Make Node0 prefer block C again")
+        print("Make Node0 prefer block C again")
         self.nodes[0].preciousblock(hashC)
         assert_equal(self.nodes[0].getbestblockhash(), hashC)
-        self.log.info("Make Node1 prefer block C")
+        print("Make Node1 prefer block C")
         self.nodes[1].preciousblock(hashC)
         sync_chain(self.nodes[0:2]) # wait because node 1 may not have downloaded hashC
         assert_equal(self.nodes[1].getbestblockhash(), hashC)
-        self.log.info("Make Node1 prefer block G again")
+        print("Make Node1 prefer block G again")
         self.nodes[1].preciousblock(hashG)
         assert_equal(self.nodes[1].getbestblockhash(), hashG)
-        self.log.info("Make Node0 prefer block G again")
+        print("Make Node0 prefer block G again")
         self.nodes[0].preciousblock(hashG)
         assert_equal(self.nodes[0].getbestblockhash(), hashG)
-        self.log.info("Make Node1 prefer block C again")
+        print("Make Node1 prefer block C again")
         self.nodes[1].preciousblock(hashC)
         assert_equal(self.nodes[1].getbestblockhash(), hashC)
-        self.log.info("Mine another block (E-F-G-)H on Node 0 and reorg Node 1")
+        print("Mine another block (E-F-G-)H on Node 0 and reorg Node 1")
         self.nodes[0].generate(1)
         assert_equal(self.nodes[0].getblockcount(), 6)
         sync_blocks(self.nodes[0:2])
         hashH = self.nodes[0].getbestblockhash()
         assert_equal(self.nodes[1].getbestblockhash(), hashH)
-        self.log.info("Node1 should not be able to prefer block C anymore")
+        print("Node1 should not be able to prefer block C anymore")
         self.nodes[1].preciousblock(hashC)
         assert_equal(self.nodes[1].getbestblockhash(), hashH)
-        self.log.info("Mine competing blocks I-J-K-L on Node 2")
+        print("Mine competing blocks I-J-K-L on Node 2")
         self.nodes[2].generate(4)
         assert_equal(self.nodes[2].getblockcount(), 6)
         hashL = self.nodes[2].getbestblockhash()
-        self.log.info("Connect nodes and check no reorg occurs")
+        print("Connect nodes and check no reorg occurs")
         node_sync_via_rpc(self.nodes[1:3])
         connect_nodes_bi(self.nodes,1,2)
         connect_nodes_bi(self.nodes,0,2)
         assert_equal(self.nodes[0].getbestblockhash(), hashH)
         assert_equal(self.nodes[1].getbestblockhash(), hashH)
         assert_equal(self.nodes[2].getbestblockhash(), hashL)
-        self.log.info("Make Node1 prefer block L")
+        print("Make Node1 prefer block L")
         self.nodes[1].preciousblock(hashL)
         assert_equal(self.nodes[1].getbestblockhash(), hashL)
-        self.log.info("Make Node2 prefer block H")
+        print("Make Node2 prefer block H")
         self.nodes[2].preciousblock(hashH)
         assert_equal(self.nodes[2].getbestblockhash(), hashH)
 

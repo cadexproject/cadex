@@ -8,8 +8,6 @@
 #include "zmqabstractnotifier.h"
 
 class CBlockIndex;
-class CGovernanceVote;
-class CGovernanceObject;
 
 class CZMQAbstractPublishNotifier : public CZMQAbstractNotifier
 {
@@ -36,12 +34,6 @@ public:
     bool NotifyBlock(const CBlockIndex *pindex) override;
 };
 
-class CZMQPublishHashChainLockNotifier : public CZMQAbstractPublishNotifier
-{
-public:
-    bool NotifyChainLock(const CBlockIndex *pindex) override;
-};
-
 class CZMQPublishHashTransactionNotifier : public CZMQAbstractPublishNotifier
 {
 public:
@@ -54,34 +46,10 @@ public:
     bool NotifyTransactionLock(const CTransaction &transaction) override;
 };
 
-class CZMQPublishHashGovernanceVoteNotifier : public CZMQAbstractPublishNotifier
-{
-public:
-    bool NotifyGovernanceVote(const CGovernanceVote &vote) override;
-};
-
-class CZMQPublishHashGovernanceObjectNotifier : public CZMQAbstractPublishNotifier
-{
-public:
-    bool NotifyGovernanceObject(const CGovernanceObject &object) override;
-};
-
-class CZMQPublishHashInstantSendDoubleSpendNotifier : public CZMQAbstractPublishNotifier
-{
-public:
-    bool NotifyInstantSendDoubleSpendAttempt(const CTransaction &currentTx, const CTransaction &previousTx) override;
-};
-
 class CZMQPublishRawBlockNotifier : public CZMQAbstractPublishNotifier
 {
 public:
     bool NotifyBlock(const CBlockIndex *pindex) override;
-};
-
-class CZMQPublishRawChainLockNotifier : public CZMQAbstractPublishNotifier
-{
-public:
-    bool NotifyChainLock(const CBlockIndex *pindex) override;
 };
 
 class CZMQPublishRawTransactionNotifier : public CZMQAbstractPublishNotifier
@@ -96,21 +64,4 @@ public:
     bool NotifyTransactionLock(const CTransaction &transaction) override;
 };
 
-class CZMQPublishRawGovernanceVoteNotifier : public CZMQAbstractPublishNotifier
-{
-public:
-    bool NotifyGovernanceVote(const CGovernanceVote &vote) override;
-};
-
-class CZMQPublishRawGovernanceObjectNotifier : public CZMQAbstractPublishNotifier
-{
-public:
-    bool NotifyGovernanceObject(const CGovernanceObject &object) override;
-};
-
-class CZMQPublishRawInstantSendDoubleSpendNotifier : public CZMQAbstractPublishNotifier
-{
-public:
-    bool NotifyInstantSendDoubleSpendAttempt(const CTransaction &currentTx, const CTransaction &previousTx) override;
-};
 #endif // BITCOIN_ZMQ_ZMQPUBLISHNOTIFIER_H

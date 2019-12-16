@@ -8,29 +8,13 @@
 cmake_minimum_required(VERSION 3.7)
 project(cadex)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
 
 include_directories(
         src
-        src/qt/forms
         src/leveldb/include
         src/univalue/include
 )
-
-if(UNIX AND NOT APPLE)
-    set(DEPENDS_PREFIX depends/x86_64-pc-linux-gnu)
-elseif(APPLE)
-    set(DEPENDS_PREFIX depends/x86_64-apple-darwin11)
-elseif(WIN32)
-    set(DEPENDS_PREFIX depends/x86_64-w64-mingw32)
-endif()
-
-message(STATUS "DEPENDS_PREFIX: ${DEPENDS_PREFIX}")
-
-if(DEFINED DEPENDS_PREFIX)
-    include_directories(${DEPENDS_PREFIX}/include)
-    include_directories(${DEPENDS_PREFIX}/include/QtWidgets)
-endif()
 
 add_definitions(
         -DENABLE_WALLET=1
@@ -39,8 +23,6 @@ add_definitions(
 file(GLOB SOURCE_FILES
         src/bench/*.cpp
         src/bench/*.h
-        src/bls/*.cpp
-        src/bls/*.h
         src/compat/*.cpp
         src/compat/*.h
         src/consensus/*.h
@@ -76,8 +58,6 @@ file(GLOB SOURCE_FILES
         src/*.h
         src/evo/*.h
         src/evo/*.cpp
-        src/llmq/*.h
-        src/llmq/*.cpp
         src/rpc/*.cpp
         src/rpc/*.h
         )

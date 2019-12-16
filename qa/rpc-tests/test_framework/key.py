@@ -1,10 +1,14 @@
 # Copyright (c) 2011 Sam Rushing
-"""ECC secp256k1 OpenSSL wrapper.
+#
+# key.py - OpenSSL wrapper
+#
+# This file is modified from python-bitcoinlib.
+#
+
+"""ECC secp256k1 crypto routines
 
 WARNING: This module does not mlock() secrets; your private keys may end up on
 disk in swap! Use with caution!
-
-This file is modified from python-bitcoinlib.
 """
 
 import ctypes

@@ -2,7 +2,10 @@
 # Copyright (c) 2015-2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Test the ZMQ API."""
+
+#
+# Test ZMQ interface
+#
 
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import *
@@ -36,7 +39,7 @@ class ZMQTest (BitcoinTestFramework):
         genhashes = self.nodes[0].generate(1)
         self.sync_all()
 
-        self.log.info("listen...")
+        print("listen...")
         msg = self.zmqSubSocket.recv_multipart()
         topic = msg[0]
         assert_equal(topic, b"hashtx")

@@ -1,7 +1,7 @@
 ---
 name: "cadex-dmg-signer"
 suites:
-- "bionic"
+- "trusty"
 architectures:
 - "amd64"
 packages:
@@ -10,7 +10,7 @@ remotes:
 - "url": "https://github.com/cadexproject/cadex-detached-sigs.git"
   "dir": "signature"
 files:
-- "cadexcore-osx-unsigned.tar.gz"
+- "cadex-osx-unsigned.tar.gz"
 script: |
   WRAP_DIR=$HOME/wrapped
   mkdir -p ${WRAP_DIR}
@@ -27,8 +27,8 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=cadexcore-osx-unsigned.tar.gz
-  SIGNED=cadexcore-osx-signed.dmg
+  UNSIGNED=cadex-osx-unsigned.tar.gz
+  SIGNED=cadex-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   OSX_VOLNAME="$(cat osx_volname)"

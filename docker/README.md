@@ -5,4 +5,4 @@ official/supported Docker Images found at https://hub.docker.com/r/cadexproject/
 The image is mostly used for devops purposes, e.g. for testnet/devnet deployments. Regular users
 should use the official images instead of this one.
 
-**NOTE: Please update the image description at https://hub.docker.com/r/cadexproject/cadexd-develop/ when changing the above text**
+**NOTE: Please update the image description at https://hub.docker.com/r/cadexproject/cadex-develop/ when changing the above text**

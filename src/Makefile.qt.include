@@ -8,7 +8,6 @@ EXTRA_LIBRARIES += qt/libcadexqt.a
 
 # cadex qt core #
 QT_TS = \
-  qt/locale/cadex_ar.ts \
   qt/locale/cadex_bg.ts \
   qt/locale/cadex_de.ts \
   qt/locale/cadex_en.ts \
@@ -17,15 +16,13 @@ QT_TS = \
   qt/locale/cadex_fr.ts \
   qt/locale/cadex_it.ts \
   qt/locale/cadex_ja.ts \
-  qt/locale/cadex_ko.ts \
   qt/locale/cadex_nl.ts \
   qt/locale/cadex_pl.ts \
   qt/locale/cadex_pt.ts \
+  qt/locale/cadex_pt_BR.ts \
   qt/locale/cadex_ru.ts \
   qt/locale/cadex_sk.ts \
   qt/locale/cadex_sv.ts \
-  qt/locale/cadex_th.ts \
-  qt/locale/cadex_tr.ts \
   qt/locale/cadex_vi.ts \
   qt/locale/cadex_zh_CN.ts \
   qt/locale/cadex_zh_TW.ts
@@ -34,6 +31,7 @@ QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
   qt/forms/askpassphrasedialog.ui \
   qt/forms/coincontroldialog.ui \
+  qt/forms/darksendconfig.ui \
   qt/forms/editaddressdialog.ui \
   qt/forms/helpmessagedialog.ui \
   qt/forms/intro.ui \
@@ -64,6 +62,7 @@ QT_MOC_CPP = \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
   qt/moc_csvmodelwriter.cpp \
+  qt/moc_darksendconfig.cpp \
   qt/moc_editaddressdialog.cpp \
   qt/moc_guiutil.cpp \
   qt/moc_intro.cpp \
@@ -102,8 +101,7 @@ QT_MOC_CPP = \
 
 BITCOIN_MM = \
   qt/macdockiconhandler.mm \
-  qt/macnotificationhandler.mm \
-  qt/macos_appnap.mm
+  qt/macnotificationhandler.mm
 
 QT_MOC = \
   qt/cadex.moc \
@@ -134,13 +132,13 @@ BITCOIN_QT_H = \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
   qt/csvmodelwriter.h \
+  qt/darksendconfig.h \
   qt/editaddressdialog.h \
   qt/guiconstants.h \
   qt/guiutil.h \
   qt/intro.h \
   qt/macdockiconhandler.h \
   qt/macnotificationhandler.h \
-  qt/macos_appnap.h \
   qt/modaloverlay.h \
   qt/masternodelist.h \
   qt/networkstyle.h \
@@ -489,6 +487,7 @@ BITCOIN_QT_WALLET_CPP = \
   qt/askpassphrasedialog.cpp \
   qt/coincontroldialog.cpp \
   qt/coincontroltreewidget.cpp \
+  qt/darksendconfig.cpp \
   qt/editaddressdialog.cpp \
   qt/masternodelist.cpp \
   qt/openuridialog.cpp \
@@ -645,9 +644,9 @@ if ENABLE_ZMQ
 qt_cadex_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 qt_cadex_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CONSENSUS) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
-  $(BACKTRACE_LIB) $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
-  $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(BLS_LIBS)
-qt_cadex_qt_LDFLAGS = $(LDFLAGS_WRAP_EXCEPTIONS) $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+  $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
+  $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+qt_cadex_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 qt_cadex_qt_LIBTOOLFLAGS = --tag CXX
 
 #locale/foo.ts -> locale/foo.qm

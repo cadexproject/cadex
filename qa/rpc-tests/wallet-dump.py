@@ -2,7 +2,6 @@
 # Copyright (c) 2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Test the dumpwallet RPC."""
 
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import *
@@ -108,7 +107,7 @@ class WalletDumpTest(BitcoinTestFramework):
         found_addr, found_addr_chg, found_addr_rsv, hd_master_addr_enc = \
             read_dump(tmpdir + "/node0/wallet.encrypted.dump", addrs, hd_master_addr_unenc)
         assert_equal(found_addr, test_addr_count)
-        # TODO clarify if we want the behavior that is tested below in Cadex (only when HD seed was generated and not user-provided)
+        # TODO clarify if we want the behavior that is tested below in Dash (only when HD seed was generated and not user-provided)
         # assert_equal(found_addr_chg, 180 + 50)  # old reserve keys are marked as change now
         assert_equal(found_addr_rsv, 180)  # keypool size
 

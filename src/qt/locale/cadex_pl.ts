@@ -22,14 +22,6 @@
         <translation>&amp;Kopiuj</translation>
     </message>
     <message>
-        <source>Show QR code for the currently selected address</source>
-        <translation>Pokaż kod QR dla wybranego adresu</translation>
-    </message>
-    <message>
-        <source>&amp;Show QR code</source>
-        <translation>&amp;Pokaż kod QR</translation>
-    </message>
-    <message>
         <source>Delete the currently selected address from the list</source>
         <translation>Usuń obecnie zaznaczony adres z listy</translation>
     </message>
@@ -70,12 +62,12 @@
         <translation>Adres odbiorczy</translation>
     </message>
     <message>
-        <source>These are your Cadex addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>To są twoje adresy Cadex, na które wysyłasz płatności. Zanim wyślesz środki, zawsze upewnij się, że kwota i adres są prawidłowe.</translation>
+        <source>These are your cadex addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>To są twoje adresy cadex, na które wysyłasz płatności. Zanim wyślesz środki, zawsze upewnij się, że kwota i adres są prawidłowe.</translation>
     </message>
     <message>
-        <source>These are your Cadex addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>To są twoje adresy do otrzymywania Cadexów. Zaleca się tworzyć nowy adres dla każdej transakcji.</translation>
+        <source>These are your cadex addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>To są twoje adresy do otrzymywania cadexów. Zaleca się tworzyć nowy adres dla każdej transakcji.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -88,14 +80,6 @@
     <message>
         <source>&amp;Edit</source>
         <translation>&amp;Edytuj</translation>
-    </message>
-    <message>
-        <source>&amp;Show address QR code</source>
-        <translation>&amp;Pokaż adres kodu QR</translation>
-    </message>
-    <message>
-        <source>QR code</source>
-        <translation>Kod QR</translation>
     </message>
     <message>
         <source>Export Address List</source>
@@ -188,7 +172,7 @@
         <translation>Potwierdź zaszyfrowanie portfela</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR KDX&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR cadex&lt;/b&gt;!</source>
         <translation>Ostrzeżenie: Jeśli zaszyfrujesz swój portfel i zgubisz hasło, &lt;b&gt;STRACISZ WSZYSTKIE ŚRODKI&lt;/b&gt;</translation>
     </message>
     <message>
@@ -258,12 +242,12 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>A fatal error occurred. Cadex Core can no longer continue safely and will quit.</source>
-        <translation>Wystąpił błąd krytyczny. Cadex Core nie może bezpiecznie kontynuować i zostanie zamknięty.</translation>
+        <source>A fatal error occurred. cadex Core can no longer continue safely and will quit.</source>
+        <translation>Wystąpił błąd krytyczny. cadex Core nie może bezpiecznie kontynuować i zostanie zamknięty.</translation>
     </message>
     <message>
-        <source>Cadex Core</source>
-        <translation>Cadex Core</translation>
+        <source>cadex Core</source>
+        <translation>cadex Core</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -286,8 +270,8 @@
         <translation>Wyślij</translation>
     </message>
     <message>
-        <source>Send coins to a Cadex address</source>
-        <translation>Wyślij monety na adres Cadex</translation>
+        <source>Send coins to a cadex address</source>
+        <translation>Wyślij monety na adres cadex</translation>
     </message>
     <message>
         <source>&amp;Receive</source>
@@ -322,8 +306,8 @@
         <translation>Zamknij program</translation>
     </message>
     <message>
-        <source>Show information about Cadex Core</source>
-        <translation>Pokaż informacje o Cadex Core</translation>
+        <source>Show information about cadex Core</source>
+        <translation>Pokaż informacje o cadex Core</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -394,16 +378,16 @@
         <translation>Podpisz wiado&amp;mość...</translation>
     </message>
     <message>
-        <source>Sign messages with your Cadex addresses to prove you own them</source>
-        <translation>Podpisz wiadomości swoim adresem Cadex, aby udowodnić, że jesteś ich właścicielem. </translation>
+        <source>Sign messages with your cadex addresses to prove you own them</source>
+        <translation>Podpisz wiadomości swoim adresem cadex, aby udowodnić, że jesteś ich właścicielem. </translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
         <translation>&amp;Zweryfikuj wiadomość...</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Cadex addresses</source>
-        <translation>Zweryfikuj wiadomości, aby upewnić się, że zostały one podpisane wybranym adresem Cadex</translation>
+        <source>Verify messages to ensure they were signed with specified cadex addresses</source>
+        <translation>Zweryfikuj wiadomości, aby upewnić się, że zostały one podpisane wybranym adresem cadex</translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -454,6 +438,14 @@
         <translation>Otworz plik konfiguracji </translation>
     </message>
     <message>
+        <source>Open &amp;Masternode Configuration File</source>
+        <translation>Otwórz Plik &amp;Konfiguracyjny Masternoda</translation>
+    </message>
+    <message>
+        <source>Open Masternode configuration file</source>
+        <translation>Otwórz plik konfiguracyjny Masternoda</translation>
+    </message>
+    <message>
         <source>Show Automatic &amp;Backups</source>
         <translation>Pokaż automatyczne kopie zapasowe (&amp;Backups)</translation>
     </message>
@@ -490,7 +482,7 @@
         <translation>&amp;Opcje konsoli</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Cadex command-line options</source>
+        <source>Show the %1 help message to get a list with possible cadex command-line options</source>
         <translation>Pokaż pomoc %1 aby zobaczyć listę wszystkich opcji lnii poleceń.</translation>
     </message>
     <message>
@@ -526,8 +518,8 @@
         <translation>Pasek zakładek</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Cadex network</source>
-        <translation><numerusform>%n aktywne połączenie z siecią Cadex</numerusform><numerusform>%n aktywne połączenia z siecią Cadex</numerusform><numerusform>%n aktywnych połączeń z siecią Cadex</numerusform><numerusform>%n aktywne połączenia z siecią Cadex</numerusform></translation>
+        <source>%n active connection(s) to cadex network</source>
+        <translation><numerusform>%n aktywne połączenie z siecią cadex</numerusform><numerusform>%n aktywne połączenia z siecią cadex</numerusform><numerusform>%n aktywnych połączeń z siecią cadex</numerusform><numerusform>%n aktywne połączenia z siecią cadex</numerusform></translation>
     </message>
     <message>
         <source>Network activity disabled</source>
@@ -658,6 +650,10 @@
 </context>
 <context>
     <name>ClientModel</name>
+    <message>
+        <source>Total: %1 (PS compatible: %2 / Enabled: %3)</source>
+        <translation>Razem: %1 (zgodne z PS: %2 / włączone: %3)</translation>
+    </message>
     <message>
         <source>Network Alert</source>
         <translation>Sieć Alert</translation>
@@ -798,7 +794,7 @@
         <translation>W celu użycia tej funkcji, przełącz na "Tryb Listy"</translation>
     </message>
     <message>
-        <source>Non-anonymized input selected. &lt;b&gt;PrivateSend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use PrivateSend, please deselect all non-anonymized inputs first and then check the PrivateSend checkbox again.</source>
+        <source>Non-anonymized input selected. &lt;b&gt;PrivateSend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use PrivateSend, please deselect all non-nonymized inputs first and then check PrivateSend checkbox again.</source>
         <translation>Wybrano niezanonimizowane środki. &lt;b&gt; PrivateSend  zostanie wyłączony.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Jeśli nadal chcesz użyć PrivateSend, cofnij wybór niezanonimizowanych środków, a następnie zaznacz pole wyboru PrivateSend.</translation>
     </message>
     <message>
@@ -836,6 +832,73 @@
     <message>
         <source>n/a</source>
         <translation>nie dotyczy</translation>
+    </message>
+</context>
+<context>
+    <name>DarksendConfig</name>
+    <message>
+        <source>Configure PrivateSend</source>
+        <translation>Skonfiguruj PrivateSend</translation>
+    </message>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>Podstawowa prywatność</translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>Wysoka prywatność</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>Maksymalna prywatność</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>Proszę wybrać poziom prywatności.</translation>
+    </message>
+    <message>
+        <source>Use 2 separate masternodes to mix funds up to 1000 cadex</source>
+        <translation>Użyj 2 oddzielnych masternodów, aby wymieszać środki max. do 1000 cadex</translation>
+    </message>
+    <message>
+        <source>Use 8 separate masternodes to mix funds up to 1000 cadex</source>
+        <translation>Użyj 8 oddzielnych masternodów, aby wymieszać środki max. do 1000 cadex</translation>
+    </message>
+    <message>
+        <source>Use 16 separate masternodes</source>
+        <translation>Użyj 16 oddzielnych masternodów</translation>
+    </message>
+    <message>
+        <source>This option is the quickest and will cost about ~0.025 cadex to anonymize 1000 cadex</source>
+        <translation>Ta opcja jest najszybsza i kosztuje około 0.025 cadex za zanonimizowanie 1000 cadex</translation>
+    </message>
+    <message>
+        <source>This option is moderately fast and will cost about 0.05 cadex to anonymize 1000 cadex</source>
+        <translation>Ta opcja jest w miarę szybka i kosztuje około 0.05 cadex za zanonimizowanie 1000 cadex</translation>
+    </message>
+    <message>
+        <source>0.1 cadex per 1000 cadex you anonymize.</source>
+        <translation>0.1 cadex za każde 1000 cadex, które zanonimizujesz.</translation>
+    </message>
+    <message>
+        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
+        <translation>Jest to najwolniejsza, lecz najbardziej bezpieczna opcja. Maksymalny poziom zanonimizowania będzie kosztować</translation>
+    </message>
+    <message>
+        <source>PrivateSend Configuration</source>
+        <translation>Konfiguracja PrivateSend</translation>
+    </message>
+    <message>
+        <source>PrivateSend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening cadex's configuration screen.</source>
+        <translation>PrivateSend pomyślnie ustawiono na poziom podstawowy (%1 oraz 2 rundy). Możesz to zmienić w każdej chwili, otwierając ekran konfiguracji cadex.</translation>
+    </message>
+    <message>
+        <source>PrivateSend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening cadex's configuration screen.</source>
+        <translation>PrivateSend pomyślnie ustawiono na poziom wysoki (%1 oraz 8 rund). Możesz to zmienić w każdej chwili, otwierając ekran konfiguracji cadex.</translation>
+    </message>
+    <message>
+        <source>PrivateSend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening cadex's configuration screen.</source>
+        <translation>PrivateSend pomyślnie ustawiono na poziom najwyższy (%1 oraz 16 rund). Możesz to zmienić w każdej chwili, otwierając ekran konfiguracji cadex.</translation>
     </message>
 </context>
 <context>
@@ -877,8 +940,8 @@
         <translation>Zmień adres wysyłania</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Cadex address.</source>
-        <translation>Wprowadzony adres "%1" nie jest właściwym adresem Cadex.</translation>
+        <source>The entered address "%1" is not a valid cadex address.</source>
+        <translation>Wprowadzony adres "%1" nie jest właściwym adresem cadex.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -975,8 +1038,8 @@
         <translation>Informacje o PrivateSend</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Cadex in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 KDX, 0.01 KDX, 0.1 KDX, 1 KDX and 10 KDX -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.cadexcoin.tech/en/latest/wallets/cadexcore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;Podstawy PrivateSend&lt;/h3&gt; PrivateSend zapewnia prawdziwą prywatność poprzez ukrycie pochodzenia środków. Wszystkie cadexe w twoim portfelu składają się z różnych "kwot wejściowych", które można traktować jako oddzielne, indywidualne monety.&lt;br&gt; PrivateSend wykorzystuje rewolucyjny proces mieszania twoich "kwot wejściowych" z "kwotami wejściowymi" dwóch innych  użytkowników, przy czym twoje środki nigdy nie opuszczają twojego portfela. W każdej chwili zachowujesz nad nimi pełną kontrolę.&lt;hr&gt; &lt;b&gt;Proces PrivateSend przebiega w następujący sposób:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;Najpierw PrivateSend dzieli twoje kwoty wejściowe twoich transakcji na standardowe nominały. Są kwoty 0.001 KDX, 0.01 KDX, 0.1 KDX, 1 KDX oraz 10 KDX – mniej  więcej jak banknoty, których codziennie używasz.&lt;/li&gt; &lt;li&gt;Następnie twój portfel wysyła żądania do specjalnie skonfigurowanych węzłów sieci, zwanych "masternodami." Masternody otrzymują komunikat, że jesteś zainteresowany wymieszaniem określonego nominału. Masternody nie otrzymują żadnych informacji pozwalających na identyfikację, w związku z tym nigdy nie wiedzą "kim" jesteś.&lt;/li&gt; &lt;li&gt;Kiedy dwaj inni użytkownicy wyślą podobne komunikaty, z żądaniem wymieszania takiego samego nominału, rozpocznie się sesja mieszania. Masternode wymiesza kwoty wejściowe i nakaże portfelom trzech użytkowników wypłacić do siebie przetworzone kwoty wejściowe. Twój portfel wpłaci dany nominał do siebie samego, jednak na inny adres (tzw. adres reszty).&lt;/li&gt; &lt;li&gt;W celu pełnego zaciemnienia pochodzenia środków, twój portfel musi powtórzyć te czynności dla każdego nominału określoną ilość razy.  Każde wykonanie tego procesu określamy mianem "rundy." Każda runda procesu PrivateSend wykładniczo zwiększa trudność ustalenia pochodzenia twoich środków.&lt;/li&gt; &lt;li&gt;Proces mieszania odbywa się w tle, bez dodatkowego zaangażowania z twojej strony. Kiedy zechcesz wykonać transakcję, twoje środki będą już zanonimizowane. Nie będzie konieczne dodatkowe oczekiwanie.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;UWAGA:&lt;/b&gt; Portfel zawiera tylko 1000 "adresów reszty." Każde mieszanie zużywa do 9 adresów. Oznacza to, że po 100 mieszaniach zużyjesz ok. 1000 adresów. Po wykorzystaniu 900 adresów, portfel musi wygenerować nowe adresy. Może to nastąpić jedynie, jeżeli włączone jest automatyczne tworzenie kopii zapasowych.&lt;br&gt; Dlatego też PrivateSend jest wyłączone, jeżeli użytkownik wyłączył automatyczne tworzenie kopii zapasowych. &lt;hr&gt;Więcej informacji na temat PrivateSend&lt;a href="https://docs.cadexcoin.tech/en/latest/wallets/cadexcore/privatesend-instantsend.html"&gt; można znaleźć w dokumentacji technicznej&lt;/a&gt;. </translation>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the cadex in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.01 cadex, 0.1 cadex, 1 cadex and 10 cadex -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href="https://cadexproject\.atlassian.net/wiki/display/DOC/PrivateSend"&gt;https://cadexproject\.atlassian.net/wiki/display/DOC/PrivateSend&lt;/a&gt;         </source>
+        <translation>&lt;h3&gt;Podstawy PrivateSend&lt;/h3&gt; PrivateSend zapewnia prawdziwą prywatność poprzez ukrycie pochodzenia środków. Wszystkie cadexe w twoim portfelu składają się z różnych "kwot wejściowych", które można traktować jako oddzielne, indywidualne monety.&lt;br&gt; PrivateSend wykorzystuje rewolucyjny proces mieszania twoich "kwot wejściowych" z "kwotami wejściowymi" dwóch innych  użytkowników, przy czym twoje środki nigdy nie opuszczają twojego portfela. W każdej chwili zachowujesz nad nimi pełną kontrolę.&lt;hr&gt; &lt;b&gt;Proces PrivateSend przebiega w następujący sposób:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;Najpierw PrivateSend dzieli twoje kwoty wejściowe twoich transakcji na standardowe nominały. Są kwoty 0.01 cadex, 0.1 cadex, 1 cadex oraz 10 cadex – mniej  więcej jak banknoty, których codziennie używasz.&lt;/li&gt; &lt;li&gt;Następnie twój portfel wysyła żądania do specjalnie skonfigurowanych węzłów sieci, zwanych "masternodami." Masternody otrzymują komunikat, że jesteś zainteresowany wymieszaniem określonego nominału. Masternody nie otrzymują żadnych informacji pozwalających na identyfikację, w związku z tym nigdy nie wiedzą "kim" jesteś.&lt;/li&gt; &lt;li&gt;Kiedy dwaj inni użytkownicy wyślą podobne komunikaty, z żądanie wymieszanie takiego samego nominału, rozpocznie się sesja mieszania. Masternod wymiesza kwoty wejściowe i nakaże portfelom takich trzech użytkowników wypłacić sobie samemu przetworzone kwoty wejściowe. Twój portfel wpłaci dany nominał do siebie samego, jednak na inny adres (tzw. adres reszty).&lt;/li&gt; &lt;li&gt;W celu pełnego zaciemnienia pochodzenia środków, twój portfel musi powtórzyć te czynności dla każdego nominału określoną ilość razy.  Każde wykonanie tego procesu określamy mianem "rundy." Każda runda procesu PrivateSend wykładniczo zwiększa trudność ustalenia pochodzenia twoich środków.&lt;/li&gt; &lt;li&gt;Proces mieszania odbywa się w tle, bez dodatkowego zaangażowania z twojej strony. Kiedy zechcesz wykonać transakcję, twoje środki będą już zanonimizowane. Nie będzie konieczne dodatkowe oczekiwanie.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;UWAGA:&lt;/b&gt; Portfel zawiera tylko 1000 "adresów reszty." Każde mieszanie zużywa do 9 adresów. Oznacza to, że po 100 mieszaniach zużyjesz ok. 1000 adresów. Po wykorzystaniu 900 adresów, portfel musi wygenerować nowe adresy. Może not nastąpić jedynie, jeżeli włączone jest automatyczne tworzenie kopii zapasowych.&lt;br&gt; Dlatego też, PrivateSend jest wyłączone, jeżeli użytkownik wyłączył automatyczne tworzenie kopii zapasowych. &lt;hr&gt;Więcej informacji znajdziesz na stronie &lt;a href="https://cadexproject\.atlassian.net/wiki/display/DOC/PrivateSend"&gt;https://cadexproject\.atlassian.net/wiki/display/DOC/PrivateSend&lt;/a&gt;         </translation>
     </message>
 </context>
 <context>
@@ -994,16 +1057,8 @@
         <translation>Ponieważ jest to pierwsze uruchomienie programu, możesz wybrać gdzie %1 będzie przechowywał swoje dane.</translation>
     </message>
     <message>
-        <source>When you click OK, %1 will begin to download and process the full %4 block chain (%2GB) starting with the earliest transactions in %3 when %4 initially launched.</source>
-        <translation>Gdy naciśniesz OK, %1 zacznie się pobieranie i przetwarzanie całego %4 łańcucha bloków (%2GB) zaczynając od najwcześniejszych transakcji w %3 gdy %4 został uruchomiony. </translation>
-    </message>
-    <message>
-        <source>This initial synchronisation is very demanding, and may expose hardware problems with your computer that had previously gone unnoticed. Each time you run %1, it will continue downloading where it left off.</source>
-        <translation>Wstępna synchronizacja jest bardzo wymagająca i może ujawnić wcześniej niezauważone problemy sprzętowe. Za każdym uruchomieniem %1 pobieranie będzie kontynuowane od miejsca w którym zostało zatrzymane.</translation>
-    </message>
-    <message>
-        <source>If you have chosen to limit block chain storage (pruning), the historical data must still be downloaded and processed, but will be deleted afterward to keep your disk usage low.</source>
-        <translation>Jeśli wybrałeś opcję ograniczenia przechowywania łańcucha bloków (przycinanie) dane historyczne cały czas będą musiały być pobrane i przetworzone, jednak po tym zostaną usunięte aby ograniczyć użycie dysku.</translation>
+        <source>%1 will download and store a copy of the cadex block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>%1 ściągnie i zapisze kopię łańcucha bloków-blockchain na twoim dysku. Co najmniej %2GB danych zostanie zapisanych w tym katalogu, a z upływem czasu blockchain będzie stopniowo wymagał coraz więcej miejsca. Twój portfel również zostanie zapisany w tym katalogu.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1012,22 +1067,6 @@
     <message>
         <source>Use a custom data directory:</source>
         <translation>Użyj wybranego folderu dla danych</translation>
-    </message>
-    <message>
-        <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
-        <translation>Co najmniej %1 GB danych, zostanie zapisane w tym katalogu, dane te będą przyrastały w czasie.</translation>
-    </message>
-    <message>
-        <source>Approximately %1 GB of data will be stored in this directory.</source>
-        <translation>Około %1 GB danych zostanie zapisane w tym katalogu.</translation>
-    </message>
-    <message>
-        <source>%1 will download and store a copy of the Cadex block chain.</source>
-        <translation>%1 pobierze i zapisze lokalnie kopię łańcucha bloków Cadex.</translation>
-    </message>
-    <message>
-        <source>The wallet will also be stored in this directory.</source>
-        <translation>Portfel również zostanie zapisany w tym katalogu.</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1053,20 +1092,76 @@
         <translation>Formularz</translation>
     </message>
     <message>
+        <source>My Masternodes</source>
+        <translation>Moje masternody</translation>
+    </message>
+    <message>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your masternode should be running but you still do not see "ENABLED" in "Status" field.</source>
+        <translation>Uwaga! Status twoich masternodów w lokalnym portfelu potencjalnie może być niezupełnie poprawny.&lt;br /&gt;Jeżeli twój masternode powinien być uruchomiony, ale nadal nie widzisz słowa "WŁĄCZONY" w polu "Status", &lt;br /&gt;zawsze poczekaj na zsynchronizowanie danych dodatkowych i porównaj z danymi z innego węzła.</translation>
+    </message>
+    <message>
+        <source>Alias</source>
+        <translation>Alias</translation>
+    </message>
+    <message>
         <source>Address</source>
         <translation>Adres</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protokół</translation>
     </message>
     <message>
         <source>Status</source>
         <translation>Status</translation>
     </message>
     <message>
+        <source>Active</source>
+        <translation>Aktywny</translation>
+    </message>
+    <message>
+        <source>Last Seen</source>
+        <translation>Ostatnio widziany</translation>
+    </message>
+    <message>
         <source>Payee</source>
         <translation>Odbiorca</translation>
     </message>
     <message>
+        <source>S&amp;tart alias</source>
+        <translation>U&amp;ruchom alias</translation>
+    </message>
+    <message>
+        <source>Start &amp;all</source>
+        <translation>Uruchom &amp;wszystkie</translation>
+    </message>
+    <message>
+        <source>Start &amp;MISSING</source>
+        <translation>Uruchom &amp;brakujące</translation>
+    </message>
+    <message>
+        <source>&amp;Update status</source>
+        <translation>&amp;Aktualizuj status</translation>
+    </message>
+    <message>
+        <source>Show additional Masternode information</source>
+        <translation>Pokaż dodatkowe informacje na temat Masternode</translation>
+    </message>
+    <message>
+        <source>Show &amp;Info...</source>
+        <translation>Pokaż &amp;informacje...</translation>
+    </message>
+    <message>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>Czas (w sekundach) do automatycznej aktualizacji statusu:</translation>
+    </message>
+    <message>
         <source>0</source>
         <translation>0</translation>
+    </message>
+    <message>
+        <source>All Masternodes</source>
+        <translation>Wszystkie Masternody</translation>
     </message>
     <message>
         <source>Filter List:</source>
@@ -1081,76 +1176,72 @@
         <translation>Liczba węzłów:</translation>
     </message>
     <message>
-        <source>DIP3 Masternodes</source>
-        <translation>DIP3 Masternody</translation>
+        <source>Start alias</source>
+        <translation>Uruchom alias</translation>
     </message>
     <message>
-        <source>Show only masternodes this wallet has keys for.</source>
-        <translation>Pokaż tylko masternody których klucze są w tym portfelu.</translation>
+        <source>Confirm masternode start</source>
+        <translation>Potwierdź start masternoda</translation>
     </message>
     <message>
-        <source>My masternodes only</source>
-        <translation>Tylko moje masternody</translation>
+        <source>Are you sure you want to start masternode %1?</source>
+        <translation>Czy na pewno chcesz wystartować masternod %1?</translation>
     </message>
     <message>
-        <source>PoSe Score</source>
-        <translation>Wynik PoSe</translation>
+        <source>Confirm all masternodes start</source>
+        <translation>Potwierdź start wszystkich masternodów</translation>
     </message>
     <message>
-        <source>Registered</source>
-        <translation>Zarejestrowany</translation>
+        <source>Are you sure you want to start ALL masternodes?</source>
+        <translation>Czy na pewno chcesz wystartować WSZYSTKIE masternody?</translation>
     </message>
     <message>
-        <source>Last Paid</source>
-        <translation>Ostatnio zapłacony</translation>
+        <source>Command is not available right now</source>
+        <translation>Obecnie komenda jest niedostępna.</translation>
     </message>
     <message>
-        <source>Next Payment</source>
-        <translation>Następna płatność</translation>
+        <source>You can't use this command until masternode list is synced</source>
+        <translation>Nie możesz użyć tej komendy przed zsynchronizowaniem listy masternodów.</translation>
     </message>
     <message>
-        <source>Operator Reward</source>
-        <translation>Nagroda dla operatora</translation>
+        <source>Confirm missing masternodes start</source>
+        <translation>Potwierdź uruchomienie zagubionego masternoda</translation>
     </message>
     <message>
-        <source>Copy ProTx Hash</source>
-        <translation>Skopiuj ProTx Hash</translation>
+        <source>Are you sure you want to start MISSING masternodes?</source>
+        <translation>Czy na pewno chcesz wystartować BRAKUJĄCE masternody?</translation>
     </message>
     <message>
-        <source>Copy Collateral Outpoint</source>
-        <translation>Skopiuj Collateral punkt wyjscia</translation>
+        <source>Additional information for Masternode %1</source>
+        <translation>Dodatkowe nformacje na temat Masternode %1</translation>
     </message>
     <message>
-        <source>ENABLED</source>
-        <translation>WŁĄCZONY</translation>
+        <source>Masternode Private Key</source>
+        <translation>Klucz Prywatny Masternoda</translation>
     </message>
     <message>
-        <source>POSE_BANNED</source>
-        <translation>POSE_ZBANOWANY</translation>
+        <source>Private Key</source>
+        <translation>Klucz Prywatny</translation>
     </message>
     <message>
-        <source>UNKNOWN</source>
-        <translation>NIEZNANY</translation>
+        <source>Collateral</source>
+        <translation>Zastaw</translation>
     </message>
     <message>
-        <source>to %1</source>
-        <translation>do %1</translation>
+        <source>IP</source>
+        <translation>IP</translation>
     </message>
     <message>
-        <source>to UNKNOWN</source>
-        <translation>do NIEZNANEGO</translation>
+        <source>Version</source>
+        <translation>Wersja</translation>
     </message>
     <message>
-        <source>but not claimed</source>
-        <translation>ale nie zarzadana</translation>
+        <source>Unknown</source>
+        <translation>Nieznany</translation>
     </message>
     <message>
-        <source>NONE</source>
-        <translation>ŻADEN</translation>
-    </message>
-    <message>
-        <source>Additional information for DIP3 Masternode %1</source>
-        <translation>Dodatkowe informacje dla DIP3 Masternode %1</translation>
+        <source>Sentinel</source>
+        <translation>Sentinel</translation>
     </message>
 </context>
 <context>
@@ -1160,11 +1251,11 @@
         <translation>Forma</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Cadex network, as detailed below.</source>
-        <translation>Ostatnie transakcje mogą jeszcze być niewidoczne i dlatego saldo portfela może być niepoprawne. Poprawne informacje pojawią się po zakończeniu synchronizacji z siecią Cadex. Stan synchronizacji widzisz poniżej.</translation>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the cadex network, as detailed below.</source>
+        <translation>Ostatnie transakcje mogą jeszcze być niewidoczne i dlatego saldo portfela może być niepoprawne. Poprawne informacje pojawią się po zakończeniu synchronizacji z siecią cadex. Stan synchronizacji widzisz poniżej.</translation>
     </message>
     <message>
-        <source>Attempting to spend Cadex that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <source>Attempting to spend cadex that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>Próba wydania środków z transakcji wykonanych, ale jeszcze niewidocznych, nie zostanie zaakceptowana przez sieć.</translation>
     </message>
     <message>
@@ -1254,8 +1345,8 @@
         <translation>(0=auto, &lt;0 = zostaw tyle wolnych rdzeni)</translation>
     </message>
     <message>
-        <source>Amount of Cadex to keep anonymized</source>
-        <translation>Ilość Cadexów, które mają pozostać anonimowe.</translation>
+        <source>Amount of cadex to keep anonymized</source>
+        <translation>Ilość cadexów, które mają pozostać anonimowe.</translation>
     </message>
     <message>
         <source>W&amp;allet</source>
@@ -1306,8 +1397,8 @@
         <translation>Ta kwota działa jako próg po którego przekroczeniu PrivateSend zostaje wyłączony.</translation>
     </message>
     <message>
-        <source>Automatically open the Cadex Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatycznie otwórz port klienta Cadex Core na ruterze. Opcja działa jedynie, jeżeli router obsługuje UPnP i funkcja UPnP jest włączona.</translation>
+        <source>Automatically open the cadex Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatycznie otwórz port klienta cadex Core na ruterze. Opcja działa jedynie, jeżeli router obsługuje UPnP i funkcja UPnP jest włączona.</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
@@ -1318,8 +1409,8 @@
         <translation>Zezwól na przychodzące połączenia</translation>
     </message>
     <message>
-        <source>Connect to the Cadex network through a SOCKS5 proxy.</source>
-        <translation>Połącz się z siecią Cadex przez proxy SOCKS5.</translation>
+        <source>Connect to the cadex network through a SOCKS5 proxy.</source>
+        <translation>Połącz się z siecią cadex przez proxy SOCKS5.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1356,14 +1447,6 @@
     <message>
         <source>Enable coin &amp;control features</source>
         <translation>Włącz funkcje &amp;kontroli monet</translation>
-    </message>
-    <message>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
-        <translation>Pokaż podręczne systemowe wyskakujące okienka PrivateSend transakcji mieszania &lt;br/&gt; tak jak dla wszystkich innych typów transakcji.</translation>
-    </message>
-    <message>
-        <source>Show popups for PrivateSend transactions</source>
-        <translation>Pokazuj podręczne wyskakujące okienka dla transakcji PrivateSend</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1414,8 +1497,8 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the Cadex network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Połącz się z siecią Cadex przez oddzielne proxy SOCKS5 dla ukrytych usług Tor.</translation>
+        <source>Connect to the cadex network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Połącz się z siecią cadex przez oddzielne proxy SOCKS5 dla ukrytych usług Tor.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -1460,7 +1543,7 @@
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
 https://www.transifex.com/projects/p/cadex/</source>
-        <translation>Cadex Core nie został przetłumaczony na twój język? Tłumaczenie jest niepełne lub niepoprawne? Możesz pomóc nam tłumaczyć tutaj:
+        <translation>cadex Core nie został przetłumaczony na twój język? Tłumaczenie jest niepełne lub niepoprawne? Możesz pomóc nam tłumaczyć tutaj:
 https://www.transifex.com/projects/p/cadex/</translation>
     </message>
     <message>
@@ -1539,8 +1622,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Formularz</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Cadex network after a connection is established, but this process has not completed yet.</source>
-        <translation>Wyświetlona informacja może być przedawniona. Twój portfel automatycznie zsynchronizuje się z siecią Cadex, gdy tylko zostanie ustanowione połączenie, jednak proces ten jeszcze się nie zakończył.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the cadex network after a connection is established, but this process has not completed yet.</source>
+        <translation>Wyświetlona informacja może być przedawniona. Twój portfel automatycznie zsynchronizuje się z siecią cadex, gdy tylko zostanie ustanowione połączenie, jednak proces ten jeszcze się nie zakończył.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1639,8 +1722,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Ilość oraz Rundy:</translation>
     </message>
     <message>
-        <source>0 KDX / 0 Rounds</source>
-        <translation>0 KDX / 0 Rund</translation>
+        <source>0 cadex / 0 Rounds</source>
+        <translation>0 cadex / 0 Rund</translation>
     </message>
     <message>
         <source>Submitted Denom:</source>
@@ -1781,6 +1864,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
 </translation>
     </message>
     <message>
+        <source>N/A</source>
+        <translation>NIEDOSTĘPNE</translation>
+    </message>
+    <message>
         <source>PrivateSend was successfully reset.</source>
         <translation>PrivateSend pomyślnie zresetowano</translation>
     </message>
@@ -1820,8 +1907,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Nieprawidłowy adres płatności %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Cadex address or malformed URI parameters.</source>
-        <translation>URI nie może zostać przeanalizowany! Mogło to być spowodowane przez niewłaściwy adres Cadex lub niewłaściwe parametry URI</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid cadex address or malformed URI parameters.</source>
+        <translation>URI nie może zostać przeanalizowany! Mogło to być spowodowane przez niewłaściwy adres cadex lub niewłaściwe parametry URI</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1910,16 +1997,24 @@ https://www.transifex.com/projects/p/cadex/</translation>
 <context>
     <name>QObject</name>
     <message>
+        <source>cadex Core</source>
+        <translation>cadex Core</translation>
+    </message>
+    <message>
         <source>%1 didn't yet exit safely...</source>
         <translation>%1 jeszcze się bezpiecznie nie zamknął...</translation>
+    </message>
+    <message>
+        <source>Error reading masternode configuration file: %1</source>
+        <translation>Błąd wczytywania pliku konfiguracji masternoda: %1</translation>
     </message>
     <message>
         <source>Amount</source>
         <translation>Kwota</translation>
     </message>
     <message>
-        <source>Enter a Cadex address (e.g. %1)</source>
-        <translation>Wpisz adres Cadex (np. %1)</translation>
+        <source>Enter a cadex address (e.g. %1)</source>
+        <translation>Wpisz adres cadex (np. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2142,7 +2237,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
     </message>
     <message>
         <source>&amp;Network Traffic</source>
-        <translation>Ruch sieciowy</translation>
+        <translation>$Ruch sieciowy</translation>
     </message>
     <message>
         <source>&amp;Clear</source>
@@ -2377,10 +2472,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Aktywność sieci jest wyłączona</translation>
     </message>
     <message>
-        <source>Total: %1 (Enabled: %2)</source>
-        <translation>Wszystkich: %1 (Włączonych: %2)</translation>
-    </message>
-    <message>
         <source>%1 B</source>
         <translation>%1 B</translation>
     </message>
@@ -2440,8 +2531,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Użyj istniejącego adresu odbiorczego (nie zalecane)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Cadex network.</source>
-        <translation>Opcjonalna wiadomość do żądania płatności. Wiadomość wyświetli się po otwarciu żądania. Pamiętaj: Wiadomość nie zostanie wysłana razem z płatnością poprzez sieć Cadex.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the cadex network.</source>
+        <translation>Opcjonalna wiadomość do żądania płatności. Wiadomość wyświetli się po otwarciu żądania. Pamiętaj: Wiadomość nie zostanie wysłana razem z płatnością poprzez sieć cadex.</translation>
     </message>
     <message>
         <source>&amp;Message:</source>
@@ -2452,8 +2543,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Opcjonalna etykieta do skojarzenia z nowym adresem odbiorczym.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Cadex network.</source>
-        <translation>Opcjonalna wiadomość do żądania płatności. Wiadomość wyświetli się po otwarciu żądania.&lt;br&gt; Pamiętaj: Wiadomość nie zostanie wysłana razem z płatnością poprzez sieć Cadex.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the cadex network.</source>
+        <translation>Opcjonalna wiadomość do żądania płatności. Wiadomość wyświetli się po otwarciu żądania.&lt;br&gt; Pamiętaj: Wiadomość nie zostanie wysłana razem z płatnością poprzez sieć cadex.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -2909,8 +3000,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation><numerusform>Potwierdzenia zaczną się za około %n blok</numerusform><numerusform>Potwierdzenia zaczną się za około %n bloki</numerusform><numerusform>Potwierdzenia zaczną się za około %n bloków</numerusform><numerusform>Potwierdzenia zaczną się za około %n bloków</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Invalid Cadex address</source>
-        <translation>Ostrzeżenie: adres Cadex jest nieprawidlowy </translation>
+        <source>Warning: Invalid cadex address</source>
+        <translation>Ostrzeżenie: adres cadex jest nieprawidlowy </translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2940,8 +3031,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Zapłać &amp;dla:</translation>
     </message>
     <message>
-        <source>The Cadex address to send the payment to</source>
-        <translation>Adres Cadex na który wysłać fundusze</translation>
+        <source>The cadex address to send the payment to</source>
+        <translation>Adres cadex na który wysłać fundusze</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2976,7 +3067,7 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Su&amp;ma:</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Cadex than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of cadex than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>Opłata zostanie odliczona od wysyłanej kwoty. Odbiorca otrzyma mniej, niż wprowadziłeś w polu kwoty. W razie wielu odbiorców, opłata zostanie równo podzielona.</translation>
     </message>
     <message>
@@ -2988,8 +3079,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Wiadomość:</translation>
     </message>
     <message>
-        <source>A message that was attached to the cadex: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Cadex network.</source>
-        <translation>Wiadomość, która została dołączona do cadex: Link, który zostanie zapisany wraz z transakcją do wglądu w przyszłości. Zauważ, że sama wiadomość nie zostanie wysłana przez sieć Cadex.</translation>
+        <source>A message that was attached to the cadex: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the cadex network.</source>
+        <translation>Wiadomość, która została dołączona do cadex: Link, który zostanie zapisany wraz z transakcją do wglądu w przyszłości. Zauważ, że sama wiadomość nie zostanie wysłana przez sieć cadex.</translation>
     </message>
     <message>
         <source>This is an unauthenticated payment request.</source>
@@ -3041,12 +3132,12 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Podpi&amp;sz Wiadomość</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive Cadex sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <source>You can sign messages/agreements with your addresses to prove you can receive cadex sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>Możesz podpisywać wiadomości swoimi adresami aby udowodnić, że jesteś ich właścicielem. Uważaj, aby nie podpisywać niczego co wzbudza Twoje podejrzenia, ponieważ ktoś może stosować phishing próbując nakłonić Cię do ich podpisania. Akceptuj i podpisuj tylko w pełni zrozumiałe komunikaty i wiadomości.</translation>
     </message>
     <message>
-        <source>The Cadex address to sign the message with</source>
-        <translation>Adres Cadex do podpisu wiadomości</translation>
+        <source>The cadex address to sign the message with</source>
+        <translation>Adres cadex do podpisu wiadomości</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3077,8 +3168,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Kopiuje aktualny podpis do schowka systemowego</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Cadex address</source>
-        <translation>Podpisz wiadomość, aby udowodnić, że jesteś właścicielem adresu Cadex.</translation>
+        <source>Sign the message to prove you own this cadex address</source>
+        <translation>Podpisz wiadomość, aby udowodnić, że jesteś właścicielem adresu cadex.</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -3101,12 +3192,12 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Wpisz adres odbiorcy, podaj wiadomość (upewnij się, że dokładnie skopiujesz wszystkie zakończenia linii, spacje, tabulacje itp.) oraz podpis poniżej by sprawdzić wiadomość. Uważaj by nie dodać więcej do podpisu niż do samej podpisywanej wiadomości by uniknąć ataku man-in-the-middle (człowiek pośrodku)</translation>
     </message>
     <message>
-        <source>The Cadex address the message was signed with</source>
-        <translation>Adres Cadex, którym wiadomość została podpisana</translation>
+        <source>The cadex address the message was signed with</source>
+        <translation>Adres cadex, którym wiadomość została podpisana</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Cadex address</source>
-        <translation>Zweryfikuj wiadomość, aby upewnić się, że została zapisana przez konkretny adres Cadex</translation>
+        <source>Verify the message to ensure it was signed with the specified cadex address</source>
+        <translation>Zweryfikuj wiadomość, aby upewnić się, że została zapisana przez konkretny adres cadex</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -3228,14 +3319,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>%1 confirmations</source>
         <translation>%1 potwierdzeń</translation>
-    </message>
-    <message>
-        <source>locked via LLMQ based ChainLocks</source>
-        <translation>zablokowane przez LLMQ oparte o ChainLocks</translation>
-    </message>
-    <message>
-        <source>verified via LLMQ based InstantSend</source>
-        <translation>zweryfikowane przez LLMQ oparte o InstantSend</translation>
     </message>
     <message>
         <source>verified via InstantSend</source>
@@ -3524,10 +3607,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Bez względu na to czy adres tylko do odczytu jest zawarty w tej transakcji.</translation>
     </message>
     <message>
-        <source>Whether or not this transaction was locked by InstantSend.</source>
-        <translation>Czy transakcja ta została zabezpieczona przez InstantSend lub nie.</translation>
-    </message>
-    <message>
         <source>User-defined intent/purpose of the transaction.</source>
         <translation>Określony przez użytkownika cel transakcji.</translation>
     </message>
@@ -3541,14 +3620,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>All</source>
         <translation>Wszystko</translation>
-    </message>
-    <message>
-        <source>Locked by InstantSend</source>
-        <translation>Zablokowane przez InstantSend</translation>
-    </message>
-    <message>
-        <source>Not locked by InstantSend</source>
-        <translation>Niezablokowane przez InstantSend</translation>
     </message>
     <message>
         <source>Today</source>
@@ -3663,10 +3734,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Pokaż szczegóły transakcji</translation>
     </message>
     <message>
-        <source>Show address QR code</source>
-        <translation>Pokaż adres kodu QR</translation>
-    </message>
-    <message>
         <source>Export Transaction History</source>
         <translation>Eksport historii transakcji</translation>
     </message>
@@ -3719,10 +3786,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Historia transakcji została zapisana do %1.</translation>
     </message>
     <message>
-        <source>QR code</source>
-        <translation>Kod QR</translation>
-    </message>
-    <message>
         <source>Range:</source>
         <translation>Zakres:</translation>
     </message>
@@ -3752,8 +3815,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Wyślij płatność</translation>
     </message>
     <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 KDX.</source>
-        <translation>InstantSend nie obsługuje jeszcze tak wielkich kwot. Transakcje są obecnie ograniczone do %1 KDX</translation>
+        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 cadex.</source>
+        <translation>InstantSend nie obsługuje jeszcze tak wielkich kwot. Transakcje są obecnie ograniczone do %1 cadex</translation>
     </message>
     <message>
         <source>Used way too many inputs (&gt;%1) for this InstantSend transaction, fees could be huge.</source>
@@ -3844,6 +3907,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
         <translation>dadf</translation>
+    </message>
+    <message>
+        <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
+        <translation>Musisz sprecyzować masternodeprivkey w konfiguracji. Proszę przeglądnij dokumentacje w celu pomocy.</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -3966,20 +4033,16 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Zwiąż z danym adresem oraz wpisz łączących się peerów na białą liste. Użyj notacji [host]:port dla IPv6</translation>
     </message>
     <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation>Zwiąż z danym adresem oraz wpisz łączących się peerów na białą liste. Użyj notacji [host]:port dla IPv6. Opcja ta może być ustawiana wielokrotnie (domyślnie: połącz z wszystkimi interfejsami)</translation>
+    </message>
+    <message>
         <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
         <translation>Zamiast demaskowania 077, stwórz nowe pliki z domyślnymi pozwoleniami systemu (możliwe tylko z wyłączoną funkcją porfela)</translation>
     </message>
     <message>
         <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
         <translation>Usuń wszystkie transakcje portfela i odzyskaj tylko te części blockchainu - zeskanuj powonie na starcie.</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transactions of attempted InstantSend double spend in &lt;address&gt;</source>
-        <translation>Włącz upublicznienie surowej transakcji próby double spendingu InstantSend w &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish transaction hashes of attempted InstantSend double spend in &lt;address&gt;</source>
-        <translation>Włącz upublicznienie hashy transakcji próby double spendingu InstantSend w &lt;address&gt;</translation>
     </message>
     <message>
         <source>Error loading %s: You can't enable HD on a already existing non-HD wallet</source>
@@ -4026,20 +4089,12 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Informacje na temat debugowania danych wyjściowych (domyślnie: %u, podanie &lt;category&gt; jest opcjonalne)</translation>
     </message>
     <message>
-        <source>Overrides minimum spork signers to change spork value. Only useful for regtest and devnet. Using this on mainnet or testnet will ban you.</source>
-        <translation>Zastępuje minimalną liczbę osób podpsujących sporka. Użyeczne tylko dla regtest oraz devnet. Używanie tego na normalnej sieci lub testnecie zaskutkuje banem.</translation>
-    </message>
-    <message>
-        <source>Use N separate masternodes in parallel to mix funds (%u-%u, default: %u)</source>
-        <translation>Użyj N osobnych masternodów jednocześnie aby wymieszać monety (%u-%u, domyślnie: %u)</translation>
-    </message>
-    <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
         <translation>Użyj osobnego proxy SOCK5 aby połączyć się z peerami przez sieć Tor (domyślnie: %s)</translation>
     </message>
     <message>
         <source>User defined mnemonic for HD wallet (bip39). Only has effect during wallet creation/first start (default: randomly generated)</source>
-        <translation>Lista słów dla portfela HD stworzona przez użytkownika (bip39). Tyczy się jedynie kiedy tworzysz nowy portfel (domyślnie: tworzone losowo)</translation>
+        <translation>Lista słów dla porfela HD stworzona przez użytkownika (bip39). Tyczy się jedynie kiedy tworzysz nowy porfel (domyślnie: tworozne losowo)</translation>
     </message>
     <message>
         <source>User defined seed for HD wallet (should be in hex). Only has effect during wallet creation/first start (default: randomly generated)</source>
@@ -4054,16 +4109,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Musisz odnowić bazę danych używając -reindex-chainstate aby zmienić -txindex</translation>
     </message>
     <message>
-        <source>You should specify a masternodeblsprivkey in the configuration. Please see documentation for help.</source>
-        <translation>Powinieneś sprecyzować masternodeblsprivkey w konfiguracji. Proszę sprawdź dokumentacje w celu pomocy.</translation>
-    </message>
-    <message>
         <source>(default: %s)</source>
         <translation>(domyślnie: %s)</translation>
-    </message>
-    <message>
-        <source>-wallet parameter must only specify a filename (not a path)</source>
-        <translation>-wallet parametr musi tylko precyzować nazwę pliku (nie scieżkę)</translation>
     </message>
     <message>
         <source>Accept public REST requests (default: %u)</source>
@@ -4114,6 +4161,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Nieudane ładowanie bufora masternodów z</translation>
     </message>
     <message>
+        <source>Failed to load masternode payments cache from</source>
+        <translation>Nieudane ładowanie bufora płatności masternodów z</translation>
+    </message>
+    <message>
         <source>Found enough users, signing ( waiting %s )</source>
         <translation>Znaleziono wystarczającą ilość użytkowników, trwa podoposywanie ( poczekaj %s )</translation>
     </message>
@@ -4158,16 +4209,16 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Niewystarczające środki</translation>
     </message>
     <message>
+        <source>Invalid -onion address: '%s'</source>
+        <translation>Nieprawidłowy adres -onion: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid -proxy address: '%s'</source>
+        <translation>Nieprawidłowy adres -proxy: '%s'</translation>
+    </message>
+    <message>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
         <translation>Nieprawidłowa kwota dla -paytxfee=&lt;amount&gt;: '%s' (musi wynosić co najmniej %s)</translation>
-    </message>
-    <message>
-        <source>Invalid masternodeblsprivkey. Please see documenation.</source>
-        <translation>Niewłaściwy masternodeblsprivkey. Sprawdź dokumentacje.</translation>
-    </message>
-    <message>
-        <source>Invalid minimum number of spork signers specified with -minsporkkeys</source>
-        <translation>Nieważna  minimalna liczba osób podpisujących sporka ustawiona z -minsporkkeys</translation>
     </message>
     <message>
         <source>Keypool ran out, please call keypoolrefill first</source>
@@ -4194,8 +4245,16 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Ładuję pamięć podręczną masternoda...</translation>
     </message>
     <message>
+        <source>Loading masternode payment cache...</source>
+        <translation>Ładuję pamięć podręczną płatności masternodów...</translation>
+    </message>
+    <message>
         <source>Lock is already in place.</source>
         <translation>Transakcja została już zamknięta.</translation>
+    </message>
+    <message>
+        <source>Lock masternodes from masternode configuration file (default: %u)</source>
+        <translation>Zamknij masternody z pliku konfiguracji (domyślnie: %u)</translation>
     </message>
     <message>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
@@ -4234,6 +4293,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Łącz się tylko z węzłami w sieci &lt;net&gt; (ipv4, ipv6 lub onion)</translation>
     </message>
     <message>
+        <source>Port: %d</source>
+        <translation>Port: %d</translation>
+    </message>
+    <message>
         <source>Prepend debug output with timestamp (default: %u)</source>
         <translation>Poprzedź wyniki debugowania datą i godziną (domyślnie: %u)</translation>
     </message>
@@ -4258,10 +4321,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Ustaw ilość kluczy w key pool na &lt;n&gt; (domyślny: %u)</translation>
     </message>
     <message>
-        <source>Set the masternode BLS private key</source>
-        <translation>Ustaw masternode BLS klucz prywatny</translation>
-    </message>
-    <message>
         <source>Set the number of threads to service RPC calls (default: %d)</source>
         <translation>Ustaw liczbę wątków dla usługi połączen RPC (domyślny: %d)</translation>
     </message>
@@ -4274,6 +4333,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>ustaw limit czasu połączenia w milisekundach (minimum: 1, domyślnie: %d)</translation>
     </message>
     <message>
+        <source>Specify masternode configuration file (default: %s)</source>
+        <translation>Ustaw plik konfiguracji masternoda (domyślnie: %s)</translation>
+    </message>
+    <message>
         <source>Specify pid file (default: %s)</source>
         <translation>Sprecyjzuj plik pid (domyślny: %s)</translation>
     </message>
@@ -4282,8 +4345,20 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Wydaj niepotwierdzoną resztę podczas wysyłania transakcji (domuślnie: %u)</translation>
     </message>
     <message>
+        <source>Submitted following entries to masternode: %u / %d</source>
+        <translation>Następujące wpisy zostały przesłane do masternoda: %u / %d</translation>
+    </message>
+    <message>
+        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
+        <translation>Zapisano do masternoda, czekam na więcej wejść ( %u / %d ) %s</translation>
+    </message>
+    <message>
         <source>Submitted to masternode, waiting in queue %s</source>
         <translation>Przesłano do masterdnoda, czekaj na swoją kolej %s</translation>
+    </message>
+    <message>
+        <source>Synchroning blockchain...</source>
+        <translation>Synchronizuję łańcuch bloków...</translation>
     </message>
     <message>
         <source>Synchronization failed</source>
@@ -4292,6 +4367,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Synchronization finished</source>
         <translation>Synchronizacja zakończona</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternodes...</source>
+        <translation>Synchronizuję masternody...</translation>
     </message>
     <message>
         <source>This is not a Masternode.</source>
@@ -4304,10 +4383,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Too many %f denominations, removing.</source>
         <translation>Zbyt wiele %f nominałów, usuwam.</translation>
-    </message>
-    <message>
-        <source>Too many %f denominations, skipping.</source>
-        <translation>Zbyt wiele %f denominacji, pomijam.</translation>
     </message>
     <message>
         <source>Tor control port password (default: empty)</source>
@@ -4362,6 +4437,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Spróbuje ponownie...</translation>
     </message>
     <message>
+        <source>Invalid masternodeprivkey. Please see documenation.</source>
+        <translation>Nieprawidłowy klucz prywatny masternoda. Przeczytaj dokumentację.</translation>
+    </message>
+    <message>
         <source>Can't find random Masternode.</source>
         <translation>Nie można znaleźć przypadkowego masternoda.</translation>
     </message>
@@ -4370,8 +4449,16 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Nie możesz miksować w trakcie  synchronizacji.</translation>
     </message>
     <message>
+        <source>Could not parse masternode.conf</source>
+        <translation>Nie można analizować masternode.conf</translation>
+    </message>
+    <message>
         <source>Invalid netmask specified in -whitelist: '%s'</source>
         <translation>Niewłaściwa maska sieci w -whitelist: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid port detected in masternode.conf</source>
+        <translation>Wykryto niewłaściwy port w masternode.conf</translation>
     </message>
     <message>
         <source>Invalid script detected.</source>
@@ -4390,16 +4477,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Utrzymuj najwyżej &lt;n&gt; niepodłączalnych transakcji w pamięci (domyślny: %u)</translation>
     </message>
     <message>
-        <source>Disable all Cadex specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
-        <translation>Wyłącz wszystkie funkcjonalności charakterystyczne dla Cadex (Masternody, PrivateSend, InstantSend, Governance) (0-1, domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>%s file contains all private keys from this wallet. Do not share it with anyone!</source>
-        <translation>%s plik zawiera wszystkie klucze prywatne przechowywane w tym portfelu. Nie dawaj nikomu dostępu do tego pliku. </translation>
-    </message>
-    <message>
-        <source>Bind to given address to listen for JSON-RPC connections. This option is ignored unless -rpcallowip is also passed. Port is optional and overrides -rpcport. Use [host]:port notation for IPv6. This option can be specified multiple times (default: 127.0.0.1 and ::1 i.e., localhost, or if -rpcallowip has been specified, 0.0.0.0 and :: i.e., all addresses)</source>
-        <translation>Powiąż z podanym adresem, aby nasłuchiwać połączeń JSON-RPC. Ta opcja jest ignorowana, chyba że przekazany zostanie także -rpcallowip. Port jest opcjonalny i zastępuje -rpcport. Użyj [host]: notacja portu dla IPv6. Ta opcja może być podana wiele razy (domyślnie: 127.0.0.1 i :: 1 tj. Localhost lub jeśli podano -rpcallowip, 0.0.0.0 i :: tj. wszystkie adresy)</translation>
+        <source>Disable all cadex specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
+        <translation>Wyłącz wszystkie funkcjonalności charakterystyczne dla cadex (Masternody, PrivateSend, InstantSend, Governance) (0-1, domyślnie: %u)</translation>
     </message>
     <message>
         <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
@@ -4426,10 +4505,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Wykonaj komendę, kiedy się transakcja InstantSend  portfela zostanie pomyślnie zamknięta (%s w konsoli jest zastąpione przez TxID)</translation>
     </message>
     <message>
-        <source>Extra transactions to keep in memory for compact block reconstructions (default: %u)</source>
-        <translation>Dodatkowe transakcje trzymane w pamięci aby móc zrekonstruować kompaktowe bloki (domyślnie: %u)</translation>
-    </message>
-    <message>
         <source>Failed to create backup, file already exists! This could happen if you restarted wallet in less than 60 seconds. You can continue if you are ok with this.</source>
         <translation>Tworzenie kopii zapasowej nieudane, plik już istnieje! Taka sytuacja może wystąpić, jeżeli minęło mniej niż 60 od ostatniego zamknięcia portfela. Jeżeli Ci to nie przeszkadza, możesz kontynuować.</translation>
     </message>
@@ -4446,8 +4521,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Jeżeli nie podano &lt;category&gt; lub jeżeli  &lt;category&gt; = 1, pokaż informacje o debugowaniu.</translation>
     </message>
     <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 KDX.</source>
-        <translation>InstantSend nie obsługuje jeszcze tak wielkich kwot. Transakcje są obecnie ograniczone do %1 KDX</translation>
+        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 cadex.</source>
+        <translation>InstantSend nie obsługuje jeszcze tak wielkich kwot. Transakcje są obecnie ograniczone do %1 cadex</translation>
     </message>
     <message>
         <source>InstantSend requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
@@ -4510,10 +4585,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Całkowita długość sieciowej wersji struny (%i) przekracza maksymalną długość (%i). Zredukuj liczbę lub rozmiar uacomments.</translation>
     </message>
     <message>
-        <source>Transaction index can't be disabled in full mode. Either start with -litemode command line switch or enable transaction index.</source>
-        <translation>Indeks tranaskcji nie może zostać wyłączony w pełnym trybe. Albo uruchom z komendy -lighmode lub włącz indeksowanie transakcji.</translation>
-    </message>
-    <message>
         <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
         <translation>Próbuje utrzymać wychodzący ruch sieciowy poniżej podanej wartości (MiB/24 h), 0 = bez ograniczeń (domyślnie: %d)</translation>
     </message>
@@ -4546,16 +4617,20 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Uwaga: Wykopywane są bloki o nieznanej wersji! Możliwe, że zostały aktywowane inne zasady na których opiera się sieć.</translation>
     </message>
     <message>
-        <source>You are starting in lite mode, all Cadex-specific functionality is disabled.</source>
-        <translation>Uruchamiasz porfel w trybie lite, wszystkie dodatkowe funkcje Cadexa zostaną wyłączone. </translation>
-    </message>
-    <message>
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
         <translation>Aby wrócić do trybu bez bez obcinki, musisz odtworzyć bazę danych za pomocą komendy -reindex. Cały blockchain zostanie ponownie ściągnięty.</translation>
     </message>
     <message>
+        <source>(%d could be used only on mainnet)</source>
+        <translation>(%d może być użyte jedynie na głównej sieci)</translation>
+    </message>
+    <message>
         <source>(default: %u)</source>
         <translation>(domyślnie: %u)</translation>
+    </message>
+    <message>
+        <source>(must be %d for mainnet)</source>
+        <translation>(musi być %d dla głównej sieci)</translation>
     </message>
     <message>
         <source>-maxmempool must be at least %d MB</source>
@@ -4586,14 +4661,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Pozwól na publikację hash bloku w &lt;address&gt;</translation>
     </message>
     <message>
-        <source>Enable publish hash of governance objects (like proposals) in &lt;address&gt;</source>
-        <translation>Pozwól na publikację hash obiektu zarządzania (np. propozycji) w &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish hash of governance votes in &lt;address&gt;</source>
-        <translation>Pozwól na publikację hash głosów w &lt;address&gt;</translation>
-    </message>
-    <message>
         <source>Enable publish hash transaction (locked via InstantSend) in &lt;address&gt;</source>
         <translation>Pozwól na publikację hash transakcji (zabezpiecznona przez InstantSend) w &lt;address&gt;</translation>
     </message>
@@ -4614,6 +4681,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Pozwól na publikację czystych danych transakcji w &lt;address&gt;</translation>
     </message>
     <message>
+        <source>Enable transaction replacement in the memory pool (default: %u)</source>
+        <translation>Włącz zastępowanie transakcji w memory pool (domyślnie: %u)</translation>
+    </message>
+    <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation>Błąd: Wystąpił wewnętrzny błąd krytyczny, szczegóły znajdziesz w pliku debug.log</translation>
     </message>
@@ -4630,12 +4701,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Skasowanie kopii zapasowej nie powiodło się, błąd: %s</translation>
     </message>
     <message>
-        <source>Failed to load InstantSend data cache from</source>
-        <translation>Nie powiodło się ładowanie bufora InstantSend z</translation>
-    </message>
-    <message>
-        <source>Failed to load sporks cache from</source>
-        <translation>Nie powiodło się ładowanie bufora sporków z</translation>
+        <source>Failed to parse host:port string</source>
+        <translation>Nieudane analizowanie hosta:port string</translation>
     </message>
     <message>
         <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
@@ -4666,8 +4733,12 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Zbyt mało czasu upłynęło od ostatniej udanej transakcji PrivateSend. </translation>
     </message>
     <message>
-        <source>Loading InstantSend data cache...</source>
-        <translation>Ładowanie bufora danych InstandSend...</translation>
+        <source>Line: %d</source>
+        <translation>Linia: %d</translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation>Wczytuję adresy...</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -4676,10 +4747,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Loading governance cache...</source>
         <translation>Wczytuję bufor governance</translation>
-    </message>
-    <message>
-        <source>Loading sporks cache...</source>
-        <translation>Ładowanie bufora sporków....</translation>
     </message>
     <message>
         <source>Loading wallet... (%3.2f %%)</source>
@@ -4696,6 +4763,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Make the wallet broadcast transactions</source>
         <translation>Zmuś portfel do wysłania transakcji.</translation>
+    </message>
+    <message>
+        <source>Masternode cache is empty, skipping payments and governance cache...</source>
+        <translation>Cache masternodów jest pusty, pomijam cache płatności i zarządzania...</translation>
     </message>
     <message>
         <source>Masternode options:</source>
@@ -4794,18 +4865,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Przeskanuj blockchain ponownie aby zlokalizować zagubione transakcje podczas startu.</translation>
     </message>
     <message>
-        <source>Submitted following entries to masternode: %u</source>
-        <translation>Zgłoszono następujące wpisy do masternoda: %u</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting for more entries ( %u ) %s</source>
-        <translation>Zgłoszono do masternoda, czekam na więcej wejść ( %u ) %s</translation>
-    </message>
-    <message>
-        <source>Synchronizing blockchain...</source>
-        <translation>Synchronizuje blockchain...</translation>
-    </message>
-    <message>
         <source>The wallet will avoid paying less than the minimum relay fee.</source>
         <translation>Portfel będzie unikał płacenia mniejszej niż przekazana opłaty.</translation>
     </message>
@@ -4830,10 +4889,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Transakcja wymaga co najmniej jednego odbiorcy</translation>
     </message>
     <message>
-        <source>Transaction too large</source>
-        <translation>Za duża transakcja</translation>
-    </message>
-    <message>
         <source>Trying to connect...</source>
         <translation>Staram się połączyć</translation>
     </message>
@@ -4854,10 +4909,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Opcje debugowania/testowania portfela:</translation>
     </message>
     <message>
-        <source>Wallet is not initialized</source>
-        <translation>Portfel nie został uruchomiony</translation>
-    </message>
-    <message>
         <source>Wallet needed to be rewritten: restart %s to complete</source>
         <translation>Portfel wymaga przepisania: zrestartuj %s aby ukończyć</translation>
     </message>
@@ -4872,10 +4923,6 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Whether to operate in a blocks only mode (default: %u)</source>
         <translation>Czy operować jedynie w trybie bloków (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>You can not start a masternode in lite mode.</source>
-        <translation>Nie możesz uruchomić masternoda w trybie lite. </translation>
     </message>
     <message>
         <source>ZeroMQ notification options:</source>
@@ -4894,8 +4941,8 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Opcje serwera RPC:</translation>
     </message>
     <message>
-        <source>Cadex Core</source>
-        <translation>Cadex Core</translation>
+        <source>cadex Core</source>
+        <translation>cadex Core</translation>
     </message>
     <message>
         <source>The %s developers</source>
@@ -4966,6 +5013,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Ustaw najnższą opłatę (in %s/kB) za transakcje aby została ona włączona do bloku. (domyślnie: %s)</translation>
     </message>
     <message>
+        <source>Show N confirmations for a successfully locked transaction (%u-%u, default: %u)</source>
+        <translation>Pokaż N potwierdzeń dla skutecznie zamkniętej transakcji (%u-%u, domyślnie: %u)</translation>
+    </message>
+    <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>
         <translation>To jest prawdopodobny koszt transakcj jeśli szacunki opłat są niedostępne. </translation>
     </message>
@@ -4996,6 +5047,14 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Wallet will not create transactions that violate mempool chain limits (default: %u)</source>
         <translation>Portfel nie stworzy transakcji które są sprzeczne z limitami puli pamięci. (domyślnie: %u)</translation>
+    </message>
+    <message>
+        <source>Warning: At least %d of %d masternodes are running on a newer software version. Please check latest releases, you might need to update too.</source>
+        <translation>Uwaga: Przynajmniej %d z %d masterndów jest na nowszej wersji. Sprawdź najnowsze wydania oprogramowania, możliwe że musisz również dokonać aktualizacji.  </translation>
+    </message>
+    <message>
+        <source>Warning: Every masternode (out of %d known ones) is running on a newer software version. Please check latest releases, it's very likely that you missed a major/critical update.</source>
+        <translation>Uwaga: Każdy masternde ( z %d znanych) jest na nowszej wersji. Sprawdź najnowsze wydania oprogramowania, możliwe że przeoczyłeś ważną/krytyczną aktualizację.</translation>
     </message>
     <message>
         <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
@@ -5082,32 +5141,16 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Wstępna kontrola poprawności nie powiodła się. %s wyłącza się.</translation>
     </message>
     <message>
-        <source>Invalid -onion address or hostname: '%s'</source>
-        <translation>Niewłaściwy adres -onion lub nazwa hosta: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address or hostname: '%s'</source>
-        <translation>Nieprawidłowy adres -proxy lub nazwa hosta: '%s'</translation>
-    </message>
-    <message>
         <source>Invalid amount for -%s=&lt;amount&gt;: '%s'</source>
         <translation>Nieprawidłowa kwota dla -%s=&lt;amount&gt;: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid characters in -wallet filename</source>
-        <translation>Niewłaściwe znaki w -wallet nazwie pliku</translation>
     </message>
     <message>
         <source>Invalid spork address specified with -sporkaddr</source>
         <translation>Nieważny adres spork ustawiony z -sporkaddr</translation>
     </message>
     <message>
-        <source>Keep N KDX anonymized (%u-%u, default: %u)</source>
-        <translation>Trzymaj N KDX zanonimizowane (%u-%u, domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Loading P2P addresses...</source>
-        <translation>Wczytywanie adresów P2P...</translation>
+        <source>Keep N cadex anonymized (%u-%u, default: %u)</source>
+        <translation>Trzymaj N cadex zanonimizowane (%u-%u, domyślnie: %u)</translation>
     </message>
     <message>
         <source>Print this help message and exit</source>
@@ -5158,6 +5201,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
         <translation>Ustaw maksymalny rozmiar bloku w bajtach (domyślny: %d)</translation>
     </message>
     <message>
+        <source>Set the masternode private key</source>
+        <translation>Ustaw klucz prywatny masternoda</translation>
+    </message>
+    <message>
         <source>Show all debugging options (usage: --help -help-debug)</source>
         <translation>Pokaż wszystkie opcje debugowania (użyj: --help -help-debug)</translation>
     </message>
@@ -5192,6 +5239,10 @@ https://www.transifex.com/projects/p/cadex/</translation>
     <message>
         <source>Synchronizing governance objects...</source>
         <translation>Synchronizuję obiekty zarządzania...</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternode payments...</source>
+        <translation>Synchronizacja płatności masternodów...</translation>
     </message>
     <message>
         <source>The source code is available from %s.</source>

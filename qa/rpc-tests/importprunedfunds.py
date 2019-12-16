@@ -2,7 +2,7 @@
 # Copyright (c) 2014-2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Test the importprunedfunds and removeprunedfunds RPCs."""
+
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import *
 
@@ -21,7 +21,7 @@ class ImportPrunedFundsTest(BitcoinTestFramework):
         self.sync_all()
 
     def run_test(self):
-        self.log.info("Mining blocks...")
+        print("Mining blocks...")
         self.nodes[0].generate(101)
 
         self.sync_all()
@@ -76,7 +76,12 @@ class ImportPrunedFundsTest(BitcoinTestFramework):
         self.sync_all()
 
         #Import with no affiliated address
-        assert_raises_jsonrpc(-5, "No addresses", self.nodes[1].importprunedfunds, rawtxn1, proof1)
+        try:
+            self.nodes[1].importprunedfunds(rawtxn1, proof1)
+        except JSONRPCException as e:
+            assert('No addresses' in e.error['message'])
+        else:
+            assert(False)
 
         balance1 = self.nodes[1].getbalance("", 0, False, True)
         assert_equal(balance1, Decimal(0))
@@ -107,7 +112,12 @@ class ImportPrunedFundsTest(BitcoinTestFramework):
         assert_equal(address_info['ismine'], True)
 
         #Remove transactions
-        assert_raises_jsonrpc(-8, "Transaction does not exist in wallet.", self.nodes[1].removeprunedfunds, txnid1)
+        try:
+            self.nodes[1].removeprunedfunds(txnid1)
+        except JSONRPCException as e:
+            assert('does not exist' in e.error['message'])
+        else:
+            assert(False)
 
         balance1 = self.nodes[1].getbalance("*", 0, False, True)
         assert_equal(balance1, Decimal('0.075'))

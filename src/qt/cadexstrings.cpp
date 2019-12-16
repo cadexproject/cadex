@@ -12,9 +12,6 @@ static const char UNUSED *cadex_strings[] = {
 QT_TRANSLATE_NOOP("cadex-core", "Cadex Core"),
 QT_TRANSLATE_NOOP("cadex-core", "The %s developers"),
 QT_TRANSLATE_NOOP("cadex-core", ""
-"%s file contains all private keys from this wallet. Do not share it with "
-"anyone!"),
-QT_TRANSLATE_NOOP("cadex-core", ""
 "(1 = keep tx meta data e.g. account owner and payment request information, 2 "
 "= drop tx meta data)"),
 QT_TRANSLATE_NOOP("cadex-core", ""
@@ -40,11 +37,9 @@ QT_TRANSLATE_NOOP("cadex-core", ""
 "Bind to given address and whitelist peers connecting to it. Use [host]:port "
 "notation for IPv6"),
 QT_TRANSLATE_NOOP("cadex-core", ""
-"Bind to given address to listen for JSON-RPC connections. This option is "
-"ignored unless -rpcallowip is also passed. Port is optional and overrides -"
-"rpcport. Use [host]:port notation for IPv6. This option can be specified "
-"multiple times (default: 127.0.0.1 and ::1 i.e., localhost, or if -"
-"rpcallowip has been specified, 0.0.0.0 and :: i.e., all addresses)"),
+"Bind to given address to listen for JSON-RPC connections. Use [host]:port "
+"notation for IPv6. This option can be specified multiple times (default: "
+"bind to all interfaces)"),
 QT_TRANSLATE_NOOP("cadex-core", ""
 "Cannot obtain a lock on data directory %s. %s is probably already running."),
 QT_TRANSLATE_NOOP("cadex-core", ""
@@ -57,7 +52,7 @@ QT_TRANSLATE_NOOP("cadex-core", ""
 "Delete all wallet transactions and only recover those parts of the "
 "blockchain through -rescan on startup"),
 QT_TRANSLATE_NOOP("cadex-core", ""
-"Disable all Cadex specific functionality (Masternodes, PrivateSend, "
+"Disable all cadex specific functionality (Masternodes, PrivateSend, "
 "InstantSend, Governance) (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", ""
 "Discover own IP addresses (default: 1 when listening and no -externalip or -"
@@ -73,12 +68,6 @@ QT_TRANSLATE_NOOP("cadex-core", ""
 QT_TRANSLATE_NOOP("cadex-core", ""
 "Enable multiple PrivateSend mixing sessions per block, experimental (0-1, "
 "default: %u)"),
-QT_TRANSLATE_NOOP("cadex-core", ""
-"Enable publish raw transactions of attempted InstantSend double spend in "
-"<address>"),
-QT_TRANSLATE_NOOP("cadex-core", ""
-"Enable publish transaction hashes of attempted InstantSend double spend in "
-"<address>"),
 QT_TRANSLATE_NOOP("cadex-core", ""
 "Enable use of automated PrivateSend for funds stored in this wallet (0-1, "
 "default: %u)"),
@@ -101,9 +90,6 @@ QT_TRANSLATE_NOOP("cadex-core", ""
 QT_TRANSLATE_NOOP("cadex-core", ""
 "Execute command when the best block changes (%s in cmd is replaced by block "
 "hash)"),
-QT_TRANSLATE_NOOP("cadex-core", ""
-"Extra transactions to keep in memory for compact block reconstructions "
-"(default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", ""
 "Failed to create backup, file already exists! This could happen if you "
 "restarted wallet in less than 60 seconds. You can continue if you are ok "
@@ -137,7 +123,7 @@ QT_TRANSLATE_NOOP("cadex-core", ""
 "specified?"),
 QT_TRANSLATE_NOOP("cadex-core", ""
 "InstantSend doesn't support sending values that high yet. Transactions are "
-"currently limited to %1 KDX."),
+"currently limited to %1 CADEX."),
 QT_TRANSLATE_NOOP("cadex-core", ""
 "InstantSend requires inputs with at least %d confirmations, you might need "
 "to wait a few minutes and try again."),
@@ -181,9 +167,6 @@ QT_TRANSLATE_NOOP("cadex-core", ""
 QT_TRANSLATE_NOOP("cadex-core", ""
 "Override spork address. Only useful for regtest and devnet. Using this on "
 "mainnet or testnet will ban you."),
-QT_TRANSLATE_NOOP("cadex-core", ""
-"Overrides minimum spork signers to change spork value. Only useful for "
-"regtest and devnet. Using this on mainnet or testnet will ban you."),
 QT_TRANSLATE_NOOP("cadex-core", ""
 "Please check that your computer's date and time are correct! If your clock "
 "is wrong, %s will not work properly."),
@@ -229,6 +212,9 @@ QT_TRANSLATE_NOOP("cadex-core", ""
 "Set the number of script verification threads (%u to %d, 0 = auto, <0 = "
 "leave that many cores free, default: %d)"),
 QT_TRANSLATE_NOOP("cadex-core", ""
+"Show N confirmations for a successfully locked transaction (%u-%u, default: "
+"%u)"),
+QT_TRANSLATE_NOOP("cadex-core", ""
 "Specify full path to directory for automatic wallet backups (must exist)"),
 QT_TRANSLATE_NOOP("cadex-core", ""
 "Support filtering of blocks and transaction with bloom filters (default: %u)"),
@@ -252,9 +238,6 @@ QT_TRANSLATE_NOOP("cadex-core", ""
 "Total length of network version string (%i) exceeds maximum length (%i). "
 "Reduce the number or size of uacomments."),
 QT_TRANSLATE_NOOP("cadex-core", ""
-"Transaction index can't be disabled in full mode. Either start with -"
-"litemode command line switch or enable transaction index."),
-QT_TRANSLATE_NOOP("cadex-core", ""
 "Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = "
 "no limit (default: %d)"),
 QT_TRANSLATE_NOOP("cadex-core", ""
@@ -271,8 +254,6 @@ QT_TRANSLATE_NOOP("cadex-core", ""
 QT_TRANSLATE_NOOP("cadex-core", ""
 "Use N separate masternodes for each denominated input to mix funds (%u-%u, "
 "default: %u)"),
-QT_TRANSLATE_NOOP("cadex-core", ""
-"Use N separate masternodes in parallel to mix funds (%u-%u, default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", ""
 "Use UPnP to map the listening port (default: 1 when listening and no -proxy)"),
 QT_TRANSLATE_NOOP("cadex-core", ""
@@ -305,6 +286,13 @@ QT_TRANSLATE_NOOP("cadex-core", ""
 "Wallet will not create transactions that violate mempool chain limits "
 "(default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", ""
+"Warning: At least %d of %d masternodes are running on a newer software "
+"version. Please check latest releases, you might need to update too."),
+QT_TRANSLATE_NOOP("cadex-core", ""
+"Warning: Every masternode (out of %d known ones) is running on a newer "
+"software version. Please check latest releases, it's very likely that you "
+"missed a major/critical update."),
+QT_TRANSLATE_NOOP("cadex-core", ""
 "Warning: The network does not appear to fully agree! Some miners appear to "
 "be experiencing issues."),
 QT_TRANSLATE_NOOP("cadex-core", ""
@@ -324,26 +312,25 @@ QT_TRANSLATE_NOOP("cadex-core", ""
 "Whitelisted peers cannot be DoS banned and their transactions are always "
 "relayed, even if they are already in the mempool, useful e.g. for a gateway"),
 QT_TRANSLATE_NOOP("cadex-core", ""
-"You are starting in lite mode, all Cadex-specific functionality is disabled."),
+"You must specify a masternodeprivkey in the configuration. Please see "
+"documentation for help."),
 QT_TRANSLATE_NOOP("cadex-core", ""
 "You need to rebuild the database using -reindex to go back to unpruned "
 "mode.  This will redownload the entire blockchain"),
 QT_TRANSLATE_NOOP("cadex-core", ""
 "You need to rebuild the database using -reindex-chainstate to change -txindex"),
-QT_TRANSLATE_NOOP("cadex-core", ""
-"You should specify a masternodeblsprivkey in the configuration. Please see "
-"documentation for help."),
 QT_TRANSLATE_NOOP("cadex-core", "%s corrupt, salvage failed"),
 QT_TRANSLATE_NOOP("cadex-core", "%s is not a valid backup folder!"),
 QT_TRANSLATE_NOOP("cadex-core", "%s is set very high!"),
+QT_TRANSLATE_NOOP("cadex-core", "(%d could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("cadex-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("cadex-core", "(default: %u)"),
+QT_TRANSLATE_NOOP("cadex-core", "(must be %d for mainnet)"),
 QT_TRANSLATE_NOOP("cadex-core", "(press q to shutdown and continue later)"),
 QT_TRANSLATE_NOOP("cadex-core", "-devnet can only be specified once"),
 QT_TRANSLATE_NOOP("cadex-core", "-maxmempool must be at least %d MB"),
 QT_TRANSLATE_NOOP("cadex-core", "-port must be specified when -devnet and -listen are specified"),
 QT_TRANSLATE_NOOP("cadex-core", "-rpcport must be specified when -devnet and -server are specified"),
-QT_TRANSLATE_NOOP("cadex-core", "-wallet parameter must only specify a filename (not a path)"),
 QT_TRANSLATE_NOOP("cadex-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("cadex-core", "Accept command line and JSON-RPC commands"),
 QT_TRANSLATE_NOOP("cadex-core", "Accept public REST requests (default: %u)"),
@@ -372,20 +359,20 @@ QT_TRANSLATE_NOOP("cadex-core", "Connect to a node to retrieve peer addresses, a
 QT_TRANSLATE_NOOP("cadex-core", "Connection options:"),
 QT_TRANSLATE_NOOP("cadex-core", "Copyright (C)"),
 QT_TRANSLATE_NOOP("cadex-core", "Corrupted block database detected"),
+QT_TRANSLATE_NOOP("cadex-core", "Could not parse masternode.conf"),
 QT_TRANSLATE_NOOP("cadex-core", "Debugging/Testing options:"),
 QT_TRANSLATE_NOOP("cadex-core", "Do not load the wallet and disable wallet RPC calls"),
 QT_TRANSLATE_NOOP("cadex-core", "Do you want to rebuild the block database now?"),
 QT_TRANSLATE_NOOP("cadex-core", "Done loading"),
 QT_TRANSLATE_NOOP("cadex-core", "ERROR! Failed to create automatic backup"),
 QT_TRANSLATE_NOOP("cadex-core", "Enable publish hash block in <address>"),
-QT_TRANSLATE_NOOP("cadex-core", "Enable publish hash of governance objects (like proposals) in <address>"),
-QT_TRANSLATE_NOOP("cadex-core", "Enable publish hash of governance votes in <address>"),
 QT_TRANSLATE_NOOP("cadex-core", "Enable publish hash transaction (locked via InstantSend) in <address>"),
 QT_TRANSLATE_NOOP("cadex-core", "Enable publish hash transaction in <address>"),
 QT_TRANSLATE_NOOP("cadex-core", "Enable publish raw block in <address>"),
 QT_TRANSLATE_NOOP("cadex-core", "Enable publish raw transaction (locked via InstantSend) in <address>"),
 QT_TRANSLATE_NOOP("cadex-core", "Enable publish raw transaction in <address>"),
 QT_TRANSLATE_NOOP("cadex-core", "Enable the client to act as a masternode (0-1, default: %u)"),
+QT_TRANSLATE_NOOP("cadex-core", "Enable transaction replacement in the memory pool (default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", "Entries are full."),
 QT_TRANSLATE_NOOP("cadex-core", "Entry exceeds maximum size."),
 QT_TRANSLATE_NOOP("cadex-core", "Error initializing block database"),
@@ -406,11 +393,11 @@ QT_TRANSLATE_NOOP("cadex-core", "Failed to create backup, error: %s"),
 QT_TRANSLATE_NOOP("cadex-core", "Failed to delete backup, error: %s"),
 QT_TRANSLATE_NOOP("cadex-core", "Failed to find mixing queue to join"),
 QT_TRANSLATE_NOOP("cadex-core", "Failed to listen on any port. Use -listen=0 if you want this."),
-QT_TRANSLATE_NOOP("cadex-core", "Failed to load InstantSend data cache from"),
 QT_TRANSLATE_NOOP("cadex-core", "Failed to load fulfilled requests cache from"),
 QT_TRANSLATE_NOOP("cadex-core", "Failed to load governance cache from"),
 QT_TRANSLATE_NOOP("cadex-core", "Failed to load masternode cache from"),
-QT_TRANSLATE_NOOP("cadex-core", "Failed to load sporks cache from"),
+QT_TRANSLATE_NOOP("cadex-core", "Failed to load masternode payments cache from"),
+QT_TRANSLATE_NOOP("cadex-core", "Failed to parse host:port string"),
 QT_TRANSLATE_NOOP("cadex-core", "Failed to start a new mixing queue"),
 QT_TRANSLATE_NOOP("cadex-core", "Fee (in %s/kB) to add to transactions you send (default: %s)"),
 QT_TRANSLATE_NOOP("cadex-core", "Found enough users, signing ( waiting %s )"),
@@ -427,40 +414,41 @@ QT_TRANSLATE_NOOP("cadex-core", "Initialization sanity check failed. %s is shutt
 QT_TRANSLATE_NOOP("cadex-core", "Input is not valid."),
 QT_TRANSLATE_NOOP("cadex-core", "InstantSend options:"),
 QT_TRANSLATE_NOOP("cadex-core", "Insufficient funds."),
-QT_TRANSLATE_NOOP("cadex-core", "Invalid -onion address or hostname: '%s'"),
-QT_TRANSLATE_NOOP("cadex-core", "Invalid -proxy address or hostname: '%s'"),
+QT_TRANSLATE_NOOP("cadex-core", "Invalid -onion address: '%s'"),
+QT_TRANSLATE_NOOP("cadex-core", "Invalid -proxy address: '%s'"),
 QT_TRANSLATE_NOOP("cadex-core", "Invalid amount for -%s=<amount>: '%s'"),
 QT_TRANSLATE_NOOP("cadex-core", "Invalid amount for -fallbackfee=<amount>: '%s'"),
 QT_TRANSLATE_NOOP("cadex-core", "Invalid amount for -paytxfee=<amount>: '%s' (must be at least %s)"),
-QT_TRANSLATE_NOOP("cadex-core", "Invalid characters in -wallet filename"),
-QT_TRANSLATE_NOOP("cadex-core", "Invalid masternodeblsprivkey. Please see documenation."),
-QT_TRANSLATE_NOOP("cadex-core", "Invalid minimum number of spork signers specified with -minsporkkeys"),
+QT_TRANSLATE_NOOP("cadex-core", "Invalid masternodeprivkey. Please see documenation."),
 QT_TRANSLATE_NOOP("cadex-core", "Invalid netmask specified in -whitelist: '%s'"),
+QT_TRANSLATE_NOOP("cadex-core", "Invalid port detected in masternode.conf"),
 QT_TRANSLATE_NOOP("cadex-core", "Invalid script detected."),
 QT_TRANSLATE_NOOP("cadex-core", "Invalid spork address specified with -sporkaddr"),
 QT_TRANSLATE_NOOP("cadex-core", "KeePassHttp id for the established association"),
 QT_TRANSLATE_NOOP("cadex-core", "KeePassHttp key for AES encrypted communication with KeePass"),
-QT_TRANSLATE_NOOP("cadex-core", "Keep N KDX anonymized (%u-%u, default: %u)"),
+QT_TRANSLATE_NOOP("cadex-core", "Keep N cadex anonymized (%u-%u, default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", "Keep at most <n> unconnectable transactions in memory (default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", "Keep the transaction memory pool below <n> megabytes (default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", "Keypool ran out, please call keypoolrefill first"),
 QT_TRANSLATE_NOOP("cadex-core", "Last PrivateSend was too recent."),
 QT_TRANSLATE_NOOP("cadex-core", "Last successful PrivateSend action was too recent."),
+QT_TRANSLATE_NOOP("cadex-core", "Line: %d"),
 QT_TRANSLATE_NOOP("cadex-core", "Listen for JSON-RPC connections on <port> (default: %u or testnet: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", "Listen for connections on <port> (default: %u or testnet: %u)"),
-QT_TRANSLATE_NOOP("cadex-core", "Loading InstantSend data cache..."),
-QT_TRANSLATE_NOOP("cadex-core", "Loading P2P addresses..."),
+QT_TRANSLATE_NOOP("cadex-core", "Loading addresses..."),
 QT_TRANSLATE_NOOP("cadex-core", "Loading banlist..."),
 QT_TRANSLATE_NOOP("cadex-core", "Loading block index..."),
 QT_TRANSLATE_NOOP("cadex-core", "Loading fulfilled requests cache..."),
 QT_TRANSLATE_NOOP("cadex-core", "Loading governance cache..."),
 QT_TRANSLATE_NOOP("cadex-core", "Loading masternode cache..."),
-QT_TRANSLATE_NOOP("cadex-core", "Loading sporks cache..."),
+QT_TRANSLATE_NOOP("cadex-core", "Loading masternode payment cache..."),
 QT_TRANSLATE_NOOP("cadex-core", "Loading wallet... (%3.2f %%)"),
 QT_TRANSLATE_NOOP("cadex-core", "Loading wallet..."),
 QT_TRANSLATE_NOOP("cadex-core", "Location of the auth cookie (default: data dir)"),
 QT_TRANSLATE_NOOP("cadex-core", "Lock is already in place."),
+QT_TRANSLATE_NOOP("cadex-core", "Lock masternodes from masternode configuration file (default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", "Make the wallet broadcast transactions"),
+QT_TRANSLATE_NOOP("cadex-core", "Masternode cache is empty, skipping payments and governance cache..."),
 QT_TRANSLATE_NOOP("cadex-core", "Masternode options:"),
 QT_TRANSLATE_NOOP("cadex-core", "Masternode queue is full."),
 QT_TRANSLATE_NOOP("cadex-core", "Masternode:"),
@@ -485,6 +473,7 @@ QT_TRANSLATE_NOOP("cadex-core", "Number of automatic wallet backups (default: %u
 QT_TRANSLATE_NOOP("cadex-core", "Only connect to nodes in network <net> (ipv4, ipv6 or onion)"),
 QT_TRANSLATE_NOOP("cadex-core", "Options:"),
 QT_TRANSLATE_NOOP("cadex-core", "Password for JSON-RPC connections"),
+QT_TRANSLATE_NOOP("cadex-core", "Port: %d"),
 QT_TRANSLATE_NOOP("cadex-core", "Prepend debug output with timestamp (default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", "Print this help message and exit"),
 QT_TRANSLATE_NOOP("cadex-core", "Print version and exit"),
@@ -513,7 +502,7 @@ QT_TRANSLATE_NOOP("cadex-core", "Session timed out."),
 QT_TRANSLATE_NOOP("cadex-core", "Set database cache size in megabytes (%d to %d, default: %d)"),
 QT_TRANSLATE_NOOP("cadex-core", "Set key pool size to <n> (default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", "Set maximum block size in bytes (default: %d)"),
-QT_TRANSLATE_NOOP("cadex-core", "Set the masternode BLS private key"),
+QT_TRANSLATE_NOOP("cadex-core", "Set the masternode private key"),
 QT_TRANSLATE_NOOP("cadex-core", "Set the number of threads to service RPC calls (default: %d)"),
 QT_TRANSLATE_NOOP("cadex-core", "Show all debugging options (usage: --help -help-debug)"),
 QT_TRANSLATE_NOOP("cadex-core", "Shrink debug.log file on client startup (default: 1 when no -debug)"),
@@ -521,19 +510,22 @@ QT_TRANSLATE_NOOP("cadex-core", "Signing transaction failed"),
 QT_TRANSLATE_NOOP("cadex-core", "Specify configuration file (default: %s)"),
 QT_TRANSLATE_NOOP("cadex-core", "Specify connection timeout in milliseconds (minimum: 1, default: %d)"),
 QT_TRANSLATE_NOOP("cadex-core", "Specify data directory"),
+QT_TRANSLATE_NOOP("cadex-core", "Specify masternode configuration file (default: %s)"),
 QT_TRANSLATE_NOOP("cadex-core", "Specify pid file (default: %s)"),
 QT_TRANSLATE_NOOP("cadex-core", "Specify wallet file (within data directory)"),
 QT_TRANSLATE_NOOP("cadex-core", "Specify your own public address"),
 QT_TRANSLATE_NOOP("cadex-core", "Spend unconfirmed change when sending transactions (default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", "Starting network threads..."),
-QT_TRANSLATE_NOOP("cadex-core", "Submitted following entries to masternode: %u"),
-QT_TRANSLATE_NOOP("cadex-core", "Submitted to masternode, waiting for more entries ( %u ) %s"),
+QT_TRANSLATE_NOOP("cadex-core", "Submitted following entries to masternode: %u / %d"),
+QT_TRANSLATE_NOOP("cadex-core", "Submitted to masternode, waiting for more entries ( %u / %d ) %s"),
 QT_TRANSLATE_NOOP("cadex-core", "Submitted to masternode, waiting in queue %s"),
+QT_TRANSLATE_NOOP("cadex-core", "Synchroning blockchain..."),
 QT_TRANSLATE_NOOP("cadex-core", "Synchronization failed"),
 QT_TRANSLATE_NOOP("cadex-core", "Synchronization finished"),
 QT_TRANSLATE_NOOP("cadex-core", "Synchronization pending..."),
-QT_TRANSLATE_NOOP("cadex-core", "Synchronizing blockchain..."),
 QT_TRANSLATE_NOOP("cadex-core", "Synchronizing governance objects..."),
+QT_TRANSLATE_NOOP("cadex-core", "Synchronizing masternode payments..."),
+QT_TRANSLATE_NOOP("cadex-core", "Synchronizing masternodes..."),
 QT_TRANSLATE_NOOP("cadex-core", "The source code is available from %s."),
 QT_TRANSLATE_NOOP("cadex-core", "The transaction amount is too small to pay the fee"),
 QT_TRANSLATE_NOOP("cadex-core", "The wallet will avoid paying less than the minimum relay fee."),
@@ -543,7 +535,6 @@ QT_TRANSLATE_NOOP("cadex-core", "This is the minimum transaction fee you pay on 
 QT_TRANSLATE_NOOP("cadex-core", "This is the transaction fee you will pay if you send a transaction."),
 QT_TRANSLATE_NOOP("cadex-core", "Threshold for disconnecting misbehaving peers (default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", "Too many %f denominations, removing."),
-QT_TRANSLATE_NOOP("cadex-core", "Too many %f denominations, skipping."),
 QT_TRANSLATE_NOOP("cadex-core", "Tor control port password (default: empty)"),
 QT_TRANSLATE_NOOP("cadex-core", "Tor control port to use if onion listening enabled (default: %s)"),
 QT_TRANSLATE_NOOP("cadex-core", "Transaction amount too small"),
@@ -554,7 +545,6 @@ QT_TRANSLATE_NOOP("cadex-core", "Transaction has too long of a mempool chain"),
 QT_TRANSLATE_NOOP("cadex-core", "Transaction must have at least one recipient"),
 QT_TRANSLATE_NOOP("cadex-core", "Transaction not valid."),
 QT_TRANSLATE_NOOP("cadex-core", "Transaction too large for fee policy"),
-QT_TRANSLATE_NOOP("cadex-core", "Transaction too large"),
 QT_TRANSLATE_NOOP("cadex-core", "Trying to connect..."),
 QT_TRANSLATE_NOOP("cadex-core", "Unable to bind to %s on this computer (bind returned error %s)"),
 QT_TRANSLATE_NOOP("cadex-core", "Unable to bind to %s on this computer. %s is probably already running."),
@@ -580,7 +570,6 @@ QT_TRANSLATE_NOOP("cadex-core", "Very low number of keys left: %d"),
 QT_TRANSLATE_NOOP("cadex-core", "Wallet %s resides outside data directory %s"),
 QT_TRANSLATE_NOOP("cadex-core", "Wallet debugging/testing options:"),
 QT_TRANSLATE_NOOP("cadex-core", "Wallet is locked."),
-QT_TRANSLATE_NOOP("cadex-core", "Wallet is not initialized"),
 QT_TRANSLATE_NOOP("cadex-core", "Wallet needed to be rewritten: restart %s to complete"),
 QT_TRANSLATE_NOOP("cadex-core", "Wallet options:"),
 QT_TRANSLATE_NOOP("cadex-core", "Wallet window title"),
@@ -589,7 +578,6 @@ QT_TRANSLATE_NOOP("cadex-core", "Warning: unknown new rules activated (versionbi
 QT_TRANSLATE_NOOP("cadex-core", "Wasn't able to create wallet backup folder %s!"),
 QT_TRANSLATE_NOOP("cadex-core", "Whether to operate in a blocks only mode (default: %u)"),
 QT_TRANSLATE_NOOP("cadex-core", "Will retry..."),
-QT_TRANSLATE_NOOP("cadex-core", "You can not start a masternode in lite mode."),
 QT_TRANSLATE_NOOP("cadex-core", "Your entries added successfully."),
 QT_TRANSLATE_NOOP("cadex-core", "Your transaction was accepted into the pool!"),
 QT_TRANSLATE_NOOP("cadex-core", "Zapping all transactions from wallet..."),

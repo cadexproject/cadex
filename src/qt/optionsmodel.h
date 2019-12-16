@@ -49,7 +49,6 @@ public:
         SpendZeroConfChange,    // bool
         ShowMasternodesTab,     // bool
         ShowAdvancedPSUI,       // bool
-        ShowPrivateSendPopups,  // bool
         LowKeysWarning,         // bool
         PrivateSendRounds,      // int
         PrivateSendAmount,      // int

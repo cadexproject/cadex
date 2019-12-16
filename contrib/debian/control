@@ -1,8 +1,8 @@
 Source: cadex
 Section: utils
 Priority: optional
-Maintainer: Holger Schinzel <holger@cadexcoin.tech>
-Uploaders: Holger Schinzel <holger@cadexcoin.tech>
+Maintainer: Holger Schinzel <holger@dash.org>
+Uploaders: Holger Schinzel <holger@dash.org>
 Build-Depends: debhelper,
  devscripts,
  automake,
@@ -26,7 +26,7 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: https://www.cadexcoin.tech/
+Homepage: http://cadex.xyz/
 Vcs-Git: git://github.com/cadexproject/cadex.git
 Vcs-Browser: https://github.com/cadexproject/cadex
 

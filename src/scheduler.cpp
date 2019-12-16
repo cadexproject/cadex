@@ -104,20 +104,20 @@ void CScheduler::schedule(CScheduler::Function f, boost::chrono::system_clock::t
     newTaskScheduled.notify_one();
 }
 
-void CScheduler::scheduleFromNow(CScheduler::Function f, int64_t deltaMilliSeconds)
+void CScheduler::scheduleFromNow(CScheduler::Function f, int64_t deltaSeconds)
 {
-    schedule(f, boost::chrono::system_clock::now() + boost::chrono::milliseconds(deltaMilliSeconds));
+    schedule(f, boost::chrono::system_clock::now() + boost::chrono::seconds(deltaSeconds));
 }
 
-static void Repeat(CScheduler* s, CScheduler::Function f, int64_t deltaMilliSeconds)
+static void Repeat(CScheduler* s, CScheduler::Function f, int64_t deltaSeconds)
 {
     f();
-    s->scheduleFromNow(boost::bind(&Repeat, s, f, deltaMilliSeconds), deltaMilliSeconds);
+    s->scheduleFromNow(boost::bind(&Repeat, s, f, deltaSeconds), deltaSeconds);
 }
 
-void CScheduler::scheduleEvery(CScheduler::Function f, int64_t deltaMilliSeconds)
+void CScheduler::scheduleEvery(CScheduler::Function f, int64_t deltaSeconds)
 {
-    scheduleFromNow(boost::bind(&Repeat, this, f, deltaMilliSeconds), deltaMilliSeconds);
+    scheduleFromNow(boost::bind(&Repeat, this, f, deltaSeconds), deltaSeconds);
 }
 
 size_t CScheduler::getQueueInfo(boost::chrono::system_clock::time_point &first,

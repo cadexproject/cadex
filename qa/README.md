@@ -39,12 +39,12 @@ Run the regression test suite with
 
 Run all possible tests with
 
-    qa/pull-tester/rpc-tests.py --extended
+    qa/pull-tester/rpc-tests.py -extended
 
 By default, tests will be run in parallel. To specify how many jobs to run,
-append `--jobs=n` (default n=4).
+append `-parallel=n` (default n=4).
 
-If you want to create a basic coverage report for the RPC test suite, append `--coverage`.
+If you want to create a basic coverage report for the rpc test suite, append `--coverage`.
 
 Possible options, which apply to each individual test run:
 
@@ -83,5 +83,5 @@ killall cadexd
 Writing tests
 =============
 You are encouraged to write tests for new or existing features.
-Further information about the test framework and individual RPC
+Further information about the test framework and individual rpc
 tests is found in [qa/rpc-tests](/qa/rpc-tests).

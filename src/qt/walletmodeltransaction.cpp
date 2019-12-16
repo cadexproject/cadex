@@ -46,9 +46,9 @@ void WalletModelTransaction::setTransactionFee(const CAmount& newFee)
     fee = newFee;
 }
 
-void WalletModelTransaction::reassignAmounts()
+void WalletModelTransaction::reassignAmounts(int nChangePosRet)
 {
-    // For each recipient look for a matching CTxOut in walletTransaction and reassign amounts
+    int i = 0;
     for (QList<SendCoinsRecipient>::iterator it = recipients.begin(); it != recipients.end(); ++it)
     {
         SendCoinsRecipient& rcp = (*it);
@@ -61,26 +61,19 @@ void WalletModelTransaction::reassignAmounts()
             {
                 const payments::Output& out = details.outputs(j);
                 if (out.amount() <= 0) continue;
-                const unsigned char* scriptStr = (const unsigned char*)out.script().data();
-                CScript scriptPubKey(scriptStr, scriptStr+out.script().size());
-                for (const auto& txout : walletTransaction->tx->vout) {
-                    if (txout.scriptPubKey == scriptPubKey) {
-                        subtotal += txout.nValue;
-                        break;
-                    }
-                }
+                if (i == nChangePosRet)
+                    i++;
+                subtotal += walletTransaction->tx->vout[i].nValue;
+                i++;
             }
             rcp.amount = subtotal;
         }
         else // normal recipient (no payment request)
         {
-            for (const auto& txout : walletTransaction->tx->vout) {
-                CScript scriptPubKey = GetScriptForDestination(CBitcoinAddress(rcp.address.toStdString()).Get());
-                if (txout.scriptPubKey == scriptPubKey) {
-                    rcp.amount = txout.nValue;
-                    break;
-                }
-            }
+            if (i == nChangePosRet)
+                i++;
+            rcp.amount = walletTransaction->tx->vout[i].nValue;
+            i++;
         }
     }
 }

@@ -16,7 +16,6 @@ class CBasicKeyStore;
 class CWallet;
 class uint256;
 class CBlockIndex;
-class CDeterministicMNList;
 
 /** General change type (added, updated, removed). */
 enum ChangeType
@@ -89,6 +88,9 @@ public:
     /** Network activity state changed. */
     boost::signals2::signal<void (bool networkActive)> NotifyNetworkActiveChanged;
 
+    /** Number of masternodes changed. */
+    boost::signals2::signal<void (int newNumMasternodes)> NotifyStrMasternodeCountChanged;
+
     /**
      * New, updated or cancelled alert.
      * @note called with lock cs_mapAlerts held.
@@ -109,9 +111,6 @@ public:
 
     /** Best header has changed */
     boost::signals2::signal<void (bool, const CBlockIndex *)> NotifyHeaderTip;
-
-    /** Masternode list has changed */
-    boost::signals2::signal<void (const CDeterministicMNList&)> NotifyMasternodeListChanged;
 
     /** Additional data sync progress changed */
     boost::signals2::signal<void (double nSyncProgress)> NotifyAdditionalDataSyncProgressChanged;

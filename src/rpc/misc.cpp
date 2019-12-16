@@ -1,6 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2019 The Dash Core developers
+// Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018 The Cadex Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,7 +17,6 @@
 #include "utilstrencodings.h"
 #include "validation.h"
 #ifdef ENABLE_WALLET
-#include "wallet/rpcwallet.h"
 #include "wallet/wallet.h"
 #include "wallet/walletdb.h"
 #endif
@@ -67,7 +67,7 @@ UniValue getinfo(const JSONRPCRequest& request)
             "  \"keypoolsize\": xxxx,        (numeric) how many new keys are pre-generated\n"
             "  \"unlocked_until\": ttt,      (numeric) the timestamp in seconds since epoch (midnight Jan 1 1970 GMT) that the wallet is unlocked for transfers, or 0 if the wallet is locked\n"
             "  \"paytxfee\": x.xxxx,         (numeric) the transaction fee set in " + CURRENCY_UNIT + "/kB\n"
-            "  \"relayfee\": x.xxxx,         (numeric) minimum relay fee for transactions in " + CURRENCY_UNIT + "/kB\n"
+            "  \"relayfee\": x.xxxx,         (numeric) minimum relay fee for non-free transactions in " + CURRENCY_UNIT + "/kB\n"
             "  \"errors\": \"...\"           (string) any error messages\n"
             "}\n"
             "\nExamples:\n"
@@ -76,9 +76,7 @@ UniValue getinfo(const JSONRPCRequest& request)
         );
 
 #ifdef ENABLE_WALLET
-    CWallet * const pwallet = GetWalletForJSONRPCRequest(request);
-
-    LOCK2(cs_main, pwallet ? &pwallet->cs_wallet : NULL);
+    LOCK2(cs_main, pwalletMain ? &pwalletMain->cs_wallet : NULL);
 #else
     LOCK(cs_main);
 #endif
@@ -90,11 +88,11 @@ UniValue getinfo(const JSONRPCRequest& request)
     obj.push_back(Pair("version", CLIENT_VERSION));
     obj.push_back(Pair("protocolversion", PROTOCOL_VERSION));
 #ifdef ENABLE_WALLET
-    if (pwallet) {
-        obj.push_back(Pair("walletversion", pwallet->GetVersion()));
-        obj.push_back(Pair("balance",       ValueFromAmount(pwallet->GetBalance())));
+    if (pwalletMain) {
+        obj.push_back(Pair("walletversion", pwalletMain->GetVersion()));
+        obj.push_back(Pair("balance",       ValueFromAmount(pwalletMain->GetBalance())));
         if(!fLiteMode)
-            obj.push_back(Pair("privatesend_balance",       ValueFromAmount(pwallet->GetAnonymizedBalance())));
+            obj.push_back(Pair("privatesend_balance",       ValueFromAmount(pwalletMain->GetAnonymizedBalance())));
     }
 #endif
     obj.push_back(Pair("blocks",        (int)chainActive.Height()));
@@ -105,13 +103,12 @@ UniValue getinfo(const JSONRPCRequest& request)
     obj.push_back(Pair("difficulty",    (double)GetDifficulty()));
     obj.push_back(Pair("testnet",       Params().NetworkIDString() == CBaseChainParams::TESTNET));
 #ifdef ENABLE_WALLET
-    if (pwallet) {
-        obj.push_back(Pair("keypoololdest", pwallet->GetOldestKeyPoolTime()));
-        obj.push_back(Pair("keypoolsize",   (int)pwallet->GetKeyPoolSize()));
+    if (pwalletMain) {
+        obj.push_back(Pair("keypoololdest", pwalletMain->GetOldestKeyPoolTime()));
+        obj.push_back(Pair("keypoolsize",   (int)pwalletMain->GetKeyPoolSize()));
     }
-    if (pwallet && pwallet->IsCrypted()) {
-        obj.push_back(Pair("unlocked_until", pwallet->nRelockTime));
-    }
+    if (pwalletMain && pwalletMain->IsCrypted())
+        obj.push_back(Pair("unlocked_until", nWalletUnlockTime));
     obj.push_back(Pair("paytxfee",      ValueFromAmount(payTxFee.GetFeePerK())));
 #endif
     obj.push_back(Pair("relayfee",      ValueFromAmount(::minRelayTxFee.GetFeePerK())));
@@ -123,18 +120,10 @@ UniValue debug(const JSONRPCRequest& request)
 {
     if (request.fHelp || request.params.size() != 1)
         throw std::runtime_error(
-            "debug \"category\"\n"
+            "debug ( 0|1|addrman|alert|bench|coindb|db|lock|rand|rpc|selectcoins|mempool"
+            "|mempoolrej|net|proxy|prune|http|libevent|tor|zmq|"
+            "cadex|privatesend|instantsend|masternode|spork|keepass|mnpayments|gobject )\n"
             "Change debug category on the fly. Specify single category or use '+' to specify many.\n"
-            "\nArguments:\n"
-            "1. \"category\"          (string, required) The name of the debug category to turn on. Can be one of the following:\n"
-            "                       addrman, alert, bench, cmpctblock, coindb, db, http, leveldb, libevent, lock, mempool,\n"
-            "                       mempoolrej, net, proxy, prune, qt, rand, reindex, rpc, selectcoins, tor, zmq, cadex\n"
-            "                       (or specifically: chainlocks, gobject, instantsend, keepass, llmq, llmq-dkg, llmq-sigs,\n"
-            "                       masternode, mnpayments, mnsync, privatesend, spork).\n"
-            "                       Can also use \"1\" to turn all categories on at once and \"0\" to turn them off.\n"
-            "                       Note: If specified category doesn't match any of the above, no error is thrown.\n"
-            "\nResult:\n"
-            "  result               (string) \"Debug mode: \" followed by the specified category.\n"
             "\nExamples:\n"
             + HelpExampleCli("debug", "cadex")
             + HelpExampleRpc("debug", "cadex+net")
@@ -148,8 +137,6 @@ UniValue debug(const JSONRPCRequest& request)
     ForceSetArg("-debug", newMultiArgs[newMultiArgs.size() - 1]);
 
     fDebug = GetArg("-debug", "") != "0";
-
-    ResetLogAcceptCategoryCache();
 
     return "Debug mode: " + (fDebug ? strMode : "off");
 }
@@ -171,6 +158,8 @@ UniValue mnsync(const JSONRPCRequest& request)
         objStatus.push_back(Pair("AssetStartTime", masternodeSync.GetAssetStartTime()));
         objStatus.push_back(Pair("Attempt", masternodeSync.GetAttempt()));
         objStatus.push_back(Pair("IsBlockchainSynced", masternodeSync.IsBlockchainSynced()));
+        objStatus.push_back(Pair("IsMasternodeListSynced", masternodeSync.IsMasternodeListSynced()));
+        objStatus.push_back(Pair("IsWinnersListSynced", masternodeSync.IsWinnersListSynced()));
         objStatus.push_back(Pair("IsSynced", masternodeSync.IsSynced()));
         objStatus.push_back(Pair("IsFailed", masternodeSync.IsFailed()));
         return objStatus;
@@ -195,17 +184,13 @@ UniValue mnsync(const JSONRPCRequest& request)
 class DescribeAddressVisitor : public boost::static_visitor<UniValue>
 {
 public:
-    CWallet * const pwallet;
-
-    DescribeAddressVisitor(CWallet *_pwallet) : pwallet(_pwallet) {}
-
     UniValue operator()(const CNoDestination &dest) const { return UniValue(UniValue::VOBJ); }
 
     UniValue operator()(const CKeyID &keyID) const {
         UniValue obj(UniValue::VOBJ);
         CPubKey vchPubKey;
         obj.push_back(Pair("isscript", false));
-        if (pwallet && pwallet->GetPubKey(keyID, vchPubKey)) {
+        if (pwalletMain && pwalletMain->GetPubKey(keyID, vchPubKey)) {
             obj.push_back(Pair("pubkey", HexStr(vchPubKey)));
             obj.push_back(Pair("iscompressed", vchPubKey.IsCompressed()));
         }
@@ -216,7 +201,7 @@ public:
         UniValue obj(UniValue::VOBJ);
         CScript subscript;
         obj.push_back(Pair("isscript", true));
-        if (pwallet && pwallet->GetCScript(scriptID, subscript)) {
+        if (pwalletMain && pwalletMain->GetCScript(scriptID, subscript)) {
             std::vector<CTxDestination> addresses;
             txnouttype whichType;
             int nRequired;
@@ -343,9 +328,7 @@ UniValue validateaddress(const JSONRPCRequest& request)
         );
 
 #ifdef ENABLE_WALLET
-    CWallet * const pwallet = GetWalletForJSONRPCRequest(request);
-
-    LOCK2(cs_main, pwallet ? &pwallet->cs_wallet : NULL);
+    LOCK2(cs_main, pwalletMain ? &pwalletMain->cs_wallet : NULL);
 #else
     LOCK(cs_main);
 #endif
@@ -365,17 +348,16 @@ UniValue validateaddress(const JSONRPCRequest& request)
         ret.push_back(Pair("scriptPubKey", HexStr(scriptPubKey.begin(), scriptPubKey.end())));
 
 #ifdef ENABLE_WALLET
-        isminetype mine = pwallet ? IsMine(*pwallet, dest) : ISMINE_NO;
+        isminetype mine = pwalletMain ? IsMine(*pwalletMain, dest) : ISMINE_NO;
         ret.push_back(Pair("ismine", (mine & ISMINE_SPENDABLE) ? true : false));
         ret.push_back(Pair("iswatchonly", (mine & ISMINE_WATCH_ONLY) ? true: false));
-        UniValue detail = boost::apply_visitor(DescribeAddressVisitor(pwallet), dest);
+        UniValue detail = boost::apply_visitor(DescribeAddressVisitor(), dest);
         ret.pushKVs(detail);
-        if (pwallet && pwallet->mapAddressBook.count(dest)) {
-            ret.push_back(Pair("account", pwallet->mapAddressBook[dest].name));
-        }
+        if (pwalletMain && pwalletMain->mapAddressBook.count(dest))
+            ret.push_back(Pair("account", pwalletMain->mapAddressBook[dest].name));
         CKeyID keyID;
-        if (pwallet) {
-            const auto& meta = pwallet->mapKeyMetadata;
+        if (pwalletMain) {
+            const auto& meta = pwalletMain->mapKeyMetadata;
             auto it = address.GetKeyID(keyID) ? meta.find(keyID) : meta.end();
             if (it == meta.end()) {
                 it = meta.find(CScriptID(scriptPubKey));
@@ -385,8 +367,8 @@ UniValue validateaddress(const JSONRPCRequest& request)
             }
 
             CHDChain hdChainCurrent;
-            if (!keyID.IsNull() && pwallet->mapHdPubKeys.count(keyID) && pwallet->GetHDChain(hdChainCurrent)) {
-                ret.push_back(Pair("hdkeypath", pwallet->mapHdPubKeys[keyID].GetKeyPath()));
+            if (!keyID.IsNull() && pwalletMain->mapHdPubKeys.count(keyID) && pwalletMain->GetHDChain(hdChainCurrent)) {
+                ret.push_back(Pair("hdkeypath", pwalletMain->mapHdPubKeys[keyID].GetKeyPath()));
                 ret.push_back(Pair("hdchainid", hdChainCurrent.GetID().GetHex()));
             }
         }
@@ -395,13 +377,10 @@ UniValue validateaddress(const JSONRPCRequest& request)
     return ret;
 }
 
-// Needed even with !ENABLE_WALLET, to pass (ignored) pointers around
-class CWallet;
-
 /**
  * Used by addmultisigaddress / createmultisig:
  */
-CScript _createmultisig_redeemScript(CWallet * const pwallet, const UniValue& params)
+CScript _createmultisig_redeemScript(const UniValue& params)
 {
     int nRequired = params[0].get_int();
     const UniValue& keys = params[1].get_array();
@@ -421,18 +400,18 @@ CScript _createmultisig_redeemScript(CWallet * const pwallet, const UniValue& pa
     {
         const std::string& ks = keys[i].get_str();
 #ifdef ENABLE_WALLET
-        // Case 1: Cadex address and we have full public key:
+        // Case 1: cadex address and we have full public key:
         CBitcoinAddress address(ks);
-        if (pwallet && address.IsValid()) {
+        if (pwalletMain && address.IsValid())
+        {
             CKeyID keyID;
             if (!address.GetKeyID(keyID))
                 throw std::runtime_error(
                     strprintf("%s does not refer to a key",ks));
             CPubKey vchPubKey;
-            if (!pwallet->GetPubKey(keyID, vchPubKey)) {
+            if (!pwalletMain->GetPubKey(keyID, vchPubKey))
                 throw std::runtime_error(
                     strprintf("no full public key for address %s",ks));
-            }
             if (!vchPubKey.IsFullyValid())
                 throw std::runtime_error(" Invalid public key: "+ks);
             pubkeys[i] = vchPubKey;
@@ -464,12 +443,6 @@ CScript _createmultisig_redeemScript(CWallet * const pwallet, const UniValue& pa
 
 UniValue createmultisig(const JSONRPCRequest& request)
 {
-#ifdef ENABLE_WALLET
-    CWallet * const pwallet = GetWalletForJSONRPCRequest(request);
-#else
-    CWallet * const pwallet = NULL;
-#endif
-
     if (request.fHelp || request.params.size() < 2 || request.params.size() > 2)
     {
         std::string msg = "createmultisig nrequired [\"key\",...]\n"
@@ -500,7 +473,7 @@ UniValue createmultisig(const JSONRPCRequest& request)
     }
 
     // Construct using pay-to-script-hash:
-    CScript inner = _createmultisig_redeemScript(pwallet, request.params);
+    CScript inner = _createmultisig_redeemScript(request.params);
     CScriptID innerID(inner);
     CBitcoinAddress address(innerID);
 
@@ -625,7 +598,7 @@ UniValue setmocktime(const JSONRPCRequest& request)
     // this could have an effect on mempool time-based eviction, as well as
     // IsCurrentForFeeEstimation() and IsInitialBlockDownload().
     // TODO: figure out the right way to synchronize around mocktime, and
-    // ensure all call sites of GetTime() are accessing this safely.
+    // ensure all callsites of GetTime() are accessing this safely.
     LOCK(cs_main);
 
     RPCTypeCheck(request.params, boost::assign::list_of(UniValue::VNUM));
@@ -1178,14 +1151,14 @@ static const CRPCCommand commands[] =
     { "addressindex",       "getaddresstxids",        &getaddresstxids,        false, {"addresses"} },
     { "addressindex",       "getaddressbalance",      &getaddressbalance,      false, {"addresses"} },
 
-    /* Cadex features */
+    /* cadex features */
     { "cadex",               "mnsync",                 &mnsync,                 true,  {} },
     { "cadex",               "spork",                  &spork,                  true,  {"value"} },
 
     /* Not shown in help */
     { "hidden",             "setmocktime",            &setmocktime,            true,  {"timestamp"}},
     { "hidden",             "echo",                   &echo,                   true,  {"arg0","arg1","arg2","arg3","arg4","arg5","arg6","arg7","arg8","arg9"}},
-    { "hidden",             "echojson",               &echo,                   true,  {"arg0","arg1","arg2","arg3","arg4","arg5","arg6","arg7","arg8","arg9"}},
+    { "hidden",             "echojson",               &echo,                  true,  {"arg0","arg1","arg2","arg3","arg4","arg5","arg6","arg7","arg8","arg9"}},
 };
 
 void RegisterMiscRPCCommands(CRPCTable &t)

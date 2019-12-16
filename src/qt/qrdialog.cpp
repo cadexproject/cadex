@@ -136,10 +136,6 @@ void QRDialog::update()
 
     setWindowTitle(strWindowtitle);
     ui->button_saveImage->setEnabled(false);
-    if (strTextInfo.isEmpty()) {
-        ui->outUri->setVisible(false);
-        adjustSize();
-    }
     ui->outUri->setText(strTextInfo);
 
 #ifdef USE_QRCODE

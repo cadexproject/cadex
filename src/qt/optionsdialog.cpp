@@ -92,14 +92,14 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     }
     
     /* Theme selector */
-    ui->theme->addItem(QString("Light"), QVariant("light"));
-    ui->theme->addItem(QString("Light-HiRes"), QVariant("light-hires"));
-    ui->theme->addItem(QString("Light-Retro"), QVariant("light-retro"));
-    ui->theme->addItem(QString("Light-HiRes-Retro"), QVariant("light-hires-retro"));
-    ui->theme->addItem(QString("Blue"), QVariant("drkblue"));
-    ui->theme->addItem(QString("Crownium"), QVariant("crownium"));
-    ui->theme->addItem(QString("Traditional"), QVariant("trad"));
-
+    ui->theme->addItem(QString("CADEX-light"), QVariant("light"));
+    ui->theme->addItem(QString("CADEX-light-hires"), QVariant("light-hires"));
+    ui->theme->addItem(QString("CADEX-light-retro"), QVariant("light-retro"));
+    ui->theme->addItem(QString("CADEX-light-hires-retro"), QVariant("light-hires-retro"));
+    ui->theme->addItem(QString("CADEX-blue"), QVariant("drkblue"));
+    ui->theme->addItem(QString("CADEX-Crownium"), QVariant("crownium"));
+    ui->theme->addItem(QString("CADEX-traditional"), QVariant("trad"));
+    
     /* Language selector */
     QDir translations(":translations");
 
@@ -211,7 +211,6 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->coinControlFeatures, OptionsModel::CoinControlFeatures);
     mapper->addMapping(ui->showMasternodesTab, OptionsModel::ShowMasternodesTab);
     mapper->addMapping(ui->showAdvancedPSUI, OptionsModel::ShowAdvancedPSUI);
-    mapper->addMapping(ui->showPrivateSendPopups, OptionsModel::ShowPrivateSendPopups);
     mapper->addMapping(ui->lowKeysWarning, OptionsModel::LowKeysWarning);
     mapper->addMapping(ui->privateSendMultiSession, OptionsModel::PrivateSendMultiSession);
     mapper->addMapping(ui->spendZeroConfChange, OptionsModel::SpendZeroConfChange);

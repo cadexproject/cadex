@@ -2,7 +2,8 @@
 # Copyright (c) 2014-2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Test logic for skipping signature validation on old blocks.
+'''
+assumevalid.py
 
 Test logic for skipping signature validation on blocks which we've assumed
 valid (https://github.com/bitcoin/bitcoin/pull/9484)
@@ -28,7 +29,7 @@ Start three nodes:
     - node2 has -assumevalid set to the hash of block 102. Try to sync to
       block 200. node2 will reject block 102 since it's assumed valid, but it
       isn't buried by at least two weeks' work.
-"""
+'''
 
 from test_framework.mininode import *
 from test_framework.test_framework import BitcoinTestFramework
@@ -73,7 +74,7 @@ class SendHeadersTest(BitcoinTestFramework):
         # we need to pre-mine a block with an invalid transaction
         # signature so we can pass in the block hash as assumevalid.
         self.nodes = []
-        self.nodes.append(start_node(0, self.options.tmpdir))
+        self.nodes.append(start_node(0, self.options.tmpdir, ["-debug"]))
 
     def run_test(self):
 
@@ -146,14 +147,14 @@ class SendHeadersTest(BitcoinTestFramework):
 
         # Start node1 and node2 with assumevalid so they accept a block with a bad signature.
         self.nodes.append(start_node(1, self.options.tmpdir,
-                                     ["-assumevalid=" + hex(block102.sha256)]))
+                                     ["-debug", "-assumevalid=" + hex(block102.sha256)]))
         node1 = BaseNode()  # connects to node1
         connections.append(NodeConn('127.0.0.1', p2p_port(1), self.nodes[1], node1))
         node1.add_connection(connections[1])
         node1.wait_for_verack()
 
         self.nodes.append(start_node(2, self.options.tmpdir,
-                                     ["-assumevalid=" + hex(block102.sha256)]))
+                                     ["-debug", "-assumevalid=" + hex(block102.sha256)]))
         node2 = BaseNode()  # connects to node2
         connections.append(NodeConn('127.0.0.1', p2p_port(2), self.nodes[2], node2))
         node2.add_connection(connections[2])

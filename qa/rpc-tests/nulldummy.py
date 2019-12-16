@@ -2,16 +2,6 @@
 # Copyright (c) 2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Test NULLDUMMY softfork.
-
-Connect to a single node.
-Generate 2 blocks (save the coinbases for later).
-Generate 427 more blocks.
-[Policy/Consensus] Check that NULLDUMMY compliant transactions are accepted in the 430th block.
-[Policy] Check that non-NULLDUMMY transactions are rejected before activation.
-[Consensus] Check that the new NULLDUMMY rules are not enforced on the 431st block.
-[Policy/Consensus] Check that the new NULLDUMMY rules are enforced on the 432nd block.
-"""
 
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import *
@@ -34,6 +24,17 @@ def trueDummy(tx):
     tx.vin[0].scriptSig = CScript(newscript)
     tx.rehash()
 
+'''
+This test is meant to exercise NULLDUMMY softfork.
+Connect to a single node.
+Generate 2 blocks (save the coinbases for later).
+Generate 427 more blocks.
+[Policy/Consensus] Check that NULLDUMMY compliant transactions are accepted in the 430th block.
+[Policy] Check that non-NULLDUMMY transactions are rejected before activation.
+[Consensus] Check that the new NULLDUMMY rules are not enforced on the 431st block.
+[Policy/Consensus] Check that the new NULLDUMMY rules are enforced on the 432nd block.
+'''
+
 class NULLDUMMYTest(BitcoinTestFramework):
 
     def __init__(self):
@@ -44,7 +45,7 @@ class NULLDUMMYTest(BitcoinTestFramework):
     def setup_network(self):
         # Must set the blockversion for this test
         self.nodes = start_nodes(self.num_nodes, self.options.tmpdir,
-                                 extra_args=[['-whitelist=127.0.0.1']])
+                                 extra_args=[['-debug', '-whitelist=127.0.0.1']])
 
     def run_test(self):
         self.address = self.nodes[0].getnewaddress()
@@ -61,29 +62,29 @@ class NULLDUMMYTest(BitcoinTestFramework):
         self.lastblockheight = 429
         self.lastblocktime = get_mocktime() + 429
 
-        self.log.info("Test 1: NULLDUMMY compliant base transactions should be accepted to mempool and mined before activation [430]")
+        print ("Test 1: NULLDUMMY compliant base transactions should be accepted to mempool and mined before activation [430]")
         test1txs = [self.create_transaction(self.nodes[0], coinbase_txid[0], self.ms_address, 49)]
         txid1 = self.tx_submit(self.nodes[0], test1txs[0])
         test1txs.append(self.create_transaction(self.nodes[0], txid1, self.ms_address, 48))
         txid2 = self.tx_submit(self.nodes[0], test1txs[1])
         self.block_submit(self.nodes[0], test1txs, True)
 
-        self.log.info("Test 2: Non-NULLDUMMY base multisig transaction should not be accepted to mempool before activation")
+        print ("Test 2: Non-NULLDUMMY base multisig transaction should not be accepted to mempool before activation")
         test2tx = self.create_transaction(self.nodes[0], txid2, self.ms_address, 47)
         trueDummy(test2tx)
         txid4 = self.tx_submit(self.nodes[0], test2tx, NULLDUMMY_ERROR)
 
-        self.log.info("Test 3: Non-NULLDUMMY base transactions should be accepted in a block before activation [431]")
+        print ("Test 3: Non-NULLDUMMY base transactions should be accepted in a block before activation [431]")
         self.block_submit(self.nodes[0], [test2tx], True)
 
-        self.log.info("Test 4: Non-NULLDUMMY base multisig transaction is invalid after activation")
+        print ("Test 4: Non-NULLDUMMY base multisig transaction is invalid after activation")
         test4tx = self.create_transaction(self.nodes[0], txid4, self.address, 46)
         test6txs=[CTransaction(test4tx)]
         trueDummy(test4tx)
         self.tx_submit(self.nodes[0], test4tx, NULLDUMMY_ERROR)
         self.block_submit(self.nodes[0], [test4tx])
 
-        self.log.info("Test 6: NULLDUMMY compliant transactions should be accepted to mempool and in block after activation [432]")
+        print ("Test 6: NULLDUMMY compliant transactions should be accepted to mempool and in block after activation [432]")
         for i in test6txs:
             self.tx_submit(self.nodes[0], i)
         self.block_submit(self.nodes[0], test6txs, True)
@@ -112,8 +113,7 @@ class NULLDUMMYTest(BitcoinTestFramework):
 
 
     def block_submit(self, node, txs, accept = False):
-        dip4_activated = self.lastblockheight + 1 >= 432
-        block = create_block(self.tip, create_coinbase(self.lastblockheight + 1, dip4_activated=dip4_activated), self.lastblocktime + 1)
+        block = create_block(self.tip, create_coinbase(self.lastblockheight + 1), self.lastblocktime + 1)
         block.nVersion = 4
         for tx in txs:
             tx.rehash()

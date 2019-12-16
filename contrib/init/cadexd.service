@@ -3,13 +3,13 @@ Description=Cadex's distributed currency daemon
 After=network.target
 
 [Service]
-User=cadexcore
-Group=cadexcore
+User=cadex
+Group=cadex
 
 Type=forking
 PIDFile=/var/lib/cadexd/cadexd.pid
 ExecStart=/usr/bin/cadexd -daemon -pid=/var/lib/cadexd/cadexd.pid \
--conf=/etc/cadexcore/cadex.conf -datadir=/var/lib/cadexd -disablewallet
+-conf=/etc/cadex/cadex.conf -datadir=/var/lib/cadexd -disablewallet
 
 Restart=always
 PrivateTmp=true

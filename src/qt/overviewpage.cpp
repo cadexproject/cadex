@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2018 The Dash Core developers
+// Copyright (c) 2014-2017 The Dash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,6 +19,7 @@
 #include "walletmodel.h"
 
 #include "instantx.h"
+#include "darksendconfig.h"
 #include "masternode-sync.h"
 #include "privatesend-client.h"
 
@@ -37,7 +38,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     TxViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(), unit(BitcoinUnits::KDX),
+        QAbstractItemDelegate(), unit(BitcoinUnits::CADEX),
         platformStyle(_platformStyle)
     {
 
@@ -132,7 +133,6 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     currentWatchOnlyBalance(-1),
     currentWatchUnconfBalance(-1),
     currentWatchImmatureBalance(-1),
-    cachedNumISLocks(-1),
     txdelegate(new TxViewDelegate(platformStyle, this))
 {
     ui->setupUi(this);
@@ -231,12 +231,11 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
 
     updatePrivateSendProgress();
 
-    if (walletModel) {
-        int numISLocks = walletModel->getNumISLocks();
-        if(cachedNumISLocks != numISLocks) {
-            cachedNumISLocks = numISLocks;
-            ui->listTransactions->update();
-        }
+    static int cachedTxLocks = 0;
+
+    if(cachedTxLocks != nCompleteTXLocks){
+        cachedTxLocks = nCompleteTXLocks;
+        ui->listTransactions->update();
     }
 }
 
@@ -277,7 +276,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
     this->walletModel = model;
     if(model && model->getOptionsModel())
     {
-        // update the display unit, to not use the default ("KDX")
+        // update the display unit, to not use the default ("CADEX")
         updateDisplayUnit();
         // Keep up to date with wallet
         setBalance(model->getBalance(), model->getUnconfirmedBalance(), model->getImmatureBalance(), model->getAnonymizedBalance(),
@@ -559,23 +558,29 @@ void OverviewPage::privateSendStatus()
         ui->labelPrivateSendEnabled->setToolTip(strWarning);
     }
 
-    // check privatesend status and unlock if needed
+    // check darksend status and unlock if needed
     if(nBestHeight != privateSendClient.nCachedNumBlocks) {
         // Balance and number of transactions might have changed
         privateSendClient.nCachedNumBlocks = nBestHeight;
         updatePrivateSendProgress();
     }
 
-    QString strStatus = QString(privateSendClient.GetStatuses().c_str());
+    QString strStatus = QString(privateSendClient.GetStatus().c_str());
 
     QString s = tr("Last PrivateSend message:\n") + strStatus;
 
     if(s != ui->labelPrivateSendLastMessage->text())
-        LogPrint("privatesend", "OverviewPage::privateSendStatus -- Last PrivateSend message: %s\n", strStatus.toStdString());
+        LogPrintf("OverviewPage::privateSendStatus -- Last PrivateSend message: %s\n", strStatus.toStdString());
 
     ui->labelPrivateSendLastMessage->setText(s);
 
-    ui->labelSubmittedDenom->setText(QString(privateSendClient.GetSessionDenoms().c_str()));
+    if(privateSendClient.nSessionDenom == 0){
+        ui->labelSubmittedDenom->setText(tr("N/A"));
+    } else {
+        QString strDenom(CPrivateSend::GetDenominationsToString(privateSendClient.nSessionDenom).c_str());
+        ui->labelSubmittedDenom->setText(strDenom);
+    }
+
 }
 
 void OverviewPage::privateSendAuto(){
@@ -638,9 +643,18 @@ void OverviewPage::togglePrivateSend(){
 
     if(!privateSendClient.fEnablePrivateSend){
         ui->togglePrivateSend->setText(tr("Start Mixing"));
-        privateSendClient.ResetPool();
+        privateSendClient.UnlockCoins();
     } else {
         ui->togglePrivateSend->setText(tr("Stop Mixing"));
+
+        /* show darksend configuration if client has defaults set */
+
+        if(privateSendClient.nPrivateSendAmount == 0){
+            DarksendConfig dlg(this);
+            dlg.setModel(walletModel);
+            dlg.exec();
+        }
+
     }
 }
 

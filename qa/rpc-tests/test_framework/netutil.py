@@ -2,10 +2,8 @@
 # Copyright (c) 2014-2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Linux network utilities.
 
-Roughly based on http://voorloopnul.com/blog/a-python-netstat-in-less-than-100-lines-of-code/ by Ricardo Pascal
-"""
+# Linux network utilities
 
 import sys
 import socket
@@ -15,6 +13,7 @@ import array
 import os
 from binascii import unhexlify, hexlify
 
+# Roughly based on http://voorloopnul.com/blog/a-python-netstat-in-less-than-100-lines-of-code/ by Ricardo Pascal
 STATE_ESTABLISHED = '01'
 STATE_SYN_SENT  = '02'
 STATE_SYN_RECV = '03'
